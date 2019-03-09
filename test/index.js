@@ -17,7 +17,7 @@ assert.deepEqual(new Color('rgb(0 0 100% / 80%)').value, { r: 0, g: 0, b: 255, a
 
 assert.deepEqual(new Color('#feff').value, { r: 255, g: 238, b: 255, a: 1 });
 assert.deepEqual(new Color('#fef0').value, { r: 255, g: 238, b: 255, a: 0 });
-assert.deepEqual(new Color('#fefa').value, { r: 255, g: 238, b: 255, a: 0.67 });
+assert.equal(new Color('#fefa').rgbString(), 'rgb(255, 238, 255, 0.67)');
 assert.deepEqual(new Color('#c814e933').value, { r: 200, g: 20, b: 233, a: 0.2 });
 assert.deepEqual(new Color('#c814e900').value, { r: 200, g: 20, b: 233, a: 0 });
 assert.deepEqual(new Color('#c814e9ff').value, { r: 200, g: 20, b: 233, a: 1 });

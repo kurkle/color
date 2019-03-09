@@ -1,5 +1,5 @@
 import { hexParse, hexString } from './hex';
-import { rgbParse, rgb2hsl } from './rgb';
+import { rgbParse, rgb2hsl, rgbString } from './rgb';
 import { hueParse, hsl2rgb } from './hue';
 import { nameParse } from './names';
 
@@ -58,10 +58,7 @@ class Color {
 	}
 
 	rgbString() {
-		var v = this.value;
-		return v.a < 1
-			? `rgba(${v.r}, ${v.g}, ${v.b}, ${v.a})`
-			: `rgb(${v.r}, ${v.g}, ${v.b})`;
+		return rgbString(this.value);
 	}
 
 	hexString() {

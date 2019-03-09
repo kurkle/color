@@ -48,3 +48,9 @@ export function rgb2hsl(v) {
 	}
 	return [h || 0, s || 0, l];
 }
+
+export function rgbString(v) {
+	return v.a < 1
+		? `rgb(${v.r}, ${v.g}, ${v.b}, ${(v.a * 100 + 0.5 | 0) / 100})`
+		: `rgb(${v.r}, ${v.g}, ${v.b})`;
+}
