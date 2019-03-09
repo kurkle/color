@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 const benchmark = require('benchmark');
 const kcolor = require('../dist/color.js');
-const string = require('chartjs-color-string');
+// const string = require('chartjs-color-string');
 const ostring = require('color-string').get;
 const tinycolor = require('tinycolor2');
 const color = require('chartjs-color');
@@ -22,13 +22,18 @@ const strings = [
 
 const parsers = {
 	'@kurkle/color': kcolor,
-	'chartjs-color-string': string.getRgba,
+	'chartjs-color': color,
 	tinycolor2: tinycolor,
 	'chroma-js': chroma,
 	'color-parse': parse,
 	'color-parser': parser,
 	'color-string': ostring
 };
+const objects = {
+	'@kurkle/color': true,
+	'chartjs-color': true
+};
+
 const parserNames = Object.keys(parsers);
 
 const manipulators = {
@@ -42,12 +47,21 @@ strings.forEach(function(str) {
 	console.log('parsing "' + str + '":');
 	var suite = new benchmark.Suite();
 	parserNames.forEach(function(lib) {
-		suite.add(' - ' + lib, function() {
-			var c = new parsers[lib](str);
-			if (!c) {
-				throw 'asdf';
-			}
-		});
+		if (objects[lib]) {
+			suite.add(' - ' + lib, function() {
+				var c = new parsers[lib](str);
+				if (!c) {
+					throw 'failed';
+				}
+			});
+		} else {
+			suite.add(' - ' + lib, function() {
+				var c = parsers[lib](str);
+				if (!c) {
+					throw 'failed';
+				}
+			});
+		}
 	});
 	suite
 		.on('cycle', function(event) {
