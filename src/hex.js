@@ -14,14 +14,14 @@ export function hexParse(str) {
 				r: 255 & map[str[1]] * 17,
 				g: 255 & map[str[2]] * 17,
 				b: 255 & map[str[3]] * 17,
-				a: len === 4 ? 1 : map[str[4]] / 15
+				a: len === 5 ? map[str[4]] * 17 : 255
 			};
 		} else if (len === 7 || len === 9) {
 			ret = {
 				r: map[str[1]] << 4 | map[str[2]],
 				g: map[str[3]] << 4 | map[str[4]],
 				b: map[str[5]] << 4 | map[str[6]],
-				a: len === 7 ? 1 : (map[str[7]] << 4 | map[str[8]]) / 255
+				a: len === 9 ? (map[str[7]] << 4 | map[str[8]]) : 255
 			};
 		}
 	}
@@ -33,5 +33,5 @@ export function hexString(v) {
 		+ h2(v.r)
 		+ h2(v.g)
 		+ h2(v.b)
-		+ (v.a < 1 ? h2(v.a * 255 + 0.5 | 0) : '');
+		+ (v.a < 255 ? h2(v.a) : '');
 }

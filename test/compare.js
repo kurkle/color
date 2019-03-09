@@ -50,16 +50,17 @@ strings.forEach(function(str) {
 		});
 	});
 	suite
-		.on('error', function(event) {
-			console.log(String(event.target.error).substring(0, 80));
-		})
 		.on('cycle', function(event) {
-			console.log(String(event.target));
+			if (event.target.error) {
+				console.log(String(event.target) + String(event.target.error).substring(0, 80));
+			} else {
+				console.log(String(event.target));
+			}
 		})
 		.on('complete', function() {
 			console.log('fastest in "' + str + '" is ' + this.filter('fastest').map('name'));
 		})
-		.run({ maxTime: 1 });
+		.run();
 });
 
 console.log('mix:');
@@ -73,11 +74,12 @@ manipulatorNames.forEach(function(lib) {
 	});
 });
 mix
-	.on('error', function(event) {
-		console.log(String(event.target.error).substring(0, 40));
-	})
 	.on('cycle', function(event) {
-		console.log(String(event.target));
+		if (event.target.error) {
+			console.log(String(event.target) + String(event.target.error).substring(0, 80));
+		} else {
+			console.log(String(event.target));
+		}
 	})
 	.on('complete', function() {
 		console.log('fastest is ' + this.filter('fastest').map('name'));
@@ -94,11 +96,12 @@ manipulatorNames.forEach(function(lib) {
 	});
 });
 lighten
-	.on('error', function(event) {
-		console.log(String(event.target.error).substring(0, 40));
-	})
 	.on('cycle', function(event) {
-		console.log(String(event.target));
+		if (event.target.error) {
+			console.log(String(event.target) + String(event.target.error).substring(0, 80));
+		} else {
+			console.log(String(event.target));
+		}
 	})
 	.on('complete', function() {
 		console.log('fastest is ' + this.filter('fastest').map('name'));

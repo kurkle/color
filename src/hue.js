@@ -43,7 +43,7 @@ export function hwb2rgb(h, w, b) {
 
 export function hueParse(str) {
 	var m = HUE_RE.exec(str);
-	var a = 1;
+	var a = 255;
 	var v;
 	if (!m) {
 		// v is undefined
@@ -51,7 +51,7 @@ export function hueParse(str) {
 	}
 	// v is undefined
 	if (m[5] !== v) {
-		a = +m[5];
+		a = n2r(m[5]);
 	}
 	if (m[1] === 'hwb') {
 		v = hwb2rgb((m[2] % 360 + 360) % 360, m[3] / 100, m[4] / 100);

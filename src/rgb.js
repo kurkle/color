@@ -1,9 +1,17 @@
 // eslint-disable-next-line no-useless-escape
 const RGB_RE = /^rgba?\(\s*([+-]?[\d\.]+)(%)?[\s,]+([+-]?[\d\.]+)(%)?[\s,]+([+-]?[\d\.]+)(%)?\s*(?:[\s,/]+([+-]?[\d\.]+)(%)?\s*)?\)$/;
 
+function p2r(v) {
+	return v * 2.55 + 0.5 | 0;
+}
+
+function r2p(v) {
+	return (v / 2.55 + 0.5 | 0) / 100;
+}
+
 export function rgbParse(str) {
 	var m = RGB_RE.exec(str);
-	var a = 1;
+	var a = 255;
 	var r, g, b;
 
 	if (!m) {
@@ -13,12 +21,12 @@ export function rgbParse(str) {
 
 	// r is undefined
 	if (m[7] !== r) {
-		a = m[8] ? (m[7] | 0) / 100 : +m[7];
+		a = 255 & (m[8] ? p2r(m[7]) : m[7] * 255);
 	}
 
-	r = 255 & (m[2] ? m[1] * 2.55 + 0.5 : m[1]);
-	g = 255 & (m[4] ? m[3] * 2.55 + 0.5 : m[3]);
-	b = 255 & (m[6] ? m[5] * 2.55 + 0.5 : m[5]);
+	r = 255 & (m[2] ? p2r(m[1]) : m[1]);
+	g = 255 & (m[4] ? p2r(m[3]) : m[3]);
+	b = 255 & (m[6] ? p2r(m[5]) : m[5]);
 
 	return {
 		r: r,
@@ -50,7 +58,7 @@ export function rgb2hsl(v) {
 }
 
 export function rgbString(v) {
-	return v.a < 1
-		? `rgb(${v.r}, ${v.g}, ${v.b}, ${(v.a * 100 + 0.5 | 0) / 100})`
+	return v.a < 255
+		? `rgb(${v.r}, ${v.g}, ${v.b}, ${r2p(v.a)})`
 		: `rgb(${v.r}, ${v.g}, ${v.b})`;
 }

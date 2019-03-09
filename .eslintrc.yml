@@ -10,3 +10,4 @@ env:
 
 rules:
   object-curly-spacing: [2, "always"]
+  complexity: [1, 12]
