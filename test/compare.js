@@ -1,66 +1,106 @@
-const {performance} = require('perf_hooks');
+/* eslint-disable no-console */
+const benchmark = require('benchmark');
+const kcolor = require('../dist/color.js');
 const string = require('chartjs-color-string');
 const ostring = require('color-string').get;
-const tinycolor = require("tinycolor2");
-const csscolor = require('../src/index.js');
+const tinycolor = require('tinycolor2');
 const color = require('chartjs-color');
 const chroma = require('chroma-js');
 const parse = require('color-parse');
 const parser = require('color-parser');
 
-const libs = {
-	"chartjs-color-string": string.getRgba,
-	"tinycolor2": tinycolor,
-	"css-color": csscolor,
-	//"chroma-js": chroma,
-	"color-parse": parse,
-	"color-parser": parser,
-	"color-string": ostring
+const strings = [
+	'#d6F',
+	'#AABB',
+	'#555555',
+	'#a7a7a779',
+	'rgb(255, 0, 0)',
+	'rgba(255, 0, 0, 0.5)',
+	'hsla(240, 100, 60, 0.5)',
+	'blue'
+];
+
+const parsers = {
+	'@kurkle/color': kcolor,
+	'chartjs-color-string': string.getRgba,
+	tinycolor2: tinycolor,
+	'chroma-js': chroma,
+	'color-parse': parse,
+	'color-parser': parser,
+	'color-string': ostring
 };
-const libNames = Object.keys(libs);
+const parserNames = Object.keys(parsers);
 
-function measure(str) {
-	var res = {};
-	libNames.forEach(function(lib) {
-		var t0 = performance.now();
-		for (var i = 0; i < 500000; i++) {
-			libs[lib](str);
-		}
-		var t1 = performance.now();
-		res[lib] = Math.round((t1 - t0) * 100) / 100;
+const manipulators = {
+	'@kurkle/color': kcolor,
+	'chroma-js': chroma,
+	'chartjs-color': color
+};
+const manipulatorNames = Object.keys(manipulators);
+
+strings.forEach(function(str) {
+	console.log('parsing "' + str + '":');
+	var suite = new benchmark.Suite();
+	parserNames.forEach(function(lib) {
+		suite.add(' - ' + lib, function() {
+			var c = new parsers[lib](str);
+			if (!c) {
+				throw 'asdf';
+			}
+		});
 	});
-	console.log();
-	console.log(str);
-	libNames.sort(function(a, b) {
-		return res[a] < res[b] ? -1 : res[a] > res[b] ? 1 : 0;
-	}).forEach(function(lib) {
-		console.log(` - ${res[lib].toFixed(2).padStart(6,' ')} ${lib}`);
+	suite
+		.on('error', function(event) {
+			console.log(String(event.target.error).substring(0, 80));
+		})
+		.on('cycle', function(event) {
+			console.log(String(event.target));
+		})
+		.on('complete', function() {
+			console.log('fastest in "' + str + '" is ' + this.filter('fastest').map('name'));
+		})
+		.run({ maxTime: 1 });
+});
+
+console.log('mix:');
+
+var mix = new benchmark.Suite();
+manipulatorNames.forEach(function(lib) {
+	mix.add(' - ' + lib, function() {
+		var c1 = new manipulators[lib]('#aaaaaa');
+		var c2 = new manipulators[lib]('#33333380');
+		c1.mix(c2, 0.5);
 	});
-}
+});
+mix
+	.on('error', function(event) {
+		console.log(String(event.target.error).substring(0, 40));
+	})
+	.on('cycle', function(event) {
+		console.log(String(event.target));
+	})
+	.on('complete', function() {
+		console.log('fastest is ' + this.filter('fastest').map('name'));
+	})
+	.run();
 
-console.log("parsing 500k times:");
-measure('#faf');
-measure('#ffaaff');
-measure('#ffaaff88');
-measure('rgb(255, 0, 0)');
-measure('rgba(255, 0, 0, 0.5)');
-measure('hsla(240, 100, 60, 0.5)');
-measure('blue');
-console.log("\nmixing colors 50k times:");
-var i;
-var t0 = performance.now();
-for (i = 0; i < 50000; i++) {
-	var c1 = new color('#aaaaaa');
-	var c2 = new color("#33333380");
-	c1.mix(c2, 0.5);
-}
-var t1 = performance.now();
-for (i = 0; i < 50000; i++) {
-	var cc1 = new csscolor('#aaaaaa');
-	var cc2 = new csscolor("#33333380");
-	cc1.mix(cc2, 0.5);
-}
-var t2 = performance.now();
+console.log('lighten:');
 
-console.log(` - ${(Math.round((t2 - t1) * 100) / 100).toFixed(2).padStart(6, ' ')} => ${cc1.rgbString()} - css-color`);
-console.log(` - ${(Math.round((t1 - t0) * 100) / 100).toFixed(2).padStart(6, ' ')} => ${c1.rgbString()} - chartjs-color`);
+var lighten = new benchmark.Suite();
+manipulatorNames.forEach(function(lib) {
+	lighten.add(' - ' + lib, function() {
+		var c1 = new manipulators[lib]('#aaaaaa');
+		c1.lighten(0.1);
+	});
+});
+lighten
+	.on('error', function(event) {
+		console.log(String(event.target.error).substring(0, 40));
+	})
+	.on('cycle', function(event) {
+		console.log(String(event.target));
+	})
+	.on('complete', function() {
+		console.log('fastest is ' + this.filter('fastest').map('name'));
+	})
+	.run();

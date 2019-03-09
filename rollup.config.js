@@ -1,28 +1,22 @@
 /* eslint-env es6 */
 
-const commonjs = require('rollup-plugin-commonjs');
-const resolve = require('rollup-plugin-node-resolve');
-const terser = require('rollup-plugin-terser').terser;
-const pkg = require('./package.json');
+import { terser } from 'rollup-plugin-terser';
+import { version, homepage } from './package.json';
 
 const input = 'src/index.js';
 const banner = `/*!
- * css-color.js v${pkg.version}
- * ${pkg.homepage}
+ * @kurkle/color.js v${version}
+ * ${homepage}
  * (c) ${new Date().getFullYear()} Jukka Kurkela
  * Released under the MIT License
  */`;
 
-module.exports = [
+export default [
 	{
 		input: input,
-		plugins: [
-			resolve(),
-			commonjs(),
-		],
 		output: {
-			name: 'css-color',
-			file: 'dist/css-color.js',
+			name: '@kurkle/color.js',
+			file: 'dist/color.js',
 			banner: banner,
 			format: 'umd',
 			indent: false
@@ -31,8 +25,6 @@ module.exports = [
 	{
 		input: input,
 		plugins: [
-			resolve(),
-			commonjs(),
 			terser({
 				output: {
 					preamble: banner
@@ -40,10 +32,10 @@ module.exports = [
 			})
 		],
 		output: {
-			name: 'css-color',
-			file: 'dist/css-color.min.js',
+			name: '@kurkle/color.js',
+			file: 'dist/color.min.js',
 			format: 'umd',
-			indent: false,
+			indent: false
 		}
-	},
+	}
 ];
