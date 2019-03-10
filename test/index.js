@@ -1,42 +1,65 @@
 const Color = require('../dist/color.js');
 const assert = require('assert');
 
-assert.deepEqual(new Color('#fef').value, { r: 255, g: 238, b: 255, a: 255 });
-assert.deepEqual(new Color('#fffFEF').value, { r: 255, g: 255, b: 239, a: 255 });
-assert.deepEqual(new Color('#feg').value, { r: 255, g: 238, b: 0, a: 255 });
-assert.deepEqual(new Color('rgb(244, 233, 100)').value, { r: 244, g: 233, b: 100, a: 255 });
-assert.deepEqual(new Color('rgb(100%, 30%, 90%)').value, { r: 255, g: 77, b: 229, a: 255 });
-assert.deepEqual(new Color('rgb(255, 0, 0)').value, { r: 255, g: 0, b: 0, a: 255 });
-assert.deepEqual(new Color('hsl(240, 100%, 50.5%)').value, { r: 3, g: 3, b: 255, a: 255 });
-assert.deepEqual(new Color('hsl(240deg, 100%, 50.5%)').value, { r: 3, g: 3, b: 255, a: 255 });
-assert.deepEqual(new Color('hwb(240, 100%, 50.5%)').value, { r: 169, g: 169, b: 169, a: 255 });
-assert.deepEqual(new Color('hsl(0deg 100% 50%)').value, { r: 255, g: 0, b: 0, a: 255 });
-assert.deepEqual(new Color('moccasin').value, { r: 255, g: 228, b: 181, a: 255 });
-assert.deepEqual(new Color('rgb(0 255 0)').value, { r: 0, g: 255, b: 0, a: 255 });
-assert.deepEqual(new Color('rgb(0 0 100% / 80%)').value, { r: 0, g: 0, b: 255, a: 204 });
+assert.deepEqual(new Color('#fef').rgb, { r: 255, g: 238, b: 255, a: 1 });
+assert.deepEqual(new Color('#fffFEF').rgb, { r: 255, g: 255, b: 239, a: 1 });
+assert.deepEqual(new Color('#feg').rgb, { r: 255, g: 238, b: 0, a: 1 });
+assert.deepEqual(new Color('rgb(244, 233, 100)').rgb, { r: 244, g: 233, b: 100, a: 1 });
+assert.deepEqual(new Color('rgb(100%, 30%, 90%)').rgb, { r: 255, g: 77, b: 229, a: 1 });
+assert.deepEqual(new Color('rgb(255, 0, 0)').rgb, { r: 255, g: 0, b: 0, a: 1 });
+assert.deepEqual(new Color('hsl(240, 100%, 50.5%)').rgb, { r: 3, g: 3, b: 255, a: 1 });
+assert.deepEqual(new Color('hsl(240deg, 100%, 50.5%)').rgb, { r: 3, g: 3, b: 255, a: 1 });
+assert.deepEqual(new Color('hwb(240, 100%, 50.5%)').rgb, { r: 169, g: 169, b: 169, a: 1 });
+assert.deepEqual(new Color('hsl(0deg 100% 50%)').rgb, { r: 255, g: 0, b: 0, a: 1 });
+assert.deepEqual(new Color('moccasin').rgb, { r: 255, g: 228, b: 181, a: 1 });
+assert.deepEqual(new Color('rgb(0 255 0)').rgb, { r: 0, g: 255, b: 0, a: 1 });
+assert.deepEqual(new Color('rgb(0 0 100% / 80%)').rgb, { r: 0, g: 0, b: 255, a: 0.8 });
+assert.deepEqual(new Color('hsv(240, 100%, 50.5%)').rgb, { r: 0, g: 0, b: 129, a: 1 });
+assert.deepEqual(new Color('hsv(244, 100%, 100%, 0.6)').rgb, { r: 17, g: 0, b: 255, a: 0.6 });
 
-assert.deepEqual(new Color('#feff').value, { r: 255, g: 238, b: 255, a: 255 });
-assert.deepEqual(new Color('#fef0').value, { r: 255, g: 238, b: 255, a: 0 });
+assert.deepEqual(new Color('#feff').rgb, { r: 255, g: 238, b: 255, a: 1 });
+assert.deepEqual(new Color('#fef0').rgb, { r: 255, g: 238, b: 255, a: 0 });
 assert.equal(new Color('#fefa').rgbString(), 'rgb(255, 238, 255, 0.67)');
-assert.deepEqual(new Color('#c814e933').value, { r: 200, g: 20, b: 233, a: 51 });
-assert.deepEqual(new Color('#c814e900').value, { r: 200, g: 20, b: 233, a: 0 });
-assert.deepEqual(new Color('#c814e9ff').value, { r: 200, g: 20, b: 233, a: 255 });
-assert.deepEqual(new Color('rgba(200, 20, 233, 0.2)').value, { r: 200, g: 20, b: 233, a: 51 });
-assert.deepEqual(new Color('rgba(200, 20, 233, 0)').value, { r: 200, g: 20, b: 233, a: 0 });
-assert.deepEqual(new Color('rgba(100%, 30%, 90%, 0.2)').value, { r: 255, g: 77, b: 229, a: 51 });
-assert.deepEqual(new Color('rgba(255, 0, 0, .5)').value, { r: 255, g: 0, b: 0, a: 127 });
-assert.deepEqual(new Color('hsla(12, 10%, 50%, .3)').value, { r: 140, g: 120, b: 115, a: 77 });
-assert.deepEqual(new Color('hwb(244, 100%, 100%, 0.6)').value, { r: 128, g: 128, b: 128, a: 153 });
+assert.deepEqual(new Color('#c814e933').rgb, { r: 200, g: 20, b: 233, a: 0.2 });
+assert.deepEqual(new Color('#c814e900').rgb, { r: 200, g: 20, b: 233, a: 0 });
+assert.deepEqual(new Color('#c814e9ff').rgb, { r: 200, g: 20, b: 233, a: 1 });
+assert.deepEqual(new Color('rgba(200, 20, 233, 0.2)').rgb, { r: 200, g: 20, b: 233, a: 0.2 });
+assert.deepEqual(new Color('rgba(200, 20, 233, 0)').rgb, { r: 200, g: 20, b: 233, a: 0 });
+assert.deepEqual(new Color('rgba(100%, 30%, 90%, 0.2)').rgb, { r: 255, g: 77, b: 229, a: 0.2 });
+assert.deepEqual(new Color('rgba(255, 0, 0, .5)').rgb, { r: 255, g: 0, b: 0, a: 0.5 });
+assert.deepEqual(new Color('hsla(12, 10%, 50%, .3)').rgb, { r: 140, g: 120, b: 115, a: 0.3 });
+assert.deepEqual(new Color('hwb(244, 100%, 100%, 0.6)').rgb, { r: 128, g: 128, b: 128, a: 0.6 });
 
-assert.deepEqual(new Color('blue').value, { r: 0, g: 0, b: 255, a: 255 });
-assert.deepEqual(new Color('blue').value, { r: 0, g: 0, b: 255, a: 255 });
-assert.deepEqual(new Color('transparent').value, { r: 0, g: 0, b: 0, a: 0 });
+assert.deepEqual(new Color('blue').rgb, { r: 0, g: 0, b: 255, a: 1 });
+assert.deepEqual(new Color('blue').rgb, { r: 0, g: 0, b: 255, a: 1 });
+assert.deepEqual(new Color('transparent').rgb, { r: 0, g: 0, b: 0, a: 0 });
 
-assert.strictEqual(new Color('yellowblue').value, undefined);
-assert.strictEqual(new Color('#1').value, undefined);
-assert.strictEqual(new Color('#f').value, undefined);
-assert.strictEqual(new Color('#4f').value, undefined);
-assert.strictEqual(new Color('#45ab4').value, undefined);
-assert.strictEqual(new Color('#45ab45e').value, undefined);
+assert.strictEqual(new Color('yellowblue').rgb, undefined);
+assert.strictEqual(new Color('#1').rgb, undefined);
+assert.strictEqual(new Color('#f').rgb, undefined);
+assert.strictEqual(new Color('#4f').rgb, undefined);
+assert.strictEqual(new Color('#45ab4').rgb, undefined);
+assert.strictEqual(new Color('#45ab45e').rgb, undefined);
 
 assert.strictEqual(new Color('#45ab45ed').hexString(), '#45AB45ED');
+assert.deepEqual(new Color('hsl(100, 50%, 50%)').rgb, { r: 106, g: 191, b: 64, a: 1 });
+assert.strictEqual(new Color('hsl(100, 50%, 50%)').hexString(), '#6ABF40');
+assert.strictEqual(new Color('hsl(100, 50%, 50%)').hslString(), 'hsl(100, 50%, 50%)');
+assert.strictEqual(new Color('hsl(100, 50%, 75%)').hexString(), '#B5DF9F');
+
+
+// manipulation
+assert.strictEqual(new Color('rgb(0, 100, 255)').negate().rgbString(), 'rgb(255, 155, 0)');
+
+assert.strictEqual(new Color('hsl(100, 50%, 50%)').lighten(0.5).hslString(), 'hsl(100, 50%, 75%)');
+assert.strictEqual(new Color('hsl(100, 50%, 50%)').darken(0.5).hslString(), 'hsl(100, 50%, 25%)');
+
+assert.strictEqual(new Color('hsl(100, 50%, 50%)').saturate(0.5).hslString(), 'hsl(100, 75%, 50%)');
+assert.strictEqual(new Color('hsl(100, 50%, 50%)').desaturate(0.5).hslString(), 'hsl(100, 25%, 50%)');
+
+assert.strictEqual(new Color('hsl(60, 20%, 20%)').rotate(180).hslString(), 'hsl(240, 20%, 20%)');
+assert.strictEqual(new Color('hsl(60, 20%, 20%)').rotate(-90).hslString(), 'hsl(330, 20%, 20%)');
+
+assert.strictEqual(new Color('cyan').mix(new Color('yellow')).rgbString(), 'rgb(128, 255, 128)');
+assert.strictEqual(new Color('cyan').mix(new Color('yellow'), 0.3).rgbString(), 'rgb(179, 255, 77)');
+

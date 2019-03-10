@@ -29,9 +29,7 @@ export function hexParse(str) {
 }
 
 export function hexString(v) {
-	return '#'
-		+ h2(v.r)
-		+ h2(v.g)
-		+ h2(v.b)
-		+ (v.a < 255 ? h2(v.a) : '');
+	return v
+		? '#' + h2(v.r) + h2(v.g) + h2(v.b) + (v.a < 255 ? h2(v.a) : '')
+		: v;
 }

@@ -51,6 +51,13 @@ hwb(240, 100%, 50.5%)
 hwb(244, 100%, 100%, 0.6)
 ```
 
+- hsv
+
+```text
+hsv(240, 100%, 50.5%)
+hsv(244, 100%, 100%, 0.6)
+```
+
 ## License
 
 `@kurkle/color` is available under the [MIT license](LICENSE.md).
