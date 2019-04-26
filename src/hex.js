@@ -1,9 +1,22 @@
 var map = { 0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8, 9: 9, A: 10, B: 11, C: 12, D: 13, E: 14, F: 15, a: 10, b: 11, c: 12, d: 13, e: 14, f: 15 };
 var hex = '0123456789ABCDEF';
 
-function h2(v) {
-	return hex[(v & 0xF0) >> 4] + hex[v & 0xF];
+function h1(b) {
+	return hex[b & 0xF];
 }
+
+function h2(b) {
+	return hex[(b & 0xF0) >> 4] + hex[b & 0xF];
+}
+
+function eq(b) {
+	return (((b & 0xF0) >> 4) === (b & 0xF));
+}
+
+function short(v) {
+	return eq(v.r) && eq(v.g) && eq(v.b) && eq(v.a);
+}
+
 
 export function hexParse(str) {
 	var len = str.length;
@@ -29,7 +42,8 @@ export function hexParse(str) {
 }
 
 export function hexString(v) {
+	var f = short(v) ? h1 : h2;
 	return v
-		? '#' + h2(v.r) + h2(v.g) + h2(v.b) + (v.a < 255 ? h2(v.a) : '')
+		? '#' + f(v.r) + f(v.g) + f(v.b) + (v.a < 255 ? f(v.a) : '')
 		: v;
 }

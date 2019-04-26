@@ -47,6 +47,11 @@ assert.strictEqual(new Color('hsl(100, 50%, 50%)').hexString(), '#6ABF40');
 assert.strictEqual(new Color('hsl(100, 50%, 50%)').hslString(), 'hsl(100, 50%, 50%)');
 assert.strictEqual(new Color('hsl(100, 50%, 75%)').hexString(), '#B5DF9F');
 
+assert.strictEqual(new Color('#123').hexString(), '#123');
+assert.strictEqual(new Color('#123F').hexString(), '#123');
+assert.strictEqual(new Color('#1234').hexString(), '#1234');
+assert.strictEqual(new Color('#112233').hexString(), '#123');
+assert.strictEqual(new Color('#112233FF').hexString(), '#123');
 
 // manipulation
 assert.strictEqual(new Color('rgb(0, 100, 255)').negate().rgbString(), 'rgb(255, 155, 0)');
