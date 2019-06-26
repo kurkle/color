@@ -168,4 +168,8 @@ class Color {
 	}
 }
 
+var _color = Color;
+Color = function(...args) {
+	return new _color(...args);
+};
 export { Color as default };

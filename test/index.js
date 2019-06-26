@@ -1,7 +1,7 @@
 const Color = require('../dist/color.js');
 const assert = require('assert');
 
-assert.deepEqual(new Color('#fef').rgb, { r: 255, g: 238, b: 255, a: 1 });
+assert.deepEqual(Color('#fef').rgb, { r: 255, g: 238, b: 255, a: 1 });
 assert.deepEqual(new Color('#fffFEF').rgb, { r: 255, g: 255, b: 239, a: 1 });
 assert.deepEqual(new Color('#feg').rgb, { r: 255, g: 238, b: 0, a: 1 });
 assert.deepEqual(new Color('rgb(244, 233, 100)').rgb, { r: 244, g: 233, b: 100, a: 1 });
