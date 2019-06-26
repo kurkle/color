@@ -43,7 +43,42 @@ const manipulators = {
 };
 const manipulatorNames = Object.keys(manipulators);
 
+const options = {
+	initCount: 1,
+	maxTime: 4
+};
+
+const cycle = function(event) {
+	if (event.target.error) {
+		console.log(String(event.target) + String(event.target.error).substring(0, 80));
+	} else {
+		console.log(String(event.target));
+	}
+};
+
+
+const complete = function() {
+	var sorted = this.filter('successful').sort((a, b) => {
+		a = a.stats;
+		b = b.stats;
+		return a.mean + a.moe > b.mean + b.moe ? 1 : -1;
+	});
+	var fastest = sorted.shift();
+	var second = sorted.shift();
+	var diff = (fastest.hz - second.hz) / second.hz * 100;
+	console.log('fastest is ' + fastest.name.substring(3));
+	console.log(diff.toFixed(0) + '% faster than 2nd fastest ' + second.name.substring(3));
+	if (second.name !== ' - chartjs-color') {
+		second = this.filter(function(a) {
+			return a.name === ' - chartjs-color';
+		}).shift();
+		diff = (fastest.hz - second.hz) / second.hz * 100;
+		console.log(diff.toFixed(0) + '% faster than chartjs-color');
+	}
+};
+
 strings.forEach(function(str) {
+	console.log('');
 	console.log('parsing "' + str + '":');
 	var suite = new benchmark.Suite();
 	parserNames.forEach(function(lib) {
@@ -53,71 +88,121 @@ strings.forEach(function(str) {
 				if (!c) {
 					throw 'failed';
 				}
-			});
+			}, options);
 		} else {
 			suite.add(' - ' + lib, function() {
 				var c = parsers[lib](str);
 				if (!c) {
 					throw 'failed';
 				}
-			});
+			}, options);
 		}
 	});
 	suite
-		.on('cycle', function(event) {
-			if (event.target.error) {
-				console.log(String(event.target) + String(event.target.error).substring(0, 80));
-			} else {
-				console.log(String(event.target));
-			}
-		})
-		.on('complete', function() {
-			console.log('fastest in "' + str + '" is ' + this.filter('fastest').map('name'));
-		})
+		.on('cycle', cycle)
+		.on('complete', complete)
 		.run();
 });
 
-console.log('mix:');
+var suites = [];
 
-var mix = new benchmark.Suite();
+var suite = new benchmark.Suite();
 manipulatorNames.forEach(function(lib) {
-	mix.add(' - ' + lib, function() {
-		var c1 = new manipulators[lib]('#aaaaaa');
-		var c2 = new manipulators[lib]('#33333380');
-		c1.mix(c2, 0.5);
-	});
+	var c1 = new manipulators[lib]('#aaaaaa');
+	suite.add(' - ' + lib, function() {
+		c1.alpha(0.5);
+	}, options);
 });
-mix
-	.on('cycle', function(event) {
-		if (event.target.error) {
-			console.log(String(event.target) + String(event.target.error).substring(0, 80));
-		} else {
-			console.log(String(event.target));
-		}
-	})
-	.on('complete', function() {
-		console.log('fastest is ' + this.filter('fastest').map('name'));
-	})
-	.run();
+suites.push(['alpha', suite]);
 
-console.log('lighten:');
-
-var lighten = new benchmark.Suite();
+suite = new benchmark.Suite();
 manipulatorNames.forEach(function(lib) {
-	lighten.add(' - ' + lib, function() {
-		var c1 = new manipulators[lib]('#aaaaaa');
+	var c1 = new manipulators[lib]('rgb(0, 100, 255)');
+	suite.add(' - ' + lib, function() {
+		c1.negate();
+	}, options);
+});
+suites.push(['negate', suite]);
+
+suite = new benchmark.Suite();
+manipulatorNames.forEach(function(lib) {
+	var c1 = new manipulators[lib]('#aaaaaa');
+	suite.add(' - ' + lib, function() {
 		c1.lighten(0.1);
-	});
+	}, options);
 });
-lighten
-	.on('cycle', function(event) {
-		if (event.target.error) {
-			console.log(String(event.target) + String(event.target.error).substring(0, 80));
-		} else {
-			console.log(String(event.target));
-		}
-	})
-	.on('complete', function() {
-		console.log('fastest is ' + this.filter('fastest').map('name'));
-	})
-	.run();
+suites.push(['lighten', suite]);
+
+suite = new benchmark.Suite();
+manipulatorNames.forEach(function(lib) {
+	var c1 = new manipulators[lib]('#aaaaaa');
+	suite.add(' - ' + lib, function() {
+		c1.darken(0.1);
+	}, options);
+});
+suites.push(['darken', suite]);
+
+suite = new benchmark.Suite();
+manipulatorNames.forEach(function(lib) {
+	var c1 = new manipulators[lib]('hsl(100, 50%, 50%)');
+	suite.add(' - ' + lib, function() {
+		c1.saturate(0.5);
+	}, options);
+});
+suites.push(['saturate', suite]);
+
+suite = new benchmark.Suite();
+manipulatorNames.forEach(function(lib) {
+	var c1 = new manipulators[lib]('hsl(100, 50%, 50%)');
+	suite.add(' - ' + lib, function() {
+		c1.desaturate(0.5);
+	}, options);
+});
+suites.push(['desaturate', suite]);
+
+suite = new benchmark.Suite();
+manipulatorNames.forEach(function(lib) {
+	var c1 = new manipulators[lib]('hsl(100, 50%, 50%)');
+	suite.add(' - ' + lib, function() {
+		c1.clearer(0.5);
+	}, options);
+});
+suites.push(['clearer', suite]);
+
+suite = new benchmark.Suite();
+manipulatorNames.forEach(function(lib) {
+	var c1 = new manipulators[lib]('hsl(100, 50%, 50%)');
+	suite.add(' - ' + lib, function() {
+		c1.opaquer(0.5);
+	}, options);
+});
+suites.push(['opaquer', suite]);
+
+suite = new benchmark.Suite();
+manipulatorNames.forEach(function(lib) {
+	var c1 = new manipulators[lib]('#aaaaaa');
+	var c2 = new manipulators[lib]('#33333380');
+	suite.add(' - ' + lib, function() {
+		c1.mix(c2, 0.5);
+	}, options);
+});
+suites.push(['mix', suite]);
+
+suite = new benchmark.Suite();
+manipulatorNames.forEach(function(lib) {
+	var c1 = new manipulators[lib]('hsl(100, 50%, 50%)');
+	suite.add(' - ' + lib, function() {
+		c1.clone();
+	}, options);
+});
+suites.push(['clone', suite]);
+
+suites.forEach(function(arr) {
+	console.log('');
+	console.log(arr[0] + ':');
+
+	arr[1]
+		.on('cycle', cycle)
+		.on('complete', complete)
+		.run();
+});

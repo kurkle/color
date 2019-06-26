@@ -1,4 +1,4 @@
-function round(v) {
+export function round(v) {
 	return v + 0.5 | 0;
 }
 

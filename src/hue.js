@@ -1,4 +1,4 @@
-import { b2p, n2p, n2b } from './byte';
+import { b2n, n2p, n2b } from './byte';
 
 // eslint-disable-next-line no-useless-escape
 var HUE_RE = /^(hsla?|hwb|hsv)\(\s*([+-]?\d+)(?:deg)?[\s,]+([+-]?[\d\.]+)%[\s,]+([+-]?[\d\.]+)%\s*(?:[\s,]+([+-]?[\d\.]+)\s*)?\)/;
@@ -121,6 +121,6 @@ export function hslString(v) {
 	var l = n2p(h[2]);
 	h = h[0];
 	return v.a < 255
-		? `hsl(${h}, ${s}%, ${l}%, ${b2p(v.a)})`
+		? `hsla(${h}, ${s}%, ${l}%, ${b2n(v.a)})`
 		: `hsl(${h}, ${s}%, ${l}%)`;
 }

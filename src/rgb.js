@@ -32,6 +32,6 @@ export function rgbParse(str) {
 
 export function rgbString(v) {
 	return v.a < 255
-		? `rgb(${v.r}, ${v.g}, ${v.b}, ${b2n(v.a)})`
+		? `rgba(${v.r}, ${v.g}, ${v.b}, ${b2n(v.a)})`
 		: `rgb(${v.r}, ${v.g}, ${v.b})`;
 }

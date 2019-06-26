@@ -2,7 +2,7 @@ import { hexParse, hexString } from './hex';
 import { rgbParse, rgbString } from './rgb';
 import { hueParse, hsl2rgb, rgb2hsl, rotate, hslString } from './hue';
 import { nameParse } from './names';
-import { b2n, n2b } from './byte';
+import { b2n, n2b, round } from './byte';
 
 function modHSL(v, i, ratio) {
 	var tmp = rgb2hsl(v);
@@ -13,8 +13,24 @@ function modHSL(v, i, ratio) {
 	v.b = tmp[2];
 }
 
-function clone(v) {
-	return v ? Object.assign({}, v) : v;
+function clone(v, proto) {
+	return v ? Object.assign(proto || {}, v) : v;
+}
+
+function fromObject(obj) {
+	var v = { r: 0, g: 0, b: 0, a: 255 };
+	if (Array.isArray(obj)) {
+		if (obj.length >= 3) {
+			v = { r: obj[0], g: obj[1], b: obj[2], a: 255 };
+			if (obj.length > 3) {
+				v.a = n2b(obj[3]);
+			}
+		}
+	} else {
+		v = clone(obj, { r: 0, g: 0, b: 0, a: 1 });
+		v.a = n2b(v.a);
+	}
+	return v;
 }
 
 class Color {
@@ -25,7 +41,7 @@ class Color {
 		var v;
 		var type = typeof obj;
 		if (type === 'object') {
-			v = clone(obj);
+			v = fromObject(obj);
 		} else if (type === 'string') {
 			v = hexParse(obj)
 			|| nameParse(obj)
@@ -49,9 +65,7 @@ class Color {
 	}
 
 	set rgb(obj) {
-		var n = clone(obj);
-		n.a = n2b(n.a);
-		this._rgb = n;
+		this._rgb = fromObject(obj);
 	}
 
 	rgbString() {
@@ -90,7 +104,34 @@ class Color {
 	}
 
 	clone() {
-		return new Color(this._rgb);
+		return new Color(this.rgb);
+	}
+
+	alpha(a) {
+		this._rgb.a = n2b(a);
+		return this;
+	}
+
+	clearer(a) {
+		var rgb = this._rgb;
+		var old = rgb.a;
+		rgb.a -= old * a;
+		return this;
+	}
+
+	greyscale() {
+		var rgb = this._rgb;
+		// http://en.wikipedia.org/wiki/Grayscale#Converting_color_to_grayscale
+		var val = round(rgb.r * 0.3 + rgb.g * 0.59 + rgb.b * 0.11);
+		rgb.r = rgb.g = rgb.b = val;
+		return this;
+	}
+
+	opaquer(a) {
+		var rgb = this._rgb;
+		var old = rgb.a;
+		rgb.a += old * a;
+		return this;
 	}
 
 	negate() {
