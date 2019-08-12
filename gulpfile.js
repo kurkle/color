@@ -23,7 +23,7 @@ function run(bin, args) {
 }
 
 function buildTask() {
-	return run('rollup/bin/rollup', ['-c']);
+	return run('rollup/dist/bin/rollup', ['-c']);
 }
 
 function lintJsTask() {
