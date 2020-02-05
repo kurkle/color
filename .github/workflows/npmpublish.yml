@@ -13,10 +13,10 @@ jobs:
         with:
           node-version: 12
       - name: Install gulp
-        run: npm install --global gulp        
+        run: npm install --global gulp
       - name: Build
         run: |
-          npm install
+          npm ci
           gulp lint-js
           gulp build
       - name: Test
@@ -32,6 +32,6 @@ jobs:
           node-version: 12
           registry-url: https://registry.npmjs.org/
       - run: npm ci
-      - run: npm publish
+      - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}

@@ -11,6 +11,9 @@
     "type": "git",
     "url": "git+https://github.com/kurkle/color.git"
   },
+  "files": [
+    "dist/*.js"
+  ],
   "keywords": [
     "color",
     "colour",
