@@ -1,8 +1,8 @@
 # @kurkle/color
 
-## Overview
+[![release](https://img.shields.io/github/release/kurkle/color.svg?style=flat-square)](https://github.com/kurkle/color/releases/latest)
 
-NOTE: WIP, not released yet.
+## Overview
 
 Fast and small CSS color parsing and manipulation library.
 
@@ -64,169 +64,171 @@ hsv(244, 100%, 100%, 0.6)
 node test/compare
 
 parsing "#d6F":
- - @kurkle/color x 63,161,570 ops/sec ±2.64% (77 runs sampled)
- - chartjs-color x 1,124,062 ops/sec ±0.43% (79 runs sampled)
- - tinycolor2 x 955,330 ops/sec ±0.55% (76 runs sampled)
- - chroma-js x 737,623 ops/sec ±0.69% (75 runs sampled)
- - color-parse x 4,024,568 ops/sec ±0.33% (77 runs sampled)
- - color-parser x 4,237,729 ops/sec ±1.69% (78 runs sampled)
- - color-string x 2,673,456 ops/sec ±0.54% (78 runs sampled)
+ - @kurkle/color x 27,637,085 ops/sec ±8.02% (68 runs sampled)
+ - chartjs-color x 753,149 ops/sec ±2.31% (69 runs sampled)
+ - tinycolor2 x 548,107 ops/sec ±0.54% (77 runs sampled)
+ - chroma-js x 576,903 ops/sec ±1.96% (73 runs sampled)
+ - color-parse x 2,627,980 ops/sec ±0.63% (77 runs sampled)
+ - color-parser x 2,441,614 ops/sec ±0.68% (74 runs sampled)
+ - color-string x 1,727,209 ops/sec ±1.29% (75 runs sampled)
 fastest is @kurkle/color
-1390% faster than 2nd fastest color-parser
-5519% faster than chartjs-color
+952% faster than 2nd fastest color-parse
+3570% faster than chartjs-color
 
 parsing "#AABB":
- - @kurkle/color x 69,132,903 ops/sec ±0.58% (74 runs sampled)
- - chartjs-color x 1,026,032 ops/sec ±1.57% (75 runs sampled)
- - tinycolor2 x 857,093 ops/sec ±0.38% (78 runs sampled)
- - chroma-js: Error: unknown format: #AABB
- - color-parse x 2,873,641 ops/sec ±0.46% (76 runs sampled)
+ - @kurkle/color x 6,267,293 ops/sec ±0.86% (77 runs sampled)
+ - chartjs-color x 435,975 ops/sec ±0.65% (76 runs sampled)
+ - tinycolor2 x 478,437 ops/sec ±0.85% (73 runs sampled)
+ - chroma-js x 480,046 ops/sec ±0.37% (77 runs sampled)
+ - color-parse x 1,845,329 ops/sec ±0.93% (74 runs sampled)
  - color-parser: failedfailed
- - color-string x 2,242,504 ops/sec ±0.28% (79 runs sampled)
+ - color-string x 1,424,083 ops/sec ±0.67% (78 runs sampled)
 fastest is @kurkle/color
-2306% faster than 2nd fastest color-parse
-6638% faster than chartjs-color
+240% faster than 2nd fastest color-parse
+1338% faster than chartjs-color
 
 parsing "#555555":
- - @kurkle/color x 23,569,690 ops/sec ±0.62% (76 runs sampled)
- - chartjs-color x 1,084,882 ops/sec ±0.65% (77 runs sampled)
- - tinycolor2 x 1,125,621 ops/sec ±0.34% (77 runs sampled)
- - chroma-js x 954,635 ops/sec ±0.40% (78 runs sampled)
- - color-parse x 3,559,342 ops/sec ±0.81% (76 runs sampled)
- - color-parser x 4,913,728 ops/sec ±0.86% (77 runs sampled)
- - color-string x 3,242,008 ops/sec ±0.44% (76 runs sampled)
+ - @kurkle/color x 5,394,154 ops/sec ±0.68% (76 runs sampled)
+ - chartjs-color x 457,965 ops/sec ±1.94% (74 runs sampled)
+ - tinycolor2 x 672,741 ops/sec ±0.61% (77 runs sampled)
+ - chroma-js x 665,565 ops/sec ±0.91% (74 runs sampled)
+ - color-parse x 2,359,175 ops/sec ±0.35% (77 runs sampled)
+ - color-parser x 3,007,251 ops/sec ±1.14% (75 runs sampled)
+ - color-string x 2,062,685 ops/sec ±0.66% (75 runs sampled)
 fastest is @kurkle/color
-380% faster than 2nd fastest color-parser
-2073% faster than chartjs-color
+79% faster than 2nd fastest color-parser
+1078% faster than chartjs-color
 
 parsing "#a7a7a779":
- - @kurkle/color x 25,766,289 ops/sec ±1.63% (75 runs sampled)
- - chartjs-color x 993,531 ops/sec ±0.22% (72 runs sampled)
- - tinycolor2 x 1,019,513 ops/sec ±0.78% (77 runs sampled)
- - chroma-js x 903,031 ops/sec ±1.28% (74 runs sampled)
- - color-parse x 2,852,934 ops/sec ±0.15% (78 runs sampled)
+ - @kurkle/color x 4,024,789 ops/sec ±1.02% (73 runs sampled)
+ - chartjs-color x 432,405 ops/sec ±2.10% (73 runs sampled)
+ - tinycolor2 x 617,317 ops/sec ±1.14% (76 runs sampled)
+ - chroma-js x 589,078 ops/sec ±0.94% (74 runs sampled)
+ - color-parse x 1,872,920 ops/sec ±0.71% (76 runs sampled)
  - color-parser: failedfailed
- - color-string x 2,528,126 ops/sec ±1.09% (73 runs sampled)
+ - color-string x 1,719,312 ops/sec ±0.84% (73 runs sampled)
 fastest is @kurkle/color
-803% faster than 2nd fastest color-parse
-2493% faster than chartjs-color
+115% faster than 2nd fastest color-parse
+831% faster than chartjs-color
 
 parsing "rgb(255, 0, 0)":
- - @kurkle/color x 4,561,542 ops/sec ±0.60% (77 runs sampled)
- - chartjs-color x 1,049,681 ops/sec ±2.08% (74 runs sampled)
- - tinycolor2 x 1,311,023 ops/sec ±0.98% (75 runs sampled)
- - chroma-js x 1,228,431 ops/sec ±0.75% (74 runs sampled)
- - color-parse x 1,356,254 ops/sec ±3.53% (77 runs sampled)
- - color-parser x 1,994,737 ops/sec ±1.72% (78 runs sampled)
- - color-string x 3,345,024 ops/sec ±1.38% (76 runs sampled)
+ - @kurkle/color x 2,365,025 ops/sec ±0.56% (74 runs sampled)
+ - chartjs-color x 446,212 ops/sec ±1.86% (76 runs sampled)
+ - tinycolor2 x 766,364 ops/sec ±0.47% (77 runs sampled)
+ - chroma-js x 100,814 ops/sec ±0.83% (77 runs sampled)
+ - color-parse x 917,680 ops/sec ±1.07% (76 runs sampled)
+ - color-parser x 1,188,128 ops/sec ±0.90% (75 runs sampled)
+ - color-string x 2,030,049 ops/sec ±0.89% (73 runs sampled)
 fastest is @kurkle/color
-36% faster than 2nd fastest color-string
-335% faster than chartjs-color
+17% faster than 2nd fastest color-string
+430% faster than chartjs-color
 
 parsing "rgba(255, 0, 0, 0.5)":
- - @kurkle/color x 2,726,998 ops/sec ±0.33% (77 runs sampled)
- - chartjs-color x 1,029,488 ops/sec ±0.67% (75 runs sampled)
- - tinycolor2 x 1,111,268 ops/sec ±0.46% (79 runs sampled)
- - chroma-js x 949,500 ops/sec ±0.83% (78 runs sampled)
- - color-parse x 1,058,259 ops/sec ±0.30% (76 runs sampled)
- - color-parser x 1,260,230 ops/sec ±1.36% (75 runs sampled)
- - color-string x 2,513,585 ops/sec ±0.98% (76 runs sampled)
-fastest is @kurkle/color
-8% faster than 2nd fastest color-string
-165% faster than chartjs-color
+ - @kurkle/color x 1,557,290 ops/sec ±0.36% (77 runs sampled)
+ - chartjs-color x 434,288 ops/sec ±1.08% (77 runs sampled)
+ - tinycolor2 x 651,416 ops/sec ±0.89% (74 runs sampled)
+ - chroma-js x 96,468 ops/sec ±1.01% (75 runs sampled)
+ - color-parse x 680,018 ops/sec ±0.56% (76 runs sampled)
+ - color-parser x 850,328 ops/sec ±0.98% (76 runs sampled)
+ - color-string x 1,580,234 ops/sec ±1.42% (73 runs sampled)
+fastest is color-string
+1% faster than 2nd fastest @kurkle/color
+264% faster than chartjs-color
 
 parsing "hsla(240, 100, 60, 0.5)":
- - @kurkle/color x 9,745,598 ops/sec ±0.35% (76 runs sampled)
- - chartjs-color x 2,434,027 ops/sec ±2.13% (72 runs sampled)
- - tinycolor2 x 785,851 ops/sec ±0.52% (76 runs sampled)
+ - @kurkle/color x 3,819,817 ops/sec ±0.78% (75 runs sampled)
+ - chartjs-color x 1,464,955 ops/sec ±1.58% (73 runs sampled)
+ - tinycolor2 x 453,699 ops/sec ±0.42% (78 runs sampled)
  - chroma-js: Error: unknown format: hsla(240, 100, 60, 0.5)
- - color-parse x 895,608 ops/sec ±0.88% (77 runs sampled)
+ - color-parse x 578,086 ops/sec ±1.11% (71 runs sampled)
  - color-parser: failedfailed
  - color-string: failedfailed
 fastest is @kurkle/color
-300% faster than 2nd fastest chartjs-color
+161% faster than 2nd fastest chartjs-color
 
 parsing "blue":
- - @kurkle/color x 41,112,412 ops/sec ±1.50% (78 runs sampled)
- - chartjs-color x 1,275,423 ops/sec ±0.84% (75 runs sampled)
- - tinycolor2 x 1,056,602 ops/sec ±0.91% (75 runs sampled)
- - chroma-js x 1,136,324 ops/sec ±1.65% (78 runs sampled)
- - color-parse x 19,660,433 ops/sec ±1.01% (77 runs sampled)
- - color-parser x 25,270,275 ops/sec ±1.89% (76 runs sampled)
- - color-string x 5,169,485 ops/sec ±0.88% (76 runs sampled)
-fastest is @kurkle/color
-63% faster than 2nd fastest color-parser
-3123% faster than chartjs-color
+ - @kurkle/color x 11,339,336 ops/sec ±2.47% (74 runs sampled)
+ - chartjs-color x 845,301 ops/sec ±0.75% (76 runs sampled)
+ - tinycolor2 x 629,162 ops/sec ±0.32% (77 runs sampled)
+ - chroma-js x 642,859 ops/sec ±1.74% (76 runs sampled)
+ - color-parse x 8,300,019 ops/sec ±1.44% (75 runs sampled)
+ - color-parser x 14,271,235 ops/sec ±2.10% (70 runs sampled)
+ - color-string x 2,964,316 ops/sec ±0.66% (75 runs sampled)
+fastest is color-parser
+26% faster than 2nd fastest @kurkle/color
+1588% faster than chartjs-color
 
 alpha:
- - @kurkle/color x 967,919,102 ops/sec ±0.18% (75 runs sampled)
- - chroma-js x 1,279,594 ops/sec ±0.88% (74 runs sampled)
- - chartjs-color x 129,291,111 ops/sec ±0.34% (78 runs sampled)
+ - @kurkle/color x 562,575,461 ops/sec ±0.33% (77 runs sampled)
+ - chroma-js x 731,205 ops/sec ±0.62% (73 runs sampled)
+ - chartjs-color x 72,756,886 ops/sec ±0.83% (75 runs sampled)
 fastest is @kurkle/color
-649% faster than 2nd fastest chartjs-color
+673% faster than 2nd fastest chartjs-color
 
 negate:
- - @kurkle/color x 484,351,041 ops/sec ±0.15% (70 runs sampled)
+ - @kurkle/color x 269,594,117 ops/sec ±0.42% (76 runs sampled)
  - chroma-js: TypeError: c1.negate is not a function
- - chartjs-color x 1,362,146 ops/sec ±0.76% (77 runs sampled)
+ - chartjs-color x 724,144 ops/sec ±2.73% (69 runs sampled)
 fastest is @kurkle/color
-35458% faster than 2nd fastest chartjs-color
+37129% faster than 2nd fastest chartjs-color
 
 lighten:
- - @kurkle/color x 28,767,273 ops/sec ±1.13% (77 runs sampled)
+ - @kurkle/color x 4,397,728 ops/sec ±0.98% (78 runs sampled)
  - chroma-js: TypeError: c1.lighten is not a function
- - chartjs-color x 1,634,607 ops/sec ±0.23% (78 runs sampled)
+ - chartjs-color x 890,983 ops/sec ±0.55% (77 runs sampled)
 fastest is @kurkle/color
-1660% faster than 2nd fastest chartjs-color
+394% faster than 2nd fastest chartjs-color
 
 darken:
- - @kurkle/color x 9,392,494 ops/sec ±1.70% (78 runs sampled)
- - chroma-js x 479,962 ops/sec ±0.70% (78 runs sampled)
- - chartjs-color x 1,597,520 ops/sec ±0.64% (76 runs sampled)
+ - @kurkle/color x 4,284,134 ops/sec ±1.01% (75 runs sampled)
+ - chroma-js x 382,398 ops/sec ±1.25% (76 runs sampled)
+ - chartjs-color x 890,571 ops/sec ±0.72% (71 runs sampled)
 fastest is @kurkle/color
-488% faster than 2nd fastest chartjs-color
+381% faster than 2nd fastest chartjs-color
 
 saturate:
- - @kurkle/color x 12,102,262 ops/sec ±0.52% (75 runs sampled)
- - chroma-js x 386,067 ops/sec ±0.40% (78 runs sampled)
- - chartjs-color x 1,454,584 ops/sec ±2.28% (74 runs sampled)
+ - @kurkle/color x 4,503,388 ops/sec ±0.57% (76 runs sampled)
+ - chroma-js x 251,772 ops/sec ±1.18% (77 runs sampled)
+ - chartjs-color x 825,229 ops/sec ±0.65% (76 runs sampled)
 fastest is @kurkle/color
-732% faster than 2nd fastest chartjs-color
+446% faster than 2nd fastest chartjs-color
 
 desaturate:
- - @kurkle/color x 8,720,564 ops/sec ±1.34% (76 runs sampled)
- - chroma-js x 384,617 ops/sec ±0.42% (72 runs sampled)
- - chartjs-color x 1,476,576 ops/sec ±1.79% (77 runs sampled)
+ - @kurkle/color x 4,321,816 ops/sec ±1.45% (72 runs sampled)
+ - chroma-js x 247,255 ops/sec ±1.09% (73 runs sampled)
+ - chartjs-color x 820,200 ops/sec ±0.80% (76 runs sampled)
 fastest is @kurkle/color
-491% faster than 2nd fastest chartjs-color
+427% faster than 2nd fastest chartjs-color
 
 clearer:
- - @kurkle/color x 21,156,790 ops/sec ±0.08% (78 runs sampled)
+ - @kurkle/color x 11,654,284 ops/sec ±2.25% (73 runs sampled)
  - chroma-js: TypeError: c1.clearer is not a function
- - chartjs-color x 20,647,802 ops/sec ±1.28% (76 runs sampled)
-fastest is @kurkle/color
-2% faster than 2nd fastest chartjs-color
+ - chartjs-color x 11,807,680 ops/sec ±1.15% (73 runs sampled)
+fastest is chartjs-color
+1% faster than 2nd fastest @kurkle/color
+0% faster than chartjs-color
 
 opaquer:
- - @kurkle/color x 136,018,429 ops/sec ±0.15% (77 runs sampled)
+ - @kurkle/color x 15,692,301 ops/sec ±2.21% (71 runs sampled)
  - chroma-js: TypeError: c1.opaquer is not a function
- - chartjs-color x 102,912,201 ops/sec ±0.73% (78 runs sampled)
-fastest is @kurkle/color
-32% faster than 2nd fastest chartjs-color
+ - chartjs-color x 35,129,173 ops/sec ±0.89% (77 runs sampled)
+fastest is chartjs-color
+124% faster than 2nd fastest @kurkle/color
+0% faster than chartjs-color
 
 mix:
- - @kurkle/color x 4,042,074 ops/sec ±0.77% (77 runs sampled)
- - chroma-js x 491,091 ops/sec ±0.18% (79 runs sampled)
- - chartjs-color x 1,227,911 ops/sec ±0.52% (76 runs sampled)
+ - @kurkle/color x 2,422,755 ops/sec ±0.98% (77 runs sampled)
+ - chroma-js x 294,015 ops/sec ±1.05% (78 runs sampled)
+ - chartjs-color x 595,427 ops/sec ±1.62% (73 runs sampled)
 fastest is @kurkle/color
-229% faster than 2nd fastest chartjs-color
+307% faster than 2nd fastest chartjs-color
 
 clone:
- - @kurkle/color x 7,743,721 ops/sec ±0.68% (79 runs sampled)
+ - @kurkle/color x 2,977,462 ops/sec ±0.85% (77 runs sampled)
  - chroma-js: TypeError: c1.clone is not a function
- - chartjs-color x 4,765,489 ops/sec ±1.11% (73 runs sampled)
+ - chartjs-color x 2,063,402 ops/sec ±0.76% (75 runs sampled)
 fastest is @kurkle/color
-62% faster than 2nd fastest chartjs-color
+44% faster than 2nd fastest chartjs-color
 ```
 
 ## License
