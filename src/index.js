@@ -1,8 +1,8 @@
-import { hexParse, hexString } from './hex';
-import { rgbParse, rgbString } from './rgb';
-import { hueParse, hsl2rgb, rgb2hsl, rotate, hslString } from './hue';
-import { nameParse } from './names';
-import { b2n, n2b, round } from './byte';
+import {hexParse, hexString} from './hex';
+import {rgbParse, rgbString} from './rgb';
+import {hueParse, hsl2rgb, rgb2hsl, rotate, hslString} from './hue';
+import {nameParse} from './names';
+import {b2n, n2b, round} from './byte';
 
 function modHSL(v, i, ratio) {
 	var tmp = rgb2hsl(v);
@@ -18,16 +18,16 @@ function clone(v, proto) {
 }
 
 function fromObject(obj) {
-	var v = { r: 0, g: 0, b: 0, a: 255 };
+	var v = {r: 0, g: 0, b: 0, a: 255};
 	if (Array.isArray(obj)) {
 		if (obj.length >= 3) {
-			v = { r: obj[0], g: obj[1], b: obj[2], a: 255 };
+			v = {r: obj[0], g: obj[1], b: obj[2], a: 255};
 			if (obj.length > 3) {
 				v.a = n2b(obj[3]);
 			}
 		}
 	} else {
-		v = clone(obj, { r: 0, g: 0, b: 0, a: 1 });
+		v = clone(obj, {r: 0, g: 0, b: 0, a: 1});
 		v.a = n2b(v.a);
 	}
 	return v;
@@ -172,4 +172,4 @@ var _color = Color;
 Color = function(...args) {
 	return new _color(...args);
 };
-export { Color as default };
+export {Color as default};

@@ -1,4 +1,4 @@
-import { b2n, n2p, n2b } from './byte';
+import {b2n, n2p, n2b} from './byte';
 
 // eslint-disable-next-line no-useless-escape
 var HUE_RE = /^(hsla?|hwb|hsv)\(\s*([+-]?\d+)(?:deg)?[\s,]+([+-]?[\d\.]+)%[\s,]+([+-]?[\d\.]+)%\s*(?:[\s,]+([+-]?[\d\.]+)\s*)?\)/;

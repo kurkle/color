@@ -1,10 +1,9 @@
-import colorNames from '../packed';
+import {names} from '../packed';
 
-// eslint-disable-next-line dot-notation
-colorNames['transparent'] = [0, 0, 0, 0];
+names.transparent = [0, 0, 0, 0];
 
 export function nameParse(str) {
-	var a = colorNames[str];
+	var a = names[str];
 	if (a) {
 		a = {
 			r: a[0],

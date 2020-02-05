@@ -1,13 +1,13 @@
 extends: chartjs
 
 parserOptions:
-  ecmaVersion: 5
+  ecmaVersion: 2018
   sourceType: module
 
 env:
   browser: true
   node: true
+  es6: true
 
 rules:
-  object-curly-spacing: [2, "always"]
   complexity: [1, 15]

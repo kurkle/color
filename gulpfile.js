@@ -3,6 +3,7 @@
 var gulp = require('gulp');
 var eslint = require('gulp-eslint');
 var exec = require('child_process').exec;
+var pack = require('./util/pack');
 
 function run(bin, args) {
 	return new Promise(function(resolve, reject) {
@@ -23,6 +24,7 @@ function run(bin, args) {
 }
 
 function buildTask() {
+	pack();
 	return run('rollup/bin/rollup', ['-c']);
 }
 

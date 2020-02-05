@@ -1,4 +1,4 @@
-import { p2b, b2n } from './byte';
+import {p2b, b2n} from './byte';
 
 // eslint-disable-next-line no-useless-escape
 const RGB_RE = /^rgba?\(\s*([+-]?[\d\.]+)(%)?[\s,]+([+-]?[\d\.]+)(%)?[\s,]+([+-]?[\d\.]+)(%)?\s*(?:[\s,/]+([+-]?[\d\.]+)(%)?\s*)?\)$/;
