@@ -50,7 +50,7 @@ assert.deepEqual(new Color('hsl(100, 50%, 50%)').rgb, {r: 106, g: 191, b: 64, a:
 assert.strictEqual(new Color('hsl(100, 50%, 50%)').hexString(), '#6ABF40');
 assert.strictEqual(new Color('hsl(100, 50%, 50%)').hslString(), 'hsl(100, 50%, 50%)');
 assert.strictEqual(new Color('hsl(100, 50%, 75%)').hexString(), '#B5DF9F');
-
+assert.strictEqual(new Color('rgb(54, 162, 235)').hslString(), 'hsl(204, 82%, 57%)');
 assert.strictEqual(new Color('#123').hexString(), '#123');
 assert.strictEqual(new Color('#123F').hexString(), '#123');
 assert.strictEqual(new Color('#1234').hexString(), '#1234');
@@ -66,6 +66,9 @@ assert.strictEqual(new Color('hsl(100, 50%, 50%)').lighten(0.5).hslString(), 'hs
 assert.strictEqual(new Color('hsl(100, 50%, 50%)').darken(0.5).hslString(), 'hsl(100, 50%, 25%)');
 
 assert.strictEqual(new Color('hsl(100, 50%, 50%)').saturate(0.5).hslString(), 'hsl(100, 75%, 50%)');
+assert.strictEqual(new Color('hsl(204, 82%, 57%)').saturate(0.5).hslString(), 'hsl(204, 100%, 57%)');
+assert.strictEqual(new Color('rgb(54, 162, 235)').saturate(0.5).hslString(), 'hsl(204, 100%, 57%)');
+assert.strictEqual(new Color('rgb(54, 162, 235)').saturate(0.5).rgbString(), 'rgb(34, 167, 255)');
 assert.strictEqual(new Color('hsl(100, 50%, 50%)').desaturate(0.5).hslString(), 'hsl(100, 25%, 50%)');
 assert.strictEqual(new Color('#5CBF54').greyscale().hexString(), '#969696');
 

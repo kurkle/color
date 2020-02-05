@@ -1,6 +1,6 @@
 {
   "name": "@kurkle/color",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "css color parsing, manupulation and conversion",
   "main": "dist/color.js",
   "module": "dist/color.esm.js",

@@ -6,7 +6,7 @@ import {b2n, n2b, round} from './byte';
 
 function modHSL(v, i, ratio) {
 	var tmp = rgb2hsl(v);
-	tmp[i] += tmp[i] * ratio;
+	tmp[i] = Math.max(0, Math.min(tmp[i] + tmp[i] * ratio, i === 0 ? 360 : 1));
 	tmp = hsl2rgb(tmp);
 	v.r = tmp[0];
 	v.g = tmp[1];
