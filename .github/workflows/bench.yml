@@ -1,0 +1,26 @@
+name: Benchmark
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  benchmark:
+    name: Performance comparison
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+      - name: Install gulp
+        run: npm install --global gulp        
+      - name: Build
+        run: |
+          npm install
+          gulp lint-js
+          gulp build
+      - name: Test
+        run: node test/index.js
+      - name: Run benchmark
+        run: node test/compare.js | tee comparison.txt
