@@ -16,7 +16,10 @@ export default [
 	{
 		input: input,
 		plugins: [
-			visualizer()
+			visualizer({
+				title: '@kurkle/color',
+				template: 'treemap'
+			})
 		],
 		output: {
 			name: '@kurkle/color',
