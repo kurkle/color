@@ -61,6 +61,7 @@
     "rollup-plugin-istanbul": "^2.0.1",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-terser": "^5.1.1",
+    "rollup-plugin-visualizer": "^3.3.1",
     "tinycolor2": "^1.4.1",
     "util": "^0.12.1"
   }

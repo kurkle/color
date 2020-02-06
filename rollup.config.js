@@ -1,6 +1,7 @@
 /* eslint-env es6 */
 
 import {terser} from 'rollup-plugin-terser';
+import visualizer from 'rollup-plugin-visualizer';
 import {version, homepage} from './package.json';
 
 const input = 'src/index.js';
@@ -14,6 +15,9 @@ const banner = `/*!
 export default [
 	{
 		input: input,
+		plugins: [
+			visualizer()
+		],
 		output: {
 			name: '@kurkle/color',
 			file: 'dist/color.js',
