@@ -15,21 +15,48 @@ import {b2n, n2p, n2b} from './byte';
 const HUE_RE = /^(hsla?|hwb|hsv)\(\s*([+-]?\d+)(?:deg)?[\s,]+([+-]?[\d\.]+)%[\s,]+([+-]?[\d\.]+)%\s*(?:[\s,]+([+-]?[\d\.]+)\s*)?\)/; // eslint-disable-line no-useless-escape
 
 // https://jsfiddle.net/Lamik/reuk63ay/91
+/**
+ * Converts hsl to rgb normalized
+ * @param {number} h - hue [0..360]
+ * @param {number} s - saturation [0..1]
+ * @param {number} l - lightness [0..1]
+ * @returns {number[]} - [r, g, b] each normalized to [0..1]
+ */
 function hsl2rgbn(h, s, l) {
-	let a = s * Math.min(l, 1 - l);
-	let f = (n, k = (n + h / 30) % 12) => l - a * Math.max(Math.min(k - 3, 9 - k, 1), -1);
+	const a = s * Math.min(l, 1 - l);
+	/**
+	 * @param {number} n
+	 */
+	const f = (n, k = (n + h / 30) % 12) => l - a * Math.max(Math.min(k - 3, 9 - k, 1), -1);
 	return [f(0), f(8), f(4)];
 }
 
-// https://jsfiddle.net/Lamik/Lr61wqub/15/
+/**
+ * Convert hsv to rgb normalized
+ * @url https://jsfiddle.net/Lamik/Lr61wqub/15/
+ * @param {number} h - hue [0..360]
+ * @param {number} s - saturation [0..1]
+ * @param {number} v - value [0..1]
+ * @returns {number[]} - [r, g, b] each normalized to [0..1]
+ */
 function hsv2rgbn(h, s, v) {
-	let f = (n, k = (n + h / 60) % 6) => v - v * s * Math.max(Math.min(k, 4 - k, 1), 0);
+	/**
+	 * @param {number} n
+	 */
+	const f = (n, k = (n + h / 60) % 6) => v - v * s * Math.max(Math.min(k, 4 - k, 1), 0);
 	return [f(5), f(3), f(1)];
 }
 
+/**
+ * Convert hwb to rgb nomarlized
+ * @param {number} h - hue [0..360]
+ * @param {number} w - whiteness [0..1]
+ * @param {number} b - blackness [0..1]
+ * @returns {number[]} - [r, g, b] each normalized to [0..1]
+ */
 function hwb2rgbn(h, w, b) {
-	var rgb = hsl2rgbn(h, 1, 0.5);
-	var i;
+	const rgb = hsl2rgbn(h, 1, 0.5);
+	let i;
 	if (w + b > 1) {
 		i = 1 / (w + b);
 		w *= i;
@@ -42,6 +69,11 @@ function hwb2rgbn(h, w, b) {
 	return rgb;
 }
 
+/**
+ * Convert rgb to hsl
+ * @param {RGBA} v - the color
+ * @returns {number[]} - [h, s, l]
+ */
 export function rgb2hsl(v) {
 	var range = 255;
 	var r = v.r / range;
@@ -64,6 +96,13 @@ export function rgb2hsl(v) {
 	return [h | 0, s || 0, l];
 }
 
+/**
+ * @param {function} f
+ * @param {number|number[]} a
+ * @param {number} b
+ * @param {number} c
+ * @private
+ */
 function calln(f, a, b, c) {
 	return (
 		Array.isArray(a)
@@ -72,22 +111,45 @@ function calln(f, a, b, c) {
 	).map(n2b);
 }
 
+/**
+ * Convert hsl to rgb
+ * @param {number|number[]} h - hue | [h, s, l]
+ * @param {number} [s] - saturation
+ * @param {number} [l] - lightness
+ * @returns {number[]}
+ */
 export function hsl2rgb(h, s, l) {
 	return calln(hsl2rgbn, h, s, l);
 }
 
+/**
+ * Convert hwb to rgb
+ * @param {number|number[]} h - hue | [h, s, l]
+ * @param {number} [w] - whiteness
+ * @param {number} [b] - blackness
+ * @returns {number[]}
+ */
 export function hwb2rgb(h, w, b) {
 	return calln(hwb2rgbn, h, w, b);
 }
 
-export function hsv2rgb(h, w, b) {
-	return calln(hsv2rgbn, h, w, b);
+/**
+ * Convert hsv to rgb
+ * @param {number|number[]} h - hue | [h, s, l]
+ * @param {number} [s] - saturation
+ * @param {number} [v] - value
+ * @returns {number[]}
+ */
+export function hsv2rgb(h, s, v) {
+	return calln(hsv2rgbn, h, s, v);
 }
 
+/**
+ * @param {number} h - the angle
+ * @private
+ */
 function hue(h) {
-	return h < 0
-		? h % 360 + 360
-		: h % 360;
+	return (h % 360 + 360) % 360;
 }
 
 /**
