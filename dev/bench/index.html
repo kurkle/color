@@ -127,14 +127,15 @@
               for (const bench of benches) {
                 const result = { commit, date, tool, bench };
                 const suite = bench.name.includes('|') ? bench.name.split('|')[0] : benchName;
+                const name = bench.name.includes('|') ? bench.name.split('|')[1] : bench.name;
                 let map = suites.get(suite)
                 if (!map) {
                   map = new Map();
                   suites.set(suite, map);
                 }
-                const arr = map.get(bench.name);
+                const arr = map.get(name);
                 if (arr === undefined) {
-                  map.set(bench.name, [result]);
+                  map.set(name, [result]);
                 } else {
                   arr.push(result);
                 }
@@ -178,6 +179,10 @@
               datasets
             };
             const options = {
+              title: {
+                display: true,
+                text: suite
+              },
               scales: {
                 xAxes: [
                   {
