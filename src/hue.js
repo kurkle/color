@@ -1,7 +1,18 @@
+/**
+ * @packageDocumentation
+ * @module Index
+ */
+
 import {b2n, n2p, n2b} from './byte';
 
-// eslint-disable-next-line no-useless-escape
-var HUE_RE = /^(hsla?|hwb|hsv)\(\s*([+-]?\d+)(?:deg)?[\s,]+([+-]?[\d\.]+)%[\s,]+([+-]?[\d\.]+)%\s*(?:[\s,]+([+-]?[\d\.]+)\s*)?\)/;
+/**
+ * @typedef {import('./index.js').RGBA} RGBA
+ */
+
+/**
+ * @private
+ */
+const HUE_RE = /^(hsla?|hwb|hsv)\(\s*([+-]?\d+)(?:deg)?[\s,]+([+-]?[\d\.]+)%[\s,]+([+-]?[\d\.]+)%\s*(?:[\s,]+([+-]?[\d\.]+)\s*)?\)/; // eslint-disable-line no-useless-escape
 
 // https://jsfiddle.net/Lamik/reuk63ay/91
 function hsl2rgbn(h, s, l) {
@@ -79,24 +90,31 @@ function hue(h) {
 		: h % 360;
 }
 
+/**
+ * Parse hsl/hsv/hwb color string
+ * @param {string} str - hsl/hsv/hwb color string
+ * @returns {RGBA} - the parsed color components
+ */
 export function hueParse(str) {
-	var m = HUE_RE.exec(str);
-	var a = 255;
-	var v;
+	const m = HUE_RE.exec(str);
+	let a = 255;
+	let v;
 	if (!m) {
-		// v is undefined
-		return v;
+		return;
 	}
 	// v is undefined
 	if (m[5] !== v) {
-		a = n2b(m[5]);
+		a = n2b(+m[5]);
 	}
+	const h = hue(+m[2]);
+	const p1 = +m[3] / 100;
+	const p2 = +m[4] / 100;
 	if (m[1] === 'hwb') {
-		v = hwb2rgb(hue(m[2]), m[3] / 100, m[4] / 100);
+		v = hwb2rgb(h, p1, p2);
 	} else if (m[1] === 'hsv') {
-		v = hsv2rgb(hue(m[2]), m[3] / 100, m[4] / 100);
+		v = hsv2rgb(h, p1, p2);
 	} else {
-		v = hsl2rgb(hue(m[2]), m[3] / 100, m[4] / 100);
+		v = hsl2rgb(h, p1, p2);
 	}
 	return {
 		r: v[0],
@@ -106,6 +124,11 @@ export function hueParse(str) {
 	};
 }
 
+/**
+ * Rotate the `v` color by `deg` degrees
+ * @param {RGBA} v - the color
+ * @param {number} deg - degrees to rotate
+ */
 export function rotate(v, deg) {
 	var h = rgb2hsl(v);
 	h[0] = hue(h[0] + deg);
@@ -115,11 +138,15 @@ export function rotate(v, deg) {
 	v.b = h[2];
 }
 
+/**
+ * Return hsl(a) string from color components
+ * @param {RGBA} v - the color
+ */
 export function hslString(v) {
-	var h = rgb2hsl(v);
-	var s = n2p(h[1]);
-	var l = n2p(h[2]);
-	h = h[0];
+	const a = rgb2hsl(v);
+	const h = n2p(a[0]);
+	const s = n2p(a[1]);
+	const l = n2p(a[2]);
 	return v.a < 255
 		? `hsla(${h}, ${s}%, ${l}%, ${b2n(v.a)})`
 		: `hsl(${h}, ${s}%, ${l}%)`;

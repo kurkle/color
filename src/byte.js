@@ -1,3 +1,12 @@
+/**
+ * @packageDocumentation
+ * @module Index
+ */
+
+/**
+ * Rounds to decimal to nearest integer
+ * @param {number} v - the number to round
+ */
 export function round(v) {
 	return v + 0.5 | 0;
 }

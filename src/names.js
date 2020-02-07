@@ -1,7 +1,21 @@
+/**
+ * @packageDocumentation
+ * @module Index
+ */
+
 import {names} from '../packed';
+
+/**
+ * @typedef {import('./index.js').RGBA} RGBA
+ */
 
 names.transparent = [0, 0, 0, 0];
 
+/**
+ * Parse color name
+ * @param {string} str - the color name
+ * @return {RGBA} - the color
+ */
 export function nameParse(str) {
 	var a = names[str];
 	if (a) {

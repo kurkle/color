@@ -2,3 +2,4 @@ node_modules
 .vscode/tasks.json
 dist
 stats.html
+docs

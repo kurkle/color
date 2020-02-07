@@ -1,23 +1,51 @@
-var map = {0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8, 9: 9, A: 10, B: 11, C: 12, D: 13, E: 14, F: 15, a: 10, b: 11, c: 12, d: 13, e: 14, f: 15};
-var hex = '0123456789ABCDEF';
+/**
+ * @packageDocumentation
+ * @module Index
+ */
 
-function h1(b) {
-	return hex[b & 0xF];
-}
+/**
+ * @typedef {import('./index.js').RGBA} RGBA
+ */
 
-function h2(b) {
-	return hex[(b & 0xF0) >> 4] + hex[b & 0xF];
-}
+/**
+  * @private
+  */
+const map = {0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8, 9: 9, A: 10, B: 11, C: 12, D: 13, E: 14, F: 15, a: 10, b: 11, c: 12, d: 13, e: 14, f: 15};
+/**
+ * @private
+ */
+const hex = '0123456789ABCDEF';
 
-function eq(b) {
-	return (((b & 0xF0) >> 4) === (b & 0xF));
-}
+/**
+ * @param {number} b - byte
+ * @private
+ */
+const h1 = (b) => hex[b & 0xF];
 
-function short(v) {
+/**
+ * @param {number} b - byte
+ * @private
+ */
+const h2 = (b) => hex[(b & 0xF0) >> 4] + hex[b & 0xF];
+
+/**
+ * @param {number} b - byte
+ * @private
+ */
+const eq = (b) => (((b & 0xF0) >> 4) === (b & 0xF));
+
+/**
+ * @param {RGBA} v - the color
+ * @private
+ */
+function isShort(v) {
 	return eq(v.r) && eq(v.g) && eq(v.b) && eq(v.a);
 }
 
-
+/**
+ * Parse HEX to color
+ * @param {string} str - the string
+ */
 export function hexParse(str) {
 	var len = str.length;
 	var ret;
@@ -41,8 +69,12 @@ export function hexParse(str) {
 	return ret;
 }
 
+/**
+ * Return HEX string from color
+ * @param {RGBA} v - the color
+ */
 export function hexString(v) {
-	var f = short(v) ? h1 : h2;
+	var f = isShort(v) ? h1 : h2;
 	return v
 		? '#' + f(v.r) + f(v.g) + f(v.b) + (v.a < 255 ? f(v.a) : '')
 		: v;

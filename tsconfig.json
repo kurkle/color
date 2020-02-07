@@ -1,0 +1,22 @@
+{
+	"compilerOptions": {
+	  "target": "ES6",
+	  "moduleResolution": "Node",
+	  "allowSyntheticDefaultImports": true,
+	  "allowJs": true,
+	  "checkJs": true,
+	  "noEmit": true
+	},
+	"typedocOptions": {
+	  "name": "@kurkle/color",
+	  "mode": "modules",
+	  "target": "ES2018",
+	  "template": "minimal",
+	  "inputFiles": ["./src"],
+	  "plugin": ["typedoc-plugin-external-module-name"],
+	  "out": "./docs"
+	},
+	"include": [
+	  "./src/*.js"
+	]
+  }
