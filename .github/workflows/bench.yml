@@ -22,6 +22,8 @@ jobs:
           gulp build
       - name: Test
         run: node test/index.js
+      - name: Reset
+        run: git reset --hard
       - name: Run benchmark
         run: node test/hexbench.js | tee output.txt
       - name: Store benchmark result
