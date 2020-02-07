@@ -171,11 +171,11 @@ export default class Color {
 
 	/**
 	 * Make clearer
-	 * @param {number} a - ratio [0..1]
+	 * @param {number} ratio - ratio [0..1]
 	 */
-	clearer(a) {
+	clearer(ratio) {
 		const rgb = this._rgb;
-		rgb.a -= rgb.a * a;
+		rgb.a *= 1 - ratio;
 		return this;
 	}
 
@@ -192,11 +192,11 @@ export default class Color {
 
 	/**
 	 * Opaquer
-	 * @param {number} a - ratio [0..1]
+	 * @param {number} ratio - ratio [0..1]
 	 */
-	opaquer(a) {
+	opaquer(ratio) {
 		const rgb = this._rgb;
-		rgb.a += rgb.a * a;
+		rgb.a *= 1 + ratio;
 		return this;
 	}
 
