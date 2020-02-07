@@ -144,7 +144,7 @@ export function rotate(v, deg) {
  */
 export function hslString(v) {
 	const a = rgb2hsl(v);
-	const h = n2p(a[0]);
+	const h = a[0];
 	const s = n2p(a[1]);
 	const l = n2p(a[2]);
 	return v.a < 255
