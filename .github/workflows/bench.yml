@@ -24,12 +24,26 @@ jobs:
         run: node test/index.js
       - name: Reset
         run: git reset --hard
-      - name: Run benchmark
+      - name: Benchmark hex parsing
         run: node test/hexbench.js | tee output.txt
-      - name: Store benchmark result
+      - name: Store hex parsing results
         uses: rhysd/github-action-benchmark@v1
         with:
-          name: Benchmark
+          name: HEX parsing
+          # What benchmark tool the output.txt came from
+          tool: 'benchmarkjs'
+          # Where the output from the benchmark tool is stored
+          output-file-path: output.txt
+          # Personal access token to deploy GitHub Pages branch
+          github-token: ${{ secrets.PERSONAL_GITHUB_TOKEN }}
+          # Push and deploy GitHub pages branch automatically
+          auto-push: true
+      - name: Benchmark against other libraries
+        run: node test/compare.js | tee output.txt
+      - name: Store compare results
+        uses: rhysd/github-action-benchmark@v1
+        with:
+          name: Comparison
           # What benchmark tool the output.txt came from
           tool: 'benchmarkjs'
           # Where the output from the benchmark tool is stored

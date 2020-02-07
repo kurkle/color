@@ -49,48 +49,23 @@ const options = {
 };
 
 const cycle = function(event) {
-	if (event.target.error) {
-		console.log(String(event.target) + String(event.target.error).substring(0, 80));
-	} else {
+	if (!event.target.error) {
 		console.log(String(event.target));
 	}
 };
 
-
-const complete = function() {
-	var sorted = this.filter('successful').sort((a, b) => {
-		a = a.stats;
-		b = b.stats;
-		return a.mean + a.moe > b.mean + b.moe ? 1 : -1;
-	});
-	var fastest = sorted.shift();
-	var second = sorted.shift();
-	var diff = (fastest.hz - second.hz) / second.hz * 100;
-	console.log('fastest is ' + fastest.name.substring(3));
-	console.log(diff.toFixed(0) + '% faster than 2nd fastest ' + second.name.substring(3));
-	if (second.name !== ' - chartjs-color') {
-		second = this.filter(function(a) {
-			return a.name === ' - chartjs-color';
-		}).shift();
-		diff = (fastest.hz - second.hz) / second.hz * 100;
-		console.log(diff.toFixed(0) + '% faster than chartjs-color');
-	}
-};
-
 strings.forEach(function(str) {
-	console.log('');
-	console.log('parsing "' + str + '":');
 	var suite = new benchmark.Suite();
 	parserNames.forEach(function(lib) {
 		if (objects[lib]) {
-			suite.add(' - ' + lib, function() {
+			suite.add('parse ' + str + '|' + lib, function() {
 				var c = new parsers[lib](str);
 				if (!c) {
 					throw 'failed';
 				}
 			}, options);
 		} else {
-			suite.add(' - ' + lib, function() {
+			suite.add('parse ' + str + '|' + lib, function() {
 				var c = parsers[lib](str);
 				if (!c) {
 					throw 'failed';
@@ -100,7 +75,7 @@ strings.forEach(function(str) {
 	});
 	suite
 		.on('cycle', cycle)
-		.on('complete', complete)
+		// .on('complete', complete)
 		.run();
 });
 
@@ -109,7 +84,7 @@ var suites = [];
 var suite = new benchmark.Suite();
 manipulatorNames.forEach(function(lib) {
 	var c1 = new manipulators[lib]('#aaaaaa');
-	suite.add(' - ' + lib, function() {
+	suite.add('alpha|' + lib, function() {
 		c1.alpha(0.5);
 	}, options);
 });
@@ -118,7 +93,7 @@ suites.push(['alpha', suite]);
 suite = new benchmark.Suite();
 manipulatorNames.forEach(function(lib) {
 	var c1 = new manipulators[lib]('rgb(0, 100, 255)');
-	suite.add(' - ' + lib, function() {
+	suite.add('negate|' + lib, function() {
 		c1.negate();
 	}, options);
 });
@@ -127,7 +102,7 @@ suites.push(['negate', suite]);
 suite = new benchmark.Suite();
 manipulatorNames.forEach(function(lib) {
 	var c1 = new manipulators[lib]('#aaaaaa');
-	suite.add(' - ' + lib, function() {
+	suite.add('lighten|' + lib, function() {
 		c1.lighten(0.1);
 	}, options);
 });
@@ -136,7 +111,7 @@ suites.push(['lighten', suite]);
 suite = new benchmark.Suite();
 manipulatorNames.forEach(function(lib) {
 	var c1 = new manipulators[lib]('#aaaaaa');
-	suite.add(' - ' + lib, function() {
+	suite.add('darken|' + lib, function() {
 		c1.darken(0.1);
 	}, options);
 });
@@ -145,7 +120,7 @@ suites.push(['darken', suite]);
 suite = new benchmark.Suite();
 manipulatorNames.forEach(function(lib) {
 	var c1 = new manipulators[lib]('hsl(100, 50%, 50%)');
-	suite.add(' - ' + lib, function() {
+	suite.add('saturate|' + lib, function() {
 		c1.saturate(0.5);
 	}, options);
 });
@@ -154,7 +129,7 @@ suites.push(['saturate', suite]);
 suite = new benchmark.Suite();
 manipulatorNames.forEach(function(lib) {
 	var c1 = new manipulators[lib]('hsl(100, 50%, 50%)');
-	suite.add(' - ' + lib, function() {
+	suite.add('desaturate|' + lib, function() {
 		c1.desaturate(0.5);
 	}, options);
 });
@@ -163,7 +138,7 @@ suites.push(['desaturate', suite]);
 suite = new benchmark.Suite();
 manipulatorNames.forEach(function(lib) {
 	var c1 = new manipulators[lib]('hsl(100, 50%, 50%)');
-	suite.add(' - ' + lib, function() {
+	suite.add('clearer|' + lib, function() {
 		c1.clearer(0.5);
 	}, options);
 });
@@ -172,7 +147,7 @@ suites.push(['clearer', suite]);
 suite = new benchmark.Suite();
 manipulatorNames.forEach(function(lib) {
 	var c1 = new manipulators[lib]('hsl(100, 50%, 50%)');
-	suite.add(' - ' + lib, function() {
+	suite.add('opaquer|' + lib, function() {
 		c1.opaquer(0.5);
 	}, options);
 });
@@ -182,7 +157,7 @@ suite = new benchmark.Suite();
 manipulatorNames.forEach(function(lib) {
 	var c1 = new manipulators[lib]('#aaaaaa');
 	var c2 = new manipulators[lib]('#33333380');
-	suite.add(' - ' + lib, function() {
+	suite.add('mix|' + lib, function() {
 		c1.mix(c2, 0.5);
 	}, options);
 });
@@ -191,18 +166,14 @@ suites.push(['mix', suite]);
 suite = new benchmark.Suite();
 manipulatorNames.forEach(function(lib) {
 	var c1 = new manipulators[lib]('hsl(100, 50%, 50%)');
-	suite.add(' - ' + lib, function() {
+	suite.add('clone|' + lib, function() {
 		c1.clone();
 	}, options);
 });
 suites.push(['clone', suite]);
 
 suites.forEach(function(arr) {
-	console.log('');
-	console.log(arr[0] + ':');
-
 	arr[1]
 		.on('cycle', cycle)
-		.on('complete', complete)
 		.run();
 });
