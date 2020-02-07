@@ -1,6 +1,6 @@
 # @kurkle/color
 
-[![release](https://img.shields.io/github/release/kurkle/color.svg?style=flat-square)](https://github.com/kurkle/color/releases/latest)
+[![npm](https://img.shields.io/npm/v/@kurkle/color?style=plastic)](https://www.npmjs.com/package/@kurkle/color) [![release](https://img.shields.io/github/release/kurkle/color.svg?style=plastic)](https://github.com/kurkle/color/releases/latest) [![npm bundle size](https://img.shields.io/bundlephobia/min/@kurkle/color?style=plastic)](https://www.npmjs.com/package/@kurkle/color) [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/kurkle/color/Benchmark?style=plastic)](https://github.com/kurkle/color) [![GitHub](https://img.shields.io/github/license/kurkle/color?style=plastic)](https://github.com/kurkle/color/blob/master/LICENSE)
 
 ## Overview
 
@@ -68,4 +68,4 @@ hsv(244, 100%, 100%, 0.6)
 
 ## License
 
-`@kurkle/color` is available under the [MIT license](LICENSE.md).
+`@kurkle/color` is available under the [MIT license](https://github.com/kurkle/color/blob/master/LICENSE.md).
