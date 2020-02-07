@@ -80,8 +80,9 @@ strings.forEach(function(str) {
 });
 
 var suites = [];
+var suite;
 
-var suite = new benchmark.Suite();
+suite = new benchmark.Suite();
 manipulatorNames.forEach(function(lib) {
 	var c1 = new manipulators[lib]('#aaaaaa');
 	suite.add('alpha|' + lib, function() {
@@ -171,6 +172,33 @@ manipulatorNames.forEach(function(lib) {
 	}, options);
 });
 suites.push(['clone', suite]);
+
+suite = new benchmark.Suite();
+manipulatorNames.forEach(function(lib) {
+	var c1 = new manipulators[lib]('hsl(100, 50%, 50%)');
+	suite.add('hexString|' + lib, function() {
+		c1.hexString();
+	}, options);
+});
+suites.push(['hexString', suite]);
+
+suite = new benchmark.Suite();
+manipulatorNames.forEach(function(lib) {
+	var c1 = new manipulators[lib]('hsl(100, 50%, 50%)');
+	suite.add('hslString|' + lib, function() {
+		c1.hslString();
+	}, options);
+});
+suites.push(['hslString', suite]);
+
+suite = new benchmark.Suite();
+manipulatorNames.forEach(function(lib) {
+	var c1 = new manipulators[lib]('hsl(100, 50%, 50%)');
+	suite.add('rgbString|' + lib, function() {
+		c1.rgbString();
+	}, options);
+});
+suites.push(['rgbString', suite]);
 
 suites.forEach(function(arr) {
 	arr[1]
