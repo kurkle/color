@@ -67,8 +67,8 @@ export default class Color {
 		if (input instanceof Color) {
 			return input;
 		}
-		var v;
-		var type = typeof input;
+		const type = typeof input;
+		let v;
 		if (type === 'object') {
 			// @ts-ignore
 			v = fromObject(input);
