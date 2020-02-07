@@ -171,6 +171,7 @@
                   data: benches.map(d => ({x: d.commit.id.slice(0, 7), y: d.bench.value, bench: d.bench, commit: d.commit})),
                   borderColor: colors[datasets.length],
                   backgroundColor: colors[datasets.length] + '60', // Add alpha for #rrggbbaa
+                  fill: false,
               });
             }
 
