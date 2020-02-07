@@ -1,15 +1,13 @@
-/* global Promise */
-
-var gulp = require('gulp');
-var eslint = require('gulp-eslint');
-var exec = require('child_process').exec;
-var pack = require('./util/pack');
+const gulp = require('gulp');
+const eslint = require('gulp-eslint');
+const exec = require('child_process').exec;
+const pack = require('./util/pack');
 
 function run(bin, args) {
 	return new Promise(function(resolve, reject) {
-		var exe = '"' + process.execPath + '"';
-		var src = require.resolve(bin);
-		var ps = exec([exe, src].concat(args || []).join(' '));
+		const exe = '"' + process.execPath + '"';
+		const src = require.resolve(bin);
+		const ps = exec([exe, src].concat(args || []).join(' '));
 
 		ps.stdout.pipe(process.stdout);
 		ps.stderr.pipe(process.stderr);
@@ -29,11 +27,11 @@ function buildTask() {
 }
 
 function lintJsTask() {
-	var files = [
+	const files = [
 		'src/**/*.js',
 		'test/**/*.js'
 	];
-	var options = {
+	const options = {
 		rules: {
 			complexity: [1, 10],
 			'max-statements': [1, 30]

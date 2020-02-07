@@ -15,12 +15,6 @@ const banner = `/*!
 export default [
 	{
 		input: input,
-		plugins: [
-			visualizer({
-				title: '@kurkle/color',
-				template: 'treemap'
-			})
-		],
 		output: {
 			name: '@kurkle/color',
 			file: 'dist/color.js',
@@ -36,12 +30,18 @@ export default [
 				output: {
 					preamble: banner
 				}
+			}),
+			visualizer({
+				sourcemap: true,
+				title: '@kurkle/color',
+				template: 'treemap'
 			})
 		],
 		output: {
 			name: '@kurkle/color',
 			file: 'dist/color.min.js',
 			format: 'umd',
+			sourcemap: true,
 			indent: false
 		}
 	},
@@ -62,6 +62,11 @@ export default [
 				output: {
 					preamble: banner
 				}
+			}),
+			visualizer({
+				sourcemap: true,
+				title: '@kurkle/color',
+				template: 'treemap'
 			})
 		],
 		output: {
@@ -69,6 +74,7 @@ export default [
 			file: 'dist/color.esm.min.js',
 			banner: banner,
 			format: 'esm',
+			sourcemap: true,
 			indent: false
 		}
 	},
