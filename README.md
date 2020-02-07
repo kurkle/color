@@ -66,6 +66,11 @@ hsv(244, 100%, 100%, 0.6)
 
 [benchmarks](https://kurkle.github.io/color/dev/bench/)
 
+## Size visualization
+
+[color.min.js](https://kurkle.github.io/color/stats.html)
+[color.esm.min.js](https://kurkle.github.io/color/stats.esm.html)
+
 ## License
 
 `@kurkle/color` is available under the [MIT license](https://github.com/kurkle/color/blob/master/LICENSE.md).

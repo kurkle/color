@@ -34,7 +34,8 @@ export default [
 			visualizer({
 				sourcemap: true,
 				title: '@kurkle/color',
-				template: 'treemap'
+				template: 'treemap',
+				filename: 'docs/stats.html'
 			})
 		],
 		output: {
@@ -66,7 +67,8 @@ export default [
 			visualizer({
 				sourcemap: true,
 				title: '@kurkle/color',
-				template: 'treemap'
+				template: 'treemap',
+				filename: 'docs/stats.esm.html'
 			})
 		],
 		output: {
