@@ -5,13 +5,14 @@ on:
     types: [created, edited]
 
 jobs:
-  build:
+  publish-npm:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
           node-version: 12
+          registry-url: https://registry.npmjs.org/
       - name: Install gulp
         run: npm install --global gulp
       - name: Build
@@ -21,17 +22,6 @@ jobs:
           gulp build
       - name: Test
         run: node test/index.js
-
-  publish-npm:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 12
-          registry-url: https://registry.npmjs.org/
-      - run: npm ci
       - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
