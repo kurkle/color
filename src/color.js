@@ -21,12 +21,14 @@ import {b2n, n2b, round} from './byte';
   * @private
   */
 function modHSL(v, i, ratio) {
-	var tmp = rgb2hsl(v);
-	tmp[i] = Math.max(0, Math.min(tmp[i] + tmp[i] * ratio, i === 0 ? 360 : 1));
-	tmp = hsl2rgb(tmp);
-	v.r = tmp[0];
-	v.g = tmp[1];
-	v.b = tmp[2];
+	if (v) {
+		let tmp = rgb2hsl(v);
+		tmp[i] = Math.max(0, Math.min(tmp[i] + tmp[i] * ratio, i === 0 ? 360 : 1));
+		tmp = hsl2rgb(tmp);
+		v.r = tmp[0];
+		v.g = tmp[1];
+		v.b = tmp[2];
+	}
 }
 
 /**
@@ -58,6 +60,16 @@ function fromObject(input) {
 	return v;
 }
 
+/**
+ * @param {string} str
+ */
+function functionParse(str) {
+	if (str.charAt(0) === 'r') {
+		return rgbParse(str);
+	}
+	return hueParse(str);
+}
+
 export default class Color {
 	/**
 	 * constructor
@@ -74,7 +86,7 @@ export default class Color {
 			v = fromObject(input);
 		} else if (type === 'string') {
 			// @ts-ignore
-			v = hexParse(input) || nameParse(input) || rgbParse(input) || hueParse(input);
+			v = hexParse(input) || nameParse(input) || functionParse(input);
 		}
 
 		/** @type {RGBA} */
@@ -137,19 +149,21 @@ export default class Color {
 	 */
 	mix(color, weight) {
 		const me = this;
-		const c1 = me.rgb;
-		const c2 = color.rgb;
-		let w2; // using instead of undefined in the next line
-		const p = weight === w2 ? 0.5 : weight;
-		const w = 2 * p - 1;
-		const a = c1.a - c2.a;
-		const w1 = ((w * a === -1 ? w : (w + a) / (1 + w * a)) + 1) / 2.0;
-		w2 = 1 - w1;
-		c1.r = 0xFF & w1 * c1.r + w2 * c2.r + 0.5;
-		c1.g = 0xFF & w1 * c1.g + w2 * c2.g + 0.5;
-		c1.b = 0xFF & w1 * c1.b + w2 * c2.b + 0.5;
-		c1.a = p * c1.a + (1 - p) * c2.a;
-		me.rgb = c1;
+		if (color) {
+			const c1 = me.rgb;
+			const c2 = color.rgb;
+			let w2; // using instead of undefined in the next line
+			const p = weight === w2 ? 0.5 : weight;
+			const w = 2 * p - 1;
+			const a = c1.a - c2.a;
+			const w1 = ((w * a === -1 ? w : (w + a) / (1 + w * a)) + 1) / 2.0;
+			w2 = 1 - w1;
+			c1.r = 0xFF & w1 * c1.r + w2 * c2.r + 0.5;
+			c1.g = 0xFF & w1 * c1.g + w2 * c2.g + 0.5;
+			c1.b = 0xFF & w1 * c1.b + w2 * c2.b + 0.5;
+			c1.a = p * c1.a + (1 - p) * c2.a;
+			me.rgb = c1;
+		}
 		return me;
 	}
 

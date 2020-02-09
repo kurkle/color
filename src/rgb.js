@@ -12,7 +12,7 @@ import {p2b, b2n} from './byte';
 /**
  * @private
  */
-const RGB_RE = /^rgba?\(\s*([+-]?[\d\.]+)(%)?[\s,]+([+-]?[\d\.]+)(%)?[\s,]+([+-]?[\d\.]+)(%)?\s*(?:[\s,/]+([+-]?[\d\.]+)(%)?\s*)?\)$/; // eslint-disable-line no-useless-escape
+const RGB_RE = /^rgba?\(\s*([-+.\d]+)(%)?[\s,]+([-+.e\d]+)(%)?[\s,]+([-+.e\d]+)(%)?(?:[\s,/]+([-+.e\d]+)(%)?)?\s*\)$/;
 
 /**
  * Parse rgb(a) string to RGBA
@@ -54,7 +54,9 @@ export function rgbParse(str) {
  * @param {RGBA} v - the color
  */
 export function rgbString(v) {
-	return v.a < 255
-		? `rgba(${v.r}, ${v.g}, ${v.b}, ${b2n(v.a)})`
-		: `rgb(${v.r}, ${v.g}, ${v.b})`;
+	return v && (
+		v.a < 255
+			? `rgba(${v.r}, ${v.g}, ${v.b}, ${b2n(v.a)})`
+			: `rgb(${v.r}, ${v.g}, ${v.b})`
+	);
 }

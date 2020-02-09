@@ -3,7 +3,7 @@
  * @module Index
  */
 
-import {b2n, n2p, n2b} from './byte';
+import {b2n, n2p, n2b, p2b} from './byte';
 
 /**
  * @typedef {import('./index.js').RGBA} RGBA
@@ -12,7 +12,7 @@ import {b2n, n2p, n2b} from './byte';
 /**
  * @private
  */
-const HUE_RE = /^(hsla?|hwb|hsv)\(\s*([+-]?\d*[\.]?\d+)(?:deg)?[\s,]+([+-]?\d*[\.]?\d+)%[\s,]+([+-]?\d*[\.]?\d+)%\s*(?:[\s,]+([+-]?\d*[\.]?\d+)\s*)?\)/; // eslint-disable-line no-useless-escape
+const HUE_RE = /^(hsla?|hwb|hsv)\(\s*([-+.e\d]+)(?:deg)?[\s,]+([-+.e\d]+)%[\s,]+([-+.e\d]+)%(?:[\s,]+([-+.e\d]+)(%)?)?\s*\)$/;
 
 // https://jsfiddle.net/Lamik/reuk63ay/91
 /**
@@ -75,14 +75,14 @@ function hwb2rgbn(h, w, b) {
  * @returns {number[]} - [h, s, l]
  */
 export function rgb2hsl(v) {
-	var range = 255;
-	var r = v.r / range;
-	var g = v.g / range;
-	var b = v.b / range;
-	var max = Math.max(r, g, b);
-	var min = Math.min(r, g, b);
-	var l = (max + min) / 2;
-	var h, s, d;
+	const range = 255;
+	const r = v.r / range;
+	const g = v.g / range;
+	const b = v.b / range;
+	const max = Math.max(r, g, b);
+	const min = Math.min(r, g, b);
+	const l = (max + min) / 2;
+	let h, s, d;
 	if (max !== min) {
 		d = max - min;
 		s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
@@ -166,7 +166,7 @@ export function hueParse(str) {
 	}
 	// v is undefined
 	if (m[5] !== v) {
-		a = n2b(+m[5]);
+		a = m[6] ? p2b(+m[5]) : n2b(+m[5]);
 	}
 	const h = hue(+m[2]);
 	const p1 = +m[3] / 100;
@@ -203,8 +203,12 @@ export function rotate(v, deg) {
 /**
  * Return hsl(a) string from color components
  * @param {RGBA} v - the color
+ * @return {string|undefined}
  */
 export function hslString(v) {
+	if (!v) {
+		return;
+	}
 	const a = rgb2hsl(v);
 	const h = a[0];
 	const s = n2p(a[1]);
