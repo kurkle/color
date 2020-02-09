@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1581269741064,
+  "lastUpdate": 1581277676695,
   "repoUrl": "https://github.com/kurkle/color",
   "entries": {
     "HEX parsing": [
@@ -708,6 +708,65 @@ window.BENCHMARK_DATA = {
             "range": "±0.63%",
             "unit": "ops/sec",
             "extra": "92 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "jukka.kurkela@gmail.com",
+            "name": "Jukka Kurkela",
+            "username": "kurkle"
+          },
+          "committer": {
+            "email": "jukka.kurkela@gmail.com",
+            "name": "Jukka Kurkela",
+            "username": "kurkle"
+          },
+          "distinct": true,
+          "id": "62efdf8e2ebc0a3c1541eb24014b78c9336279b3",
+          "message": "Update regexps to handle scientific notation",
+          "timestamp": "2020-02-09T21:46:27+02:00",
+          "tree_id": "6c0603535c30e6be908daf0c7e4653fb4e69ca51",
+          "url": "https://github.com/kurkle/color/commit/62efdf8e2ebc0a3c1541eb24014b78c9336279b3"
+        },
+        "date": 1581277676234,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "parseInt +",
+            "value": 3766588,
+            "range": "±0.89%",
+            "unit": "ops/sec",
+            "extra": "90 samples"
+          },
+          {
+            "name": "parseInt slice",
+            "value": 3065066,
+            "range": "±0.89%",
+            "unit": "ops/sec",
+            "extra": "91 samples"
+          },
+          {
+            "name": "map",
+            "value": 11686321,
+            "range": "±0.71%",
+            "unit": "ops/sec",
+            "extra": "91 samples"
+          },
+          {
+            "name": "map obj",
+            "value": 11910498,
+            "range": "±0.72%",
+            "unit": "ops/sec",
+            "extra": "90 samples"
+          },
+          {
+            "name": "parseInt + shift",
+            "value": 9985853,
+            "range": "±0.93%",
+            "unit": "ops/sec",
+            "extra": "91 samples"
           }
         ]
       }
