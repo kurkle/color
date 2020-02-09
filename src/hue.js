@@ -12,7 +12,7 @@ import {b2n, n2p, n2b} from './byte';
 /**
  * @private
  */
-const HUE_RE = /^(hsla?|hwb|hsv)\(\s*([+-]?\d+)(?:deg)?[\s,]+([+-]?[\d\.]+)%[\s,]+([+-]?[\d\.]+)%\s*(?:[\s,]+([+-]?[\d\.]+)\s*)?\)/; // eslint-disable-line no-useless-escape
+const HUE_RE = /^(hsla?|hwb|hsv)\(\s*([+-]?\d*[\.]?\d+)(?:deg)?[\s,]+([+-]?\d*[\.]?\d+)%[\s,]+([+-]?\d*[\.]?\d+)%\s*(?:[\s,]+([+-]?\d*[\.]?\d+)\s*)?\)/; // eslint-disable-line no-useless-escape
 
 // https://jsfiddle.net/Lamik/reuk63ay/91
 /**

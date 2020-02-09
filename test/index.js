@@ -33,6 +33,8 @@ assert.deepEqual(new Color('rgba(100%, 30%, 90%, 0.2)').rgb, {r: 255, g: 77, b: 
 assert.deepEqual(new Color('rgba(255, 0, 0, .5)').rgb, {r: 255, g: 0, b: 0, a: 0.5});
 assert.deepEqual(new Color('hsla(12, 10%, 50%, .3)').rgb, {r: 140, g: 120, b: 115, a: 0.3});
 assert.deepEqual(new Color('hwb(244, 100%, 100%, 0.6)').rgb, {r: 128, g: 128, b: 128, a: 0.6});
+assert.deepEqual(new Color('hsla(240.0384227364303,4.12843378950259%,48.71943371204973%,0.3)').rgb, {r: 119, g: 119, b: 129, a: 0.3});
+assert.deepEqual(new Color('hsla(-10.0, 100%, 50%, -0.2)').hslString(), 'hsla(350, 100%, 50%, 0)');
 
 assert.deepEqual(new Color('blue').rgb, {r: 0, g: 0, b: 255, a: 1});
 assert.deepEqual(new Color('blue').rgb, {r: 0, g: 0, b: 255, a: 1});
