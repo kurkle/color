@@ -34,7 +34,7 @@ export function hexParse(str: string): {
  * Return HEX string from color
  * @param {RGBA} v - the color
  */
-export function hexString(v: import("./index.js").RGBA): string | import("./index.js").RGBA;
+export function hexString(v: RGBA): string | RGBA;
 /**
  * Rounds to decimal to nearest integer
  * @param {number} v - the number to round
@@ -70,7 +70,7 @@ export function n2p(v: number): number;
  * @param {RGBA} v - the color
  * @returns {number[]} - [h, s, l]
  */
-export function rgb2hsl(v: import(".").RGBA): number[];
+export function rgb2hsl(v: RGBA): number[];
 /**
  * Convert hsl to rgb
  * @param {number|number[]} h - hue | [h, s, l]
@@ -100,43 +100,43 @@ export function hsv2rgb(h: number | number[], s?: number, v?: number): number[];
  * @param {string} str - hsl/hsv/hwb color string
  * @returns {RGBA} - the parsed color components
  */
-export function hueParse(str: string): import(".").RGBA;
+export function hueParse(str: string): RGBA;
 /**
  * Rotate the `v` color by `deg` degrees
  * @param {RGBA} v - the color
  * @param {number} deg - degrees to rotate
  */
-export function rotate(v: import(".").RGBA, deg: number): void;
+export function rotate(v: RGBA, deg: number): void;
 /**
  * Return hsl(a) string from color components
  * @param {RGBA} v - the color
  * @return {string|undefined}
  */
-export function hslString(v: import(".").RGBA): string;
+export function hslString(v: RGBA): string;
 /**
  * Parse color name
  * @param {string} str - the color name
  * @return {RGBA} - the color
  */
-export function nameParse(str: string): import(".").RGBA;
+export function nameParse(str: string): RGBA;
 /**
  * Parse rgb(a) string to RGBA
  * @param {string} str - the rgb string
  * @returns {RGBA} - the parsed color
  */
-export function rgbParse(str: string): import(".").RGBA;
+export function rgbParse(str: string): RGBA;
 /**
  * Return rgb(a) string from color
  * @param {RGBA} v - the color
  */
-export function rgbString(v: import(".").RGBA): string;
+export function rgbString(v: RGBA): string;
 
 export class Color {
     /**
      * constructor
      * @param {Color|RGBA|string|number[]} input
      */
-    constructor(input: string | number[] | Color | import(".").RGBA);
+    constructor(input: string | number[] | Color | RGBA);
     /** @type {RGBA} */
     _rgb: RGBA;
     /** @type {boolean} */
@@ -149,11 +149,11 @@ export class Color {
     /**
      * @param {RGBA} obj - the color
      */
-    set rgb(arg: import(".").RGBA);
+    set rgb(arg: RGBA);
     /**
      * @returns {RGBA} - the color
      */
-    get rgb(): import(".").RGBA;
+    get rgb(): RGBA;
     /**
      * rgb(a) string
      */
@@ -161,7 +161,7 @@ export class Color {
     /**
      * hex string
      */
-    hexString(): string | import(".").RGBA;
+    hexString(): string | RGBA;
     /**
      * hsl(a) string
      */
