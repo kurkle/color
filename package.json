@@ -1,6 +1,6 @@
 {
   "name": "@kurkle/color",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "css color parsing, manupulation and conversion",
   "main": "dist/color.js",
   "module": "dist/color.esm.js",
@@ -13,7 +13,8 @@
     "url": "git+https://github.com/kurkle/color.git"
   },
   "files": [
-    "dist/*.js"
+    "dist/*.js",
+    "dist/color.d.ts"
   ],
   "keywords": [
     "color",
