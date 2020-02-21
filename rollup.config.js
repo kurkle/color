@@ -1,5 +1,6 @@
 /* eslint-env es6 */
 
+import cleanup from 'rollup-plugin-cleanup';
 import {terser} from 'rollup-plugin-terser';
 import visualizer from 'rollup-plugin-visualizer';
 import {version, homepage} from './package.json';
@@ -15,6 +16,11 @@ const banner = `/*!
 export default [
 	{
 		input: input,
+		plugins: [
+			cleanup({
+				sourcemap: true
+			})
+		],
 		output: {
 			name: '@kurkle/color',
 			file: 'dist/color.js',
@@ -48,6 +54,11 @@ export default [
 	},
 	{
 		input: input,
+		plugins: [
+			cleanup({
+				sourcemap: true
+			})
+		],
 		output: {
 			name: '@kurkle/color',
 			file: 'dist/color.esm.js',

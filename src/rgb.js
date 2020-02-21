@@ -1,6 +1,6 @@
 /**
  * @packageDocumentation
- * @module Index
+ * @module helpers
  */
 
 import {p2b, b2n} from './byte';
@@ -10,7 +10,7 @@ import {p2b, b2n} from './byte';
  */
 
 /**
- * @private
+ * @hidden
  */
 const RGB_RE = /^rgba?\(\s*([-+.\d]+)(%)?[\s,]+([-+.e\d]+)(%)?[\s,]+([-+.e\d]+)(%)?(?:[\s,/]+([-+.e\d]+)(%)?)?\s*\)$/;
 

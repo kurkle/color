@@ -1,6 +1,6 @@
 /**
  * @packageDocumentation
- * @module Index
+ * @module index
  */
 
 import {hexParse, hexString} from './hex';
@@ -14,12 +14,12 @@ import {b2n, n2b, round} from './byte';
  */
 
 /**
-  * Modify HSL properties
-  * @param {RGBA} v - the color
-  * @param {number} i - index [0=h, 1=s, 2=l]
-  * @param {number} ratio - ratio [0..1]
-  * @private
-  */
+ * Modify HSL properties
+ * @param {RGBA} v - the color
+ * @param {number} i - index [0=h, 1=s, 2=l]
+ * @param {number} ratio - ratio [0..1]
+ * @hidden
+ */
 function modHSL(v, i, ratio) {
 	if (v) {
 		let tmp = rgb2hsl(v);
@@ -35,14 +35,15 @@ function modHSL(v, i, ratio) {
  * Clone color
  * @param {RGBA} v - the color
  * @param {object} [proto] - prototype
+ * @hidden
  */
 function clone(v, proto) {
 	return v ? Object.assign(proto || {}, v) : v;
 }
 
 /**
- *
  * @param {RGBA|number[]} input
+ * @hidden
  */
 function fromObject(input) {
 	var v = {r: 0, g: 0, b: 0, a: 255};
@@ -62,6 +63,7 @@ function fromObject(input) {
 
 /**
  * @param {string} str
+ * @hidden
  */
 function functionParse(str) {
 	if (str.charAt(0) === 'r') {

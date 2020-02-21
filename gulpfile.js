@@ -23,6 +23,7 @@ function run(bin, args) {
 
 function buildTask() {
 	pack();
+	gulp.src('./color.d.ts').pipe(gulp.dest('./dist/'));
 	return run('rollup/dist/bin/rollup', ['-c']);
 }
 

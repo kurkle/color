@@ -1,22 +1,31 @@
 {
 	"compilerOptions": {
-	  "target": "ES6",
-	  "moduleResolution": "Node",
-	  "allowSyntheticDefaultImports": true,
-	  "allowJs": true,
-	  "checkJs": true,
-	  "noEmit": true
-	},
-	"typedocOptions": {
-	  "name": "@kurkle/color",
-	  "mode": "modules",
-	  "target": "ES2018",
-	  "template": "minimal",
-	  "inputFiles": ["./src"],
-	  "plugin": ["typedoc-plugin-external-module-name"],
-	  "out": "./docs"
+		"target": "es6",
+		"module": "es6",
+		"moduleResolution": "Node",
+		"allowJs": true,
+		"checkJs": true,
+		"noEmit": true,
+		"strict": false,
+		"alwaysStrict": true,
+		"esModuleInterop": true,
+		"noImplicitThis": true
 	},
 	"include": [
-	  "./src/*.js"
-	]
-  }
+		"./src/index.js"
+	],
+	"typedocOptions": {
+		"name": "@kurkle/color",
+		"mode": "modules",
+		"excludeExternals": true,
+		"target": "ES6",
+		"template": "minimal",
+		"includes": [
+			"./src"
+		],
+		"plugins": [
+			"typedoc-plugin-external-module-name",
+		],
+		"out": "./docs"
+	},
+}

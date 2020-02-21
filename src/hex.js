@@ -1,6 +1,6 @@
 /**
  * @packageDocumentation
- * @module Index
+ * @module helpers
  */
 
 /**
@@ -8,35 +8,36 @@
  */
 
 /**
-  * @private
-  */
+ * @hidden
+ */
 const map = {0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8, 9: 9, A: 10, B: 11, C: 12, D: 13, E: 14, F: 15, a: 10, b: 11, c: 12, d: 13, e: 14, f: 15};
+
 /**
- * @private
+ * @hidden
  */
 const hex = '0123456789ABCDEF';
 
 /**
  * @param {number} b - byte
- * @private
+ * @hidden
  */
 const h1 = (b) => hex[b & 0xF];
 
 /**
  * @param {number} b - byte
- * @private
+ * @hidden
  */
 const h2 = (b) => hex[(b & 0xF0) >> 4] + hex[b & 0xF];
 
 /**
  * @param {number} b - byte
- * @private
+ * @hidden
  */
 const eq = (b) => (((b & 0xF0) >> 4) === (b & 0xF));
 
 /**
  * @param {RGBA} v - the color
- * @private
+ * @hidden
  */
 function isShort(v) {
 	return eq(v.r) && eq(v.g) && eq(v.b) && eq(v.a);

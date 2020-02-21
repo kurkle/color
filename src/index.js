@@ -1,6 +1,7 @@
+
 /**
  * @packageDocumentation
- * @module Index
+ * @module index
  */
 
 import Color from './color';
@@ -12,7 +13,6 @@ import Color from './color';
  * @property {number} b - blue [0..255]
  * @property {number} a - alpha [0..1]
  */
-
 
 /**
  * Construct new Color instance

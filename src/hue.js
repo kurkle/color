@@ -1,6 +1,6 @@
 /**
  * @packageDocumentation
- * @module Index
+ * @module helpers
  */
 
 import {b2n, n2p, n2b, p2b} from './byte';
@@ -10,7 +10,7 @@ import {b2n, n2p, n2b, p2b} from './byte';
  */
 
 /**
- * @private
+ * @hidden
  */
 const HUE_RE = /^(hsla?|hwb|hsv)\(\s*([-+.e\d]+)(?:deg)?[\s,]+([-+.e\d]+)%[\s,]+([-+.e\d]+)%(?:[\s,]+([-+.e\d]+)(%)?)?\s*\)$/;
 
@@ -21,6 +21,7 @@ const HUE_RE = /^(hsla?|hwb|hsv)\(\s*([-+.e\d]+)(?:deg)?[\s,]+([-+.e\d]+)%[\s,]+
  * @param {number} s - saturation [0..1]
  * @param {number} l - lightness [0..1]
  * @returns {number[]} - [r, g, b] each normalized to [0..1]
+ * @hidden
  */
 function hsl2rgbn(h, s, l) {
 	const a = s * Math.min(l, 1 - l);
@@ -38,6 +39,7 @@ function hsl2rgbn(h, s, l) {
  * @param {number} s - saturation [0..1]
  * @param {number} v - value [0..1]
  * @returns {number[]} - [r, g, b] each normalized to [0..1]
+ * @hidden
  */
 function hsv2rgbn(h, s, v) {
 	/**
@@ -53,6 +55,7 @@ function hsv2rgbn(h, s, v) {
  * @param {number} w - whiteness [0..1]
  * @param {number} b - blackness [0..1]
  * @returns {number[]} - [r, g, b] each normalized to [0..1]
+ * @hidden
  */
 function hwb2rgbn(h, w, b) {
 	const rgb = hsl2rgbn(h, 1, 0.5);
@@ -102,6 +105,7 @@ export function rgb2hsl(v) {
  * @param {number} b
  * @param {number} c
  * @private
+ * @hidden
  */
 function calln(f, a, b, c) {
 	return (
@@ -146,7 +150,7 @@ export function hsv2rgb(h, s, v) {
 
 /**
  * @param {number} h - the angle
- * @private
+ * @hidden
  */
 function hue(h) {
 	return (h % 360 + 360) % 360;
