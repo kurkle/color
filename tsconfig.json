@@ -1,7 +1,7 @@
 {
 	"compilerOptions": {
-		"target": "es6",
-		"module": "es6",
+		"target": "ES6",
+		"module": "ES6",
 		"moduleResolution": "Node",
 		"allowJs": true,
 		"checkJs": true,
@@ -11,21 +11,17 @@
 		"esModuleInterop": true,
 		"noImplicitThis": true
 	},
-	"include": [
-		"./src/index.js"
+	"files": [
+		"./color.d.ts"
 	],
 	"typedocOptions": {
 		"name": "@kurkle/color",
-		"mode": "modules",
-		"excludeExternals": true,
+		"mode": "file",
+
+		"includeDeclarations": true,
+		"exclude": ["./node_modules/**/*"],
+
 		"target": "ES6",
-		"template": "minimal",
-		"includes": [
-			"./src"
-		],
-		"plugins": [
-			"typedoc-plugin-external-module-name",
-		],
-		"out": "./docs"
+		"out": "./docs",
 	},
 }

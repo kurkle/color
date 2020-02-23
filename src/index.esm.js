@@ -5,6 +5,13 @@
 
 import Color from './color';
 
+export {Color};
+export * from './byte';
+export * from './hex';
+export * from './hue';
+export * from './names';
+export * from './rgb';
+
 /**
  * @typedef {Object} RGBA
  * @property {number} r - red [0..255]

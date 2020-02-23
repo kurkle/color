@@ -45,6 +45,7 @@ function unpack(obj) {
 	return unpacked;
 }
 
+/** @hidden */
 export const names = unpack({
   OiceXe: 'f0f8ff',
   antiquewEte: 'faebd7',

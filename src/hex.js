@@ -1,6 +1,6 @@
 /**
  * @packageDocumentation
- * @module helpers
+ * @module utils
  */
 
 /**

@@ -36,7 +36,7 @@ export function hexParse(str: string): {
  */
 export function hexString(v: RGBA): string | RGBA;
 /**
- * Rounds to decimal to nearest integer
+ * Rounds decimal to nearest integer
  * @param {number} v - the number to round
  */
 export function round(v: number): number;
@@ -137,9 +137,15 @@ export class Color {
      * @param {Color|RGBA|string|number[]} input
      */
     constructor(input: string | number[] | Color | RGBA);
-    /** @type {RGBA} */
+    /**
+     * @type {RGBA}
+     * @hidden
+     **/
     _rgb: RGBA;
-    /** @type {boolean} */
+    /**
+     * @type {boolean}
+     * @hidden
+     **/
     _valid: boolean;
     /**
      * `true` if this is a valid color

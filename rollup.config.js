@@ -6,6 +6,7 @@ import visualizer from 'rollup-plugin-visualizer';
 import {version, homepage} from './package.json';
 
 const input = 'src/index.js';
+const inputESM = 'src/index.esm.js';
 const banner = `/*!
  * @kurkle/color v${version}
  * ${homepage}
@@ -53,7 +54,7 @@ export default [
 		}
 	},
 	{
-		input: input,
+		input: inputESM,
 		plugins: [
 			cleanup({
 				sourcemap: true
@@ -68,7 +69,7 @@ export default [
 		}
 	},
 	{
-		input: input,
+		input: inputESM,
 		plugins: [
 			terser({
 				output: {

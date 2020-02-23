@@ -1,10 +1,10 @@
 /**
  * @packageDocumentation
- * @module helpers
+ * @module utils
  */
 
 /**
- * Rounds to decimal to nearest integer
+ * Rounds decimal to nearest integer
  * @param {number} v - the number to round
  */
 export function round(v) {

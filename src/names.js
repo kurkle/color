@@ -1,6 +1,6 @@
 /**
  * @packageDocumentation
- * @module helpers
+ * @module utils
  */
 
 import {names} from '../packed';

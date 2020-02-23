@@ -153,5 +153,5 @@ function unpack(obj) {
 }
 
 `;
-	fs.writeFileSync('./packed.js', unpack + 'export const names = unpack(' + util.inspect(packed) + ');\n', 'utf-8');
+	fs.writeFileSync('./packed.js', unpack + '/** @hidden */\nexport const names = unpack(' + util.inspect(packed) + ');\n', 'utf-8');
 };

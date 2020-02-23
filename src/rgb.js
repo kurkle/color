@@ -1,6 +1,6 @@
 /**
  * @packageDocumentation
- * @module helpers
+ * @module utils
  */
 
 import {p2b, b2n} from './byte';
