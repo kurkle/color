@@ -134,7 +134,7 @@ module.exports = function() {
 	var mangled = mangle(mapped);
 	var packed = compress(mangled);
 	var unpack = `
-var map = ${util.inspect(mapped).replace('  ', '\t')};
+var map = ${util.inspect(mapped).replace(/ {2}/g, '\t')};
 function unpack(obj) {
 	var unpacked = {};
 	var keys = Object.keys(obj);
@@ -153,5 +153,5 @@ function unpack(obj) {
 }
 
 `;
-	fs.writeFileSync('./packed.js', unpack + '/** @hidden */\nexport const names = unpack(' + util.inspect(packed) + ');\n', 'utf-8');
+	fs.writeFileSync('./packed.js', unpack + '/** @hidden */\nexport const names = unpack(' + util.inspect(packed).replace(/ {2}/g, '\t') + ');\n', 'utf-8');
 };
