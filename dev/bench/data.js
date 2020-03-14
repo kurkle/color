@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1582442777272,
+  "lastUpdate": 1584163961365,
   "repoUrl": "https://github.com/kurkle/color",
   "entries": {
     "HEX parsing": [
@@ -1239,6 +1239,65 @@ window.BENCHMARK_DATA = {
             "range": "±0.80%",
             "unit": "ops/sec",
             "extra": "87 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "jukka.kurkela@gmail.com",
+            "name": "Jukka Kurkela",
+            "username": "kurkle"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "34d6c9538ee2d0171b6b28082668f0e6a7c331f1",
+          "message": "Merge pull request #1 from kurkle/dependabot/npm_and_yarn/acorn-7.1.1\n\nBump acorn from 7.1.0 to 7.1.1",
+          "timestamp": "2020-03-14T07:31:28+02:00",
+          "tree_id": "f4f11eb3c15165f67e91035dfe7efb3b95dd4297",
+          "url": "https://github.com/kurkle/color/commit/34d6c9538ee2d0171b6b28082668f0e6a7c331f1"
+        },
+        "date": 1584163960879,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "parseInt +",
+            "value": 4006229,
+            "range": "±1.25%",
+            "unit": "ops/sec",
+            "extra": "89 samples"
+          },
+          {
+            "name": "parseInt slice",
+            "value": 3266249,
+            "range": "±0.91%",
+            "unit": "ops/sec",
+            "extra": "89 samples"
+          },
+          {
+            "name": "map",
+            "value": 12527153,
+            "range": "±0.74%",
+            "unit": "ops/sec",
+            "extra": "94 samples"
+          },
+          {
+            "name": "map obj",
+            "value": 12550806,
+            "range": "±0.97%",
+            "unit": "ops/sec",
+            "extra": "92 samples"
+          },
+          {
+            "name": "parseInt + shift",
+            "value": 10499904,
+            "range": "±0.76%",
+            "unit": "ops/sec",
+            "extra": "91 samples"
           }
         ]
       }
