@@ -7,7 +7,7 @@
   "types": "dist/color.d.ts",
   "scripts": {
     "build": "node util/copy_dist.js && rollup -c",
-    "lint": "eslint **/*.js",
+    "lint": "eslint src/*.js test/*.js util/*.js",
     "test": "node test/index.js"
   },
   "repository": {
