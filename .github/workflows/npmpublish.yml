@@ -13,13 +13,11 @@ jobs:
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
-      - name: Install gulp
-        run: npm install --global gulp
       - name: Build
         run: |
           npm ci
-          gulp lint-js
-          gulp build
+          npm run lint
+          npm run build
       - name: Test
         run: node test/index.js
       - run: npm publish --access public
