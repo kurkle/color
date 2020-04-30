@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1584167498132,
+  "lastUpdate": 1588232376873,
   "repoUrl": "https://github.com/kurkle/color",
   "entries": {
     "HEX parsing": [
@@ -1355,6 +1355,65 @@ window.BENCHMARK_DATA = {
             "name": "parseInt + shift",
             "value": 10508185,
             "range": "±0.74%",
+            "unit": "ops/sec",
+            "extra": "92 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "jukka.kurkela@gmail.com",
+            "name": "kurkle",
+            "username": "kurkle"
+          },
+          "committer": {
+            "email": "jukka.kurkela@gmail.com",
+            "name": "kurkle",
+            "username": "kurkle"
+          },
+          "distinct": true,
+          "id": "e550e48c9c7f9ad29b88dc7bb89928c04938ad90",
+          "message": "Update copy_dist.js",
+          "timestamp": "2020-04-30T10:38:32+03:00",
+          "tree_id": "48aa8e09a13908737e142c9d54724e1df11404de",
+          "url": "https://github.com/kurkle/color/commit/e550e48c9c7f9ad29b88dc7bb89928c04938ad90"
+        },
+        "date": 1588232376314,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "parseInt +",
+            "value": 4333940,
+            "range": "±0.28%",
+            "unit": "ops/sec",
+            "extra": "92 samples"
+          },
+          {
+            "name": "parseInt slice",
+            "value": 3506013,
+            "range": "±1.54%",
+            "unit": "ops/sec",
+            "extra": "92 samples"
+          },
+          {
+            "name": "map",
+            "value": 13253050,
+            "range": "±0.82%",
+            "unit": "ops/sec",
+            "extra": "91 samples"
+          },
+          {
+            "name": "map obj",
+            "value": 13248962,
+            "range": "±0.51%",
+            "unit": "ops/sec",
+            "extra": "96 samples"
+          },
+          {
+            "name": "parseInt + shift",
+            "value": 11625479,
+            "range": "±0.56%",
             "unit": "ops/sec",
             "extra": "92 samples"
           }
