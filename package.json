@@ -6,6 +6,8 @@
   "module": "dist/color.esm.js",
   "types": "dist/color.d.ts",
   "scripts": {
+    "build": "node util/copy_dist.js && rollup -c",
+    "lint": "eslint **/*.js",
     "test": "node test/index.js"
   },
   "repository": {
@@ -34,9 +36,10 @@
     "url": "https://github.com/kurkle/color/issues"
   },
   "homepage": "https://github.com/kurkle/color#readme",
-  "dependencies": {},
+  "dependencies": {
+    "typedoc": "^0.17.6"
+  },
   "devDependencies": {
-    "@rollup/plugin-typescript": "^3.1.1",
     "assert": "^2.0.0",
     "babel-eslint": "^10.1.0",
     "benchmark": "^2.1.4",
@@ -50,25 +53,20 @@
     "color-parser": "^0.1.0",
     "color-string": "^1.5.3",
     "csscolorparser": "^1.0.3",
-    "eslint": "^6.1.0",
+    "eslint": "^6.8.0",
     "eslint-config-chartjs": "^0.1.0",
     "eslint-config-defaults": "^9.0.0",
-    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-react": "^7.19.0",
     "fs": "0.0.2",
-    "gulp": "^4.0.2",
-    "gulp-eslint": "^6.0.0",
     "perf_hooks": "0.0.1",
     "rollup": "^1.32.1",
     "rollup-plugin-cleanup": "^3.1.1",
-    "rollup-plugin-commonjs": "^10.0.2",
     "rollup-plugin-istanbul": "^2.0.1",
-    "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-terser": "^5.3.0",
-    "rollup-plugin-visualizer": "^3.3.1",
+    "rollup-plugin-visualizer": "^3.3.2",
     "tinycolor2": "^1.4.1",
-    "typedoc": "^0.16.11",
-    "typedoc-plugin-external-module-name": "^3.0.0",
+    "typedoc-plugin-external-module-name": "^3.1.0",
     "typescript": "^3.8.3",
     "util": "^0.12.2"
   }
