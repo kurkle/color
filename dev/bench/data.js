@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1588232376873,
+  "lastUpdate": 1588232746287,
   "repoUrl": "https://github.com/kurkle/color",
   "entries": {
     "HEX parsing": [
@@ -15046,6 +15046,604 @@ window.BENCHMARK_DATA = {
             "range": "±0.42%",
             "unit": "ops/sec",
             "extra": "74 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "jukka.kurkela@gmail.com",
+            "name": "kurkle",
+            "username": "kurkle"
+          },
+          "committer": {
+            "email": "jukka.kurkela@gmail.com",
+            "name": "kurkle",
+            "username": "kurkle"
+          },
+          "distinct": true,
+          "id": "e550e48c9c7f9ad29b88dc7bb89928c04938ad90",
+          "message": "Update copy_dist.js",
+          "timestamp": "2020-04-30T10:38:32+03:00",
+          "tree_id": "48aa8e09a13908737e142c9d54724e1df11404de",
+          "url": "https://github.com/kurkle/color/commit/e550e48c9c7f9ad29b88dc7bb89928c04938ad90"
+        },
+        "date": 1588232745939,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "parse #d6F|@kurkle/color",
+            "value": 30815598,
+            "range": "±6.88%",
+            "unit": "ops/sec",
+            "extra": "76 samples"
+          },
+          {
+            "name": "parse #d6F|chartjs-color",
+            "value": 798941,
+            "range": "±2.22%",
+            "unit": "ops/sec",
+            "extra": "74 samples"
+          },
+          {
+            "name": "parse #d6F|tinycolor2",
+            "value": 647600,
+            "range": "±0.50%",
+            "unit": "ops/sec",
+            "extra": "77 samples"
+          },
+          {
+            "name": "parse #d6F|chroma-js",
+            "value": 599223,
+            "range": "±2.13%",
+            "unit": "ops/sec",
+            "extra": "73 samples"
+          },
+          {
+            "name": "parse #d6F|color-parse",
+            "value": 2832330,
+            "range": "±0.47%",
+            "unit": "ops/sec",
+            "extra": "75 samples"
+          },
+          {
+            "name": "parse #d6F|color-parser",
+            "value": 2682261,
+            "range": "±0.37%",
+            "unit": "ops/sec",
+            "extra": "75 samples"
+          },
+          {
+            "name": "parse #d6F|color-string",
+            "value": 1886530,
+            "range": "±1.14%",
+            "unit": "ops/sec",
+            "extra": "72 samples"
+          },
+          {
+            "name": "parse #AABB|@kurkle/color",
+            "value": 8308806,
+            "range": "±0.53%",
+            "unit": "ops/sec",
+            "extra": "75 samples"
+          },
+          {
+            "name": "parse #AABB|chartjs-color",
+            "value": 470977,
+            "range": "±0.60%",
+            "unit": "ops/sec",
+            "extra": "76 samples"
+          },
+          {
+            "name": "parse #AABB|tinycolor2",
+            "value": 551598,
+            "range": "±0.91%",
+            "unit": "ops/sec",
+            "extra": "74 samples"
+          },
+          {
+            "name": "parse #AABB|chroma-js",
+            "value": 519396,
+            "range": "±0.44%",
+            "unit": "ops/sec",
+            "extra": "78 samples"
+          },
+          {
+            "name": "parse #AABB|color-parse",
+            "value": 1939864,
+            "range": "±0.69%",
+            "unit": "ops/sec",
+            "extra": "75 samples"
+          },
+          {
+            "name": "parse #AABB|color-string",
+            "value": 1574160,
+            "range": "±0.64%",
+            "unit": "ops/sec",
+            "extra": "76 samples"
+          },
+          {
+            "name": "parse #555555|@kurkle/color",
+            "value": 7096835,
+            "range": "±0.74%",
+            "unit": "ops/sec",
+            "extra": "74 samples"
+          },
+          {
+            "name": "parse #555555|chartjs-color",
+            "value": 494608,
+            "range": "±0.44%",
+            "unit": "ops/sec",
+            "extra": "77 samples"
+          },
+          {
+            "name": "parse #555555|tinycolor2",
+            "value": 721477,
+            "range": "±1.39%",
+            "unit": "ops/sec",
+            "extra": "75 samples"
+          },
+          {
+            "name": "parse #555555|chroma-js",
+            "value": 743091,
+            "range": "±0.50%",
+            "unit": "ops/sec",
+            "extra": "73 samples"
+          },
+          {
+            "name": "parse #555555|color-parse",
+            "value": 2551164,
+            "range": "±0.28%",
+            "unit": "ops/sec",
+            "extra": "79 samples"
+          },
+          {
+            "name": "parse #555555|color-parser",
+            "value": 3388409,
+            "range": "±0.49%",
+            "unit": "ops/sec",
+            "extra": "73 samples"
+          },
+          {
+            "name": "parse #555555|color-string",
+            "value": 2244417,
+            "range": "±0.40%",
+            "unit": "ops/sec",
+            "extra": "76 samples"
+          },
+          {
+            "name": "parse #a7a7a779|@kurkle/color",
+            "value": 5093609,
+            "range": "±0.57%",
+            "unit": "ops/sec",
+            "extra": "75 samples"
+          },
+          {
+            "name": "parse #a7a7a779|chartjs-color",
+            "value": 464900,
+            "range": "±1.43%",
+            "unit": "ops/sec",
+            "extra": "77 samples"
+          },
+          {
+            "name": "parse #a7a7a779|tinycolor2",
+            "value": 671582,
+            "range": "±0.58%",
+            "unit": "ops/sec",
+            "extra": "72 samples"
+          },
+          {
+            "name": "parse #a7a7a779|chroma-js",
+            "value": 648894,
+            "range": "±0.49%",
+            "unit": "ops/sec",
+            "extra": "75 samples"
+          },
+          {
+            "name": "parse #a7a7a779|color-parse",
+            "value": 2043986,
+            "range": "±0.70%",
+            "unit": "ops/sec",
+            "extra": "77 samples"
+          },
+          {
+            "name": "parse #a7a7a779|color-string",
+            "value": 1824541,
+            "range": "±1.01%",
+            "unit": "ops/sec",
+            "extra": "73 samples"
+          },
+          {
+            "name": "parse rgb(255, 0, 0)|@kurkle/color",
+            "value": 2904727,
+            "range": "±0.70%",
+            "unit": "ops/sec",
+            "extra": "76 samples"
+          },
+          {
+            "name": "parse rgb(255, 0, 0)|chartjs-color",
+            "value": 454900,
+            "range": "±1.59%",
+            "unit": "ops/sec",
+            "extra": "77 samples"
+          },
+          {
+            "name": "parse rgb(255, 0, 0)|tinycolor2",
+            "value": 794307,
+            "range": "±0.93%",
+            "unit": "ops/sec",
+            "extra": "76 samples"
+          },
+          {
+            "name": "parse rgb(255, 0, 0)|chroma-js",
+            "value": 109160,
+            "range": "±0.41%",
+            "unit": "ops/sec",
+            "extra": "77 samples"
+          },
+          {
+            "name": "parse rgb(255, 0, 0)|color-parse",
+            "value": 999956,
+            "range": "±1.71%",
+            "unit": "ops/sec",
+            "extra": "71 samples"
+          },
+          {
+            "name": "parse rgb(255, 0, 0)|color-parser",
+            "value": 1352236,
+            "range": "±0.73%",
+            "unit": "ops/sec",
+            "extra": "72 samples"
+          },
+          {
+            "name": "parse rgb(255, 0, 0)|color-string",
+            "value": 2340255,
+            "range": "±0.43%",
+            "unit": "ops/sec",
+            "extra": "74 samples"
+          },
+          {
+            "name": "parse rgba(255, 0, 0, 0.5)|@kurkle/color",
+            "value": 1836249,
+            "range": "±1.38%",
+            "unit": "ops/sec",
+            "extra": "78 samples"
+          },
+          {
+            "name": "parse rgba(255, 0, 0, 0.5)|chartjs-color",
+            "value": 506936,
+            "range": "±1.82%",
+            "unit": "ops/sec",
+            "extra": "67 samples"
+          },
+          {
+            "name": "parse rgba(255, 0, 0, 0.5)|tinycolor2",
+            "value": 760501,
+            "range": "±1.09%",
+            "unit": "ops/sec",
+            "extra": "70 samples"
+          },
+          {
+            "name": "parse rgba(255, 0, 0, 0.5)|chroma-js",
+            "value": 113968,
+            "range": "±1.78%",
+            "unit": "ops/sec",
+            "extra": "69 samples"
+          },
+          {
+            "name": "parse rgba(255, 0, 0, 0.5)|color-parse",
+            "value": 802508,
+            "range": "±2.00%",
+            "unit": "ops/sec",
+            "extra": "71 samples"
+          },
+          {
+            "name": "parse rgba(255, 0, 0, 0.5)|color-parser",
+            "value": 958274,
+            "range": "±1.12%",
+            "unit": "ops/sec",
+            "extra": "71 samples"
+          },
+          {
+            "name": "parse rgba(255, 0, 0, 0.5)|color-string",
+            "value": 1969664,
+            "range": "±2.01%",
+            "unit": "ops/sec",
+            "extra": "69 samples"
+          },
+          {
+            "name": "parse hsla(240, 100, 60, 0.5)|@kurkle/color",
+            "value": 6372996,
+            "range": "±1.56%",
+            "unit": "ops/sec",
+            "extra": "65 samples"
+          },
+          {
+            "name": "parse hsla(240, 100, 60, 0.5)|chartjs-color",
+            "value": 1713404,
+            "range": "±0.78%",
+            "unit": "ops/sec",
+            "extra": "72 samples"
+          },
+          {
+            "name": "parse hsla(240, 100, 60, 0.5)|tinycolor2",
+            "value": 514065,
+            "range": "±1.13%",
+            "unit": "ops/sec",
+            "extra": "76 samples"
+          },
+          {
+            "name": "parse hsla(240, 100, 60, 0.5)|color-parse",
+            "value": 663919,
+            "range": "±0.54%",
+            "unit": "ops/sec",
+            "extra": "76 samples"
+          },
+          {
+            "name": "parse blue|@kurkle/color",
+            "value": 18426537,
+            "range": "±1.57%",
+            "unit": "ops/sec",
+            "extra": "70 samples"
+          },
+          {
+            "name": "parse blue|chartjs-color",
+            "value": 995533,
+            "range": "±2.35%",
+            "unit": "ops/sec",
+            "extra": "69 samples"
+          },
+          {
+            "name": "parse blue|tinycolor2",
+            "value": 790203,
+            "range": "±2.10%",
+            "unit": "ops/sec",
+            "extra": "68 samples"
+          },
+          {
+            "name": "parse blue|chroma-js",
+            "value": 730813,
+            "range": "±0.48%",
+            "unit": "ops/sec",
+            "extra": "74 samples"
+          },
+          {
+            "name": "parse blue|color-parse",
+            "value": 8875930,
+            "range": "±4.02%",
+            "unit": "ops/sec",
+            "extra": "69 samples"
+          },
+          {
+            "name": "parse blue|color-parser",
+            "value": 17128787,
+            "range": "±0.80%",
+            "unit": "ops/sec",
+            "extra": "75 samples"
+          },
+          {
+            "name": "parse blue|color-string",
+            "value": 3267050,
+            "range": "±1.42%",
+            "unit": "ops/sec",
+            "extra": "70 samples"
+          },
+          {
+            "name": "alpha|@kurkle/color",
+            "value": 98114452,
+            "range": "±1.78%",
+            "unit": "ops/sec",
+            "extra": "65 samples"
+          },
+          {
+            "name": "alpha|chroma-js",
+            "value": 905266,
+            "range": "±1.70%",
+            "unit": "ops/sec",
+            "extra": "67 samples"
+          },
+          {
+            "name": "alpha|chartjs-color",
+            "value": 84118539,
+            "range": "±1.61%",
+            "unit": "ops/sec",
+            "extra": "66 samples"
+          },
+          {
+            "name": "negate|@kurkle/color",
+            "value": 317082938,
+            "range": "±1.87%",
+            "unit": "ops/sec",
+            "extra": "64 samples"
+          },
+          {
+            "name": "negate|chartjs-color",
+            "value": 830740,
+            "range": "±2.04%",
+            "unit": "ops/sec",
+            "extra": "72 samples"
+          },
+          {
+            "name": "lighten|@kurkle/color",
+            "value": 5161046,
+            "range": "±1.83%",
+            "unit": "ops/sec",
+            "extra": "68 samples"
+          },
+          {
+            "name": "lighten|chartjs-color",
+            "value": 1008878,
+            "range": "±1.03%",
+            "unit": "ops/sec",
+            "extra": "65 samples"
+          },
+          {
+            "name": "darken|@kurkle/color",
+            "value": 5033258,
+            "range": "±1.53%",
+            "unit": "ops/sec",
+            "extra": "68 samples"
+          },
+          {
+            "name": "darken|chroma-js",
+            "value": 449540,
+            "range": "±1.69%",
+            "unit": "ops/sec",
+            "extra": "70 samples"
+          },
+          {
+            "name": "darken|chartjs-color",
+            "value": 993637,
+            "range": "±1.22%",
+            "unit": "ops/sec",
+            "extra": "71 samples"
+          },
+          {
+            "name": "saturate|@kurkle/color",
+            "value": 4471704,
+            "range": "±1.95%",
+            "unit": "ops/sec",
+            "extra": "69 samples"
+          },
+          {
+            "name": "saturate|chroma-js",
+            "value": 292053,
+            "range": "±1.11%",
+            "unit": "ops/sec",
+            "extra": "68 samples"
+          },
+          {
+            "name": "saturate|chartjs-color",
+            "value": 904544,
+            "range": "±1.53%",
+            "unit": "ops/sec",
+            "extra": "73 samples"
+          },
+          {
+            "name": "desaturate|@kurkle/color",
+            "value": 4668882,
+            "range": "±0.63%",
+            "unit": "ops/sec",
+            "extra": "75 samples"
+          },
+          {
+            "name": "desaturate|chroma-js",
+            "value": 289431,
+            "range": "±0.49%",
+            "unit": "ops/sec",
+            "extra": "74 samples"
+          },
+          {
+            "name": "desaturate|chartjs-color",
+            "value": 901148,
+            "range": "±0.75%",
+            "unit": "ops/sec",
+            "extra": "74 samples"
+          },
+          {
+            "name": "clearer|@kurkle/color",
+            "value": 97216208,
+            "range": "±0.54%",
+            "unit": "ops/sec",
+            "extra": "74 samples"
+          },
+          {
+            "name": "clearer|chartjs-color",
+            "value": 14101322,
+            "range": "±1.31%",
+            "unit": "ops/sec",
+            "extra": "71 samples"
+          },
+          {
+            "name": "opaquer|@kurkle/color",
+            "value": 22982140,
+            "range": "±1.11%",
+            "unit": "ops/sec",
+            "extra": "68 samples"
+          },
+          {
+            "name": "opaquer|chartjs-color",
+            "value": 61206053,
+            "range": "±0.70%",
+            "unit": "ops/sec",
+            "extra": "76 samples"
+          },
+          {
+            "name": "mix|@kurkle/color",
+            "value": 2624981,
+            "range": "±1.16%",
+            "unit": "ops/sec",
+            "extra": "70 samples"
+          },
+          {
+            "name": "mix|chroma-js",
+            "value": 372047,
+            "range": "±0.72%",
+            "unit": "ops/sec",
+            "extra": "75 samples"
+          },
+          {
+            "name": "mix|chartjs-color",
+            "value": 722669,
+            "range": "±1.27%",
+            "unit": "ops/sec",
+            "extra": "73 samples"
+          },
+          {
+            "name": "clone|@kurkle/color",
+            "value": 3580021,
+            "range": "±0.85%",
+            "unit": "ops/sec",
+            "extra": "73 samples"
+          },
+          {
+            "name": "clone|chartjs-color",
+            "value": 2467053,
+            "range": "±3.89%",
+            "unit": "ops/sec",
+            "extra": "73 samples"
+          },
+          {
+            "name": "hexString|@kurkle/color",
+            "value": 11713650,
+            "range": "±0.89%",
+            "unit": "ops/sec",
+            "extra": "74 samples"
+          },
+          {
+            "name": "hexString|chartjs-color",
+            "value": 2140559,
+            "range": "±0.64%",
+            "unit": "ops/sec",
+            "extra": "75 samples"
+          },
+          {
+            "name": "hslString|@kurkle/color",
+            "value": 10387217,
+            "range": "±0.62%",
+            "unit": "ops/sec",
+            "extra": "75 samples"
+          },
+          {
+            "name": "hslString|chartjs-color",
+            "value": 14622139,
+            "range": "±1.55%",
+            "unit": "ops/sec",
+            "extra": "71 samples"
+          },
+          {
+            "name": "rgbString|@kurkle/color",
+            "value": 15530088,
+            "range": "±1.08%",
+            "unit": "ops/sec",
+            "extra": "74 samples"
+          },
+          {
+            "name": "rgbString|chartjs-color",
+            "value": 15197967,
+            "range": "±0.69%",
+            "unit": "ops/sec",
+            "extra": "71 samples"
           }
         ]
       }
