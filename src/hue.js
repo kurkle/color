@@ -50,7 +50,7 @@ function hsv2rgbn(h, s, v) {
 }
 
 /**
- * Convert hwb to rgb nomarlized
+ * Convert hwb to rgb nomalized
  * @param {number} h - hue [0..360]
  * @param {number} w - whiteness [0..1]
  * @param {number} b - blackness [0..1]
