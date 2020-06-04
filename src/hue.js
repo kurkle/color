@@ -14,9 +14,9 @@ import {b2n, n2p, n2b, p2b} from './byte';
  */
 const HUE_RE = /^(hsla?|hwb|hsv)\(\s*([-+.e\d]+)(?:deg)?[\s,]+([-+.e\d]+)%[\s,]+([-+.e\d]+)%(?:[\s,]+([-+.e\d]+)(%)?)?\s*\)$/;
 
-// https://jsfiddle.net/Lamik/reuk63ay/91
 /**
  * Converts hsl to rgb normalized
+ * @url https://jsfiddle.net/Lamik/reuk63ay/91
  * @param {number} h - hue [0..360]
  * @param {number} s - saturation [0..1]
  * @param {number} l - lightness [0..1]
@@ -50,7 +50,7 @@ function hsv2rgbn(h, s, v) {
 }
 
 /**
- * Convert hwb to rgb nomarlized
+ * Convert hwb to rgb normalized
  * @param {number} h - hue [0..360]
  * @param {number} w - whiteness [0..1]
  * @param {number} b - blackness [0..1]
