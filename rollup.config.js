@@ -68,28 +68,4 @@ export default [
 			indent: false
 		}
 	},
-	{
-		input: inputESM,
-		plugins: [
-			terser({
-				output: {
-					preamble: banner
-				}
-			}),
-			visualizer({
-				sourcemap: true,
-				title: '@kurkle/color',
-				template: 'treemap',
-				filename: 'docs/stats.esm.html'
-			})
-		],
-		output: {
-			name: '@kurkle/color',
-			file: 'dist/color.esm.min.js',
-			banner: banner,
-			format: 'esm',
-			sourcemap: true,
-			indent: false
-		}
-	},
 ];

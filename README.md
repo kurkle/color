@@ -73,7 +73,6 @@ hsv(244, 100%, 100%, 0.6)
 ## Size visualization
 
 [color.min.js](https://kurkle.github.io/color/stats.html)
-[color.esm.min.js](https://kurkle.github.io/color/stats.esm.html)
 
 ## License
 
