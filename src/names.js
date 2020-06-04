@@ -17,7 +17,7 @@ names.transparent = [0, 0, 0, 0];
  * @return {RGBA} - the color
  */
 export function nameParse(str) {
-	var a = names[str];
+	var a = names[str.toLowerCase()];
 	return a && {
 		r: a[0],
 		g: a[1],
