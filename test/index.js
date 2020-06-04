@@ -40,7 +40,7 @@ assert.deepEqual(new Color('hsla(-10.0, 100%, 50%, -0.2)').hslString(), 'hsla(35
 assert.deepEqual(new Color('hsla(-1e1, 1e2%, 50%, -2e-1)').hslString(), 'hsla(350, 100%, 50%, 0)');
 
 assert.deepEqual(new Color('blue').rgb, {r: 0, g: 0, b: 255, a: 1});
-assert.deepEqual(new Color('blue').rgb, {r: 0, g: 0, b: 255, a: 1});
+assert.deepEqual(new Color('BluE').rgb, {r: 0, g: 0, b: 255, a: 1});
 assert.deepEqual(new Color('transparent').rgb, {r: 0, g: 0, b: 0, a: 0});
 
 assert.strictEqual(new Color('yellowblue').rgb, undefined);
@@ -49,6 +49,8 @@ assert.strictEqual(new Color('#f').rgb, undefined);
 assert.strictEqual(new Color('#4f').rgb, undefined);
 assert.strictEqual(new Color('#45ab4').rgb, undefined);
 assert.strictEqual(new Color('#45ab45e').rgb, undefined);
+
+assert.strictEqual(new Color('yellowblue').hexString(), undefined);
 
 assert.strictEqual(new Color('#45ab45ed').hexString(), '#45AB45ED');
 assert.deepEqual(new Color('hsl(100, 50%, 50%)').rgb, {r: 106, g: 191, b: 64, a: 1});
