@@ -3,13 +3,12 @@
  * @module utils
  */
 
-import {names} from '../packed';
+import unpack from '../packed';
+let names;
 
 /**
  * @typedef {import('./index.js').RGBA} RGBA
  */
-
-names.transparent = [0, 0, 0, 0];
 
 /**
  * Parse color name
@@ -17,7 +16,11 @@ names.transparent = [0, 0, 0, 0];
  * @return {RGBA} - the color
  */
 export function nameParse(str) {
-	var a = names[str.toLowerCase()];
+	if (!names) {
+		names = unpack();
+		names.transparent = [0, 0, 0, 0];
+	}
+	const a = names[str.toLowerCase()];
 	return a && {
 		r: a[0],
 		g: a[1],

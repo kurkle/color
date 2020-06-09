@@ -1,5 +1,5 @@
 
-var map = {
+const map = {
 	x: 'dark',
 	Z: 'light',
 	Y: 're',
@@ -28,25 +28,7 @@ var map = {
 	I: 'ightg',
 	J: 'wh'
 };
-function unpack(obj) {
-	var unpacked = {};
-	var keys = Object.keys(obj);
-	var tkeys = Object.keys(map);
-	var i, j, k, ok, nk;
-	for (i = 0; i < keys.length; i++) {
-		ok = nk = keys[i];
-		for (j = 0; j < tkeys.length; j++) {
-			k = tkeys[j];
-			nk = nk.replace(k, map[k]);
-		}
-		k = parseInt(obj[ok], 16);
-		unpacked[nk] = [k >> 16 & 0xFF, k >> 8 & 0xFF, k & 0xFF];
-	}
-	return unpacked;
-}
-
-/** @hidden */
-export const names = unpack({
+const names = {
 	OiceXe: 'f0f8ff',
 	antiquewEte: 'faebd7',
 	aqua: 'ffff',
@@ -195,4 +177,20 @@ export const names = unpack({
 	wEtesmoke: 'f5f5f5',
 	Lw: 'ffff00',
 	LwgYF: '9acd32'
-});
+};
+export default function unpack() {
+	const unpacked = {};
+	const keys = Object.keys(names);
+	const tkeys = Object.keys(map);
+	let i, j, k, ok, nk;
+	for (i = 0; i < keys.length; i++) {
+		ok = nk = keys[i];
+		for (j = 0; j < tkeys.length; j++) {
+			k = tkeys[j];
+			nk = nk.replace(k, map[k]);
+		}
+		k = parseInt(names[ok], 16);
+		unpacked[nk] = [k >> 16 & 0xFF, k >> 8 & 0xFF, k & 0xFF];
+	}
+	return unpacked;
+}
