@@ -3,12 +3,12 @@
 import cleanup from 'rollup-plugin-cleanup';
 import {terser} from 'rollup-plugin-terser';
 import visualizer from 'rollup-plugin-visualizer';
-import {version, homepage} from './package.json';
+import {homepage, name, main, module, version} from './package.json';
 
 const input = 'src/index.js';
 const inputESM = 'src/index.esm.js';
 const banner = `/*!
- * @kurkle/color v${version}
+ * ${name} v${version}
  * ${homepage}
  * (c) ${(new Date(process.env.SOURCE_DATE_EPOCH ? (process.env.SOURCE_DATE_EPOCH * 1000) : new Date().getTime())).getFullYear()} Jukka Kurkela
  * Released under the MIT License
@@ -23,8 +23,8 @@ export default [
 			})
 		],
 		output: {
-			name: '@kurkle/color',
-			file: 'dist/color.js',
+			name,
+			file: main,
 			banner: banner,
 			format: 'umd',
 			indent: false
@@ -40,14 +40,14 @@ export default [
 			}),
 			visualizer({
 				sourcemap: true,
-				title: '@kurkle/color',
+				title: name,
 				template: 'treemap',
 				filename: 'docs/stats.html'
 			})
 		],
 		output: {
-			name: '@kurkle/color',
-			file: 'dist/color.min.js',
+			name,
+			file: main.replace('.js', '.min.js'),
 			format: 'umd',
 			sourcemap: true,
 			indent: false
@@ -61,8 +61,8 @@ export default [
 			})
 		],
 		output: {
-			name: '@kurkle/color',
-			file: 'dist/color.esm.js',
+			name,
+			file: module,
 			banner: banner,
 			format: 'esm',
 			indent: false
