@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1606918360073,
+  "lastUpdate": 1615634658276,
   "repoUrl": "https://github.com/kurkle/color",
   "entries": {
     "HEX parsing": [
@@ -1711,6 +1711,65 @@ window.BENCHMARK_DATA = {
             "range": "±0.74%",
             "unit": "ops/sec",
             "extra": "91 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "jukka.kurkela@gmail.com",
+            "name": "Jukka Kurkela",
+            "username": "kurkle"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "6b22515a665e99ea6afa1dbe3f0e5b7217f4e730",
+          "message": "Merge pull request #5 from kurkle/dependabot/npm_and_yarn/highlight.js-10.4.1\n\nBump highlight.js from 10.4.0 to 10.4.1",
+          "timestamp": "2021-03-13T13:23:21+02:00",
+          "tree_id": "889d6e9d60e277d489faa3fcc9328330df6f08f0",
+          "url": "https://github.com/kurkle/color/commit/6b22515a665e99ea6afa1dbe3f0e5b7217f4e730"
+        },
+        "date": 1615634657720,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "parseInt +",
+            "value": 3777613,
+            "range": "±0.32%",
+            "unit": "ops/sec",
+            "extra": "96 samples"
+          },
+          {
+            "name": "parseInt slice",
+            "value": 3182116,
+            "range": "±0.16%",
+            "unit": "ops/sec",
+            "extra": "93 samples"
+          },
+          {
+            "name": "map",
+            "value": 10836174,
+            "range": "±0.32%",
+            "unit": "ops/sec",
+            "extra": "93 samples"
+          },
+          {
+            "name": "map obj",
+            "value": 10756108,
+            "range": "±1.49%",
+            "unit": "ops/sec",
+            "extra": "91 samples"
+          },
+          {
+            "name": "parseInt + shift",
+            "value": 9992933,
+            "range": "±0.60%",
+            "unit": "ops/sec",
+            "extra": "92 samples"
           }
         ]
       }
