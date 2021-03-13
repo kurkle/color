@@ -20,5 +20,5 @@ import Color from './color';
  * @internal
  */
 export default function(input) {
-	return new Color(input);
+  return new Color(input);
 }

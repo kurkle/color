@@ -21,14 +21,14 @@ import {b2n, n2b, round} from './byte';
  * @hidden
  */
 function modHSL(v, i, ratio) {
-	if (v) {
-		let tmp = rgb2hsl(v);
-		tmp[i] = Math.max(0, Math.min(tmp[i] + tmp[i] * ratio, i === 0 ? 360 : 1));
-		tmp = hsl2rgb(tmp);
-		v.r = tmp[0];
-		v.g = tmp[1];
-		v.b = tmp[2];
-	}
+  if (v) {
+    let tmp = rgb2hsl(v);
+    tmp[i] = Math.max(0, Math.min(tmp[i] + tmp[i] * ratio, i === 0 ? 360 : 1));
+    tmp = hsl2rgb(tmp);
+    v.r = tmp[0];
+    v.g = tmp[1];
+    v.b = tmp[2];
+  }
 }
 
 /**
@@ -38,7 +38,7 @@ function modHSL(v, i, ratio) {
  * @hidden
  */
 function clone(v, proto) {
-	return v ? Object.assign(proto || {}, v) : v;
+  return v ? Object.assign(proto || {}, v) : v;
 }
 
 /**
@@ -46,19 +46,19 @@ function clone(v, proto) {
  * @hidden
  */
 function fromObject(input) {
-	var v = {r: 0, g: 0, b: 0, a: 255};
-	if (Array.isArray(input)) {
-		if (input.length >= 3) {
-			v = {r: input[0], g: input[1], b: input[2], a: 255};
-			if (input.length > 3) {
-				v.a = n2b(input[3]);
-			}
-		}
-	} else {
-		v = clone(input, {r: 0, g: 0, b: 0, a: 1});
-		v.a = n2b(v.a);
-	}
-	return v;
+  var v = {r: 0, g: 0, b: 0, a: 255};
+  if (Array.isArray(input)) {
+    if (input.length >= 3) {
+      v = {r: input[0], g: input[1], b: input[2], a: 255};
+      if (input.length > 3) {
+        v.a = n2b(input[3]);
+      }
+    }
+  } else {
+    v = clone(input, {r: 0, g: 0, b: 0, a: 1});
+    v.a = n2b(v.a);
+  }
+  return v;
 }
 
 /**
@@ -66,206 +66,206 @@ function fromObject(input) {
  * @hidden
  */
 function functionParse(str) {
-	if (str.charAt(0) === 'r') {
-		return rgbParse(str);
-	}
-	return hueParse(str);
+  if (str.charAt(0) === 'r') {
+    return rgbParse(str);
+  }
+  return hueParse(str);
 }
 
 export default class Color {
-	/**
+  /**
 	 * constructor
 	 * @param {Color|RGBA|string|number[]} input
 	 */
-	constructor(input) {
-		if (input instanceof Color) {
-			return input;
-		}
-		const type = typeof input;
-		let v;
-		if (type === 'object') {
-			// @ts-ignore
-			v = fromObject(input);
-		} else if (type === 'string') {
-			// @ts-ignore
-			v = hexParse(input) || nameParse(input) || functionParse(input);
-		}
+  constructor(input) {
+    if (input instanceof Color) {
+      return input;
+    }
+    const type = typeof input;
+    let v;
+    if (type === 'object') {
+      // @ts-ignore
+      v = fromObject(input);
+    } else if (type === 'string') {
+      // @ts-ignore
+      v = hexParse(input) || nameParse(input) || functionParse(input);
+    }
 
-		/** @type {RGBA} */
-		this._rgb = v;
-		/** @type {boolean} */
-		this._valid = !!v;
-	}
+    /** @type {RGBA} */
+    this._rgb = v;
+    /** @type {boolean} */
+    this._valid = !!v;
+  }
 
-	/**
+  /**
 	 * `true` if this is a valid color
 	 * @returns {boolean}
 	 */
-	get valid() {
-		return this._valid;
-	}
+  get valid() {
+    return this._valid;
+  }
 
-	/**
+  /**
 	 * @returns {RGBA} - the color
 	 */
-	get rgb() {
-		var v = clone(this._rgb);
-		if (v) {
-			v.a = b2n(v.a);
-		}
-		return v;
-	}
+  get rgb() {
+    var v = clone(this._rgb);
+    if (v) {
+      v.a = b2n(v.a);
+    }
+    return v;
+  }
 
-	/**
+  /**
 	 * @param {RGBA} obj - the color
 	 */
-	set rgb(obj) {
-		this._rgb = fromObject(obj);
-	}
+  set rgb(obj) {
+    this._rgb = fromObject(obj);
+  }
 
-	/**
+  /**
 	 * rgb(a) string
 	 */
-	rgbString() {
-		return this._valid ? rgbString(this._rgb) : this._rgb;
-	}
+  rgbString() {
+    return this._valid ? rgbString(this._rgb) : this._rgb;
+  }
 
-	/**
+  /**
 	 * hex string
 	 */
-	hexString() {
-		return this._valid ? hexString(this._rgb) : this._rgb;
-	}
+  hexString() {
+    return this._valid ? hexString(this._rgb) : this._rgb;
+  }
 
-	/**
+  /**
 	 * hsl(a) string
 	 */
-	hslString() {
-		return this._valid ? hslString(this._rgb) : this._rgb;
-	}
+  hslString() {
+    return this._valid ? hslString(this._rgb) : this._rgb;
+  }
 
-	/**
+  /**
 	 * Mix another color to this color.
 	 * @param {Color} color - Color to mix in
 	 * @param {number} weight - 0..1
 	 */
-	mix(color, weight) {
-		const me = this;
-		if (color) {
-			const c1 = me.rgb;
-			const c2 = color.rgb;
-			let w2; // using instead of undefined in the next line
-			const p = weight === w2 ? 0.5 : weight;
-			const w = 2 * p - 1;
-			const a = c1.a - c2.a;
-			const w1 = ((w * a === -1 ? w : (w + a) / (1 + w * a)) + 1) / 2.0;
-			w2 = 1 - w1;
-			c1.r = 0xFF & w1 * c1.r + w2 * c2.r + 0.5;
-			c1.g = 0xFF & w1 * c1.g + w2 * c2.g + 0.5;
-			c1.b = 0xFF & w1 * c1.b + w2 * c2.b + 0.5;
-			c1.a = p * c1.a + (1 - p) * c2.a;
-			me.rgb = c1;
-		}
-		return me;
-	}
+  mix(color, weight) {
+    const me = this;
+    if (color) {
+      const c1 = me.rgb;
+      const c2 = color.rgb;
+      let w2; // using instead of undefined in the next line
+      const p = weight === w2 ? 0.5 : weight;
+      const w = 2 * p - 1;
+      const a = c1.a - c2.a;
+      const w1 = ((w * a === -1 ? w : (w + a) / (1 + w * a)) + 1) / 2.0;
+      w2 = 1 - w1;
+      c1.r = 0xFF & w1 * c1.r + w2 * c2.r + 0.5;
+      c1.g = 0xFF & w1 * c1.g + w2 * c2.g + 0.5;
+      c1.b = 0xFF & w1 * c1.b + w2 * c2.b + 0.5;
+      c1.a = p * c1.a + (1 - p) * c2.a;
+      me.rgb = c1;
+    }
+    return me;
+  }
 
-	/**
+  /**
 	 * Clone
 	 */
-	clone() {
-		return new Color(this.rgb);
-	}
+  clone() {
+    return new Color(this.rgb);
+  }
 
-	/**
+  /**
 	 * Set aplha
 	 * @param {number} a - the alpha [0..1]
 	 */
-	alpha(a) {
-		this._rgb.a = n2b(a);
-		return this;
-	}
+  alpha(a) {
+    this._rgb.a = n2b(a);
+    return this;
+  }
 
-	/**
+  /**
 	 * Make clearer
 	 * @param {number} ratio - ratio [0..1]
 	 */
-	clearer(ratio) {
-		const rgb = this._rgb;
-		rgb.a *= 1 - ratio;
-		return this;
-	}
+  clearer(ratio) {
+    const rgb = this._rgb;
+    rgb.a *= 1 - ratio;
+    return this;
+  }
 
-	/**
+  /**
 	 * Convert to grayscale
 	 */
-	greyscale() {
-		const rgb = this._rgb;
-		// http://en.wikipedia.org/wiki/Grayscale#Converting_color_to_grayscale
-		const val = round(rgb.r * 0.3 + rgb.g * 0.59 + rgb.b * 0.11);
-		rgb.r = rgb.g = rgb.b = val;
-		return this;
-	}
+  greyscale() {
+    const rgb = this._rgb;
+    // http://en.wikipedia.org/wiki/Grayscale#Converting_color_to_grayscale
+    const val = round(rgb.r * 0.3 + rgb.g * 0.59 + rgb.b * 0.11);
+    rgb.r = rgb.g = rgb.b = val;
+    return this;
+  }
 
-	/**
+  /**
 	 * Opaquer
 	 * @param {number} ratio - ratio [0..1]
 	 */
-	opaquer(ratio) {
-		const rgb = this._rgb;
-		rgb.a *= 1 + ratio;
-		return this;
-	}
+  opaquer(ratio) {
+    const rgb = this._rgb;
+    rgb.a *= 1 + ratio;
+    return this;
+  }
 
-	negate() {
-		const v = this._rgb;
-		v.r = 255 - v.r;
-		v.g = 255 - v.g;
-		v.b = 255 - v.b;
-		return this;
-	}
+  negate() {
+    const v = this._rgb;
+    v.r = 255 - v.r;
+    v.g = 255 - v.g;
+    v.b = 255 - v.b;
+    return this;
+  }
 
-	/**
+  /**
 	 * Lighten
 	 * @param {number} ratio - ratio [0..1]
 	 */
-	lighten(ratio) {
-		modHSL(this._rgb, 2, ratio);
-		return this;
-	}
+  lighten(ratio) {
+    modHSL(this._rgb, 2, ratio);
+    return this;
+  }
 
-	/**
+  /**
 	 * Darken
 	 * @param {number} ratio - ratio [0..1]
 	 */
-	darken(ratio) {
-		modHSL(this._rgb, 2, -ratio);
-		return this;
-	}
+  darken(ratio) {
+    modHSL(this._rgb, 2, -ratio);
+    return this;
+  }
 
-	/**
+  /**
 	 * Saturate
 	 * @param {number} ratio - ratio [0..1]
 	 */
-	saturate(ratio) {
-		modHSL(this._rgb, 1, ratio);
-		return this;
-	}
+  saturate(ratio) {
+    modHSL(this._rgb, 1, ratio);
+    return this;
+  }
 
-	/**
+  /**
 	 * Desaturate
 	 * @param {number} ratio - ratio [0..1]
 	 */
-	desaturate(ratio) {
-		modHSL(this._rgb, 1, -ratio);
-		return this;
-	}
+  desaturate(ratio) {
+    modHSL(this._rgb, 1, -ratio);
+    return this;
+  }
 
-	/**
+  /**
 	 * Rotate
 	 * @param {number} deg - degrees to rotate
 	 */
-	rotate(deg) {
-		rotate(this._rgb, deg);
-		return this;
-	}
+  rotate(deg) {
+    rotate(this._rgb, deg);
+    return this;
+  }
 }

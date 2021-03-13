@@ -8,7 +8,7 @@
  * @param {number} v - the number to round
  */
 export function round(v) {
-	return v + 0.5 | 0;
+  return v + 0.5 | 0;
 }
 
 const lim = (v, l, h) => Math.max(Math.min(v, h), l);
@@ -18,7 +18,7 @@ const lim = (v, l, h) => Math.max(Math.min(v, h), l);
  * @param {number} v - 0..100
  */
 export function p2b(v) {
-	return lim(round(v * 2.55), 0, 255);
+  return lim(round(v * 2.55), 0, 255);
 }
 
 /**
@@ -26,7 +26,7 @@ export function p2b(v) {
  * @param {number} v - 0..255
  */
 export function b2p(v) {
-	return lim(round(v / 2.55), 0, 100);
+  return lim(round(v / 2.55), 0, 100);
 }
 
 /**
@@ -34,7 +34,7 @@ export function b2p(v) {
  * @param {number} v - 0..1
  */
 export function n2b(v) {
-	return lim(round(v * 255), 0, 255);
+  return lim(round(v * 255), 0, 255);
 }
 
 /**
@@ -42,7 +42,7 @@ export function n2b(v) {
  * @param {number} v - 0..255
  */
 export function b2n(v) {
-	return lim(round(v / 2.55) / 100, 0, 1);
+  return lim(round(v / 2.55) / 100, 0, 1);
 }
 
 /**
@@ -50,5 +50,5 @@ export function b2n(v) {
  * @param {number} v - 0..1
  */
 export function n2p(v) {
-	return lim(round(v * 100), 0, 100);
+  return lim(round(v * 100), 0, 100);
 }

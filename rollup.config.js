@@ -1,5 +1,3 @@
-/* eslint-env es6 */
-
 import cleanup from 'rollup-plugin-cleanup';
 import {terser} from 'rollup-plugin-terser';
 import visualizer from 'rollup-plugin-visualizer';
@@ -15,57 +13,57 @@ const banner = `/*!
  */`;
 
 export default [
-	{
-		input: input,
-		plugins: [
-			cleanup({
-				sourcemap: true
-			})
-		],
-		output: {
-			name,
-			file: main,
-			banner: banner,
-			format: 'umd',
-			indent: false
-		}
-	},
-	{
-		input: input,
-		plugins: [
-			terser({
-				output: {
-					preamble: banner
-				}
-			}),
-			visualizer({
-				sourcemap: true,
-				title: name,
-				template: 'treemap',
-				filename: 'docs/stats.html'
-			})
-		],
-		output: {
-			name,
-			file: main.replace('.js', '.min.js'),
-			format: 'umd',
-			sourcemap: true,
-			indent: false
-		}
-	},
-	{
-		input: inputESM,
-		plugins: [
-			cleanup({
-				sourcemap: true
-			})
-		],
-		output: {
-			name,
-			file: module,
-			banner: banner,
-			format: 'esm',
-			indent: false
-		}
-	},
+  {
+    input: input,
+    plugins: [
+      cleanup({
+        sourcemap: true
+      })
+    ],
+    output: {
+      name,
+      file: main,
+      banner: banner,
+      format: 'umd',
+      indent: false
+    }
+  },
+  {
+    input: input,
+    plugins: [
+      terser({
+        output: {
+          preamble: banner
+        }
+      }),
+      visualizer({
+        sourcemap: true,
+        title: name,
+        template: 'treemap',
+        filename: 'docs/stats.html'
+      })
+    ],
+    output: {
+      name,
+      file: main.replace('.js', '.min.js'),
+      format: 'umd',
+      sourcemap: true,
+      indent: false
+    }
+  },
+  {
+    input: inputESM,
+    plugins: [
+      cleanup({
+        sourcemap: true
+      })
+    ],
+    output: {
+      name,
+      file: module,
+      banner: banner,
+      format: 'esm',
+      indent: false
+    }
+  },
 ];

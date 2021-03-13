@@ -27,5 +27,5 @@ export * from './rgb';
  * @internal
  */
 export default function(input) {
-	return new Color(input);
+  return new Color(input);
 }
