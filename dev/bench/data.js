@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1615635643841,
+  "lastUpdate": 1615635831441,
   "repoUrl": "https://github.com/kurkle/color",
   "entries": {
     "HEX parsing": [
@@ -1827,6 +1827,65 @@ window.BENCHMARK_DATA = {
             "name": "parseInt + shift",
             "value": 10716493,
             "range": "±0.94%",
+            "unit": "ops/sec",
+            "extra": "88 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "jukka.kurkela@gmail.com",
+            "name": "Jukka Kurkela",
+            "username": "kurkle"
+          },
+          "committer": {
+            "email": "jukka.kurkela@gmail.com",
+            "name": "Jukka Kurkela",
+            "username": "kurkle"
+          },
+          "distinct": true,
+          "id": "0dbb1551f0b33ce6279653fa48b6e0622cc05faa",
+          "message": "Update license",
+          "timestamp": "2021-03-13T13:42:40+02:00",
+          "tree_id": "a15dfc2a61235ed2fe75c4dcbae26c1450301b6f",
+          "url": "https://github.com/kurkle/color/commit/0dbb1551f0b33ce6279653fa48b6e0622cc05faa"
+        },
+        "date": 1615635830913,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "parseInt +",
+            "value": 3751589,
+            "range": "±0.93%",
+            "unit": "ops/sec",
+            "extra": "89 samples"
+          },
+          {
+            "name": "parseInt slice",
+            "value": 3055564,
+            "range": "±1.27%",
+            "unit": "ops/sec",
+            "extra": "87 samples"
+          },
+          {
+            "name": "map",
+            "value": 11338347,
+            "range": "±0.69%",
+            "unit": "ops/sec",
+            "extra": "89 samples"
+          },
+          {
+            "name": "map obj",
+            "value": 11227990,
+            "range": "±1.29%",
+            "unit": "ops/sec",
+            "extra": "86 samples"
+          },
+          {
+            "name": "parseInt + shift",
+            "value": 9993593,
+            "range": "±1.07%",
             "unit": "ops/sec",
             "extra": "88 samples"
           }
