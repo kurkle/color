@@ -16,12 +16,10 @@
 	],
 	"typedocOptions": {
 		"name": "@kurkle/color",
-		"mode": "file",
-
-		"includeDeclarations": true,
-		"exclude": ["./node_modules/**/*"],
-
-		"target": "ES6",
+		"mode": "library",
+		"entryPoints": ["./color.d.ts"],
+		"excludeExternals": true,
+		"includeVersion": true,
 		"out": "./docs",
 	},
 }
