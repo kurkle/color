@@ -1,4 +1,5 @@
 import cleanup from 'rollup-plugin-cleanup';
+import {sizeSnapshot} from 'rollup-plugin-size-snapshot';
 import {terser} from 'rollup-plugin-terser';
 import visualizer from 'rollup-plugin-visualizer';
 import {homepage, name, main, module, version} from './package.json';
@@ -12,10 +13,13 @@ const banner = `/*!
  * Released under the MIT License
  */`;
 
+const snapshotOpts = {snapshotPath: 'dist/.size-snapshot.json'};
+
 export default [
   {
     input: input,
     plugins: [
+      sizeSnapshot(snapshotOpts),
       cleanup({
         sourcemap: true
       })
@@ -31,6 +35,7 @@ export default [
   {
     input: input,
     plugins: [
+      sizeSnapshot(snapshotOpts),
       terser({
         output: {
           preamble: banner
@@ -54,6 +59,7 @@ export default [
   {
     input: inputESM,
     plugins: [
+      sizeSnapshot(snapshotOpts),
       cleanup({
         sourcemap: true
       })
