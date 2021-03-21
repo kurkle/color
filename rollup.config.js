@@ -1,3 +1,4 @@
+import analyze from 'rollup-plugin-analyzer';
 import cleanup from 'rollup-plugin-cleanup';
 import {sizeSnapshot} from 'rollup-plugin-size-snapshot';
 import {terser} from 'rollup-plugin-terser';
@@ -19,6 +20,7 @@ export default [
   {
     input: input,
     plugins: [
+      analyze({summaryOnly: true}),
       sizeSnapshot(snapshotOpts),
       cleanup({
         sourcemap: true
