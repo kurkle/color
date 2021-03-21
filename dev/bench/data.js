@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1616348500650,
+  "lastUpdate": 1616350399527,
   "repoUrl": "https://github.com/kurkle/color",
   "entries": {
     "HEX parsing": [
@@ -2006,6 +2006,65 @@ window.BENCHMARK_DATA = {
             "range": "±1.31%",
             "unit": "ops/sec",
             "extra": "91 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "jukka.kurkela@gmail.com",
+            "name": "Jukka Kurkela",
+            "username": "kurkle"
+          },
+          "committer": {
+            "email": "jukka.kurkela@gmail.com",
+            "name": "Jukka Kurkela",
+            "username": "kurkle"
+          },
+          "distinct": true,
+          "id": "6f6fb379a007f7af0595e9f3f362db59ea095381",
+          "message": "Update typedoc and assert configs",
+          "timestamp": "2021-03-21T20:12:01+02:00",
+          "tree_id": "65a832f5051d7a46f20c77b66a80e0f7bd5c1d6d",
+          "url": "https://github.com/kurkle/color/commit/6f6fb379a007f7af0595e9f3f362db59ea095381"
+        },
+        "date": 1616350397275,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "parseInt +",
+            "value": 4033313,
+            "range": "±1.06%",
+            "unit": "ops/sec",
+            "extra": "88 samples"
+          },
+          {
+            "name": "parseInt slice",
+            "value": 3216561,
+            "range": "±0.87%",
+            "unit": "ops/sec",
+            "extra": "84 samples"
+          },
+          {
+            "name": "map",
+            "value": 11304447,
+            "range": "±1.08%",
+            "unit": "ops/sec",
+            "extra": "88 samples"
+          },
+          {
+            "name": "map obj",
+            "value": 11505847,
+            "range": "±0.89%",
+            "unit": "ops/sec",
+            "extra": "88 samples"
+          },
+          {
+            "name": "parseInt + shift",
+            "value": 10410722,
+            "range": "±1.28%",
+            "unit": "ops/sec",
+            "extra": "87 samples"
           }
         ]
       }
