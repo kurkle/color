@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1620754769949,
+  "lastUpdate": 1620754788796,
   "repoUrl": "https://github.com/kurkle/color",
   "entries": {
     "HEX parsing": [
@@ -2183,6 +2183,65 @@ window.BENCHMARK_DATA = {
             "range": "±0.82%",
             "unit": "ops/sec",
             "extra": "91 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "4a393111baeed971c5c41abaa7896567664263f5",
+          "message": "Bump hosted-git-info from 2.8.8 to 2.8.9 (#7)\n\nBumps [hosted-git-info](https://github.com/npm/hosted-git-info) from 2.8.8 to 2.8.9.\r\n- [Release notes](https://github.com/npm/hosted-git-info/releases)\r\n- [Changelog](https://github.com/npm/hosted-git-info/blob/v2.8.9/CHANGELOG.md)\r\n- [Commits](https://github.com/npm/hosted-git-info/compare/v2.8.8...v2.8.9)\r\n\r\nSigned-off-by: dependabot[bot] <support@github.com>\r\n\r\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2021-05-11T20:38:52+03:00",
+          "tree_id": "675a5a3de6da6d171af07ceb6ddcb99a0bdfba71",
+          "url": "https://github.com/kurkle/color/commit/4a393111baeed971c5c41abaa7896567664263f5"
+        },
+        "date": 1620754788203,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "parseInt +",
+            "value": 3709116,
+            "range": "±0.76%",
+            "unit": "ops/sec",
+            "extra": "91 samples"
+          },
+          {
+            "name": "parseInt slice",
+            "value": 3249287,
+            "range": "±0.42%",
+            "unit": "ops/sec",
+            "extra": "89 samples"
+          },
+          {
+            "name": "map",
+            "value": 11049605,
+            "range": "±0.52%",
+            "unit": "ops/sec",
+            "extra": "89 samples"
+          },
+          {
+            "name": "map obj",
+            "value": 11232328,
+            "range": "±0.50%",
+            "unit": "ops/sec",
+            "extra": "89 samples"
+          },
+          {
+            "name": "parseInt + shift",
+            "value": 10311711,
+            "range": "±1.10%",
+            "unit": "ops/sec",
+            "extra": "88 samples"
           }
         ]
       }
