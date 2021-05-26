@@ -1,7 +1,6 @@
 /* eslint-disable no-console */
 const benchmark = require('benchmark');
 const kcolor = require('../dist/color.js');
-// const string = require('chartjs-color-string');
 const ostring = require('color-string').get;
 const tinycolor = require('tinycolor2');
 const color = require('chartjs-color');
@@ -55,27 +54,26 @@ const cycle = function(event) {
 };
 
 strings.forEach(function(str) {
-  var suite = new benchmark.Suite();
+  var _suite = new benchmark.Suite();
   parserNames.forEach(function(lib) {
     if (objects[lib]) {
-      suite.add('parse ' + str + '|' + lib, function() {
+      _suite.add('parse ' + str + '|' + lib, function() {
         var c = new parsers[lib](str);
         if (!c) {
-          throw 'failed';
+          throw new Error('failed');
         }
       }, options);
     } else {
-      suite.add('parse ' + str + '|' + lib, function() {
+      _suite.add('parse ' + str + '|' + lib, function() {
         var c = parsers[lib](str);
         if (!c) {
-          throw 'failed';
+          throw new Error('failed');
         }
       }, options);
     }
   });
-  suite
+  _suite
     .on('cycle', cycle)
-  // .on('complete', complete)
     .run();
 });
 
