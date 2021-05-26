@@ -1,7 +1,7 @@
 import analyze from 'rollup-plugin-analyzer';
 import cleanup from 'rollup-plugin-cleanup';
 import {terser} from 'rollup-plugin-terser';
-import visualizer from 'rollup-plugin-visualizer';
+import {visualizer} from 'rollup-plugin-visualizer';
 import {homepage, name, main, module, version} from './package.json';
 
 const input = 'src/index.js';
