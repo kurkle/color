@@ -217,7 +217,7 @@ export function rotate(v, deg) {
  */
 export function hslString(v) {
   if (!v) {
-    return 'hsl(0, 0%, 0%)';
+    return;
   }
   const a = rgb2hsl(v);
   const h = a[0];

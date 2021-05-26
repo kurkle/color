@@ -125,23 +125,26 @@ export default class Color {
 
   /**
 	 * rgb(a) string
+   * @return {string|undefined}
 	 */
   rgbString() {
-    return this._valid ? rgbString(this._rgb) : 'rgb(0,0,0)';
+    return this._valid ? rgbString(this._rgb) : undefined;
   }
 
   /**
 	 * hex string
+   * @return {string|undefined}
 	 */
   hexString() {
-    return this._valid ? hexString(this._rgb) : '#000';
+    return this._valid ? hexString(this._rgb) : undefined;
   }
 
   /**
 	 * hsl(a) string
+   * @return {string|undefined}
 	 */
   hslString() {
-    return this._valid ? hslString(this._rgb) : 'hsl(0, 0%, 0%)';
+    return this._valid ? hslString(this._rgb) : undefined;
   }
 
   /**
