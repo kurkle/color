@@ -127,21 +127,21 @@ export default class Color {
 	 * rgb(a) string
 	 */
   rgbString() {
-    return this._valid ? rgbString(this._rgb) : this._rgb;
+    return this._valid ? rgbString(this._rgb) : 'rgb(0,0,0)';
   }
 
   /**
 	 * hex string
 	 */
   hexString() {
-    return this._valid ? hexString(this._rgb) : this._rgb;
+    return this._valid ? hexString(this._rgb) : '#000';
   }
 
   /**
 	 * hsl(a) string
 	 */
   hslString() {
-    return this._valid ? hslString(this._rgb) : this._rgb;
+    return this._valid ? hslString(this._rgb) : 'hsl(0, 0%, 0%)';
   }
 
   /**

@@ -72,6 +72,16 @@ function hwb2rgbn(h, w, b) {
   return rgb;
 }
 
+function hueValue(r, g, b, d, max) {
+  if (r === max) {
+    return ((g - b) / d) + (g < b ? 6 : 0);
+  }
+  if (g === max) {
+    return (b - r) / d + 2;
+  }
+  return (r - g) / d + 4;
+}
+
 /**
  * Convert rgb to hsl
  * @param {RGBA} v - the color
@@ -89,11 +99,7 @@ export function rgb2hsl(v) {
   if (max !== min) {
     d = max - min;
     s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
-    h = max === r
-      ? ((g - b) / d) + (g < b ? 6 : 0)
-      : max === g
-        ? (b - r) / d + 2
-        : (r - g) / d + 4;
+    h = hueValue(r, g, b, d, max);
     h = h * 60 + 0.5;
   }
   return [h | 0, s || 0, l];
@@ -211,7 +217,7 @@ export function rotate(v, deg) {
  */
 export function hslString(v) {
   if (!v) {
-    return;
+    return 'hsl(0, 0%, 0%)';
   }
   const a = rgb2hsl(v);
   const h = a[0];

@@ -68,6 +68,8 @@ export function hexParse(str) {
   return ret;
 }
 
+const alpha = (a, f) => a < 255 ? f(a) : '';
+
 /**
  * Return HEX string from color
  * @param {RGBA} v - the color
@@ -75,6 +77,6 @@ export function hexParse(str) {
 export function hexString(v) {
   var f = isShort(v) ? h1 : h2;
   return v
-    ? '#' + f(v.r) + f(v.g) + f(v.b) + (v.a < 255 ? f(v.a) : '')
-    : v;
+    ? '#' + f(v.r) + f(v.g) + f(v.b) + alpha(v.a, f)
+    : '#000';
 }
