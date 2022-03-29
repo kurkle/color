@@ -3,11 +3,12 @@
  * @module index
  */
 
-import {hexParse, hexString} from './hex';
-import {rgbParse, rgbString} from './rgb';
-import {hueParse, hsl2rgb, rgb2hsl, rotate, hslString} from './hue';
-import {nameParse} from './names';
 import {b2n, n2b, round} from './byte';
+import {hexParse, hexString} from './hex';
+import {hsl2rgb, hslString, hueParse, rgb2hsl, rotate} from './hue';
+import {nameParse} from './names';
+import {rgbMix, rgbParse, rgbString} from './rgb';
+import {interpolate} from './srgb';
 
 /**
  * @typedef {import('./index.js').RGBA} RGBA
@@ -151,29 +152,31 @@ export default class Color {
    * Mix another color to this color.
    * @param {Color} color - Color to mix in
    * @param {number} weight - 0..1
+   * @returns {Color}
    */
   mix(color, weight) {
-    const me = this;
     if (color) {
-      const c1 = me.rgb;
-      const c2 = color.rgb;
-      let w2; // using instead of undefined in the next line
-      const p = weight === w2 ? 0.5 : weight;
-      const w = 2 * p - 1;
-      const a = c1.a - c2.a;
-      const w1 = ((w * a === -1 ? w : (w + a) / (1 + w * a)) + 1) / 2.0;
-      w2 = 1 - w1;
-      c1.r = 0xFF & w1 * c1.r + w2 * c2.r + 0.5;
-      c1.g = 0xFF & w1 * c1.g + w2 * c2.g + 0.5;
-      c1.b = 0xFF & w1 * c1.b + w2 * c2.b + 0.5;
-      c1.a = p * c1.a + (1 - p) * c2.a;
-      me.rgb = c1;
+      rgbMix(this._rgb, color._rgb, weight);
     }
-    return me;
+    return this;
+  }
+
+  /**
+   * Interpolate a color value between this and `color`
+   * @param {Color} color
+   * @param {number} t - 0..1
+   * @returns {Color}
+   */
+  interpolate(color, t) {
+    if (color) {
+      this._rgb = interpolate(this._rgb, color._rgb, t);
+    }
+    return this;
   }
 
   /**
    * Clone
+   * @returns {Color}
    */
   clone() {
     return new Color(this.rgb);
@@ -182,6 +185,7 @@ export default class Color {
   /**
    * Set aplha
    * @param {number} a - the alpha [0..1]
+   * @returns {Color}
    */
   alpha(a) {
     this._rgb.a = n2b(a);
@@ -191,6 +195,7 @@ export default class Color {
   /**
    * Make clearer
    * @param {number} ratio - ratio [0..1]
+   * @returns {Color}
    */
   clearer(ratio) {
     const rgb = this._rgb;
@@ -200,6 +205,7 @@ export default class Color {
 
   /**
    * Convert to grayscale
+   * @returns {Color}
    */
   greyscale() {
     const rgb = this._rgb;
@@ -212,6 +218,7 @@ export default class Color {
   /**
    * Opaquer
    * @param {number} ratio - ratio [0..1]
+   * @returns {Color}
    */
   opaquer(ratio) {
     const rgb = this._rgb;
@@ -219,6 +226,10 @@ export default class Color {
     return this;
   }
 
+  /**
+   * Negates the rgb value
+   * @returns {Color}
+   */
   negate() {
     const v = this._rgb;
     v.r = 255 - v.r;
@@ -230,6 +241,7 @@ export default class Color {
   /**
    * Lighten
    * @param {number} ratio - ratio [0..1]
+   * @returns {Color}
    */
   lighten(ratio) {
     modHSL(this._rgb, 2, ratio);
@@ -239,6 +251,7 @@ export default class Color {
   /**
    * Darken
    * @param {number} ratio - ratio [0..1]
+   * @returns {Color}
    */
   darken(ratio) {
     modHSL(this._rgb, 2, -ratio);
@@ -248,6 +261,7 @@ export default class Color {
   /**
    * Saturate
    * @param {number} ratio - ratio [0..1]
+   * @returns {Color}
    */
   saturate(ratio) {
     modHSL(this._rgb, 1, ratio);
@@ -257,6 +271,7 @@ export default class Color {
   /**
    * Desaturate
    * @param {number} ratio - ratio [0..1]
+   * @returns {Color}
    */
   desaturate(ratio) {
     modHSL(this._rgb, 1, -ratio);
@@ -266,6 +281,7 @@ export default class Color {
   /**
    * Rotate
    * @param {number} deg - degrees to rotate
+   * @returns {Color}
    */
   rotate(deg) {
     rotate(this._rgb, deg);
