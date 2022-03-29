@@ -92,3 +92,11 @@ assert.strictEqual(new Color('rgba(10, 10, 10, 0.8)').clone().rgbString(), 'rgba
 
 assert.strictEqual(new Color('invalid-color-value').lighten(0.1).hslString(), undefined);
 assert.strictEqual(new Color('invalid-color-value').mix(undefined, 0.5).rgbString(), undefined);
+
+assert.strictEqual(new Color('red').interpolate(new Color('green'), 0).rgbString(), 'rgb(255, 0, 0)');
+assert.strictEqual(new Color('red').interpolate(new Color('green'), 0.25).rgbString(), 'rgb(225, 65, 0)');
+assert.strictEqual(new Color('red').interpolate(new Color('green'), 0.5).rgbString(), 'rgb(188, 92, 0)');
+assert.strictEqual(new Color('red').interpolate(new Color('green'), 0.75).rgbString(), 'rgb(137, 112, 0)');
+assert.strictEqual(new Color('red').interpolate(new Color('green'), 1).rgbString(), 'rgb(0, 128, 0)');
+
+assert.strictEqual(new Color('#fefa').interpolate(new Color('#ced5'), 0.6).hexString(), '#E2EDEC77');
