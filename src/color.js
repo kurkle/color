@@ -74,9 +74,9 @@ function functionParse(str) {
 
 export default class Color {
   /**
-	 * constructor
-	 * @param {Color|RGBA|string|number[]} input
-	 */
+   * constructor
+   * @param {Color|RGBA|string|number[]} input
+   */
   constructor(input) {
     if (input instanceof Color) {
       return input;
@@ -98,16 +98,16 @@ export default class Color {
   }
 
   /**
-	 * `true` if this is a valid color
-	 * @returns {boolean}
-	 */
+   * `true` if this is a valid color
+   * @returns {boolean}
+   */
   get valid() {
     return this._valid;
   }
 
   /**
-	 * @returns {RGBA} - the color
-	 */
+   * @returns {RGBA} - the color
+   */
   get rgb() {
     var v = clone(this._rgb);
     if (v) {
@@ -117,41 +117,41 @@ export default class Color {
   }
 
   /**
-	 * @param {RGBA} obj - the color
-	 */
+   * @param {RGBA} obj - the color
+   */
   set rgb(obj) {
     this._rgb = fromObject(obj);
   }
 
   /**
-	 * rgb(a) string
+   * rgb(a) string
    * @return {string|undefined}
-	 */
+   */
   rgbString() {
     return this._valid ? rgbString(this._rgb) : undefined;
   }
 
   /**
-	 * hex string
+   * hex string
    * @return {string|undefined}
-	 */
+   */
   hexString() {
     return this._valid ? hexString(this._rgb) : undefined;
   }
 
   /**
-	 * hsl(a) string
+   * hsl(a) string
    * @return {string|undefined}
-	 */
+   */
   hslString() {
     return this._valid ? hslString(this._rgb) : undefined;
   }
 
   /**
-	 * Mix another color to this color.
-	 * @param {Color} color - Color to mix in
-	 * @param {number} weight - 0..1
-	 */
+   * Mix another color to this color.
+   * @param {Color} color - Color to mix in
+   * @param {number} weight - 0..1
+   */
   mix(color, weight) {
     const me = this;
     if (color) {
@@ -173,25 +173,25 @@ export default class Color {
   }
 
   /**
-	 * Clone
-	 */
+   * Clone
+   */
   clone() {
     return new Color(this.rgb);
   }
 
   /**
-	 * Set aplha
-	 * @param {number} a - the alpha [0..1]
-	 */
+   * Set aplha
+   * @param {number} a - the alpha [0..1]
+   */
   alpha(a) {
     this._rgb.a = n2b(a);
     return this;
   }
 
   /**
-	 * Make clearer
-	 * @param {number} ratio - ratio [0..1]
-	 */
+   * Make clearer
+   * @param {number} ratio - ratio [0..1]
+   */
   clearer(ratio) {
     const rgb = this._rgb;
     rgb.a *= 1 - ratio;
@@ -199,8 +199,8 @@ export default class Color {
   }
 
   /**
-	 * Convert to grayscale
-	 */
+   * Convert to grayscale
+   */
   greyscale() {
     const rgb = this._rgb;
     // http://en.wikipedia.org/wiki/Grayscale#Converting_color_to_grayscale
@@ -210,9 +210,9 @@ export default class Color {
   }
 
   /**
-	 * Opaquer
-	 * @param {number} ratio - ratio [0..1]
-	 */
+   * Opaquer
+   * @param {number} ratio - ratio [0..1]
+   */
   opaquer(ratio) {
     const rgb = this._rgb;
     rgb.a *= 1 + ratio;
@@ -228,45 +228,45 @@ export default class Color {
   }
 
   /**
-	 * Lighten
-	 * @param {number} ratio - ratio [0..1]
-	 */
+   * Lighten
+   * @param {number} ratio - ratio [0..1]
+   */
   lighten(ratio) {
     modHSL(this._rgb, 2, ratio);
     return this;
   }
 
   /**
-	 * Darken
-	 * @param {number} ratio - ratio [0..1]
-	 */
+   * Darken
+   * @param {number} ratio - ratio [0..1]
+   */
   darken(ratio) {
     modHSL(this._rgb, 2, -ratio);
     return this;
   }
 
   /**
-	 * Saturate
-	 * @param {number} ratio - ratio [0..1]
-	 */
+   * Saturate
+   * @param {number} ratio - ratio [0..1]
+   */
   saturate(ratio) {
     modHSL(this._rgb, 1, ratio);
     return this;
   }
 
   /**
-	 * Desaturate
-	 * @param {number} ratio - ratio [0..1]
-	 */
+   * Desaturate
+   * @param {number} ratio - ratio [0..1]
+   */
   desaturate(ratio) {
     modHSL(this._rgb, 1, -ratio);
     return this;
   }
 
   /**
-	 * Rotate
-	 * @param {number} deg - degrees to rotate
-	 */
+   * Rotate
+   * @param {number} deg - degrees to rotate
+   */
   rotate(deg) {
     rotate(this._rgb, deg);
     return this;

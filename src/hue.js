@@ -26,8 +26,8 @@ const HUE_RE = /^(hsla?|hwb|hsv)\(\s*([-+.e\d]+)(?:deg)?[\s,]+([-+.e\d]+)%[\s,]+
 function hsl2rgbn(h, s, l) {
   const a = s * Math.min(l, 1 - l);
   /**
-	 * @param {number} n
-	 */
+   * @param {number} n
+   */
   const f = (n, k = (n + h / 30) % 12) => l - a * Math.max(Math.min(k - 3, 9 - k, 1), -1);
   return [f(0), f(8), f(4)];
 }
@@ -43,8 +43,8 @@ function hsl2rgbn(h, s, l) {
  */
 function hsv2rgbn(h, s, v) {
   /**
-	 * @param {number} n
-	 */
+   * @param {number} n
+   */
   const f = (n, k = (n + h / 60) % 6) => v - v * s * Math.max(Math.min(k, 4 - k, 1), 0);
   return [f(5), f(3), f(1)];
 }
