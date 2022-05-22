@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1648565050870,
+  "lastUpdate": 1653249770958,
   "repoUrl": "https://github.com/kurkle/color",
   "entries": {
     "HEX parsing": [
@@ -2535,6 +2535,65 @@ window.BENCHMARK_DATA = {
             "name": "parseInt + shift",
             "value": 14972526,
             "range": "±0.08%",
+            "unit": "ops/sec",
+            "extra": "97 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "jukka.kurkela@gmail.com",
+            "name": "Jukka Kurkela",
+            "username": "kurkle"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "f8ee41cddcd85933610d5060e10679b211b20e3e",
+          "message": "Parse too large rgb values as 255 (#12)",
+          "timestamp": "2022-05-22T23:01:57+03:00",
+          "tree_id": "e6e22bd9d759751b38047c3cfb28cb3fea34322d",
+          "url": "https://github.com/kurkle/color/commit/f8ee41cddcd85933610d5060e10679b211b20e3e"
+        },
+        "date": 1653249770067,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "parseInt +",
+            "value": 7155960,
+            "range": "±0.13%",
+            "unit": "ops/sec",
+            "extra": "98 samples"
+          },
+          {
+            "name": "parseInt slice",
+            "value": 5873315,
+            "range": "±0.12%",
+            "unit": "ops/sec",
+            "extra": "98 samples"
+          },
+          {
+            "name": "map",
+            "value": 48503187,
+            "range": "±0.25%",
+            "unit": "ops/sec",
+            "extra": "96 samples"
+          },
+          {
+            "name": "map obj",
+            "value": 49305008,
+            "range": "±0.23%",
+            "unit": "ops/sec",
+            "extra": "96 samples"
+          },
+          {
+            "name": "parseInt + shift",
+            "value": 16514255,
+            "range": "±0.24%",
             "unit": "ops/sec",
             "extra": "97 samples"
           }
