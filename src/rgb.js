@@ -3,7 +3,7 @@
  * @module utils
  */
 
-import {p2b, b2n} from './byte';
+import {b2n, lim, p2b} from './byte';
 
 /**
  * @typedef {import('./index.js').RGBA} RGBA
@@ -31,15 +31,15 @@ export function rgbParse(str) {
   // r is undefined
   if (m[7] !== r) {
     const v = +m[7];
-    a = 255 & (m[8] ? p2b(v) : v * 255);
+    a = m[8] ? p2b(v) : lim(v * 255, 0, 255);
   }
 
   r = +m[1];
   g = +m[3];
   b = +m[5];
-  r = 255 & (m[2] ? p2b(r) : r);
-  g = 255 & (m[4] ? p2b(g) : g);
-  b = 255 & (m[6] ? p2b(b) : b);
+  r = 255 & (m[2] ? p2b(r) : lim(r, 0, 255));
+  g = 255 & (m[4] ? p2b(g) : lim(g, 0, 255));
+  b = 255 & (m[6] ? p2b(b) : lim(b, 0, 255));
 
   return {
     r: r,
