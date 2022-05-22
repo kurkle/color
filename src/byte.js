@@ -11,7 +11,7 @@ export function round(v) {
   return v + 0.5 | 0;
 }
 
-const lim = (v, l, h) => Math.max(Math.min(v, h), l);
+export const lim = (v, l, h) => Math.max(Math.min(v, h), l);
 
 /**
  * convert percent to byte 0..255

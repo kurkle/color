@@ -100,3 +100,6 @@ assert.strictEqual(new Color('red').interpolate(new Color('green'), 0.75).rgbStr
 assert.strictEqual(new Color('red').interpolate(new Color('green'), 1).rgbString(), 'rgb(0, 128, 0)');
 
 assert.strictEqual(new Color('#fefa').interpolate(new Color('#ced5'), 0.6).hexString(), '#E2EDEC77');
+
+// invalid values
+assert.strictEqual(new Color('rgba(267,292,60,0.2)').rgbString(), 'rgba(255, 255, 60, 0.2)');
