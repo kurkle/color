@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1653317693158,
+  "lastUpdate": 1669125507461,
   "repoUrl": "https://github.com/kurkle/color",
   "entries": {
     "HEX parsing": [
@@ -2773,6 +2773,65 @@ window.BENCHMARK_DATA = {
             "range": "±0.36%",
             "unit": "ops/sec",
             "extra": "95 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "db9cfbca9ddbcc8b9777f62ace21a22df1d82e29",
+          "message": "Bump terser from 5.13.1 to 5.14.2 (#15)\n\nBumps [terser](https://github.com/terser/terser) from 5.13.1 to 5.14.2.\r\n- [Release notes](https://github.com/terser/terser/releases)\r\n- [Changelog](https://github.com/terser/terser/blob/master/CHANGELOG.md)\r\n- [Commits](https://github.com/terser/terser/commits)\r\n\r\n---\r\nupdated-dependencies:\r\n- dependency-name: terser\r\n  dependency-type: indirect\r\n...\r\n\r\nSigned-off-by: dependabot[bot] <support@github.com>\r\n\r\nSigned-off-by: dependabot[bot] <support@github.com>\r\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2022-11-22T15:57:33+02:00",
+          "tree_id": "de1f95ab0701e28bc9432b1b1573297425e1ca5e",
+          "url": "https://github.com/kurkle/color/commit/db9cfbca9ddbcc8b9777f62ace21a22df1d82e29"
+        },
+        "date": 1669125506369,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "parseInt +",
+            "value": 5216931,
+            "range": "±0.57%",
+            "unit": "ops/sec",
+            "extra": "88 samples"
+          },
+          {
+            "name": "parseInt slice",
+            "value": 4220569,
+            "range": "±0.48%",
+            "unit": "ops/sec",
+            "extra": "91 samples"
+          },
+          {
+            "name": "map",
+            "value": 28397260,
+            "range": "±1.02%",
+            "unit": "ops/sec",
+            "extra": "81 samples"
+          },
+          {
+            "name": "map obj",
+            "value": 29907588,
+            "range": "±1.55%",
+            "unit": "ops/sec",
+            "extra": "88 samples"
+          },
+          {
+            "name": "parseInt + shift",
+            "value": 12100239,
+            "range": "±0.41%",
+            "unit": "ops/sec",
+            "extra": "90 samples"
           }
         ]
       }
