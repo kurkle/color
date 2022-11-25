@@ -3,7 +3,7 @@
  * @module index
  */
 
-import Color from './color';
+import Color from './color.js';
 
 /**
  * @typedef {Object} RGBA

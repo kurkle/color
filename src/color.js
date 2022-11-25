@@ -3,12 +3,12 @@
  * @module index
  */
 
-import {b2n, n2b, round} from './byte';
-import {hexParse, hexString} from './hex';
-import {hsl2rgb, hslString, hueParse, rgb2hsl, rotate} from './hue';
-import {nameParse} from './names';
-import {rgbParse, rgbString} from './rgb';
-import {interpolate} from './srgb';
+import {b2n, n2b, round} from './byte.js';
+import {hexParse, hexString} from './hex.js';
+import {hsl2rgb, hslString, hueParse, rgb2hsl, rotate} from './hue.js';
+import {nameParse} from './names.js';
+import {rgbParse, rgbString} from './rgb.js';
+import {interpolate} from './srgb.js';
 
 /**
  * @typedef {import('./index.js').RGBA} RGBA

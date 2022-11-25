@@ -3,14 +3,14 @@
  * @module index
  */
 
-import Color from './color';
+import Color from './color.js';
 
 export {Color};
-export * from './byte';
-export * from './hex';
-export * from './hue';
-export * from './names';
-export * from './rgb';
+export * from './byte.js';
+export * from './hex.js';
+export * from './hue.js';
+export * from './names.js';
+export * from './rgb.js';
 
 /**
  * @typedef {Object} RGBA
