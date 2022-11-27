@@ -1,4 +1,4 @@
-import {b2n, n2b} from './byte';
+import {b2n, n2b} from './byte.js';
 
 /**
  * @typedef {import('./index.js').RGBA} RGBA

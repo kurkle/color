@@ -3,7 +3,7 @@
  * @module utils
  */
 
-import {b2n, lim, p2b} from './byte';
+import {b2n, lim, p2b} from './byte.js';
 
 /**
  * @typedef {import('./index.js').RGBA} RGBA

@@ -1,7 +1,7 @@
-const Color = require('../dist/color.js');
-const assert = require('assert');
+import assert from 'assert';
+import {Color} from '../dist/color.esm.js';
 
-assert.deepStrictEqual(Color('#fef').rgb, {r: 255, g: 238, b: 255, a: 1});
+assert.deepStrictEqual(new Color('#fef').rgb, {r: 255, g: 238, b: 255, a: 1});
 assert.deepStrictEqual(new Color('#fffFEF').rgb, {r: 255, g: 255, b: 239, a: 1});
 assert.deepStrictEqual(new Color('#feg').rgb, {r: 255, g: 238, b: 0, a: 1});
 assert.deepStrictEqual(new Color('rgb(244, 233, 100)').rgb, {r: 244, g: 233, b: 100, a: 1});

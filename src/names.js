@@ -3,7 +3,7 @@
  * @module utils
  */
 
-import unpack from '../packed';
+import unpack from '../packed.js';
 let names;
 
 /**

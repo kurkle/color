@@ -47,7 +47,7 @@ export default [
     ],
     output: {
       name,
-      file: main.replace('.js', '.min.js'),
+      file: main.replace('.cjs', '.min.js'),
       format: 'umd',
       sourcemap: true,
       indent: false

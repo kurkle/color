@@ -1,12 +1,14 @@
 /* eslint-disable no-console */
-const benchmark = require('benchmark');
-const kcolor = require('../dist/color.js');
-const ostring = require('color-string').get;
-const tinycolor = require('tinycolor2');
-const color = require('chartjs-color');
-const chroma = require('chroma-js');
-const parse = require('color-parse');
-const parser = require('color-parser');
+import benchmark from 'benchmark';
+import colorString from 'color-string';
+import tinycolor from 'tinycolor2';
+import color from 'chartjs-color';
+import chroma from 'chroma-js';
+import parse from 'color-parse';
+import parser from 'color-parser';
+import kcolor from '../dist/color.esm.js';
+
+const {get: ostring} = colorString;
 
 const strings = [
   '#d6F',

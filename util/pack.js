@@ -1,6 +1,7 @@
-var names = require('color-name');
-var util = require('util');
-var fs = require('fs');
+import util from 'util';
+import fs from 'fs';
+import names from 'color-name';
+
 var s = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
 var nums = '0123456789';
 var i, j, k, t;
