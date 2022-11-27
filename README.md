@@ -64,7 +64,7 @@ hsv(244, 100%, 100%, 0.6)
 
 [typedocs](https://kurkle.github.io/color/)
 
-**note** The docs are for the ESM module. UMD module only exports the [default export](https://kurkle.github.io/color/globals.html#_default)
+**note** The docs are for the ESM module. UMD module only exports the [default export](https://kurkle.github.io/color/modules.html#default)
 
 ## Benchmarks
 
