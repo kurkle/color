@@ -1,8 +1,9 @@
 import analyze from 'rollup-plugin-analyzer';
 import cleanup from 'rollup-plugin-cleanup';
-import {terser} from 'rollup-plugin-terser';
+import terser from '@rollup/plugin-terser';
 import {visualizer} from 'rollup-plugin-visualizer';
-import {homepage, name, main, module, version} from './package.json';
+import {readFileSync} from 'fs';
+const {homepage, name, main, module, version} = JSON.parse(readFileSync('./package.json'));
 
 const input = 'src/index.js';
 const inputESM = 'src/index.esm.js';
