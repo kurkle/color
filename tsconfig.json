@@ -16,7 +16,6 @@
 	],
 	"typedocOptions": {
 		"name": "@kurkle/color",
-		"mode": "library",
 		"entryPoints": ["./color.d.ts"],
 		"excludeExternals": true,
 		"includeVersion": true,
