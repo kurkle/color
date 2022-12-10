@@ -3,6 +3,7 @@ import cleanup from 'rollup-plugin-cleanup';
 import terser from '@rollup/plugin-terser';
 import {visualizer} from 'rollup-plugin-visualizer';
 import {readFileSync} from 'fs';
+
 const {homepage, name, main, module, version} = JSON.parse(readFileSync('./package.json'));
 
 const input = 'src/index.js';
@@ -15,6 +16,21 @@ const banner = `/*!
  */`;
 
 export default [
+  {
+    input: inputESM,
+    plugins: [
+      cleanup({
+        sourcemap: true
+      })
+    ],
+    output: {
+      name,
+      file: module,
+      banner: banner,
+      format: 'esm',
+      indent: false
+    }
+  },
   {
     input: input,
     plugins: [
@@ -51,21 +67,6 @@ export default [
       file: main.replace('.cjs', '.min.js'),
       format: 'umd',
       sourcemap: true,
-      indent: false
-    }
-  },
-  {
-    input: inputESM,
-    plugins: [
-      cleanup({
-        sourcemap: true
-      })
-    ],
-    output: {
-      name,
-      file: module,
-      banner: banner,
-      format: 'esm',
       indent: false
     }
   },
