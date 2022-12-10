@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1669573443929,
+  "lastUpdate": 1670709556301,
   "repoUrl": "https://github.com/kurkle/color",
   "entries": {
     "HEX parsing": [
@@ -3127,6 +3127,65 @@ window.BENCHMARK_DATA = {
             "range": "±0.25%",
             "unit": "ops/sec",
             "extra": "93 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "jukka.kurkela@gmail.com",
+            "name": "Jukka Kurkela",
+            "username": "kurkle"
+          },
+          "committer": {
+            "email": "jukka.kurkela@gmail.com",
+            "name": "Jukka Kurkela",
+            "username": "kurkle"
+          },
+          "distinct": true,
+          "id": "f4dc3cf69a3a94056077e9ed6ffd6bcdb8735a71",
+          "message": "chore: bump v0.3.1",
+          "timestamp": "2022-12-10T23:58:15+02:00",
+          "tree_id": "bc1ca730581d7f37716b5b6ccb963a9992d145eb",
+          "url": "https://github.com/kurkle/color/commit/f4dc3cf69a3a94056077e9ed6ffd6bcdb8735a71"
+        },
+        "date": 1670709554789,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "parseInt +",
+            "value": 3315879,
+            "range": "±1.38%",
+            "unit": "ops/sec",
+            "extra": "85 samples"
+          },
+          {
+            "name": "parseInt slice",
+            "value": 4158180,
+            "range": "±1.55%",
+            "unit": "ops/sec",
+            "extra": "88 samples"
+          },
+          {
+            "name": "map",
+            "value": 9048837,
+            "range": "±1.07%",
+            "unit": "ops/sec",
+            "extra": "89 samples"
+          },
+          {
+            "name": "map obj",
+            "value": 9239882,
+            "range": "±1.43%",
+            "unit": "ops/sec",
+            "extra": "87 samples"
+          },
+          {
+            "name": "parseInt + shift",
+            "value": 12342132,
+            "range": "±1.24%",
+            "unit": "ops/sec",
+            "extra": "85 samples"
           }
         ]
       }
