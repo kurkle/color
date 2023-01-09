@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1670710048488,
+  "lastUpdate": 1673272569223,
   "repoUrl": "https://github.com/kurkle/color",
   "entries": {
     "HEX parsing": [
@@ -3245,6 +3245,65 @@ window.BENCHMARK_DATA = {
             "range": "±0.11%",
             "unit": "ops/sec",
             "extra": "97 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "997d27efca696f2bd985e8c9107bb23a49c27555",
+          "message": "Bump json5 from 2.2.1 to 2.2.3 (#17)\n\nBumps [json5](https://github.com/json5/json5) from 2.2.1 to 2.2.3.\r\n- [Release notes](https://github.com/json5/json5/releases)\r\n- [Changelog](https://github.com/json5/json5/blob/main/CHANGELOG.md)\r\n- [Commits](https://github.com/json5/json5/compare/v2.2.1...v2.2.3)\r\n\r\n---\r\nupdated-dependencies:\r\n- dependency-name: json5\r\n  dependency-type: indirect\r\n...\r\n\r\nSigned-off-by: dependabot[bot] <support@github.com>\r\n\r\nSigned-off-by: dependabot[bot] <support@github.com>\r\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2023-01-09T15:55:11+02:00",
+          "tree_id": "d89a62c26571a8369cb121339c3b1ca8716a3455",
+          "url": "https://github.com/kurkle/color/commit/997d27efca696f2bd985e8c9107bb23a49c27555"
+        },
+        "date": 1673272567990,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "parseInt +",
+            "value": 2804144,
+            "range": "±1.06%",
+            "unit": "ops/sec",
+            "extra": "86 samples"
+          },
+          {
+            "name": "parseInt slice",
+            "value": 3398578,
+            "range": "±2.80%",
+            "unit": "ops/sec",
+            "extra": "86 samples"
+          },
+          {
+            "name": "map",
+            "value": 7486339,
+            "range": "±0.96%",
+            "unit": "ops/sec",
+            "extra": "87 samples"
+          },
+          {
+            "name": "map obj",
+            "value": 7588934,
+            "range": "±1.01%",
+            "unit": "ops/sec",
+            "extra": "83 samples"
+          },
+          {
+            "name": "parseInt + shift",
+            "value": 11161366,
+            "range": "±1.23%",
+            "unit": "ops/sec",
+            "extra": "87 samples"
           }
         ]
       }
