@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1673272938557,
+  "lastUpdate": 1673369390612,
   "repoUrl": "https://github.com/kurkle/color",
   "entries": {
     "HEX parsing": [
@@ -3304,6 +3304,65 @@ window.BENCHMARK_DATA = {
             "range": "±1.23%",
             "unit": "ops/sec",
             "extra": "87 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "danon0404@gmail.com",
+            "name": "Dan Onoshko",
+            "username": "dangreen"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "d0e6c81ec8220b62e83154d82f2b4ced3857b510",
+          "message": "fix: commonjs bundle compat with esm (#18)",
+          "timestamp": "2023-01-10T18:48:54+02:00",
+          "tree_id": "d85c89ecf6ebd13dade6a552b86cddd54ab23791",
+          "url": "https://github.com/kurkle/color/commit/d0e6c81ec8220b62e83154d82f2b4ced3857b510"
+        },
+        "date": 1673369389642,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "parseInt +",
+            "value": 4282867,
+            "range": "±0.22%",
+            "unit": "ops/sec",
+            "extra": "98 samples"
+          },
+          {
+            "name": "parseInt slice",
+            "value": 5153415,
+            "range": "±0.55%",
+            "unit": "ops/sec",
+            "extra": "97 samples"
+          },
+          {
+            "name": "map",
+            "value": 13222376,
+            "range": "±1.00%",
+            "unit": "ops/sec",
+            "extra": "87 samples"
+          },
+          {
+            "name": "map obj",
+            "value": 12654159,
+            "range": "±0.24%",
+            "unit": "ops/sec",
+            "extra": "98 samples"
+          },
+          {
+            "name": "parseInt + shift",
+            "value": 15469228,
+            "range": "±0.27%",
+            "unit": "ops/sec",
+            "extra": "94 samples"
           }
         ]
       }
