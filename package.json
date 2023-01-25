@@ -44,7 +44,7 @@
   },
   "homepage": "https://github.com/kurkle/color#readme",
   "devDependencies": {
-    "@rollup/plugin-terser": "^0.1.0",
+    "@rollup/plugin-terser": "^0.4.0",
     "assert": "^2.0.0",
     "benchmark": "^2.1.4",
     "chartjs-color": "^2.4.1",
