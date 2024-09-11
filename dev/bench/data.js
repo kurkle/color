@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1726093798875,
+  "lastUpdate": 1726093852550,
   "repoUrl": "https://github.com/kurkle/color",
   "entries": {
     "HEX parsing": [
@@ -3776,6 +3776,65 @@ window.BENCHMARK_DATA = {
             "range": "±0.41%",
             "unit": "ops/sec",
             "extra": "97 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "65ed2167831768f474f463a0e71dd3a3be4ab368",
+          "message": "Bump rollup-plugin-istanbul from 4.0.0 to 5.0.0 (#23)\n\nBumps [rollup-plugin-istanbul](https://github.com/artberri/rollup-plugin-istanbul) from 4.0.0 to 5.0.0.\r\n- [Release notes](https://github.com/artberri/rollup-plugin-istanbul/releases)\r\n- [Changelog](https://github.com/artberri/rollup-plugin-istanbul/blob/main/CHANGELOG.md)\r\n- [Commits](https://github.com/artberri/rollup-plugin-istanbul/compare/v4.0.0...v5.0.0)\r\n\r\n---\r\nupdated-dependencies:\r\n- dependency-name: rollup-plugin-istanbul\r\n  dependency-type: direct:development\r\n  update-type: version-update:semver-major\r\n...\r\n\r\nSigned-off-by: dependabot[bot] <support@github.com>\r\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2024-09-12T01:30:03+03:00",
+          "tree_id": "e3a1ac14b8cf837aa6f5fd202bf40524e96ec970",
+          "url": "https://github.com/kurkle/color/commit/65ed2167831768f474f463a0e71dd3a3be4ab368"
+        },
+        "date": 1726093851473,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "parseInt +",
+            "value": 4827647,
+            "range": "±1.08%",
+            "unit": "ops/sec",
+            "extra": "95 samples"
+          },
+          {
+            "name": "parseInt slice",
+            "value": 5561578,
+            "range": "±1.12%",
+            "unit": "ops/sec",
+            "extra": "94 samples"
+          },
+          {
+            "name": "map",
+            "value": 15181255,
+            "range": "±1.73%",
+            "unit": "ops/sec",
+            "extra": "93 samples"
+          },
+          {
+            "name": "map obj",
+            "value": 17205090,
+            "range": "±1.77%",
+            "unit": "ops/sec",
+            "extra": "90 samples"
+          },
+          {
+            "name": "parseInt + shift",
+            "value": 20896616,
+            "range": "±0.24%",
+            "unit": "ops/sec",
+            "extra": "99 samples"
           }
         ]
       }
