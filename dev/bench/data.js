@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1726091609443,
+  "lastUpdate": 1726091744892,
   "repoUrl": "https://github.com/kurkle/color",
   "entries": {
     "HEX parsing": [
@@ -3540,6 +3540,65 @@ window.BENCHMARK_DATA = {
             "range": "±1.55%",
             "unit": "ops/sec",
             "extra": "94 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "044edd9431e6dbf8be59c0b49256394004807d36",
+          "message": "Bump color-parse from 1.4.2 to 2.0.2 (#25)\n\nBumps [color-parse](https://github.com/colorjs/color-parse) from 1.4.2 to 2.0.2.\r\n- [Commits](https://github.com/colorjs/color-parse/commits)\r\n\r\n---\r\nupdated-dependencies:\r\n- dependency-name: color-parse\r\n  dependency-type: direct:development\r\n  update-type: version-update:semver-major\r\n...\r\n\r\nSigned-off-by: dependabot[bot] <support@github.com>\r\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2024-09-12T00:54:58+03:00",
+          "tree_id": "427bf3c872ca3b0e1d17021cf1a002366939751b",
+          "url": "https://github.com/kurkle/color/commit/044edd9431e6dbf8be59c0b49256394004807d36"
+        },
+        "date": 1726091744232,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "parseInt +",
+            "value": 4912411,
+            "range": "±0.33%",
+            "unit": "ops/sec",
+            "extra": "93 samples"
+          },
+          {
+            "name": "parseInt slice",
+            "value": 5612558,
+            "range": "±0.52%",
+            "unit": "ops/sec",
+            "extra": "97 samples"
+          },
+          {
+            "name": "map",
+            "value": 15740042,
+            "range": "±1.30%",
+            "unit": "ops/sec",
+            "extra": "95 samples"
+          },
+          {
+            "name": "map obj",
+            "value": 17415057,
+            "range": "±0.76%",
+            "unit": "ops/sec",
+            "extra": "95 samples"
+          },
+          {
+            "name": "parseInt + shift",
+            "value": 21025400,
+            "range": "±0.29%",
+            "unit": "ops/sec",
+            "extra": "97 samples"
           }
         ]
       }
