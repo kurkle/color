@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1726092110054,
+  "lastUpdate": 1726093751984,
   "repoUrl": "https://github.com/kurkle/color",
   "entries": {
     "HEX parsing": [
@@ -3599,6 +3599,65 @@ window.BENCHMARK_DATA = {
             "range": "±0.29%",
             "unit": "ops/sec",
             "extra": "97 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "4145282ca7e10a741bdc655c1e1bf24bb78d57c1",
+          "message": "Bump @babel/traverse from 7.20.13 to 7.25.6 (#27)\n\nBumps [@babel/traverse](https://github.com/babel/babel/tree/HEAD/packages/babel-traverse) from 7.20.13 to 7.25.6.\r\n- [Release notes](https://github.com/babel/babel/releases)\r\n- [Changelog](https://github.com/babel/babel/blob/main/CHANGELOG.md)\r\n- [Commits](https://github.com/babel/babel/commits/v7.25.6/packages/babel-traverse)\r\n\r\n---\r\nupdated-dependencies:\r\n- dependency-name: \"@babel/traverse\"\r\n  dependency-type: indirect\r\n...\r\n\r\nSigned-off-by: dependabot[bot] <support@github.com>\r\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2024-09-12T01:28:19+03:00",
+          "tree_id": "223b5951c087976bcd2ad122b6782549d36c17a7",
+          "url": "https://github.com/kurkle/color/commit/4145282ca7e10a741bdc655c1e1bf24bb78d57c1"
+        },
+        "date": 1726093751327,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "parseInt +",
+            "value": 4810707,
+            "range": "±1.53%",
+            "unit": "ops/sec",
+            "extra": "93 samples"
+          },
+          {
+            "name": "parseInt slice",
+            "value": 5550199,
+            "range": "±0.51%",
+            "unit": "ops/sec",
+            "extra": "98 samples"
+          },
+          {
+            "name": "map",
+            "value": 15583420,
+            "range": "±1.49%",
+            "unit": "ops/sec",
+            "extra": "91 samples"
+          },
+          {
+            "name": "map obj",
+            "value": 17588850,
+            "range": "±0.30%",
+            "unit": "ops/sec",
+            "extra": "97 samples"
+          },
+          {
+            "name": "parseInt + shift",
+            "value": 20904252,
+            "range": "±0.30%",
+            "unit": "ops/sec",
+            "extra": "96 samples"
           }
         ]
       }
