@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1726093751984,
+  "lastUpdate": 1726093770347,
   "repoUrl": "https://github.com/kurkle/color",
   "entries": {
     "HEX parsing": [
@@ -3658,6 +3658,65 @@ window.BENCHMARK_DATA = {
             "range": "±0.30%",
             "unit": "ops/sec",
             "extra": "96 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "c59952e6cbe84cc9267876af9f630a6e3f89b845",
+          "message": "Bump eslint-plugin-react from 7.32.1 to 7.35.2 (#24)\n\nBumps [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) from 7.32.1 to 7.35.2.\r\n- [Release notes](https://github.com/jsx-eslint/eslint-plugin-react/releases)\r\n- [Changelog](https://github.com/jsx-eslint/eslint-plugin-react/blob/master/CHANGELOG.md)\r\n- [Commits](https://github.com/jsx-eslint/eslint-plugin-react/compare/v7.32.1...v7.35.2)\r\n\r\n---\r\nupdated-dependencies:\r\n- dependency-name: eslint-plugin-react\r\n  dependency-type: direct:development\r\n  update-type: version-update:semver-minor\r\n...\r\n\r\nSigned-off-by: dependabot[bot] <support@github.com>\r\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2024-09-12T01:28:42+03:00",
+          "tree_id": "50f01f91828b6d1939333504386622d8be84d0b9",
+          "url": "https://github.com/kurkle/color/commit/c59952e6cbe84cc9267876af9f630a6e3f89b845"
+        },
+        "date": 1726093769245,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "parseInt +",
+            "value": 4792568,
+            "range": "±0.58%",
+            "unit": "ops/sec",
+            "extra": "97 samples"
+          },
+          {
+            "name": "parseInt slice",
+            "value": 5459901,
+            "range": "±0.15%",
+            "unit": "ops/sec",
+            "extra": "98 samples"
+          },
+          {
+            "name": "map",
+            "value": 15591176,
+            "range": "±1.16%",
+            "unit": "ops/sec",
+            "extra": "87 samples"
+          },
+          {
+            "name": "map obj",
+            "value": 17404048,
+            "range": "±0.28%",
+            "unit": "ops/sec",
+            "extra": "94 samples"
+          },
+          {
+            "name": "parseInt + shift",
+            "value": 20908839,
+            "range": "±0.33%",
+            "unit": "ops/sec",
+            "extra": "95 samples"
           }
         ]
       }
