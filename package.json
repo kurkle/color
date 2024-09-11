@@ -53,7 +53,7 @@
     "chroma-js": "^2.1.1",
     "color-name": "^2.0.0",
     "color-names": "^2.0.0",
-    "color-parse": "^1.4.2",
+    "color-parse": "^2.0.2",
     "color-parser": "^0.1.0",
     "color-string": "^1.5.5",
     "csscolorparser": "^1.0.3",
