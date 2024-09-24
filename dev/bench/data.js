@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1727149577729,
+  "lastUpdate": 1727149583859,
   "repoUrl": "https://github.com/kurkle/color",
   "entries": {
     "HEX parsing": [
@@ -3953,6 +3953,65 @@ window.BENCHMARK_DATA = {
             "range": "±0.56%",
             "unit": "ops/sec",
             "extra": "93 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "d705f7cd6f14fd33ca03c5ece24b55e066ff5b6e",
+          "message": "Bump eslint-plugin-react from 7.35.2 to 7.36.1 (#31)",
+          "timestamp": "2024-09-24T06:45:38+03:00",
+          "tree_id": "2e74854d41e532e7cf2adc7985f4369e1e232404",
+          "url": "https://github.com/kurkle/color/commit/d705f7cd6f14fd33ca03c5ece24b55e066ff5b6e"
+        },
+        "date": 1727149583371,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "parseInt +",
+            "value": 4848904,
+            "range": "±0.40%",
+            "unit": "ops/sec",
+            "extra": "92 samples"
+          },
+          {
+            "name": "parseInt slice",
+            "value": 5569934,
+            "range": "±0.44%",
+            "unit": "ops/sec",
+            "extra": "91 samples"
+          },
+          {
+            "name": "map",
+            "value": 15477645,
+            "range": "±1.40%",
+            "unit": "ops/sec",
+            "extra": "95 samples"
+          },
+          {
+            "name": "map obj",
+            "value": 17260078,
+            "range": "±1.03%",
+            "unit": "ops/sec",
+            "extra": "97 samples"
+          },
+          {
+            "name": "parseInt + shift",
+            "value": 20866346,
+            "range": "±0.36%",
+            "unit": "ops/sec",
+            "extra": "99 samples"
           }
         ]
       }
