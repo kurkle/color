@@ -50,7 +50,7 @@
     "chartjs-color": "^2.4.1",
     "chartjs-color-string": "^0.6.0",
     "child_process": "^1.0.2",
-    "chroma-js": "^2.1.1",
+    "chroma-js": "^3.1.1",
     "color-name": "^2.0.0",
     "color-names": "^2.0.0",
     "color-parse": "^2.0.2",
