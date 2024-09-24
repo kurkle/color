@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1726094217600,
+  "lastUpdate": 1727149559555,
   "repoUrl": "https://github.com/kurkle/color",
   "entries": {
     "HEX parsing": [
@@ -3835,6 +3835,65 @@ window.BENCHMARK_DATA = {
             "range": "±0.24%",
             "unit": "ops/sec",
             "extra": "99 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "1414fc3fd8548be23000637a8014987c781dc299",
+          "message": "Bump chroma-js from 2.4.2 to 3.1.1 (#28)",
+          "timestamp": "2024-09-24T06:45:09+03:00",
+          "tree_id": "9f048bd9c715e90bdd50e79fb2d079473f485e4b",
+          "url": "https://github.com/kurkle/color/commit/1414fc3fd8548be23000637a8014987c781dc299"
+        },
+        "date": 1727149559065,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "parseInt +",
+            "value": 4868771,
+            "range": "±0.73%",
+            "unit": "ops/sec",
+            "extra": "94 samples"
+          },
+          {
+            "name": "parseInt slice",
+            "value": 5488855,
+            "range": "±0.56%",
+            "unit": "ops/sec",
+            "extra": "95 samples"
+          },
+          {
+            "name": "map",
+            "value": 15543040,
+            "range": "±1.20%",
+            "unit": "ops/sec",
+            "extra": "92 samples"
+          },
+          {
+            "name": "map obj",
+            "value": 17061666,
+            "range": "±0.72%",
+            "unit": "ops/sec",
+            "extra": "98 samples"
+          },
+          {
+            "name": "parseInt + shift",
+            "value": 20954338,
+            "range": "±0.49%",
+            "unit": "ops/sec",
+            "extra": "94 samples"
           }
         ]
       }
