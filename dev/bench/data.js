@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1730536268048,
+  "lastUpdate": 1730536271772,
   "repoUrl": "https://github.com/kurkle/color",
   "entries": {
     "HEX parsing": [
@@ -4189,6 +4189,65 @@ window.BENCHMARK_DATA = {
             "range": "±0.33%",
             "unit": "ops/sec",
             "extra": "92 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "8fb6ef3cf9dde81b88176f3679d5ba19d1e03326",
+          "message": "Bump @rollup/plugin-terser from 0.4.0 to 0.4.4 (#38)\n\nBumps [@rollup/plugin-terser](https://github.com/rollup/plugins/tree/HEAD/packages/terser) from 0.4.0 to 0.4.4.\r\n- [Changelog](https://github.com/rollup/plugins/blob/master/packages/terser/CHANGELOG.md)\r\n- [Commits](https://github.com/rollup/plugins/commits/terser-v0.4.4/packages/terser)\r\n\r\n---\r\nupdated-dependencies:\r\n- dependency-name: \"@rollup/plugin-terser\"\r\n  dependency-type: direct:development\r\n  update-type: version-update:semver-patch\r\n...\r\n\r\nSigned-off-by: dependabot[bot] <support@github.com>\r\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2024-11-02T10:30:25+02:00",
+          "tree_id": "76c3fadb5306178546808f738e68e380f463cad1",
+          "url": "https://github.com/kurkle/color/commit/8fb6ef3cf9dde81b88176f3679d5ba19d1e03326"
+        },
+        "date": 1730536271067,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "parseInt +",
+            "value": 4933423,
+            "range": "±0.85%",
+            "unit": "ops/sec",
+            "extra": "96 samples"
+          },
+          {
+            "name": "parseInt slice",
+            "value": 5584236,
+            "range": "±0.40%",
+            "unit": "ops/sec",
+            "extra": "99 samples"
+          },
+          {
+            "name": "map",
+            "value": 15780229,
+            "range": "±1.42%",
+            "unit": "ops/sec",
+            "extra": "93 samples"
+          },
+          {
+            "name": "map obj",
+            "value": 17438372,
+            "range": "±1.20%",
+            "unit": "ops/sec",
+            "extra": "95 samples"
+          },
+          {
+            "name": "parseInt + shift",
+            "value": 20996564,
+            "range": "±0.85%",
+            "unit": "ops/sec",
+            "extra": "97 samples"
           }
         ]
       }
