@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1730536249208,
+  "lastUpdate": 1730536268048,
   "repoUrl": "https://github.com/kurkle/color",
   "entries": {
     "HEX parsing": [
@@ -4128,6 +4128,65 @@ window.BENCHMARK_DATA = {
             "name": "parseInt + shift",
             "value": 20841051,
             "range": "±0.72%",
+            "unit": "ops/sec",
+            "extra": "92 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "5e0408b75c0660a85abd91717e4f0d5996bb69d7",
+          "message": "Bump eslint-plugin-import from 2.27.5 to 2.31.0 (#39)\n\nBumps [eslint-plugin-import](https://github.com/import-js/eslint-plugin-import) from 2.27.5 to 2.31.0.\r\n- [Release notes](https://github.com/import-js/eslint-plugin-import/releases)\r\n- [Changelog](https://github.com/import-js/eslint-plugin-import/blob/main/CHANGELOG.md)\r\n- [Commits](https://github.com/import-js/eslint-plugin-import/compare/v2.27.5...v2.31.0)\r\n\r\n---\r\nupdated-dependencies:\r\n- dependency-name: eslint-plugin-import\r\n  dependency-type: direct:development\r\n  update-type: version-update:semver-minor\r\n...\r\n\r\nSigned-off-by: dependabot[bot] <support@github.com>\r\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2024-11-02T10:30:14+02:00",
+          "tree_id": "f16c516760e7eec7e89ade862f5e978dca9295b7",
+          "url": "https://github.com/kurkle/color/commit/5e0408b75c0660a85abd91717e4f0d5996bb69d7"
+        },
+        "date": 1730536267303,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "parseInt +",
+            "value": 4929318,
+            "range": "±0.82%",
+            "unit": "ops/sec",
+            "extra": "89 samples"
+          },
+          {
+            "name": "parseInt slice",
+            "value": 5475546,
+            "range": "±0.89%",
+            "unit": "ops/sec",
+            "extra": "97 samples"
+          },
+          {
+            "name": "map",
+            "value": 15464151,
+            "range": "±1.56%",
+            "unit": "ops/sec",
+            "extra": "89 samples"
+          },
+          {
+            "name": "map obj",
+            "value": 17538921,
+            "range": "±0.74%",
+            "unit": "ops/sec",
+            "extra": "96 samples"
+          },
+          {
+            "name": "parseInt + shift",
+            "value": 21024363,
+            "range": "±0.33%",
             "unit": "ops/sec",
             "extra": "92 samples"
           }
