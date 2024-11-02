@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1730536271772,
+  "lastUpdate": 1730536280928,
   "repoUrl": "https://github.com/kurkle/color",
   "entries": {
     "HEX parsing": [
@@ -4248,6 +4248,65 @@ window.BENCHMARK_DATA = {
             "range": "±0.85%",
             "unit": "ops/sec",
             "extra": "97 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "236e341e79536f4ed34e322858f84c6f16ae8d9c",
+          "message": "Bump tinycolor2 from 1.5.2 to 1.6.0 (#37)\n\nBumps [tinycolor2](https://github.com/bgrins/TinyColor) from 1.5.2 to 1.6.0.\r\n- [Release notes](https://github.com/bgrins/TinyColor/releases)\r\n- [Commits](https://github.com/bgrins/TinyColor/compare/1.5.2...1.6.0)\r\n\r\n---\r\nupdated-dependencies:\r\n- dependency-name: tinycolor2\r\n  dependency-type: direct:development\r\n  update-type: version-update:semver-minor\r\n...\r\n\r\nSigned-off-by: dependabot[bot] <support@github.com>\r\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2024-11-02T10:30:34+02:00",
+          "tree_id": "db0e2bd482355553ed8fde8bc9a0d590b539f61c",
+          "url": "https://github.com/kurkle/color/commit/236e341e79536f4ed34e322858f84c6f16ae8d9c"
+        },
+        "date": 1730536280384,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "parseInt +",
+            "value": 4926604,
+            "range": "±1.51%",
+            "unit": "ops/sec",
+            "extra": "94 samples"
+          },
+          {
+            "name": "parseInt slice",
+            "value": 5581164,
+            "range": "±0.13%",
+            "unit": "ops/sec",
+            "extra": "99 samples"
+          },
+          {
+            "name": "map",
+            "value": 15805277,
+            "range": "±1.16%",
+            "unit": "ops/sec",
+            "extra": "94 samples"
+          },
+          {
+            "name": "map obj",
+            "value": 17586816,
+            "range": "±0.84%",
+            "unit": "ops/sec",
+            "extra": "97 samples"
+          },
+          {
+            "name": "parseInt + shift",
+            "value": 20977894,
+            "range": "±0.29%",
+            "unit": "ops/sec",
+            "extra": "94 samples"
           }
         ]
       }
