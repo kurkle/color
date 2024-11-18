@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1730536507981,
+  "lastUpdate": 1731951914929,
   "repoUrl": "https://github.com/kurkle/color",
   "entries": {
     "HEX parsing": [
@@ -4307,6 +4307,65 @@ window.BENCHMARK_DATA = {
             "range": "±0.29%",
             "unit": "ops/sec",
             "extra": "94 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "cd66c39defb103dc027719d1edba7540aa15de2d",
+          "message": "Bump typescript from 5.6.2 to 5.6.3 (#48)\n\nBumps [typescript](https://github.com/microsoft/TypeScript) from 5.6.2 to 5.6.3.\r\n- [Release notes](https://github.com/microsoft/TypeScript/releases)\r\n- [Changelog](https://github.com/microsoft/TypeScript/blob/main/azure-pipelines.release.yml)\r\n- [Commits](https://github.com/microsoft/TypeScript/compare/v5.6.2...v5.6.3)\r\n\r\n---\r\nupdated-dependencies:\r\n- dependency-name: typescript\r\n  dependency-type: direct:development\r\n  update-type: version-update:semver-patch\r\n...\r\n\r\nSigned-off-by: dependabot[bot] <support@github.com>\r\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2024-11-18T19:44:23+02:00",
+          "tree_id": "d8d569cc1e97f55d911af2fb9ab0c39d12706095",
+          "url": "https://github.com/kurkle/color/commit/cd66c39defb103dc027719d1edba7540aa15de2d"
+        },
+        "date": 1731951913650,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "parseInt +",
+            "value": 4929163,
+            "range": "±0.49%",
+            "unit": "ops/sec",
+            "extra": "96 samples"
+          },
+          {
+            "name": "parseInt slice",
+            "value": 5574983,
+            "range": "±0.13%",
+            "unit": "ops/sec",
+            "extra": "99 samples"
+          },
+          {
+            "name": "map",
+            "value": 15823245,
+            "range": "±0.87%",
+            "unit": "ops/sec",
+            "extra": "94 samples"
+          },
+          {
+            "name": "map obj",
+            "value": 17504243,
+            "range": "±0.32%",
+            "unit": "ops/sec",
+            "extra": "96 samples"
+          },
+          {
+            "name": "parseInt + shift",
+            "value": 21086518,
+            "range": "±0.25%",
+            "unit": "ops/sec",
+            "extra": "96 samples"
           }
         ]
       }
