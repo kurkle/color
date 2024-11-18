@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1731951921611,
+  "lastUpdate": 1731951959797,
   "repoUrl": "https://github.com/kurkle/color",
   "entries": {
     "HEX parsing": [
@@ -4425,6 +4425,65 @@ window.BENCHMARK_DATA = {
             "range": "±0.25%",
             "unit": "ops/sec",
             "extra": "95 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "47b3efc21d6c77a01ebb8bdb1c4b52847a51f04b",
+          "message": "Bump rollup from 3.10.1 to 4.25.0 (#50)\n\nBumps [rollup](https://github.com/rollup/rollup) from 3.10.1 to 4.25.0.\r\n- [Release notes](https://github.com/rollup/rollup/releases)\r\n- [Changelog](https://github.com/rollup/rollup/blob/master/CHANGELOG.md)\r\n- [Commits](https://github.com/rollup/rollup/compare/v3.10.1...v4.25.0)\r\n\r\n---\r\nupdated-dependencies:\r\n- dependency-name: rollup\r\n  dependency-type: direct:development\r\n  update-type: version-update:semver-major\r\n...\r\n\r\nSigned-off-by: dependabot[bot] <support@github.com>\r\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2024-11-18T19:45:13+02:00",
+          "tree_id": "98ad74ac26b05615054aa70190a7878a2782dec6",
+          "url": "https://github.com/kurkle/color/commit/47b3efc21d6c77a01ebb8bdb1c4b52847a51f04b"
+        },
+        "date": 1731951959023,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "parseInt +",
+            "value": 4872959,
+            "range": "±1.67%",
+            "unit": "ops/sec",
+            "extra": "94 samples"
+          },
+          {
+            "name": "parseInt slice",
+            "value": 5559461,
+            "range": "±0.18%",
+            "unit": "ops/sec",
+            "extra": "99 samples"
+          },
+          {
+            "name": "map",
+            "value": 15562944,
+            "range": "±1.34%",
+            "unit": "ops/sec",
+            "extra": "92 samples"
+          },
+          {
+            "name": "map obj",
+            "value": 17291438,
+            "range": "±1.30%",
+            "unit": "ops/sec",
+            "extra": "95 samples"
+          },
+          {
+            "name": "parseInt + shift",
+            "value": 20449404,
+            "range": "±0.17%",
+            "unit": "ops/sec",
+            "extra": "98 samples"
           }
         ]
       }
