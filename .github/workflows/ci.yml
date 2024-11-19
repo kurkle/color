@@ -14,8 +14,15 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           cache: npm
-      - run: |
-          npm ci
-          npm run lint
-          npm run build
-          xvfb-run --auto-servernum npm test
+
+      - name: install
+        run: npm ci
+
+      - name: lint
+        run: npm run lint
+
+      - name: build
+        run: npm run build
+
+      - name: test
+        run: xvfb-run --auto-servernum npm test
