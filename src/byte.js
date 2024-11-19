@@ -52,3 +52,11 @@ export function b2n(v) {
 export function n2p(v) {
   return lim(round(v * 100), 0, 100);
 }
+
+/**
+ * Fast division by 255
+ * Accurate for input values 0..65535
+ * @param {number} v
+ * @returns {number}
+ */
+export const div255 = (v) => (v + ((v + 257) >> 8)) >> 8;

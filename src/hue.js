@@ -3,7 +3,7 @@
  * @module utils
  */
 
-import {b2n, n2p, n2b, p2b} from './byte.js';
+import {b2n, n2p, n2b, p2b, div255} from './byte.js';
 
 /**
  * @typedef {import('./index.js').RGBA} RGBA
@@ -88,10 +88,9 @@ function hueValue(r, g, b, d, max) {
  * @returns {number[]} - [h, s, l]
  */
 export function rgb2hsl(v) {
-  const range = 255;
-  const r = v.r / range;
-  const g = v.g / range;
-  const b = v.b / range;
+  const r = div255(v.r);
+  const g = div255(v.g);
+  const b = div255(v.b);
   const max = Math.max(r, g, b);
   const min = Math.min(r, g, b);
   const l = (max + min) / 2;
