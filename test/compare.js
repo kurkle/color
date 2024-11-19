@@ -8,9 +8,9 @@ import parse from 'color-parse';
 import parser from 'color-parser';
 import kcolor from '../dist/color.esm.js';
 
-const {get: ostring} = colorString;
+const { get: ostring } = colorString;
 
-const strings = [
+const parsedStrings = [
   '#d6F',
   '#AABB',
   '#555555',
@@ -19,7 +19,7 @@ const strings = [
   'rgba(255, 0, 0, 0.5)',
   'hsla(240, 100, 60, 0.5)',
   'blue'
-];
+]
 
 const parsers = {
   '@kurkle/color': kcolor,
@@ -29,179 +29,95 @@ const parsers = {
   'color-parse': parse,
   'color-parser': parser,
   'color-string': ostring
-};
-const objects = {
-  '@kurkle/color': true,
-  'chartjs-color': true
-};
+}
 
-const parserNames = Object.keys(parsers);
-
-const manipulators = {
-  '@kurkle/color': kcolor,
-  'chroma-js': chroma,
-  'chartjs-color': color
-};
-const manipulatorNames = Object.keys(manipulators);
+const called = ['tinycolor2', 'chroma-js', 'color-parse', 'color-parser', 'color-string']
+const constructed = ['@kurkle/color', 'chartjs-color']
+const manipulators = ['@kurkle/color', 'chroma-js', 'chartjs-color']
 
 const options = {
   initCount: 1,
   maxTime: 4
-};
+}
 
-const cycle = function(event) {
-  if (!event.target.error) {
-    console.log(String(event.target));
+const cycle = (event) => !event.target.error && console.log(`${event.target}`)
+
+const benchmarkSuites = []
+
+// parsing suites
+
+for (const str of parsedStrings) {
+  const suite = new benchmark.Suite()
+
+  for (const lib of constructed) {
+    suite.add(`parse ${str}|${lib}`, () => {
+      const c = new parsers[lib](str)
+      if (!c) {
+        throw new Error('failed');
+      }
+    }, options)
   }
-};
 
-strings.forEach(function(str) {
-  var _suite = new benchmark.Suite();
-  parserNames.forEach(function(lib) {
-    if (objects[lib]) {
-      _suite.add('parse ' + str + '|' + lib, function() {
-        var c = new parsers[lib](str);
-        if (!c) {
-          throw new Error('failed');
-        }
-      }, options);
-    } else {
-      _suite.add('parse ' + str + '|' + lib, function() {
-        var c = parsers[lib](str);
-        if (!c) {
-          throw new Error('failed');
-        }
-      }, options);
-    }
-  });
-  _suite
-    .on('cycle', cycle)
-    .run();
-});
+  for (const lib of called) {
+    suite.add(`parse ${str}|${lib}`, () => {
+      const c = parsers[lib](str)
+      if (!c) {
+        throw new Error('failed');
+      }
+    }, options)
+  }
 
-var suites = [];
-var suite;
+  benchmarkSuites.push(suite)
+}
 
-suite = new benchmark.Suite();
-manipulatorNames.forEach(function(lib) {
-  var c1 = new manipulators[lib]('#aaaaaa');
-  suite.add('alpha|' + lib, function() {
-    c1.alpha(0.5);
-  }, options);
-});
-suites.push(['alpha', suite]);
+// manipulation suites
 
-suite = new benchmark.Suite();
-manipulatorNames.forEach(function(lib) {
-  var c1 = new manipulators[lib]('rgb(0, 100, 255)');
-  suite.add('negate|' + lib, function() {
-    c1.negate();
-  }, options);
-});
-suites.push(['negate', suite]);
+const manipulationParams = {
+  alpha: [0.5],
+  negate: [],
+  lighten: [0, 1],
+  darken: [0, 1],
+  saturate: [0.5],
+  desaturate: [0.5],
+  clearer: [0.5],
+  opaquer: [0.5],
+  mix: ['#33333380', 0.5],
+  clone: [],
+  hexString: [],
+  hslString: [],
+  rgbString: [],
+}
 
-suite = new benchmark.Suite();
-manipulatorNames.forEach(function(lib) {
-  var c1 = new manipulators[lib]('#aaaaaa');
-  suite.add('lighten|' + lib, function() {
-    c1.lighten(0.1);
-  }, options);
-});
-suites.push(['lighten', suite]);
+const manupulatedColors = {
+  alpha: '#aaaaaa',
+  negate: 'rgb(0, 100, 255)',
+  lighten: '#aaaaaa',
+  darken: '#aaaaaa',
+  mix: '#aaaaaa',
+}
 
-suite = new benchmark.Suite();
-manipulatorNames.forEach(function(lib) {
-  var c1 = new manipulators[lib]('#aaaaaa');
-  suite.add('darken|' + lib, function() {
-    c1.darken(0.1);
-  }, options);
-});
-suites.push(['darken', suite]);
+const parserFn = (lib, color) => constructed.includes(lib) ? new parsers[lib](color) : parsers[lib](color)
 
-suite = new benchmark.Suite();
-manipulatorNames.forEach(function(lib) {
-  var c1 = new manipulators[lib]('hsl(100, 50%, 50%)');
-  suite.add('saturate|' + lib, function() {
-    c1.saturate(0.5);
-  }, options);
-});
-suites.push(['saturate', suite]);
+for (const fn of Object.keys(manipulationParams)) {
+  const suite = new benchmark.Suite();
+  const args = manipulationParams[fn];
+  const color = manupulatedColors[fn] ?? 'hsl(100, 50%, 50%)';
 
-suite = new benchmark.Suite();
-manipulatorNames.forEach(function(lib) {
-  var c1 = new manipulators[lib]('hsl(100, 50%, 50%)');
-  suite.add('desaturate|' + lib, function() {
-    c1.desaturate(0.5);
-  }, options);
-});
-suites.push(['desaturate', suite]);
+  for (const lib of manipulators) {
+    const instance = parserFn(lib, color)
 
-suite = new benchmark.Suite();
-manipulatorNames.forEach(function(lib) {
-  var c1 = new manipulators[lib]('hsl(100, 50%, 50%)');
-  suite.add('clearer|' + lib, function() {
-    c1.clearer(0.5);
-  }, options);
-});
-suites.push(['clearer', suite]);
+    if (!(fn in instance)) continue // not supported
 
-suite = new benchmark.Suite();
-manipulatorNames.forEach(function(lib) {
-  var c1 = new manipulators[lib]('hsl(100, 50%, 50%)');
-  suite.add('opaquer|' + lib, function() {
-    c1.opaquer(0.5);
-  }, options);
-});
-suites.push(['opaquer', suite]);
+    const instanceArgs = args.map((arg) => typeof arg === 'string' ? parserFn(lib, arg) : arg)
 
-suite = new benchmark.Suite();
-manipulatorNames.forEach(function(lib) {
-  var c1 = new manipulators[lib]('#aaaaaa');
-  var c2 = new manipulators[lib]('#33333380');
-  suite.add('mix|' + lib, function() {
-    c1.mix(c2, 0.5);
-  }, options);
-});
-suites.push(['mix', suite]);
+    suite.add(`${fn}|${lib}`, () => {
+      instance[fn](...instanceArgs);
+    }, options);
+  }
+  benchmarkSuites.push(suite);
+}
 
-suite = new benchmark.Suite();
-manipulatorNames.forEach(function(lib) {
-  var c1 = new manipulators[lib]('hsl(100, 50%, 50%)');
-  suite.add('clone|' + lib, function() {
-    c1.clone();
-  }, options);
-});
-suites.push(['clone', suite]);
-
-suite = new benchmark.Suite();
-manipulatorNames.forEach(function(lib) {
-  var c1 = new manipulators[lib]('hsl(100, 50%, 50%)');
-  suite.add('hexString|' + lib, function() {
-    c1.hexString();
-  }, options);
-});
-suites.push(['hexString', suite]);
-
-suite = new benchmark.Suite();
-manipulatorNames.forEach(function(lib) {
-  var c1 = new manipulators[lib]('hsl(100, 50%, 50%)');
-  suite.add('hslString|' + lib, function() {
-    c1.hslString();
-  }, options);
-});
-suites.push(['hslString', suite]);
-
-suite = new benchmark.Suite();
-manipulatorNames.forEach(function(lib) {
-  var c1 = new manipulators[lib]('hsl(100, 50%, 50%)');
-  suite.add('rgbString|' + lib, function() {
-    c1.rgbString();
-  }, options);
-});
-suites.push(['rgbString', suite]);
-
-suites.forEach(function(arr) {
-  arr[1]
-    .on('cycle', cycle)
-    .run();
-});
+// run the suites
+for (const suite of benchmarkSuites) {
+  suite.on('cycle', cycle).run()
+}
