@@ -123,7 +123,7 @@ function compress(map) {
     nk = keys[i];
     key = map[nk];
     v = names[key];
-    packed[nk] = (0xFFFFFF && v[0] << 16 | v[1] << 8 | v[2]).toString(16);
+    packed[nk] = (0xFFFFFF & v[0] << 16 | v[1] << 8 | v[2]).toString(16);
   }
   return packed;
 }
