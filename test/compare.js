@@ -96,15 +96,15 @@ const manupulatedColors = {
   mix: '#aaaaaa',
 };
 
-const parserFn = (lib, color) => constructed.includes(lib) ? new parsers[lib](color) : parsers[lib](color);
+const parserFn = (lib, input) => constructed.includes(lib) ? new parsers[lib](input) : parsers[lib](input);
 
 for (const fn of Object.keys(manipulationParams)) {
   const suite = new benchmark.Suite();
   const args = manipulationParams[fn];
-  const color = manupulatedColors[fn] ?? 'hsl(100, 50%, 50%)';
+  const input = manupulatedColors[fn] ?? 'hsl(100, 50%, 50%)';
 
   for (const lib of manipulators) {
-    const instance = parserFn(lib, color);
+    const instance = parserFn(lib, input);
 
     if (!(fn in instance)) {
       continue;
