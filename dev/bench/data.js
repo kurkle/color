@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1732029590017,
+  "lastUpdate": 1732029600408,
   "repoUrl": "https://github.com/kurkle/color",
   "entries": {
     "HEX parsing": [
@@ -4541,6 +4541,65 @@ window.BENCHMARK_DATA = {
             "name": "parseInt + shift",
             "value": 20760913,
             "range": "±0.39%",
+            "unit": "ops/sec",
+            "extra": "97 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "19a3f79ebe1f77f013bc86bfd77ffa00c65757b7",
+          "message": "Bump chroma-js from 3.1.1 to 3.1.2 (#53)\n\nBumps [chroma-js](https://github.com/gka/chroma.js) from 3.1.1 to 3.1.2.\r\n- [Release notes](https://github.com/gka/chroma.js/releases)\r\n- [Changelog](https://github.com/gka/chroma.js/blob/main/CHANGELOG.md)\r\n- [Commits](https://github.com/gka/chroma.js/compare/v3.1.1...v3.1.2)\r\n\r\n---\r\nupdated-dependencies:\r\n- dependency-name: chroma-js\r\n  dependency-type: direct:development\r\n  update-type: version-update:semver-patch\r\n...\r\n\r\nSigned-off-by: dependabot[bot] <support@github.com>\r\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2024-11-19T17:19:09+02:00",
+          "tree_id": "6a843334bfe4536508e3d1db01ee2cba78e11b6b",
+          "url": "https://github.com/kurkle/color/commit/19a3f79ebe1f77f013bc86bfd77ffa00c65757b7"
+        },
+        "date": 1732029599631,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "parseInt +",
+            "value": 4761231,
+            "range": "±1.38%",
+            "unit": "ops/sec",
+            "extra": "95 samples"
+          },
+          {
+            "name": "parseInt slice",
+            "value": 5486291,
+            "range": "±1.55%",
+            "unit": "ops/sec",
+            "extra": "96 samples"
+          },
+          {
+            "name": "map",
+            "value": 15611421,
+            "range": "±1.03%",
+            "unit": "ops/sec",
+            "extra": "94 samples"
+          },
+          {
+            "name": "map obj",
+            "value": 17423724,
+            "range": "±0.58%",
+            "unit": "ops/sec",
+            "extra": "96 samples"
+          },
+          {
+            "name": "parseInt + shift",
+            "value": 20765809,
+            "range": "±0.35%",
             "unit": "ops/sec",
             "extra": "97 samples"
           }
