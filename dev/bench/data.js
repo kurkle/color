@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1734370275646,
+  "lastUpdate": 1734778528530,
   "repoUrl": "https://github.com/kurkle/color",
   "entries": {
     "HEX parsing": [
@@ -5428,6 +5428,65 @@ window.BENCHMARK_DATA = {
             "range": "±0.73%",
             "unit": "ops/sec",
             "extra": "95 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "b0195e9cac8d9556d531e69d3e21202d7fb48d5d",
+          "message": "chore(deps-dev): bump typedoc from 0.27.4 to 0.27.5 (#63)\n\nBumps [typedoc](https://github.com/TypeStrong/TypeDoc) from 0.27.4 to 0.27.5.\r\n- [Release notes](https://github.com/TypeStrong/TypeDoc/releases)\r\n- [Changelog](https://github.com/TypeStrong/typedoc/blob/master/CHANGELOG.md)\r\n- [Commits](https://github.com/TypeStrong/TypeDoc/compare/v0.27.4...v0.27.5)\r\n\r\n---\r\nupdated-dependencies:\r\n- dependency-name: typedoc\r\n  dependency-type: direct:development\r\n  update-type: version-update:semver-patch\r\n...\r\n\r\nSigned-off-by: dependabot[bot] <support@github.com>\r\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2024-12-21T12:54:39+02:00",
+          "tree_id": "0584fbae749309de33faf33e983a4d1dba525ecc",
+          "url": "https://github.com/kurkle/color/commit/b0195e9cac8d9556d531e69d3e21202d7fb48d5d"
+        },
+        "date": 1734778527415,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "parseInt +",
+            "value": 4774699,
+            "range": "±2.49%",
+            "unit": "ops/sec",
+            "extra": "92 samples"
+          },
+          {
+            "name": "parseInt slice",
+            "value": 5570617,
+            "range": "±1.14%",
+            "unit": "ops/sec",
+            "extra": "98 samples"
+          },
+          {
+            "name": "map",
+            "value": 15743644,
+            "range": "±1.29%",
+            "unit": "ops/sec",
+            "extra": "95 samples"
+          },
+          {
+            "name": "map obj",
+            "value": 17455160,
+            "range": "±0.33%",
+            "unit": "ops/sec",
+            "extra": "95 samples"
+          },
+          {
+            "name": "parseInt + shift",
+            "value": 20876859,
+            "range": "±0.42%",
+            "unit": "ops/sec",
+            "extra": "93 samples"
           }
         ]
       }
