@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1734778528530,
+  "lastUpdate": 1734778539319,
   "repoUrl": "https://github.com/kurkle/color",
   "entries": {
     "HEX parsing": [
@@ -5487,6 +5487,65 @@ window.BENCHMARK_DATA = {
             "range": "±0.42%",
             "unit": "ops/sec",
             "extra": "93 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "e2534682b62706272816515bdf2b243df45d07a0",
+          "message": "chore(deps-dev): bump eslint from 9.16.0 to 9.17.0 (#64)\n\nBumps [eslint](https://github.com/eslint/eslint) from 9.16.0 to 9.17.0.\r\n- [Release notes](https://github.com/eslint/eslint/releases)\r\n- [Changelog](https://github.com/eslint/eslint/blob/main/CHANGELOG.md)\r\n- [Commits](https://github.com/eslint/eslint/compare/v9.16.0...v9.17.0)\r\n\r\n---\r\nupdated-dependencies:\r\n- dependency-name: eslint\r\n  dependency-type: direct:development\r\n  update-type: version-update:semver-minor\r\n...\r\n\r\nSigned-off-by: dependabot[bot] <support@github.com>\r\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2024-12-21T12:54:50+02:00",
+          "tree_id": "2025c4b9eb87917542ab09df450b194e199253e8",
+          "url": "https://github.com/kurkle/color/commit/e2534682b62706272816515bdf2b243df45d07a0"
+        },
+        "date": 1734778538072,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "parseInt +",
+            "value": 4830456,
+            "range": "±0.92%",
+            "unit": "ops/sec",
+            "extra": "89 samples"
+          },
+          {
+            "name": "parseInt slice",
+            "value": 5509921,
+            "range": "±0.17%",
+            "unit": "ops/sec",
+            "extra": "98 samples"
+          },
+          {
+            "name": "map",
+            "value": 15485804,
+            "range": "±1.24%",
+            "unit": "ops/sec",
+            "extra": "92 samples"
+          },
+          {
+            "name": "map obj",
+            "value": 17299203,
+            "range": "±0.65%",
+            "unit": "ops/sec",
+            "extra": "95 samples"
+          },
+          {
+            "name": "parseInt + shift",
+            "value": 20608882,
+            "range": "±0.71%",
+            "unit": "ops/sec",
+            "extra": "91 samples"
           }
         ]
       }
