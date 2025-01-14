@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1736816947222,
+  "lastUpdate": 1736816960071,
   "repoUrl": "https://github.com/kurkle/color",
   "entries": {
     "HEX parsing": [
@@ -5605,6 +5605,65 @@ window.BENCHMARK_DATA = {
             "range": "±0.20%",
             "unit": "ops/sec",
             "extra": "96 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "e56ee42554cafb13239cc71b6d64ce0dfca327a3",
+          "message": "chore(deps-dev): bump rollup-plugin-visualizer from 5.12.0 to 5.14.0 (#69)",
+          "timestamp": "2025-01-14T03:08:31+02:00",
+          "tree_id": "a12eb9d493bce83c3dd47ac06a1dea3cc1196b02",
+          "url": "https://github.com/kurkle/color/commit/e56ee42554cafb13239cc71b6d64ce0dfca327a3"
+        },
+        "date": 1736816958748,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "parseInt +",
+            "value": 5505855,
+            "range": "±0.96%",
+            "unit": "ops/sec",
+            "extra": "87 samples"
+          },
+          {
+            "name": "parseInt slice",
+            "value": 5819242,
+            "range": "±0.64%",
+            "unit": "ops/sec",
+            "extra": "93 samples"
+          },
+          {
+            "name": "map",
+            "value": 21748562,
+            "range": "±1.07%",
+            "unit": "ops/sec",
+            "extra": "90 samples"
+          },
+          {
+            "name": "map obj",
+            "value": 26258975,
+            "range": "±1.88%",
+            "unit": "ops/sec",
+            "extra": "91 samples"
+          },
+          {
+            "name": "parseInt + shift",
+            "value": 21044758,
+            "range": "±0.26%",
+            "unit": "ops/sec",
+            "extra": "95 samples"
           }
         ]
       }
