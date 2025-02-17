@@ -55,7 +55,7 @@
     "color-names": "^2.0.0",
     "color-parse": "^2.0.2",
     "color-parser": "^0.1.0",
-    "color-string": "^1.5.5",
+    "color-string": "^2.0.1",
     "csscolorparser": "^1.0.3",
     "eslint": "^9.15.0",
     "eslint-config-chartjs": "^0.3.0",
