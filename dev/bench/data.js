@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1741152329797,
+  "lastUpdate": 1741152346063,
   "repoUrl": "https://github.com/kurkle/color",
   "entries": {
     "HEX parsing": [
@@ -6195,6 +6195,65 @@ window.BENCHMARK_DATA = {
             "range": "±0.26%",
             "unit": "ops/sec",
             "extra": "96 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "62b5e3c1e61979d961f4043b047ba5fb7cf1d851",
+          "message": "chore(deps-dev): bump typedoc from 0.27.7 to 0.27.9 (#85)",
+          "timestamp": "2025-03-05T07:24:59+02:00",
+          "tree_id": "1b1099bed257a9871c03f476bf13711c4ef94fa9",
+          "url": "https://github.com/kurkle/color/commit/62b5e3c1e61979d961f4043b047ba5fb7cf1d851"
+        },
+        "date": 1741152345387,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "parseInt +",
+            "value": 5074186,
+            "range": "±2.88%",
+            "unit": "ops/sec",
+            "extra": "86 samples"
+          },
+          {
+            "name": "parseInt slice",
+            "value": 5462419,
+            "range": "±0.56%",
+            "unit": "ops/sec",
+            "extra": "92 samples"
+          },
+          {
+            "name": "map",
+            "value": 20151765,
+            "range": "±1.35%",
+            "unit": "ops/sec",
+            "extra": "90 samples"
+          },
+          {
+            "name": "map obj",
+            "value": 24196632,
+            "range": "±1.16%",
+            "unit": "ops/sec",
+            "extra": "89 samples"
+          },
+          {
+            "name": "parseInt + shift",
+            "value": 19983496,
+            "range": "±0.48%",
+            "unit": "ops/sec",
+            "extra": "94 samples"
           }
         ]
       }
