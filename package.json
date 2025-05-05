@@ -70,7 +70,7 @@
     "rollup-plugin-istanbul": "^5.0.0",
     "rollup-plugin-visualizer": "^5.8.3",
     "tinycolor2": "^1.4.2",
-    "typedoc": "^0.27.2",
+    "typedoc": "^0.28.4",
     "typescript": "^5.6.2",
     "util": "^0.12.3"
   }
