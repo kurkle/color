@@ -89,7 +89,7 @@ export default class Color {
       v = fromObject(input);
     } else if (type === 'string') {
       // @ts-ignore
-      const cleaned = input.replace(/\/\/.*(?=\n|$)/g, '').replace(/\/\*[\s\S]*?\*\//g, ''); // Removecomments
+      const cleaned = input.replace(/\/\*[^]*?\*\//g, '').replace(/\/\/[^\n\r]*/g, '');
       v = hexParse(cleaned) || nameParse(cleaned) || functionParse(cleaned);
     }
 
