@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1741663100194,
+  "lastUpdate": 1748500210786,
   "repoUrl": "https://github.com/kurkle/color",
   "entries": {
     "HEX parsing": [
@@ -6490,6 +6490,65 @@ window.BENCHMARK_DATA = {
             "range": "±0.26%",
             "unit": "ops/sec",
             "extra": "97 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "jukka.kurkela@gmail.com",
+            "name": "Jukka Kurkela",
+            "username": "kurkle"
+          },
+          "committer": {
+            "email": "jukka.kurkela@gmail.com",
+            "name": "Jukka Kurkela",
+            "username": "kurkle"
+          },
+          "distinct": true,
+          "id": "9865236fee7a602856be98ec485c14c7b0630c68",
+          "message": "0.4.0",
+          "timestamp": "2025-05-29T09:29:20+03:00",
+          "tree_id": "0a1bc7c93a0339aa36f2db29c482cfe0ca015720",
+          "url": "https://github.com/kurkle/color/commit/9865236fee7a602856be98ec485c14c7b0630c68"
+        },
+        "date": 1748500209946,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "parseInt +",
+            "value": 5300673,
+            "range": "±1.12%",
+            "unit": "ops/sec",
+            "extra": "87 samples"
+          },
+          {
+            "name": "parseInt slice",
+            "value": 5501998,
+            "range": "±0.79%",
+            "unit": "ops/sec",
+            "extra": "90 samples"
+          },
+          {
+            "name": "map",
+            "value": 19796565,
+            "range": "±1.06%",
+            "unit": "ops/sec",
+            "extra": "91 samples"
+          },
+          {
+            "name": "map obj",
+            "value": 23271648,
+            "range": "±1.04%",
+            "unit": "ops/sec",
+            "extra": "88 samples"
+          },
+          {
+            "name": "parseInt + shift",
+            "value": 19708563,
+            "range": "±0.79%",
+            "unit": "ops/sec",
+            "extra": "92 samples"
           }
         ]
       }
