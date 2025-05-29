@@ -37,10 +37,17 @@ const manipulators = ['@kurkle/color', 'chroma-js', 'chartjs-color'];
 
 const options = {
   initCount: 1,
-  maxTime: 4
+  maxTime: 1,
+  minSamples: 5
 };
 
-const cycle = (event) => !event.target.error && console.log(`${event.target}`);
+const cycle = (event) => {
+  if (!event.target.error) {
+    console.log(`${event.target}`);
+    // Force garbage collection between benchmarks if available
+    global.gc?.();
+  }
+};
 
 const benchmarkSuites = [];
 
@@ -123,6 +130,16 @@ for (const fn of Object.keys(manipulationParams)) {
 const filter = process.argv[2];
 const filterFn = filter ? (bench) => bench.name.startsWith(filter) : () => true;
 
-for (const suite of benchmarkSuites) {
-  suite.filter(filterFn).on('cycle', cycle).run();
-}
+// Run suites in sequence with async/await to prevent memory pressure
+// This is more efficient than running all suites in parallel
+(async function() {
+  for (const suite of benchmarkSuites) {
+    await new Promise(resolve => {
+      suite
+        .filter(filterFn)
+        .on('cycle', cycle)
+        .on('complete', () => resolve())
+        .run({async: true});
+    });
+  }
+}());
