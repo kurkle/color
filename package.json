@@ -1,7 +1,7 @@
 {
   "name": "@kurkle/color",
   "type": "module",
-  "version": "0.3.4",
+  "version": "0.4.0",
   "description": "css color parsing, manupulation and conversion",
   "sideEffects": false,
   "main": "dist/color.cjs",
