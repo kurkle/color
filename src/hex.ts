@@ -3,7 +3,7 @@
  * @module utils
  */
 
-import { RGBA } from './color.js';
+import {RGBA} from './color.js';
 
 /**
  * @hidden
@@ -71,7 +71,7 @@ export function hexParse(str: string): RGBA | undefined {
   return ret;
 }
 
-const alpha = (a: number, f: (a: number) => string): string => a < 255 ? f(a) : '';
+const alpha = (a: number, f: (b: number) => string): string => a < 255 ? f(a) : '';
 
 /**
  * Return HEX string from color

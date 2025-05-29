@@ -4,7 +4,7 @@
  */
 
 import {b2n, n2b} from './byte.js';
-import { RGBA } from './color.js';
+import {RGBA} from './color.js';
 
 const to = (v: number): number => v <= 0.0031308 ? v * 12.92 : Math.pow(v, 1.0 / 2.4) * 1.055 - 0.055;
 const from = (v: number): number => v <= 0.04045 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4);

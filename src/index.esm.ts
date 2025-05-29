@@ -3,9 +3,9 @@
  * @module index
  */
 
-import Color, { RGBA } from './color.js';
+import Color, {RGBA} from './color.js';
 
-export { Color };
+export {Color, RGBA};
 export * from './byte.js';
 export * from './hex.js';
 export * from './hue.js';

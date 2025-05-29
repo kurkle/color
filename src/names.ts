@@ -4,7 +4,7 @@
  */
 
 import unpack from './packed.js';
-import { RGBA } from './color.js';
+import {RGBA} from './color.js';
 
 let names: Record<string, number[]>;
 

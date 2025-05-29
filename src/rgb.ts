@@ -4,7 +4,7 @@
  */
 
 import {b2n, lim, p2b} from './byte.js';
-import { RGBA } from './color.js';
+import {RGBA} from './color.js';
 
 /**
  * @hidden
