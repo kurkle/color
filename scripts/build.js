@@ -1,7 +1,13 @@
 // esbuild configuration for @kurkle/color
 import * as esbuild from 'esbuild';
-import {readFileSync, mkdirSync, existsSync} from 'fs';
+import {readFileSync, mkdirSync, existsSync, renameSync} from 'fs';
 import {execSync} from 'child_process';
+import {join} from 'path';
+
+// Get absolute paths for executables
+const nodePath = process.execPath; // Path to the Node.js executable
+const npmBinPath = join(process.execPath, '..', '..', 'lib', 'node_modules', 'npm', 'bin');
+const npxPath = join(npmBinPath, 'npx-cli.js');
 
 // Read package.json
 const pkg = JSON.parse(readFileSync('./package.json', 'utf8'));
@@ -16,13 +22,13 @@ console.log('Managing packed.ts files...');
 try {
   // Backup the placeholder packed.ts file
   if (existsSync('src/packed.ts')) {
-    execSync('mv src/packed.ts src/packed.ts.placeholder', {stdio: 'inherit'});
+    renameSync('src/packed.ts', 'src/packed.ts.placeholder');
     console.log('Backed up placeholder packed.ts file.');
   }
 
   // Generate the actual packed.ts file
   console.log('Generating packed.ts file...');
-  execSync('node scripts/pack.js', {stdio: 'inherit'});
+  execSync(`${nodePath} scripts/pack.js`, {stdio: 'inherit'});
   console.log('packed.ts file generated successfully.');
 } catch (error) {
   console.error(`Error managing packed.ts files: ${error}`);
@@ -32,7 +38,7 @@ try {
 // Generate TypeScript declaration files
 try {
   console.log('Generating TypeScript declaration files...');
-  execSync('npx tsc --declaration --emitDeclarationOnly --outDir dist', {stdio: 'inherit'});
+  execSync(`${nodePath} ${npxPath} tsc --declaration --emitDeclarationOnly --outDir dist`, {stdio: 'inherit'});
   console.log('TypeScript declaration files generated successfully.');
 } catch (error) {
   console.error(error, 'Error generating TypeScript declaration files');
@@ -49,7 +55,7 @@ const banner = `/*!
 // Run TypeScript compiler for declaration files
 console.log('Running TypeScript compiler for type checking...');
 try {
-  execSync('npx tsc --noEmit', {stdio: 'inherit'});
+  execSync(`${nodePath} ${npxPath} tsc --noEmit`, {stdio: 'inherit'});
 } catch (error) {
   console.error(error, 'TypeScript compilation failed. Fix the errors before building.');
   process.exit(1);
@@ -128,7 +134,7 @@ async function buildAll() {
   // Restore the placeholder packed.ts file
   try {
     if (existsSync('src/packed.ts.placeholder')) {
-      execSync('mv src/packed.ts.placeholder src/packed.ts', {stdio: 'inherit'});
+      renameSync('src/packed.ts.placeholder', 'src/packed.ts');
       console.log('Restored placeholder packed.ts file.');
     }
   } catch (error) {
