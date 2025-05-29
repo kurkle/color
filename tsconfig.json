@@ -20,7 +20,7 @@
 	"exclude": ["node_modules", "dist", "test"],
 	"typedocOptions": {
 		"name": "@kurkle/color",
-		"entryPoints": ["./src/index_esm.ts"],
+		"entryPoints": ["./src/index.esm.ts"],
 		"excludeExternals": true,
 		"includeVersion": true,
 		"out": "./docs"

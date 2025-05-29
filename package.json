@@ -19,7 +19,8 @@
     "build": "node scripts/build.js",
     "lint": "eslint src/**/*.{js,ts} test/*.js util/**/*.{js,ts} scripts/*.js",
     "test": "node test/index.js",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "docs": "typedoc && touch docs/.nojekyll"
   },
   "repository": {
     "type": "git",

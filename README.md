@@ -66,6 +66,18 @@ hsv(244, 100%, 100%, 0.6)
 
 **note** The docs are for the ESM module. UMD module only exports the [default export](https://kurkle.github.io/color/modules.html#default)
 
+### Documentation Generation
+
+The documentation is automatically generated using TypeDoc and deployed to GitHub Pages whenever changes are pushed to the main branch.
+
+To generate documentation locally:
+
+```bash
+npm run docs
+```
+
+This will create documentation in the `docs` directory, which you can preview locally before pushing changes.
+
 ## Benchmarks
 
 [benchmarks](https://kurkle.github.io/color/dev/bench/)
