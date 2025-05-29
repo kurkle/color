@@ -13,17 +13,23 @@ import {interpolate} from './srgb.js';
 const COMMENT_REGEXP = /\/\*[^]*?\*\//g;
 
 /**
- * @typedef {import('./index.js').RGBA} RGBA
+ * RGBA color type
  */
+export interface RGBA {
+  r: number;
+  g: number;
+  b: number;
+  a: number;
+}
 
 /**
  * Modify HSL properties
- * @param {RGBA} v - the color
- * @param {number} i - index [0=h, 1=s, 2=l]
- * @param {number} ratio - ratio [0..1]
+ * @param v - the color
+ * @param i - index [0=h, 1=s, 2=l]
+ * @param ratio - ratio [0..1]
  * @hidden
  */
-function modHSL(v, i, ratio) {
+function modHSL(v: RGBA | undefined, i: number, ratio: number): void {
   if (v) {
     let tmp = rgb2hsl(v);
     tmp[i] = Math.max(0, Math.min(tmp[i] + tmp[i] * ratio, i === 0 ? 360 : 1));
@@ -36,20 +42,20 @@ function modHSL(v, i, ratio) {
 
 /**
  * Clone color
- * @param {RGBA} v - the color
- * @param {object} [proto] - prototype
+ * @param v - the color
+ * @param proto - prototype
  * @hidden
  */
-function clone(v, proto) {
+function clone(v: RGBA | undefined, proto?: object): RGBA | undefined {
   return v ? Object.assign(proto || {}, v) : v;
 }
 
 /**
- * @param {RGBA|number[]} input
+ * @param input
  * @hidden
  */
-function fromObject(input) {
-  var v = {r: 0, g: 0, b: 0, a: 255};
+function fromObject(input: RGBA | number[]): RGBA {
+  let v: RGBA = {r: 0, g: 0, b: 0, a: 255};
   if (Array.isArray(input)) {
     if (input.length >= 3) {
       v = {r: input[0], g: input[1], b: input[2], a: 255};
@@ -58,17 +64,17 @@ function fromObject(input) {
       }
     }
   } else {
-    v = clone(input, {r: 0, g: 0, b: 0, a: 1});
+    v = clone(input, {r: 0, g: 0, b: 0, a: 1})!;
     v.a = n2b(v.a);
   }
   return v;
 }
 
 /**
- * @param {string} str
+ * @param str
  * @hidden
  */
-function functionParse(str) {
+function functionParse(str: string): RGBA | undefined {
   if (str.charAt(0) === 'r') {
     return rgbParse(str);
   }
@@ -77,25 +83,35 @@ function functionParse(str) {
 
 export default class Color {
   /**
+   * @type {RGBA}
+   * @hidden
+   **/
+  _rgb: RGBA;
+
+  /**
+   * @type {boolean}
+   * @hidden
+   **/
+  _valid: boolean;
+
+  /**
    * constructor
-   * @param {Color|RGBA|string|number[]} input
+   * @param input
    */
-  constructor(input) {
+  constructor(input: Color | RGBA | string | number[]) {
     if (input instanceof Color) {
       return input;
     }
     const type = typeof input;
-    let v;
+    let v: RGBA | undefined;
     if (type === 'object') {
-      v = fromObject(input);
+      v = fromObject(input as RGBA | number[]);
     } else if (type === 'string') {
-      const clean = input.replace(COMMENT_REGEXP, '');
+      const clean = (input as string).replace(COMMENT_REGEXP, '');
       v = hexParse(clean) || nameParse(clean) || functionParse(clean);
     }
 
-    /** @type {RGBA} */
-    this._rgb = v;
-    /** @type {boolean} */
+    this._rgb = v as RGBA;
     this._valid = !!v;
   }
 
@@ -103,25 +119,25 @@ export default class Color {
    * `true` if this is a valid color
    * @returns {boolean}
    */
-  get valid() {
+  get valid(): boolean {
     return this._valid;
   }
 
   /**
    * @returns {RGBA} - the color
    */
-  get rgb() {
-    var v = clone(this._rgb);
+  get rgb(): RGBA {
+    const v = clone(this._rgb);
     if (v) {
       v.a = b2n(v.a);
     }
-    return v;
+    return v as RGBA;
   }
 
   /**
-   * @param {RGBA} obj - the color
+   * @param obj - the color
    */
-  set rgb(obj) {
+  set rgb(obj: RGBA) {
     this._rgb = fromObject(obj);
   }
 
@@ -129,7 +145,7 @@ export default class Color {
    * rgb(a) string
    * @return {string|undefined}
    */
-  rgbString() {
+  rgbString(): string | undefined {
     return this._valid ? rgbString(this._rgb) : undefined;
   }
 
@@ -137,7 +153,7 @@ export default class Color {
    * hex string
    * @return {string|undefined}
    */
-  hexString() {
+  hexString(): string | undefined {
     return this._valid ? hexString(this._rgb) : undefined;
   }
 
@@ -145,21 +161,21 @@ export default class Color {
    * hsl(a) string
    * @return {string|undefined}
    */
-  hslString() {
+  hslString(): string | undefined {
     return this._valid ? hslString(this._rgb) : undefined;
   }
 
   /**
    * Mix another color to this color.
-   * @param {Color} color - Color to mix in
-   * @param {number} weight - 0..1
+   * @param color - Color to mix in
+   * @param weight - 0..1
    * @returns {Color}
    */
-  mix(color, weight) {
+  mix(color: Color, weight: number): Color {
     if (color) {
       const c1 = this.rgb;
       const c2 = color.rgb;
-      let w2; // using instead of undefined in the next line
+      let w2: number; // using instead of undefined in the next line
       const p = weight === w2 ? 0.5 : weight;
       const w = 2 * p - 1;
       const a = c1.a - c2.a;
@@ -176,11 +192,11 @@ export default class Color {
 
   /**
    * Interpolate a color value between this and `color`
-   * @param {Color} color
-   * @param {number} t - 0..1
+   * @param color
+   * @param t - 0..1
    * @returns {Color}
    */
-  interpolate(color, t) {
+  interpolate(color: Color, t: number): Color {
     if (color) {
       this._rgb = interpolate(this._rgb, color._rgb, t);
     }
@@ -191,26 +207,26 @@ export default class Color {
    * Clone
    * @returns {Color}
    */
-  clone() {
+  clone(): Color {
     return new Color(this.rgb);
   }
 
   /**
-   * Set aplha
-   * @param {number} a - the alpha [0..1]
+   * Set alpha
+   * @param a - the alpha [0..1]
    * @returns {Color}
    */
-  alpha(a) {
+  alpha(a: number): Color {
     this._rgb.a = n2b(a);
     return this;
   }
 
   /**
    * Make clearer
-   * @param {number} ratio - ratio [0..1]
+   * @param ratio - ratio [0..1]
    * @returns {Color}
    */
-  clearer(ratio) {
+  clearer(ratio: number): Color {
     const rgb = this._rgb;
     rgb.a *= 1 - ratio;
     return this;
@@ -220,7 +236,7 @@ export default class Color {
    * Convert to grayscale
    * @returns {Color}
    */
-  greyscale() {
+  greyscale(): Color {
     const rgb = this._rgb;
     // http://en.wikipedia.org/wiki/Grayscale#Converting_color_to_grayscale
     const val = round(rgb.r * 0.3 + rgb.g * 0.59 + rgb.b * 0.11);
@@ -230,10 +246,10 @@ export default class Color {
 
   /**
    * Opaquer
-   * @param {number} ratio - ratio [0..1]
+   * @param ratio - ratio [0..1]
    * @returns {Color}
    */
-  opaquer(ratio) {
+  opaquer(ratio: number): Color {
     const rgb = this._rgb;
     rgb.a *= 1 + ratio;
     return this;
@@ -243,7 +259,7 @@ export default class Color {
    * Negates the rgb value
    * @returns {Color}
    */
-  negate() {
+  negate(): Color {
     const v = this._rgb;
     v.r = 255 - v.r;
     v.g = 255 - v.g;
@@ -253,50 +269,50 @@ export default class Color {
 
   /**
    * Lighten
-   * @param {number} ratio - ratio [0..1]
+   * @param ratio - ratio [0..1]
    * @returns {Color}
    */
-  lighten(ratio) {
+  lighten(ratio: number): Color {
     modHSL(this._rgb, 2, ratio);
     return this;
   }
 
   /**
    * Darken
-   * @param {number} ratio - ratio [0..1]
+   * @param ratio - ratio [0..1]
    * @returns {Color}
    */
-  darken(ratio) {
+  darken(ratio: number): Color {
     modHSL(this._rgb, 2, -ratio);
     return this;
   }
 
   /**
    * Saturate
-   * @param {number} ratio - ratio [0..1]
+   * @param ratio - ratio [0..1]
    * @returns {Color}
    */
-  saturate(ratio) {
+  saturate(ratio: number): Color {
     modHSL(this._rgb, 1, ratio);
     return this;
   }
 
   /**
    * Desaturate
-   * @param {number} ratio - ratio [0..1]
+   * @param ratio - ratio [0..1]
    * @returns {Color}
    */
-  desaturate(ratio) {
+  desaturate(ratio: number): Color {
     modHSL(this._rgb, 1, -ratio);
     return this;
   }
 
   /**
    * Rotate
-   * @param {number} deg - degrees to rotate
+   * @param deg - degrees to rotate
    * @returns {Color}
    */
-  rotate(deg) {
+  rotate(deg: number): Color {
     rotate(this._rgb, deg);
     return this;
   }

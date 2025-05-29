@@ -28,4 +28,11 @@ export default [{
   rules: {
     complexity: [1, 15],
   },
+}, {
+  // Allow console logs in scripts directory
+  files: ['scripts/**/*.js'],
+  rules: {
+    'no-console': 'off',
+    'no-process-exit': 'off'
+  }
 }];

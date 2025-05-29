@@ -3,19 +3,17 @@
  * @module utils
  */
 
-import unpack from '../packed.js';
-let names;
+import unpack from './packed.js';
+import { RGBA } from './color.js';
 
-/**
- * @typedef {import('./index.js').RGBA} RGBA
- */
+let names: Record<string, number[]>;
 
 /**
  * Parse color name
- * @param {string} str - the color name
- * @return {RGBA} - the color
+ * @param str - the color name
+ * @return - the color
  */
-export function nameParse(str) {
+export function nameParse(str: string): RGBA | undefined {
   if (!names) {
     names = unpack();
     names.transparent = [0, 0, 0, 0];

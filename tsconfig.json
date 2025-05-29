@@ -5,20 +5,24 @@
 		"moduleResolution": "NodeNext",
 		"allowJs": true,
 		"checkJs": true,
-		"noEmit": true,
+		"declaration": true,
+		"declarationDir": "./dist",
+		"outDir": "./dist",
+		"rootDir": "./src",
 		"strict": false,
 		"alwaysStrict": true,
 		"esModuleInterop": true,
-		"noImplicitThis": true
+		"noImplicitThis": true,
+		"skipLibCheck": true,
+		"forceConsistentCasingInFileNames": true,
 	},
-	"files": [
-		"./color.d.ts"
-	],
+	"include": ["src/**/*.ts", "src/**/*.js"],
+	"exclude": ["node_modules", "dist", "test"],
 	"typedocOptions": {
 		"name": "@kurkle/color",
-		"entryPoints": ["./color.d.ts"],
+		"entryPoints": ["./src/index_esm.ts"],
 		"excludeExternals": true,
 		"includeVersion": true,
-		"out": "./docs",
-	},
+		"out": "./docs"
+	}
 }

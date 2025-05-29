@@ -43,15 +43,6 @@ assert.deepStrictEqual(new Color('blue').rgb, {r: 0, g: 0, b: 255, a: 1});
 assert.deepStrictEqual(new Color('BluE').rgb, {r: 0, g: 0, b: 255, a: 1});
 assert.deepStrictEqual(new Color('transparent').rgb, {r: 0, g: 0, b: 0, a: 0});
 
-assert.strictEqual(new Color('yellowblue').rgb, undefined);
-assert.strictEqual(new Color('#1').rgb, undefined);
-assert.strictEqual(new Color('#f').rgb, undefined);
-assert.strictEqual(new Color('#4f').rgb, undefined);
-assert.strictEqual(new Color('#45ab4').rgb, undefined);
-assert.strictEqual(new Color('#45ab45e').rgb, undefined);
-
-assert.strictEqual(new Color('yellowblue').hexString(), undefined);
-
 assert.strictEqual(new Color('#45ab45ed').hexString(), '#45AB45ED');
 assert.deepStrictEqual(new Color('hsl(100, 50%, 50%)').rgb, {r: 106, g: 191, b: 64, a: 1});
 assert.strictEqual(new Color('hsl(100, 50%, 50%)').hexString(), '#6ABF40');
@@ -106,5 +97,15 @@ assert.strictEqual(new Color('#fefa').interpolate(new Color('#ced5'), 0.6).hexSt
 assert.strictEqual(new Color('rgba(10, 20, 30, /* comment, block */ 0.5)').rgbString(), 'rgba(10, 20, 30, 0.5)');
 assert.strictEqual(new Color('rgba(10 /* r */, 20 /* g */, 30 /* b */, /* a */ 0.5)').rgbString(), 'rgba(10, 20, 30, 0.5)');
 
-// invalid values
+// parsable invalid values
 assert.strictEqual(new Color('rgba(267,292,60,0.2)').rgbString(), 'rgba(255, 255, 60, 0.2)');
+
+// unparsable
+assert.strictEqual(new Color('yellowblue').rgb, undefined);
+assert.strictEqual(new Color('#1').rgb, undefined);
+assert.strictEqual(new Color('#f').rgb, undefined);
+assert.strictEqual(new Color('#4f').rgb, undefined);
+assert.strictEqual(new Color('#45ab4').rgb, undefined);
+assert.strictEqual(new Color('#45ab45e').rgb, undefined);
+
+assert.strictEqual(new Color('yellowblue').hexString(), undefined);

@@ -4,10 +4,7 @@
  */
 
 import {b2n, lim, p2b} from './byte.js';
-
-/**
- * @typedef {import('./index.js').RGBA} RGBA
- */
+import { RGBA } from './color.js';
 
 /**
  * @hidden
@@ -16,20 +13,20 @@ const RGB_RE = /^rgba?\(\s*([-+.\d]+)(%)?[\s,]+([-+.e\d]+)(%)?[\s,]+([-+.e\d]+)(
 
 /**
  * Parse rgb(a) string to RGBA
- * @param {string} str - the rgb string
- * @returns {RGBA} - the parsed color
+ * @param str - the rgb string
+ * @returns - the parsed color
  */
-export function rgbParse(str) {
+export function rgbParse(str: string): RGBA | undefined {
   const m = RGB_RE.exec(str);
   let a = 255;
-  let r, g, b;
+  let r: number, g: number, b: number;
 
   if (!m) {
-    return;
+    return undefined;
   }
 
   // r is undefined
-  if (m[7] !== r) {
+  if (m[7] !== undefined) {
     const v = +m[7];
     a = m[8] ? p2b(v) : lim(v * 255, 0, 255);
   }
@@ -51,9 +48,9 @@ export function rgbParse(str) {
 
 /**
  * Return rgb(a) string from color
- * @param {RGBA} v - the color
+ * @param v - the color
  */
-export function rgbString(v) {
+export function rgbString(v: RGBA | undefined): string | undefined {
   return v && (
     v.a < 255
       ? `rgba(${v.r}, ${v.g}, ${v.b}, ${b2n(v.a)})`
