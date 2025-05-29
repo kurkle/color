@@ -1,8 +1,9 @@
 // esbuild configuration for @kurkle/color
 import * as esbuild from 'esbuild';
-import {readFileSync, mkdirSync, existsSync, renameSync} from 'fs';
+import {readFileSync, mkdirSync, existsSync, renameSync, writeFileSync, rmSync} from 'fs';
 import {spawnSync} from 'child_process';
 import {join} from 'path';
+import {visualizer} from 'esbuild-visualizer';
 
 // Get absolute paths for executables
 const nodePath = process.execPath; // Path to the Node.js executable
@@ -105,7 +106,8 @@ async function buildCJS() {
 async function buildMinified() {
   console.log('Building minified UMD bundle...');
   try {
-    await esbuild.build({
+    // Create metafile for visualization
+    const result = await esbuild.build({
       entryPoints: ['src/index.ts'],
       outfile: 'dist/color.min.js',
       bundle: true,
@@ -115,8 +117,32 @@ async function buildMinified() {
       platform: 'browser',
       banner: {js: banner},
       minify: true,
+      metafile: true, // Generate metadata for the visualizer
     });
+
     console.log('Minified UMD bundle built successfully.');
+
+    // Generate visualization
+    console.log('Generating bundle visualization...');
+
+    if (existsSync('docs')) {
+      rmSync('docs', {recursive: true, force: true});
+    }
+    mkdirSync('docs');
+
+    // Create visualization with proper error handling
+    try {
+      const stats = await visualizer(result.metafile, {
+        // filename: 'stats.html',
+        title: pkg.name,
+        template: 'treemap',
+      });
+      writeFileSync('docs/stats.html', stats);
+      console.log('Bundle visualization generated successfully at docs/stats.html');
+    } catch (vizError) {
+      console.error('Visualization generation failed:', vizError);
+      console.error('Visualization error details:', vizError.stack);
+    }
   } catch (error) {
     console.error('Minified build failed:', error);
     process.exit(1);

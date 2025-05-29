@@ -23,6 +23,6 @@
 		"entryPoints": ["./src/index.esm.ts"],
 		"excludeExternals": true,
 		"includeVersion": true,
-		"out": "./docs"
+		"out": "./docs/tmp"
 	}
 }
