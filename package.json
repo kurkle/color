@@ -63,7 +63,7 @@
     "color-parser": "^0.1.0",
     "color-string": "^2.0.1",
     "csscolorparser": "^1.0.3",
-    "esbuild": "^0.20.0",
+    "esbuild": "^0.25.0",
     "eslint": "^9.15.0",
     "eslint-config-chartjs": "^0.3.0",
     "eslint-config-defaults": "^9.0.0",
