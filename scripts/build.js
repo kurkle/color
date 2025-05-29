@@ -1,7 +1,7 @@
 // esbuild configuration for @kurkle/color
 import * as esbuild from 'esbuild';
 import {readFileSync, mkdirSync, existsSync, renameSync} from 'fs';
-import {execSync} from 'child_process';
+import {spawnSync} from 'child_process';
 import {join} from 'path';
 
 // Get absolute paths for executables
@@ -28,7 +28,7 @@ try {
 
   // Generate the actual packed.ts file
   console.log('Generating packed.ts file...');
-  execSync(`${nodePath} scripts/pack.js`, {stdio: 'inherit'});
+  spawnSync(nodePath, ['scripts/pack.js'], {stdio: 'inherit', shell: false});
   console.log('packed.ts file generated successfully.');
 } catch (error) {
   console.error(`Error managing packed.ts files: ${error}`);
@@ -38,7 +38,7 @@ try {
 // Generate TypeScript declaration files
 try {
   console.log('Generating TypeScript declaration files...');
-  execSync(`${nodePath} ${npxPath} tsc --declaration --emitDeclarationOnly --outDir dist`, {stdio: 'inherit'});
+  spawnSync(nodePath, [npxPath, 'tsc', '--declaration', '--emitDeclarationOnly', '--outDir', 'dist'], {stdio: 'inherit', shell: false});
   console.log('TypeScript declaration files generated successfully.');
 } catch (error) {
   console.error(error, 'Error generating TypeScript declaration files');
@@ -55,7 +55,7 @@ const banner = `/*!
 // Run TypeScript compiler for declaration files
 console.log('Running TypeScript compiler for type checking...');
 try {
-  execSync(`${nodePath} ${npxPath} tsc --noEmit`, {stdio: 'inherit'});
+  spawnSync(nodePath, [npxPath, 'tsc', '--noEmit'], {stdio: 'inherit', shell: false});
 } catch (error) {
   console.error(error, 'TypeScript compilation failed. Fix the errors before building.');
   process.exit(1);
