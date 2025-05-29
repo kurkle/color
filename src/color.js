@@ -10,6 +10,8 @@ import {nameParse} from './names.js';
 import {rgbParse, rgbString} from './rgb.js';
 import {interpolate} from './srgb.js';
 
+const COMMENT_REGEXP = /\/\*[^]*?\*\//g;
+
 /**
  * @typedef {import('./index.js').RGBA} RGBA
  */
@@ -85,11 +87,10 @@ export default class Color {
     const type = typeof input;
     let v;
     if (type === 'object') {
-      // @ts-ignore
       v = fromObject(input);
     } else if (type === 'string') {
-      // @ts-ignore
-      v = hexParse(input) || nameParse(input) || functionParse(input);
+      const clean = input.replace(COMMENT_REGEXP, '');
+      v = hexParse(clean) || nameParse(clean) || functionParse(clean);
     }
 
     /** @type {RGBA} */

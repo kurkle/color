@@ -101,5 +101,10 @@ assert.strictEqual(new Color('red').interpolate(new Color('green'), 1).rgbString
 
 assert.strictEqual(new Color('#fefa').interpolate(new Color('#ced5'), 0.6).hexString(), '#E2EDEC77');
 
+// comment blocks
+
+assert.strictEqual(new Color('rgba(10, 20, 30, /* comment, block */ 0.5)').rgbString(), 'rgba(10, 20, 30, 0.5)');
+assert.strictEqual(new Color('rgba(10 /* r */, 20 /* g */, 30 /* b */, /* a */ 0.5)').rgbString(), 'rgba(10, 20, 30, 0.5)');
+
 // invalid values
 assert.strictEqual(new Color('rgba(267,292,60,0.2)').rgbString(), 'rgba(255, 255, 60, 0.2)');
