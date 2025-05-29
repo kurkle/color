@@ -26,3 +26,13 @@ jobs:
 
       - name: test
         run: xvfb-run --auto-servernum npm test
+
+      - name: Generate documentation
+        run: npm run docs
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: docs
+          branch: gh-pages
+          clean: false  # Preserve existing files (including benchmark data)
