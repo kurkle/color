@@ -70,7 +70,7 @@ export function hexParse(str: string): RGBA | undefined {
     a: 255,
   };
   case 8: return {
-    r: (v & 0xff000000) >> 24,
+    r: (v & 0xff000000) >>> 24,
     g: (v & 0xff0000) >> 16,
     b: (v & 0xff00) >> 8,
     a: v & 0xff

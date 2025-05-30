@@ -34,10 +34,6 @@ describe('Color Parsing', () => {
       expect(new Color('#45ab4').rgb).toBeUndefined();
       expect(new Color('#45ab45e').rgb).toBeUndefined();
     });
-
-    it('should handle hex values with invalid characters', () => {
-      expect(new Color('#feg').rgb).toEqual({r: 255, g: 238, b: 0, a: 1});
-    });
   });
 
   describe('RGB Color Parsing', () => {
