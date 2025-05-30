@@ -8,15 +8,6 @@ import {RGBA} from './color.js';
 /**
  * @hidden
  */
-const map: Record<string, number> = {
-  0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8, 9: 9,
-  A: 10, B: 11, C: 12, D: 13, E: 14, F: 15,
-  a: 10, b: 11, c: 12, d: 13, e: 14, f: 15
-};
-
-/**
- * @hidden
- */
 const hex = [...'0123456789ABCDEF'];
 
 /**
@@ -44,31 +35,49 @@ const eq = (b: number): boolean => ((b & 0xF0) >> 4) === (b & 0xF);
 const isShort = (v: RGBA): boolean => eq(v.r) && eq(v.g) && eq(v.b) && eq(v.a);
 
 /**
+ * @hidden
+ */
+const singleToDouble = (digit: number): number => (digit << 4) + digit;
+
+/**
  * Parse HEX to color
  * @param str - the string
  */
 export function hexParse(str: string): RGBA | undefined {
-  const len = str.length;
-  let ret: RGBA | undefined;
-
-  if (str[0] === '#') {
-    if (len === 4 || len === 5) {
-      ret = {
-        r: 255 & map[str[1]] * 17,
-        g: 255 & map[str[2]] * 17,
-        b: 255 & map[str[3]] * 17,
-        a: len === 5 ? map[str[4]] * 17 : 255
-      };
-    } else if (len === 7 || len === 9) {
-      ret = {
-        r: map[str[1]] << 4 | map[str[2]],
-        g: map[str[3]] << 4 | map[str[4]],
-        b: map[str[5]] << 4 | map[str[6]],
-        a: len === 9 ? (map[str[7]] << 4 | map[str[8]]) : 255
-      };
-    }
+  if (!str.startsWith('#')) {
+    return; // undefined
   }
-  return ret;
+
+  const v = parseInt(str.slice(1), 16);
+  const len = str.length - 1;
+  switch (len) {
+  case 3: return {
+    r: singleToDouble((v & 0xf00) >> 8),
+    g: singleToDouble((v & 0xf0) >> 4),
+    b: singleToDouble((v & 0xf)),
+    a: 255,
+  };
+  case 4: return {
+    r: singleToDouble((v & 0xf000) >> 12),
+    g: singleToDouble((v & 0xf00) >> 8),
+    b: singleToDouble((v & 0xf0) >> 4),
+    a: singleToDouble(v & 0xf),
+  };
+  case 6: return {
+    r: (v & 0xff0000) >> 16,
+    g: (v & 0xff00) >> 8,
+    b: (v & 0xff),
+    a: 255,
+  };
+  case 8: return {
+    r: (v & 0xff000000) >> 24,
+    g: (v & 0xff0000) >> 16,
+    b: (v & 0xff00) >> 8,
+    a: v & 0xff
+  };
+  default: return;
+  }
+
 }
 
 const alpha = (a: number, f: (b: number) => string): string => a < 255 ? f(a) : '';
