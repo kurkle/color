@@ -35,11 +35,6 @@ const eq = (b: number): boolean => ((b & 0xF0) >> 4) === (b & 0xF);
 const isShort = (v: RGBA): boolean => eq(v.r) && eq(v.g) && eq(v.b) && eq(v.a);
 
 /**
- * @hidden
- */
-const singleToDouble = (digit: number): number => (digit << 4) + digit;
-
-/**
  * Parse HEX to color
  * @param str - the string
  */
@@ -52,16 +47,16 @@ export function hexParse(str: string): RGBA | undefined {
   const len = str.length - 1;
   switch (len) {
   case 3: return {
-    r: singleToDouble((v & 0xf00) >> 8),
-    g: singleToDouble((v & 0xf0) >> 4),
-    b: singleToDouble((v & 0xf)),
+    r: ((v & 0xf00) >> 4) + ((v & 0xf00) >> 8),
+    g: (v & 0xf0) + ((v & 0xf0) >> 4),
+    b: ((v & 0xf) << 4) + (v & 0xf),
     a: 255,
   };
   case 4: return {
-    r: singleToDouble((v & 0xf000) >> 12),
-    g: singleToDouble((v & 0xf00) >> 8),
-    b: singleToDouble((v & 0xf0) >> 4),
-    a: singleToDouble(v & 0xf),
+    r: ((v & 0xf000) >> 8) + ((v & 0xf000) >> 12),
+    g: ((v & 0xf00) >> 4) + ((v & 0xf00) >> 8),
+    b: (v & 0xf0) + ((v & 0xf0) >> 4),
+    a: ((v & 0xf) << 4) + (v & 0xf),
   };
   case 6: return {
     r: (v & 0xff0000) >> 16,
