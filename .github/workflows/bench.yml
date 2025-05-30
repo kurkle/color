@@ -24,7 +24,7 @@ jobs:
       - name: Reset
         run: git reset --hard
       - name: Benchmark hex parsing
-        run: node --expose-gc test/hexbench.js | tee output.txt
+        run: node --expose-gc bench/hexbench.js | tee output.txt
       - name: Store hex parsing results
         uses: rhysd/github-action-benchmark@v1
         with:
@@ -38,7 +38,7 @@ jobs:
           # Push and deploy GitHub pages branch automatically
           auto-push: true
       - name: Benchmark against other libraries
-        run: node --expose-gc test/compare.js | tee output.txt
+        run: node --expose-gc bench/compare.js | tee output.txt
       - name: Store compare results
         uses: rhysd/github-action-benchmark@v1
         with:
