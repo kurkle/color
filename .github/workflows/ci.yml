@@ -25,7 +25,7 @@ jobs:
         run: npm run build
 
       - name: test
-        run: xvfb-run --auto-servernum npm test
+        run: npm test
 
       - name: Generate documentation
         run: npm run docs

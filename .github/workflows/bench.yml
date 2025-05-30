@@ -20,7 +20,7 @@ jobs:
           npm run lint
           npm run build
       - name: Test
-        run: node test/index.js
+        run: npm test
       - name: Reset
         run: git reset --hard
       - name: Benchmark hex parsing
