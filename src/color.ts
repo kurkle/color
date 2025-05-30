@@ -75,10 +75,11 @@ function fromObject(input: RGBA | number[]): RGBA {
  * @hidden
  */
 function functionParse(str: string): RGBA | undefined {
-  if (str.charAt(0) === 'r') {
-    return rgbParse(str);
+  const clean = str.replace(COMMENT_REGEXP, '').trim();
+  if (clean.charAt(0) === 'r') {
+    return rgbParse(clean);
   }
-  return hueParse(str);
+  return hueParse(clean);
 }
 
 export default class Color {
@@ -107,11 +108,10 @@ export default class Color {
     if (type === 'object') {
       v = fromObject(input as RGBA | number[]);
     } else if (type === 'string') {
-      const clean = (input as string).replace(COMMENT_REGEXP, '');
-      v = hexParse(clean) || nameParse(clean) || functionParse(clean);
+      v = hexParse(input as string) || nameParse(input as string) || functionParse(input as string);
     }
 
-    this._rgb = v as RGBA;
+    this._rgb = v;
     this._valid = !!v;
   }
 
