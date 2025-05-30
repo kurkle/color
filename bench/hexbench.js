@@ -64,6 +64,15 @@ suite
       v & 0xff / 255
     ];
   })
+  .add('parseInt + shift obj', function() {
+    const v = parseInt(str, 16);
+    return {
+      r: v & 0xff000000 >>> 24,
+      g: v & 0xff0000 >> 16,
+      b: v & 0xff00 >> 8,
+      a: v & 0xff / 255
+    };
+  })
   .on('cycle', function(event) {
     console.log(String(event.target));
     // Force garbage collection between benchmarks if available
