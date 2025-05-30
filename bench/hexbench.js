@@ -2,10 +2,10 @@
 import benchmark from 'benchmark';
 
 // Pre-compute the hex value map for faster lookups
-var map = {0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8, 9: 9, A: 10, B: 11, C: 12, D: 13, E: 14, F: 15, a: 10, b: 11, c: 12, d: 13, e: 14, f: 15};
+const map = {0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8, 9: 9, A: 10, B: 11, C: 12, D: 13, E: 14, F: 15, a: 10, b: 11, c: 12, d: 13, e: 14, f: 15};
 
 // Use a typical hex color string for testing
-var str = 'Af08Df88';
+const str = 'Af08Df88';
 
 // Pre-warm the JS engine to avoid cold-start performance issues
 function warmup() {
@@ -17,7 +17,7 @@ function warmup() {
 }
 warmup();
 
-var suite = new benchmark.Suite({
+const suite = new benchmark.Suite({
   minSamples: 5,
   maxTime: 1
 });
@@ -56,7 +56,7 @@ suite
     };
   })
   .add('parseInt + shift', function() {
-    var v = parseInt(str, 16);
+    const v = parseInt(str, 16);
     return [
       v & 0xff000000 >>> 24,
       v & 0xff0000 >> 16,
