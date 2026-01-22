@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1769058581523,
+  "lastUpdate": 1769058595845,
   "repoUrl": "https://github.com/kurkle/color",
   "entries": {
     "HEX parsing": [
@@ -7747,6 +7747,72 @@ window.BENCHMARK_DATA = {
             "range": "±0.36%",
             "unit": "ops/sec",
             "extra": "95 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "c7477282b428c761d77d3429d89ec5974f816474",
+          "message": "chore(deps-dev): bump @typescript-eslint/parser from 8.50.1 to 8.53.1 (#197)\n\nBumps [@typescript-eslint/parser](https://github.com/typescript-eslint/typescript-eslint/tree/HEAD/packages/parser) from 8.50.1 to 8.53.1.\n- [Release notes](https://github.com/typescript-eslint/typescript-eslint/releases)\n- [Changelog](https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/parser/CHANGELOG.md)\n- [Commits](https://github.com/typescript-eslint/typescript-eslint/commits/v8.53.1/packages/parser)\n\n---\nupdated-dependencies:\n- dependency-name: \"@typescript-eslint/parser\"\n  dependency-version: 8.53.1\n  dependency-type: direct:development\n  update-type: version-update:semver-minor\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2026-01-22T07:08:56+02:00",
+          "tree_id": "13c60f8d1dc5bda6a1aa1b90e3716cc956edd370",
+          "url": "https://github.com/kurkle/color/commit/c7477282b428c761d77d3429d89ec5974f816474"
+        },
+        "date": 1769058594980,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "parseInt +",
+            "value": 7120968,
+            "range": "±0.24%",
+            "unit": "ops/sec",
+            "extra": "94 samples"
+          },
+          {
+            "name": "parseInt slice",
+            "value": 6132825,
+            "range": "±0.77%",
+            "unit": "ops/sec",
+            "extra": "96 samples"
+          },
+          {
+            "name": "map",
+            "value": 502144582,
+            "range": "±1.26%",
+            "unit": "ops/sec",
+            "extra": "93 samples"
+          },
+          {
+            "name": "map obj",
+            "value": 716801926,
+            "range": "±0.39%",
+            "unit": "ops/sec",
+            "extra": "94 samples"
+          },
+          {
+            "name": "parseInt + shift",
+            "value": 17847766,
+            "range": "±0.44%",
+            "unit": "ops/sec",
+            "extra": "93 samples"
+          },
+          {
+            "name": "parseInt + shift obj",
+            "value": 17952920,
+            "range": "±0.31%",
+            "unit": "ops/sec",
+            "extra": "98 samples"
           }
         ]
       }
