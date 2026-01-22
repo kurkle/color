@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1769058724612,
+  "lastUpdate": 1769058731363,
   "repoUrl": "https://github.com/kurkle/color",
   "entries": {
     "HEX parsing": [
@@ -7879,6 +7879,72 @@ window.BENCHMARK_DATA = {
             "range": "±0.24%",
             "unit": "ops/sec",
             "extra": "96 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "f50685387d36c10f668b685522211ab83aca7d09",
+          "message": "chore(deps-dev): bump lodash from 4.17.21 to 4.17.23 (#199)\n\nBumps [lodash](https://github.com/lodash/lodash) from 4.17.21 to 4.17.23.\n- [Release notes](https://github.com/lodash/lodash/releases)\n- [Commits](https://github.com/lodash/lodash/compare/4.17.21...4.17.23)\n\n---\nupdated-dependencies:\n- dependency-name: lodash\n  dependency-version: 4.17.23\n  dependency-type: indirect\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+          "timestamp": "2026-01-22T07:11:11+02:00",
+          "tree_id": "355753e9bbb3c05032be6303c1b3acfcca439607",
+          "url": "https://github.com/kurkle/color/commit/f50685387d36c10f668b685522211ab83aca7d09"
+        },
+        "date": 1769058729833,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "parseInt +",
+            "value": 7032906,
+            "range": "±0.46%",
+            "unit": "ops/sec",
+            "extra": "97 samples"
+          },
+          {
+            "name": "parseInt slice",
+            "value": 5987580,
+            "range": "±0.92%",
+            "unit": "ops/sec",
+            "extra": "91 samples"
+          },
+          {
+            "name": "map",
+            "value": 507402315,
+            "range": "±0.20%",
+            "unit": "ops/sec",
+            "extra": "96 samples"
+          },
+          {
+            "name": "map obj",
+            "value": 717700812,
+            "range": "±0.34%",
+            "unit": "ops/sec",
+            "extra": "97 samples"
+          },
+          {
+            "name": "parseInt + shift",
+            "value": 17954798,
+            "range": "±0.36%",
+            "unit": "ops/sec",
+            "extra": "96 samples"
+          },
+          {
+            "name": "parseInt + shift obj",
+            "value": 17966906,
+            "range": "±0.30%",
+            "unit": "ops/sec",
+            "extra": "97 samples"
           }
         ]
       }
