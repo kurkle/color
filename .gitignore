@@ -1,6 +1,7 @@
 node_modules
 .vscode/
 dist
+coverage
 stats.html
 docs
 .DS_Store
