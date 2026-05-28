@@ -27,6 +27,12 @@ jobs:
       - name: test
         run: npm run test:coverage
 
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v7
+        with:
+          name: coverage-report
+          path: coverage/lcov.info
+
       - name: Generate documentation
         run: npm run docs
 
@@ -36,3 +42,36 @@ jobs:
           folder: docs
           branch: gh-pages
           clean: false  # Preserve existing files (including benchmark data)
+
+  sonar:
+    runs-on: ubuntu-latest
+    needs: [test]
+    if: ${{ github.event.pull_request.head.repo.fork != true && github.actor != 'dependabot[bot]' }}
+
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          cache: npm
+
+      - name: Download coverage report
+        uses: actions/download-artifact@v8
+        with:
+          name: coverage-report
+          path: coverage
+
+      - name: Read package version
+        id: package-version
+        uses: martinbeentjes/npm-get-version-action@v1.3.1
+
+      - name: Set version
+        run: echo -e "\nsonar.projectVersion=${{ steps.package-version.outputs.current-version}}" >> sonar-project.properties
+
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarqube-scan-action@v8
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
