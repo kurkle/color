@@ -7,6 +7,13 @@ updates:
     groups:
       dev-dependencies:
         dependency-type: "development"
+  - package-ecosystem: "npm"
+    directory: "/bench"
+    schedule:
+      interval: "monthly"
+    groups:
+      bench-dependencies:
+        patterns: ["*"]
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
