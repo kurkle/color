@@ -58,11 +58,11 @@
     "@kurkle/configs": "^1.1.1",
     "@vitest/coverage-v8": "^4.1.7",
     "color-name": "^2.0.0",
-    "esbuild": "^0.27.2",
+    "esbuild": "^0.28.2",
     "esbuild-visualizer": "^0.7.0",
     "semantic-release": "^25.0.9",
     "typedoc": "^0.28.5",
-    "typescript": "^5.6.2",
+    "typescript": "^7.0.2",
     "vitest": "^4.0.16"
   }
 }
