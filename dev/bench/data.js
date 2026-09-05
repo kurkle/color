@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1788642700365,
+  "lastUpdate": 1788642713375,
   "repoUrl": "https://github.com/kurkle/color",
   "entries": {
     "HEX parsing": [
@@ -8341,6 +8341,72 @@ window.BENCHMARK_DATA = {
             "range": "±0.94%",
             "unit": "ops/sec",
             "extra": "93 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "b3b4798fbaed9e87f71da91a77dd1b9e69a10070",
+          "message": "chore(deps-dev): bump brace-expansion from 2.0.2 to 2.1.4 (#216)",
+          "timestamp": "2026-09-06T00:10:57+03:00",
+          "tree_id": "1222dfae90daac7ed5fb3d8da2b354ffdfa72ca5",
+          "url": "https://github.com/kurkle/color/commit/b3b4798fbaed9e87f71da91a77dd1b9e69a10070"
+        },
+        "date": 1788642711861,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "parseInt +",
+            "value": 9753358,
+            "range": "±0.73%",
+            "unit": "ops/sec",
+            "extra": "94 samples"
+          },
+          {
+            "name": "parseInt slice",
+            "value": 8050366,
+            "range": "±0.35%",
+            "unit": "ops/sec",
+            "extra": "96 samples"
+          },
+          {
+            "name": "map",
+            "value": 106801879,
+            "range": "±3.78%",
+            "unit": "ops/sec",
+            "extra": "85 samples"
+          },
+          {
+            "name": "map obj",
+            "value": 110087459,
+            "range": "±3.32%",
+            "unit": "ops/sec",
+            "extra": "83 samples"
+          },
+          {
+            "name": "parseInt + shift",
+            "value": 19429123,
+            "range": "±0.78%",
+            "unit": "ops/sec",
+            "extra": "95 samples"
+          },
+          {
+            "name": "parseInt + shift obj",
+            "value": 19323759,
+            "range": "±1.06%",
+            "unit": "ops/sec",
+            "extra": "94 samples"
           }
         ]
       }
