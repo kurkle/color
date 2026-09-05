@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1769058861013,
+  "lastUpdate": 1788637891749,
   "repoUrl": "https://github.com/kurkle/color",
   "entries": {
     "HEX parsing": [
@@ -7945,6 +7945,72 @@ window.BENCHMARK_DATA = {
             "range": "±0.30%",
             "unit": "ops/sec",
             "extra": "97 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "jukka.kurkela@gmail.com",
+            "name": "Jukka Kurkela",
+            "username": "kurkle"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "fc5f733d32e334bf3ce7576b81034cff2a445d77",
+          "message": "chore: prune unused devDependencies, extract benchmark comparison libraries (#214)\n\n* chore(deps): remove unused and bench-only devDependencies\n\n- Drop csscolorparser, chartjs-color-string, color-names: verified\n  by grep that nothing references them anywhere, not even bench/\n- Remove the comparison libraries only used by bench/ (chroma-js,\n  tinycolor2, color-parse, color-string, color-parser, chartjs-color,\n  benchmark) from the root devDependencies; they move to bench/'s own\n  package.json in the next commit. color-name stays here since\n  scripts/pack.js and test/packUtils.test.js depend on it.\n- Refresh package-lock.json: it was already out of sync with what npm\n  resolves today for vitest's rolldown optional bindings\n  (@emnapi/core, @emnapi/runtime, @emnapi/wasi-threads version\n  mismatches), which made a plain \"npm ci\" fail on unmodified main.\n  This is what's currently breaking the compressed-size-action \"build\"\n  check on other PRs against this repo, unrelated to their own changes.\n\nCo-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>\n\n* chore(bench): extract comparison-library benchmarks into their own package\n\nGive bench/ its own package.json (private, \"type\": \"module\" so the\nexisting ESM scripts keep working) listing the seven libraries that\nwere only ever used for comparison benchmarks. Root \"npm ci\"/install\nno longer resolves them, keeping the published package's dev\ntoolchain lighter.\n\n- bench/README.md documents how to install and run the benchmarks\n  locally, linked from the main README\n- .github/workflows/bench.yml gets one added step, installing bench/'s\n  own dependencies before the benchmark scripts run (the only workflow\n  file touched, as agreed - ci.yml/npmpublish.yml/compressed-size.yml\n  are untouched)\n- Verified both bench/hexbench.js and bench/compare.js run correctly\n  against a fresh \"npm ci\" in bench/\n\nCo-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>\n\n---------\n\nCo-authored-by: Claude Sonnet 5 <noreply@anthropic.com>",
+          "timestamp": "2026-09-05T22:50:35+03:00",
+          "tree_id": "aa9c9bde1eb4040faaad5c3db9750943d47094a4",
+          "url": "https://github.com/kurkle/color/commit/fc5f733d32e334bf3ce7576b81034cff2a445d77"
+        },
+        "date": 1788637890655,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "parseInt +",
+            "value": 9271301,
+            "range": "±0.55%",
+            "unit": "ops/sec",
+            "extra": "92 samples"
+          },
+          {
+            "name": "parseInt slice",
+            "value": 7856906,
+            "range": "±0.47%",
+            "unit": "ops/sec",
+            "extra": "97 samples"
+          },
+          {
+            "name": "map",
+            "value": 112852288,
+            "range": "±3.61%",
+            "unit": "ops/sec",
+            "extra": "84 samples"
+          },
+          {
+            "name": "map obj",
+            "value": 115450640,
+            "range": "±4.73%",
+            "unit": "ops/sec",
+            "extra": "85 samples"
+          },
+          {
+            "name": "parseInt + shift",
+            "value": 18798003,
+            "range": "±1.73%",
+            "unit": "ops/sec",
+            "extra": "90 samples"
+          },
+          {
+            "name": "parseInt + shift obj",
+            "value": 19005134,
+            "range": "±0.83%",
+            "unit": "ops/sec",
+            "extra": "93 samples"
           }
         ]
       }
