@@ -20,7 +20,8 @@ jobs:
       browser-tests: false
       test-command: npm run test:coverage
       coverage-paths: coverage/lcov.info
-    secrets: inherit
+    secrets:
+      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
   release:
     runs-on: ubuntu-latest
