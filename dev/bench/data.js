@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1788642688035,
+  "lastUpdate": 1788642700365,
   "repoUrl": "https://github.com/kurkle/color",
   "entries": {
     "HEX parsing": [
@@ -8275,6 +8275,72 @@ window.BENCHMARK_DATA = {
             "range": "±0.94%",
             "unit": "ops/sec",
             "extra": "88 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "4683c99c10405a1a6fc588d46724d8e1ab793556",
+          "message": "chore(deps-dev): bump linkify-it from 5.0.0 to 5.0.2 (#217)",
+          "timestamp": "2026-09-06T00:10:44+03:00",
+          "tree_id": "2153d0c0aa7b26af86c8cc7eba06cda9be76eaae",
+          "url": "https://github.com/kurkle/color/commit/4683c99c10405a1a6fc588d46724d8e1ab793556"
+        },
+        "date": 1788642699089,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "parseInt +",
+            "value": 14089956,
+            "range": "±0.45%",
+            "unit": "ops/sec",
+            "extra": "99 samples"
+          },
+          {
+            "name": "parseInt slice",
+            "value": 12003970,
+            "range": "±0.58%",
+            "unit": "ops/sec",
+            "extra": "97 samples"
+          },
+          {
+            "name": "map",
+            "value": 177969459,
+            "range": "±3.64%",
+            "unit": "ops/sec",
+            "extra": "84 samples"
+          },
+          {
+            "name": "map obj",
+            "value": 183769804,
+            "range": "±4.24%",
+            "unit": "ops/sec",
+            "extra": "81 samples"
+          },
+          {
+            "name": "parseInt + shift",
+            "value": 29269653,
+            "range": "±1.00%",
+            "unit": "ops/sec",
+            "extra": "95 samples"
+          },
+          {
+            "name": "parseInt + shift obj",
+            "value": 29342562,
+            "range": "±0.94%",
+            "unit": "ops/sec",
+            "extra": "93 samples"
           }
         ]
       }
