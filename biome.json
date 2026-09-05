@@ -1,0 +1,7 @@
+{
+  "$schema": "https://biomejs.dev/schemas/latest/schema.json",
+  "extends": ["./node_modules/@kurkle/configs/biome.json"],
+  "files": {
+    "includes": ["src/**", "test/**", "scripts/**", "bench/**", "vitest.config.js"]
+  }
+}

@@ -3,13 +3,15 @@
  * @module utils
  */
 
-import {b2n, n2p, n2b, p2b} from './byte.js';
-import {RGBA} from './color.js';
+import type { RGBA } from './color.js'
+
+import { b2n, n2b, n2p, p2b } from './byte.js'
 
 /**
  * @hidden
  */
-const HUE_RE = /^(hsla?|hwb|hsv)\(\s*([-+.e\d]+)(?:deg)?[\s,]+([-+.e\d]+)%[\s,]+([-+.e\d]+)%(?:[\s,]+([-+.e\d]+)(%)?)?\s*\)$/;
+const HUE_RE =
+  /^(hsla?|hwb|hsv)\(\s*([-+.e\d]+)(?:deg)?[\s,]+([-+.e\d]+)%[\s,]+([-+.e\d]+)%(?:[\s,]+([-+.e\d]+)(%)?)?\s*\)$/
 
 /**
  * Converts hsl to rgb normalized
@@ -21,12 +23,12 @@ const HUE_RE = /^(hsla?|hwb|hsv)\(\s*([-+.e\d]+)(?:deg)?[\s,]+([-+.e\d]+)%[\s,]+
  * @hidden
  */
 function hsl2rgbn(h: number, s: number, l: number): number[] {
-  const a = s * Math.min(l, 1 - l);
+  const a = s * Math.min(l, 1 - l)
   /**
    * @param n
    */
-  const f = (n: number, k = (n + h / 30) % 12) => l - a * Math.max(Math.min(k - 3, 9 - k, 1), -1);
-  return [f(0), f(8), f(4)];
+  const f = (n: number, k = (n + h / 30) % 12) => l - a * Math.max(Math.min(k - 3, 9 - k, 1), -1)
+  return [f(0), f(8), f(4)]
 }
 
 /**
@@ -42,8 +44,8 @@ function hsv2rgbn(h: number, s: number, v: number): number[] {
   /**
    * @param n
    */
-  const f = (n: number, k = (n + h / 60) % 6) => v - v * s * Math.max(Math.min(k, 4 - k, 1), 0);
-  return [f(5), f(3), f(1)];
+  const f = (n: number, k = (n + h / 60) % 6) => v - v * s * Math.max(Math.min(k, 4 - k, 1), 0)
+  return [f(5), f(3), f(1)]
 }
 
 /**
@@ -55,28 +57,28 @@ function hsv2rgbn(h: number, s: number, v: number): number[] {
  * @hidden
  */
 function hwb2rgbn(h: number, w: number, b: number): number[] {
-  const rgb = hsl2rgbn(h, 1, 0.5);
-  let i: number;
+  const rgb = hsl2rgbn(h, 1, 0.5)
+  let i: number
   if (w + b > 1) {
-    i = 1 / (w + b);
-    w *= i;
-    b *= i;
+    i = 1 / (w + b)
+    w *= i
+    b *= i
   }
   for (i = 0; i < 3; i++) {
-    rgb[i] *= 1 - w - b;
-    rgb[i] += w;
+    rgb[i] *= 1 - w - b
+    rgb[i] += w
   }
-  return rgb;
+  return rgb
 }
 
 function hueValue(r: number, g: number, b: number, d: number, max: number): number {
   if (r === max) {
-    return ((g - b) / d) + (g < b ? 6 : 0);
+    return (g - b) / d + (g < b ? 6 : 0)
   }
   if (g === max) {
-    return (b - r) / d + 2;
+    return (b - r) / d + 2
   }
-  return (r - g) / d + 4;
+  return (r - g) / d + 4
 }
 
 /**
@@ -85,23 +87,23 @@ function hueValue(r: number, g: number, b: number, d: number, max: number): numb
  * @returns - [h, s, l]
  */
 export function rgb2hsl(v: RGBA): number[] {
-  const range = 255;
-  const r = v.r / range;
-  const g = v.g / range;
-  const b = v.b / range;
-  const max = Math.max(r, g, b);
-  const min = Math.min(r, g, b);
-  const l = (max + min) / 2;
-  let h: number = 0;
-  let s: number = 0;
-  let d: number;
+  const range = 255
+  const r = v.r / range
+  const g = v.g / range
+  const b = v.b / range
+  const max = Math.max(r, g, b)
+  const min = Math.min(r, g, b)
+  const l = (max + min) / 2
+  let h: number = 0
+  let s: number = 0
+  let d: number
   if (max !== min) {
-    d = max - min;
-    s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
-    h = hueValue(r, g, b, d, max);
-    h = h * 60 + 0.5;
+    d = max - min
+    s = l > 0.5 ? d / (2 - max - min) : d / (max + min)
+    h = hueValue(r, g, b, d, max)
+    h = h * 60 + 0.5
   }
-  return [h | 0, s || 0, l];
+  return [h | 0, s || 0, l]
 }
 
 /**
@@ -118,11 +120,7 @@ function calln(
   b?: number,
   c?: number
 ): number[] {
-  return (
-    Array.isArray(a)
-      ? f(a[0], a[1], a[2])
-      : f(a, b!, c!)
-  ).map(n2b);
+  return (Array.isArray(a) ? f(a[0], a[1], a[2]) : f(a, b!, c!)).map(n2b)
 }
 
 /**
@@ -133,7 +131,7 @@ function calln(
  * @returns
  */
 export function hsl2rgb(h: number | number[], s?: number, l?: number): number[] {
-  return calln(hsl2rgbn, h, s, l);
+  return calln(hsl2rgbn, h, s, l)
 }
 
 /**
@@ -144,7 +142,7 @@ export function hsl2rgb(h: number | number[], s?: number, l?: number): number[] 
  * @returns
  */
 export function hwb2rgb(h: number | number[], w?: number, b?: number): number[] {
-  return calln(hwb2rgbn, h, w, b);
+  return calln(hwb2rgbn, h, w, b)
 }
 
 /**
@@ -155,7 +153,7 @@ export function hwb2rgb(h: number | number[], w?: number, b?: number): number[] 
  * @returns
  */
 export function hsv2rgb(h: number | number[], s?: number, v?: number): number[] {
-  return calln(hsv2rgbn, h, s, v);
+  return calln(hsv2rgbn, h, s, v)
 }
 
 /**
@@ -163,7 +161,7 @@ export function hsv2rgb(h: number | number[], s?: number, v?: number): number[] 
  * @hidden
  */
 function hue(h: number): number {
-  return (h % 360 + 360) % 360;
+  return ((h % 360) + 360) % 360
 }
 
 /**
@@ -172,37 +170,37 @@ function hue(h: number): number {
  * @returns - the parsed color components
  */
 export function hueParse(str: string): RGBA | undefined {
-  const m = HUE_RE.exec(str);
-  let a = 255;
-  let v: number[];
+  const m = HUE_RE.exec(str)
+  let a = 255
+  let v: number[]
 
   if (!m) {
-    return undefined;
+    return undefined
   }
 
   // v is undefined
   if (m[5] !== undefined) {
-    a = m[6] ? p2b(+m[5]) : n2b(+m[5]);
+    a = m[6] ? p2b(+m[5]) : n2b(+m[5])
   }
 
-  const h = hue(+m[2]);
-  const p1 = +m[3] / 100;
-  const p2 = +m[4] / 100;
+  const h = hue(+m[2])
+  const p1 = +m[3] / 100
+  const p2 = +m[4] / 100
 
   if (m[1] === 'hwb') {
-    v = hwb2rgb(h, p1, p2);
+    v = hwb2rgb(h, p1, p2)
   } else if (m[1] === 'hsv') {
-    v = hsv2rgb(h, p1, p2);
+    v = hsv2rgb(h, p1, p2)
   } else {
-    v = hsl2rgb(h, p1, p2);
+    v = hsl2rgb(h, p1, p2)
   }
 
   return {
-    r: v[0],
-    g: v[1],
+    a: a,
     b: v[2],
-    a: a
-  };
+    g: v[1],
+    r: v[0],
+  }
 }
 
 /**
@@ -211,12 +209,12 @@ export function hueParse(str: string): RGBA | undefined {
  * @param deg - degrees to rotate
  */
 export function rotate(v: RGBA, deg: number): void {
-  const h = rgb2hsl(v);
-  h[0] = hue(h[0] + deg);
-  const rgb = hsl2rgb(h);
-  v.r = rgb[0];
-  v.g = rgb[1];
-  v.b = rgb[2];
+  const h = rgb2hsl(v)
+  h[0] = hue(h[0] + deg)
+  const rgb = hsl2rgb(h)
+  v.r = rgb[0]
+  v.g = rgb[1]
+  v.b = rgb[2]
 }
 
 /**
@@ -226,13 +224,11 @@ export function rotate(v: RGBA, deg: number): void {
  */
 export function hslString(v: RGBA | undefined): string | undefined {
   if (!v) {
-    return undefined;
+    return undefined
   }
-  const a = rgb2hsl(v);
-  const h = a[0];
-  const s = n2p(a[1]);
-  const l = n2p(a[2]);
-  return v.a < 255
-    ? `hsla(${h}, ${s}%, ${l}%, ${b2n(v.a)})`
-    : `hsl(${h}, ${s}%, ${l}%)`;
+  const a = rgb2hsl(v)
+  const h = a[0]
+  const s = n2p(a[1])
+  const l = n2p(a[2])
+  return v.a < 255 ? `hsla(${h}, ${s}%, ${l}%, ${b2n(v.a)})` : `hsl(${h}, ${s}%, ${l}%)`
 }

@@ -3,10 +3,11 @@
  * @module utils
  */
 
-import unpack from './packed.js';
-import {RGBA} from './color.js';
+import type { RGBA } from './color.js'
 
-let names: Record<string, number[]>;
+import unpack from './packed.js'
+
+let names: Record<string, number[]>
 
 /**
  * Parse color name
@@ -15,14 +16,16 @@ let names: Record<string, number[]>;
  */
 export function nameParse(str: string): RGBA | undefined {
   if (!names) {
-    names = unpack();
-    names.transparent = [0, 0, 0, 0];
+    names = unpack()
+    names.transparent = [0, 0, 0, 0]
   }
-  const a = names[str.toLowerCase()];
-  return a && {
-    r: a[0],
-    g: a[1],
-    b: a[2],
-    a: a.length === 4 ? a[3] : 255
-  };
+  const a = names[str.toLowerCase()]
+  return (
+    a && {
+      a: a.length === 4 ? a[3] : 255,
+      b: a[2],
+      g: a[1],
+      r: a[0],
+    }
+  )
 }
