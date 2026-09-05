@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1788639021153,
+  "lastUpdate": 1788641477820,
   "repoUrl": "https://github.com/kurkle/color",
   "entries": {
     "HEX parsing": [
@@ -8077,6 +8077,72 @@ window.BENCHMARK_DATA = {
             "range": "±0.86%",
             "unit": "ops/sec",
             "extra": "92 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "jukka.kurkela@gmail.com",
+            "name": "Jukka Kurkela",
+            "username": "kurkle"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "604bd4421e3bab754b810583b3bd276c5a7fd89f",
+          "message": "ci: adopt shared kurkle CI workflow, set up semantic-release (#215)\n\n* ci: adopt the shared kurkle CI workflow\n\nReplace ci.yml, npmpublish.yml and compressed-size.yml with pr-ci.yml\nand main-ci.yml, both calling kurkle/configs/.github/workflows/shared-ci.yml@v1.\n\nColor-specific inputs: browser-tests: false (no karma/browser tests\nhere) and test-command: \"npm run test:coverage\" with a single\ncoverage-paths entry (coverage/lcov.info) matching vitest's coverage\noutput and sonar-project.properties' sonar.javascript.lcov.reportPaths.\nrun-typecheck/run-build/run-sonar are explicit even though they match\nthe shared workflow's defaults, since this repo actually uses all\nthree (unlike the plain-JS templates this was modeled on).\n\nRepo-specific jobs that don't belong in the shared workflow move into\nmain-ci.yml, gated on shared-ci passing:\n- \"docs\": typedoc generation + GitHub Pages deploy via\n  JamesIves/github-pages-deploy-action with clean: false, which is\n  what preserves the benchmark history already on gh-pages. Runs\n  \"npm run build\" first too, otherwise dist/stats.html (the bundle\n  size visualization linked from the README) would go stale forever\n  once build and docs stopped sharing a runner. Only runs on push to\n  main (main-ci.yml has no pull_request trigger), so PRs never publish\n  docs.\n- \"release\": semantic-release, gated the same way.\n\ncompressed-size.yml's content becomes a pr-ci.yml job instead, modeled\non chartjs-chart-sankey's pattern. bench.yml is untouched.\n\nCo-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>\n\n* feat: set up semantic-release\n\nCopy the shared .releaserc.json template from @kurkle/configs\n(commit-analyzer, release-notes-generator, npm, github plugins; no\ngit/changelog plugin, matching the other kurkle repos already on this\nsetup) and add semantic-release as a devDependency. Set \"version\" to\nthe semantic-release placeholder \"0.0.0-development\" - the actual\npublished version is computed by @semantic-release/npm from\nconventional commits since the last tag (v0.4.0), same as any other\nrelease, never committed back to package.json.\n\nAlso add \"publishConfig\": { \"access\": \"public\" }, which none of the\nreference repos (chartjs-plugin-gradient, chartjs-chart-sankey) needed\nbecause they're unscoped. @kurkle/color is scoped, and\n@semantic-release/npm needs this to publish it as public rather than\ndefaulting to restricted.\n\nThe release job that actually runs semantic-release lives in\nmain-ci.yml (previous commit). It authenticates via npm Trusted\nPublishing (OIDC, matching the release job's id-token: write\npermission) rather than an NPM_TOKEN secret - this repo's npm project\nneeds a trusted publisher added pointing at main-ci.yml before this\ncan be merged, otherwise publishing will fail.\n\nCo-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>\n\n---------\n\nCo-authored-by: Claude Sonnet 5 <noreply@anthropic.com>",
+          "timestamp": "2026-09-05T23:50:20+03:00",
+          "tree_id": "7946389fcfc7bc065ed40c784f1620e76f3b8484",
+          "url": "https://github.com/kurkle/color/commit/604bd4421e3bab754b810583b3bd276c5a7fd89f"
+        },
+        "date": 1788641476725,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "parseInt +",
+            "value": 9803868,
+            "range": "±0.51%",
+            "unit": "ops/sec",
+            "extra": "91 samples"
+          },
+          {
+            "name": "parseInt slice",
+            "value": 8047478,
+            "range": "±0.50%",
+            "unit": "ops/sec",
+            "extra": "97 samples"
+          },
+          {
+            "name": "map",
+            "value": 96706803,
+            "range": "±4.77%",
+            "unit": "ops/sec",
+            "extra": "79 samples"
+          },
+          {
+            "name": "map obj",
+            "value": 106175757,
+            "range": "±4.61%",
+            "unit": "ops/sec",
+            "extra": "82 samples"
+          },
+          {
+            "name": "parseInt + shift",
+            "value": 19069639,
+            "range": "±1.52%",
+            "unit": "ops/sec",
+            "extra": "93 samples"
+          },
+          {
+            "name": "parseInt + shift obj",
+            "value": 19374959,
+            "range": "±1.05%",
+            "unit": "ops/sec",
+            "extra": "91 samples"
           }
         ]
       }
