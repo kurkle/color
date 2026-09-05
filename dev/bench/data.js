@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1788642843316,
+  "lastUpdate": 1788644912858,
   "repoUrl": "https://github.com/kurkle/color",
   "entries": {
     "HEX parsing": [
@@ -8407,6 +8407,72 @@ window.BENCHMARK_DATA = {
             "range": "±1.06%",
             "unit": "ops/sec",
             "extra": "94 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "jukka.kurkela@gmail.com",
+            "name": "Jukka Kurkela",
+            "username": "kurkle"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "389f5c1bf7dc8a4abe82d0c65e579f0395942ced",
+          "message": "docs: fix broken CI badge, standardize badges, rename LICENSE, group dependabot (#219)",
+          "timestamp": "2026-09-06T00:47:38+03:00",
+          "tree_id": "1e840ad1253ca62f2bf14976b50382156d820971",
+          "url": "https://github.com/kurkle/color/commit/389f5c1bf7dc8a4abe82d0c65e579f0395942ced"
+        },
+        "date": 1788644911407,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "parseInt +",
+            "value": 9673106,
+            "range": "±1.08%",
+            "unit": "ops/sec",
+            "extra": "94 samples"
+          },
+          {
+            "name": "parseInt slice",
+            "value": 8051298,
+            "range": "±1.14%",
+            "unit": "ops/sec",
+            "extra": "96 samples"
+          },
+          {
+            "name": "map",
+            "value": 97809802,
+            "range": "±4.10%",
+            "unit": "ops/sec",
+            "extra": "80 samples"
+          },
+          {
+            "name": "map obj",
+            "value": 101733768,
+            "range": "±4.32%",
+            "unit": "ops/sec",
+            "extra": "78 samples"
+          },
+          {
+            "name": "parseInt + shift",
+            "value": 19595901,
+            "range": "±0.82%",
+            "unit": "ops/sec",
+            "extra": "93 samples"
+          },
+          {
+            "name": "parseInt + shift obj",
+            "value": 19585303,
+            "range": "±0.97%",
+            "unit": "ops/sec",
+            "extra": "92 samples"
           }
         ]
       }
