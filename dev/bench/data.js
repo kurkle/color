@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1788642631051,
+  "lastUpdate": 1788642688035,
   "repoUrl": "https://github.com/kurkle/color",
   "entries": {
     "HEX parsing": [
@@ -8209,6 +8209,72 @@ window.BENCHMARK_DATA = {
             "range": "±0.66%",
             "unit": "ops/sec",
             "extra": "93 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "49699333+dependabot[bot]@users.noreply.github.com",
+            "name": "dependabot[bot]",
+            "username": "dependabot[bot]"
+          },
+          "committer": {
+            "email": "jukka.kurkela@gmail.com",
+            "name": "Jukka Kurkela",
+            "username": "kurkle"
+          },
+          "distinct": true,
+          "id": "c2dcf8fb404cba318c48f1864fc7f541bf7d6a9a",
+          "message": "chore(deps-dev): bump markdown-it from 14.1.0 to 14.3.1\n\nBumps [markdown-it](https://github.com/markdown-it/markdown-it) from 14.1.0 to 14.3.1.\n- [Changelog](https://github.com/markdown-it/markdown-it/blob/14.3.1/CHANGELOG.md)\n- [Commits](https://github.com/markdown-it/markdown-it/compare/14.1.0...14.3.1)\n\n---\nupdated-dependencies:\n- dependency-name: markdown-it\n  dependency-version: 14.3.1\n  dependency-type: indirect\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+          "timestamp": "2026-09-06T00:10:33+03:00",
+          "tree_id": "2153d0c0aa7b26af86c8cc7eba06cda9be76eaae",
+          "url": "https://github.com/kurkle/color/commit/c2dcf8fb404cba318c48f1864fc7f541bf7d6a9a"
+        },
+        "date": 1788642686972,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "parseInt +",
+            "value": 8979334,
+            "range": "±0.72%",
+            "unit": "ops/sec",
+            "extra": "97 samples"
+          },
+          {
+            "name": "parseInt slice",
+            "value": 7733398,
+            "range": "±1.93%",
+            "unit": "ops/sec",
+            "extra": "93 samples"
+          },
+          {
+            "name": "map",
+            "value": 110159489,
+            "range": "±3.47%",
+            "unit": "ops/sec",
+            "extra": "79 samples"
+          },
+          {
+            "name": "map obj",
+            "value": 118484557,
+            "range": "±3.52%",
+            "unit": "ops/sec",
+            "extra": "81 samples"
+          },
+          {
+            "name": "parseInt + shift",
+            "value": 18983098,
+            "range": "±0.67%",
+            "unit": "ops/sec",
+            "extra": "91 samples"
+          },
+          {
+            "name": "parseInt + shift obj",
+            "value": 18782872,
+            "range": "±0.94%",
+            "unit": "ops/sec",
+            "extra": "88 samples"
           }
         ]
       }
