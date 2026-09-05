@@ -23,6 +23,9 @@ jobs:
         run: npm test
       - name: Reset
         run: git reset --hard
+      - name: Install benchmark dependencies
+        run: npm ci
+        working-directory: bench
       - name: Benchmark hex parsing
         run: node --expose-gc bench/hexbench.js | tee output.txt
       - name: Store hex parsing results

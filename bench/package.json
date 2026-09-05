@@ -1,0 +1,19 @@
+{
+  "name": "@kurkle/color-bench",
+  "private": true,
+  "type": "module",
+  "description": "Performance comparisons for @kurkle/color against other color libraries. Not part of the published package.",
+  "scripts": {
+    "hex": "node --expose-gc hexbench.js",
+    "compare": "node --expose-gc compare.js"
+  },
+  "dependencies": {
+    "benchmark": "^2.1.4",
+    "chartjs-color": "^2.4.1",
+    "chroma-js": "^3.1.1",
+    "color-parse": "^2.0.2",
+    "color-parser": "^0.1.0",
+    "color-string": "^2.0.1",
+    "tinycolor2": "^1.4.2"
+  }
+}

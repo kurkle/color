@@ -80,7 +80,7 @@ This will create documentation in the `docs` directory, which you can preview lo
 
 ## Benchmarks
 
-[benchmarks](https://kurkle.github.io/color/dev/bench/)
+[benchmarks](https://kurkle.github.io/color/dev/bench/) — see [bench/README.md](bench/README.md) for how to run them locally.
 
 ## Size visualization
 
