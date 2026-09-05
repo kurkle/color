@@ -17,19 +17,20 @@
   },
   "scripts": {
     "build": "node scripts/build.js",
-    "lint": "eslint src/**/*.ts test/*.js scripts/*.js",
+    "lint": "biome check",
+    "format": "biome check --write",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
     "typecheck": "tsc --noEmit",
-    "docs": "typedoc && touch docs/.nojekyll && mv -f docs/tmp/* docs/ && rm -rd docs/tmp"
+    "docs": "typedoc && touch docs/.nojekyll && mv -f docs/tmp/* docs/ && rm -rd docs/tmp",
+    "prepare": "git config core.hooksPath .githooks || true"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kurkle/color.git"
   },
   "files": [
-    "dist/*",
-    "dist/color.d.ts"
+    "dist/*"
   ],
   "keywords": [
     "color",
@@ -50,14 +51,12 @@
   },
   "homepage": "https://github.com/kurkle/color#readme",
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^8.33.0",
-    "@typescript-eslint/parser": "^8.33.0",
+    "@biomejs/biome": "^2.5.12",
+    "@kurkle/configs": "^1.1.1",
     "@vitest/coverage-v8": "^4.1.7",
-    "assert": "^2.0.0",
     "benchmark": "^2.1.4",
     "chartjs-color": "^2.4.1",
     "chartjs-color-string": "^0.6.0",
-    "child_process": "^1.0.2",
     "chroma-js": "^3.1.1",
     "color-name": "^2.0.0",
     "color-names": "^2.0.0",
@@ -67,18 +66,9 @@
     "csscolorparser": "^1.0.3",
     "esbuild": "^0.27.2",
     "esbuild-visualizer": "^0.7.0",
-    "eslint": "^9.15.0",
-    "eslint-config-chartjs": "^0.3.0",
-    "eslint-config-defaults": "^9.0.0",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-react": "^7.22.0",
-    "eslint-plugin-typescript": "^0.14.0",
-    "fs": "0.0.1-security",
-    "perf_hooks": "0.0.1",
     "tinycolor2": "^1.4.2",
     "typedoc": "^0.28.5",
     "typescript": "^5.6.2",
-    "util": "^0.12.3",
     "vitest": "^4.0.16"
   }
 }

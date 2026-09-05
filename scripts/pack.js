@@ -1,12 +1,13 @@
-import fs from 'fs';
-import names from 'color-name';
-import {packColorNames, generateTypeScriptCode} from './packUtils.js';
+import names from 'color-name'
+
+import { generateTypeScriptCode, packColorNames } from './packUtils.js'
+import fs from 'node:fs'
 
 // Pack the color names
-const {mapped, packed} = packColorNames(names);
+const { mapped, packed } = packColorNames(names)
 
 // Generate the TypeScript code
-const tsCode = generateTypeScriptCode(mapped, packed);
+const tsCode = generateTypeScriptCode(mapped, packed)
 
 // Write the TypeScript code to the packed.ts file
-fs.writeFileSync('./src/packed.ts', tsCode, 'utf-8');
+fs.writeFileSync('./src/packed.ts', tsCode, 'utf-8')
