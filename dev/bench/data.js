@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1788646210444,
+  "lastUpdate": 1788646794971,
   "repoUrl": "https://github.com/kurkle/color",
   "entries": {
     "HEX parsing": [
@@ -8539,6 +8539,72 @@ window.BENCHMARK_DATA = {
             "range": "±0.58%",
             "unit": "ops/sec",
             "extra": "92 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "jukka.kurkela@gmail.com",
+            "name": "Jukka Kurkela",
+            "username": "kurkle"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "3abb183b0b06a7d59be6a7c17ee7b415e833febc",
+          "message": "Merge pull request #223 from kurkle/ci/compressed-size-v3",
+          "timestamp": "2026-09-06T01:18:59+03:00",
+          "tree_id": "cba5a40f6afce69bba9918752feb138176bfd289",
+          "url": "https://github.com/kurkle/color/commit/3abb183b0b06a7d59be6a7c17ee7b415e833febc"
+        },
+        "date": 1788646793130,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "parseInt +",
+            "value": 8935730,
+            "range": "±1.00%",
+            "unit": "ops/sec",
+            "extra": "89 samples"
+          },
+          {
+            "name": "parseInt slice",
+            "value": 7698854,
+            "range": "±0.37%",
+            "unit": "ops/sec",
+            "extra": "96 samples"
+          },
+          {
+            "name": "map",
+            "value": 119966580,
+            "range": "±4.15%",
+            "unit": "ops/sec",
+            "extra": "77 samples"
+          },
+          {
+            "name": "map obj",
+            "value": 116224890,
+            "range": "±5.67%",
+            "unit": "ops/sec",
+            "extra": "73 samples"
+          },
+          {
+            "name": "parseInt + shift",
+            "value": 18775310,
+            "range": "±0.67%",
+            "unit": "ops/sec",
+            "extra": "94 samples"
+          },
+          {
+            "name": "parseInt + shift obj",
+            "value": 18816287,
+            "range": "±0.67%",
+            "unit": "ops/sec",
+            "extra": "95 samples"
           }
         ]
       }
