@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1788638020369,
+  "lastUpdate": 1788638891449,
   "repoUrl": "https://github.com/kurkle/color",
   "entries": {
     "HEX parsing": [
@@ -8011,6 +8011,72 @@ window.BENCHMARK_DATA = {
             "range": "±0.83%",
             "unit": "ops/sec",
             "extra": "93 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "jukka.kurkela@gmail.com",
+            "name": "Jukka Kurkela",
+            "username": "kurkle"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "a34402013e7f0e4d5632a4503cce776ae58ac03e",
+          "message": "chore: migrate to biome, fix published package, prune devDependencies (#213)\n\n* fix(build): stop publishing test type declarations, migrate lint tooling to biome\n\n- Emit .d.ts only for non-test sources (new tsconfig.build.json) so\n  dist/*.test.d.ts no longer ship in the published npm package\n- Drop the stale \"dist/color.d.ts\" entry from package.json \"files\"\n  (already covered by \"dist/*\")\n- Replace ESLint (flat config + chartjs preset) with @biomejs/biome\n  via the shared @kurkle/configs preset; add lint/format scripts\n- Remove devDependencies that shadowed Node builtins (fs,\n  child_process, perf_hooks, util, assert; perf_hooks/assert were\n  entirely unused) and switch build scripts to node: imports\n- Add a \"prepare\" script to apply the shared git hooks path\n\nCo-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>\n\n* style: reformat codebase with biome\n\nLarge formatting diff from adopting the shared biome config (single\nquotes, no semicolons, sorted object keys/imports). Also:\n\n- Fixes two issues biome's linter surfaced in src/color.ts: a\n  regex with an always-true negated empty character class, and an\n  unflagged intentional constructor return (documented with a\n  biome-ignore comment)\n- Restores two @ts-ignore comments in src/color.test.ts that biome\n  had auto-upgraded to @ts-expect-error; those then failed as\n  \"unused\" because strictNullChecks is off in this project, so the\n  expected type error never actually occurs\n- Drops now-meaningless \"eslint-disable\" comments from bench/\n\nCo-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>\n\n* chore: adopt shared git hooks from @kurkle/configs\n\nPopulate .githooks/ (commit-msg, pre-commit) via\n\"npx kurkle-install-hooks\" so this repo enforces the same semantic\ncommit message format and pre-commit checks as other kurkle repos.\n\nCo-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>\n\n---------\n\nCo-authored-by: Claude Sonnet 5 <noreply@anthropic.com>",
+          "timestamp": "2026-09-05T23:07:15+03:00",
+          "tree_id": "165c4988faa5acb56245e269c5689e2e3f113356",
+          "url": "https://github.com/kurkle/color/commit/a34402013e7f0e4d5632a4503cce776ae58ac03e"
+        },
+        "date": 1788638889709,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "parseInt +",
+            "value": 9141404,
+            "range": "±0.68%",
+            "unit": "ops/sec",
+            "extra": "93 samples"
+          },
+          {
+            "name": "parseInt slice",
+            "value": 7425319,
+            "range": "±0.34%",
+            "unit": "ops/sec",
+            "extra": "94 samples"
+          },
+          {
+            "name": "map",
+            "value": 106029039,
+            "range": "±4.26%",
+            "unit": "ops/sec",
+            "extra": "79 samples"
+          },
+          {
+            "name": "map obj",
+            "value": 116969108,
+            "range": "±4.30%",
+            "unit": "ops/sec",
+            "extra": "78 samples"
+          },
+          {
+            "name": "parseInt + shift",
+            "value": 18858510,
+            "range": "±0.84%",
+            "unit": "ops/sec",
+            "extra": "92 samples"
+          },
+          {
+            "name": "parseInt + shift obj",
+            "value": 18690258,
+            "range": "±0.86%",
+            "unit": "ops/sec",
+            "extra": "92 samples"
           }
         ]
       }
