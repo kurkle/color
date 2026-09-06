@@ -7,6 +7,12 @@ updates:
     groups:
       dev-dependencies:
         dependency-type: "development"
+    ignore:
+      # typedoc requires typescript 5.x or 6.x, so TS 7 fails npm ci with
+      # ERESOLVE and stalls the whole dev-dependencies group.
+      # Remove this once typedoc supports TypeScript 7.
+      - dependency-name: "typescript"
+        update-types: ["version-update:semver-major"]
   - package-ecosystem: "npm"
     directory: "/bench"
     schedule:
