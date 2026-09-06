@@ -22,9 +22,10 @@
     "build": "node scripts/build.js",
     "lint": "biome check",
     "format": "biome check --write",
-    "test": "vitest run",
-    "test:coverage": "vitest run --coverage",
+    "test": "vitest run && npm run test:chartjs",
+    "test:coverage": "vitest run --coverage && npm run test:chartjs",
     "typecheck": "tsc --noEmit",
+    "test:chartjs": "npm --prefix test/chartjs-compat ci --ignore-scripts && npm --prefix test/chartjs-compat run check",
     "docs": "typedoc && touch docs/.nojekyll && mv -f docs/tmp/* docs/ && rm -rd docs/tmp",
     "prepare": "git config core.hooksPath .githooks || true"
   },
