@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1788672873362,
+  "lastUpdate": 1788673731155,
   "repoUrl": "https://github.com/kurkle/color",
   "entries": {
     "HEX parsing": [
@@ -8869,6 +8869,72 @@ window.BENCHMARK_DATA = {
             "range": "±1.34%",
             "unit": "ops/sec",
             "extra": "93 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "jukka.kurkela@gmail.com",
+            "name": "Jukka Kurkela",
+            "username": "kurkle"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "1bdd6034000291b723085fc7ec40b45805b8a819",
+          "message": "Merge pull request #228 from kurkle/ci/bench-ignore-scripts\n\nci: pass --ignore-scripts to every npm install in workflows",
+          "timestamp": "2026-09-06T08:47:58+03:00",
+          "tree_id": "bbe95c88ad0869895824db26a0be5e780d03e9cf",
+          "url": "https://github.com/kurkle/color/commit/1bdd6034000291b723085fc7ec40b45805b8a819"
+        },
+        "date": 1788673729949,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "parseInt +",
+            "value": 9880972,
+            "range": "±0.51%",
+            "unit": "ops/sec",
+            "extra": "91 samples"
+          },
+          {
+            "name": "parseInt slice",
+            "value": 8067583,
+            "range": "±0.53%",
+            "unit": "ops/sec",
+            "extra": "97 samples"
+          },
+          {
+            "name": "map",
+            "value": 103804937,
+            "range": "±4.18%",
+            "unit": "ops/sec",
+            "extra": "86 samples"
+          },
+          {
+            "name": "map obj",
+            "value": 108888668,
+            "range": "±3.41%",
+            "unit": "ops/sec",
+            "extra": "84 samples"
+          },
+          {
+            "name": "parseInt + shift",
+            "value": 19397859,
+            "range": "±1.33%",
+            "unit": "ops/sec",
+            "extra": "95 samples"
+          },
+          {
+            "name": "parseInt + shift obj",
+            "value": 19402064,
+            "range": "±1.04%",
+            "unit": "ops/sec",
+            "extra": "91 samples"
           }
         ]
       }
