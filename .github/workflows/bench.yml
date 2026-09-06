@@ -16,7 +16,7 @@ jobs:
           cache: npm
       - name: Build
         run: |
-          npm ci
+          npm ci --ignore-scripts
           npm run lint
           npm run build
       - name: Test
@@ -24,7 +24,7 @@ jobs:
       - name: Reset
         run: git reset --hard
       - name: Install benchmark dependencies
-        run: npm ci
+        run: npm ci --ignore-scripts
         working-directory: bench
       - name: Benchmark hex parsing
         run: node --expose-gc bench/hexbench.js | tee output.txt
