@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1788670308126,
+  "lastUpdate": 1788672508369,
   "repoUrl": "https://github.com/kurkle/color",
   "entries": {
     "HEX parsing": [
@@ -8735,6 +8735,72 @@ window.BENCHMARK_DATA = {
             "name": "parseInt + shift obj",
             "value": 19011850,
             "range": "±0.72%",
+            "unit": "ops/sec",
+            "extra": "94 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "jukka.kurkela@gmail.com",
+            "name": "Jukka Kurkela",
+            "username": "kurkle"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "3af158e5f08c773fb6b03a6976896e0baa5b773f",
+          "message": "Merge pull request #226 from kurkle/ci/dependabot-typescript-ignore\n\nci(deps): ignore TypeScript major bumps in dependabot",
+          "timestamp": "2026-09-06T08:27:31+03:00",
+          "tree_id": "670a5e402b49052808077d20f601bf333dbe1163",
+          "url": "https://github.com/kurkle/color/commit/3af158e5f08c773fb6b03a6976896e0baa5b773f"
+        },
+        "date": 1788672506713,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "parseInt +",
+            "value": 9103403,
+            "range": "±1.46%",
+            "unit": "ops/sec",
+            "extra": "92 samples"
+          },
+          {
+            "name": "parseInt slice",
+            "value": 7759325,
+            "range": "±1.00%",
+            "unit": "ops/sec",
+            "extra": "94 samples"
+          },
+          {
+            "name": "map",
+            "value": 111623994,
+            "range": "±4.46%",
+            "unit": "ops/sec",
+            "extra": "84 samples"
+          },
+          {
+            "name": "map obj",
+            "value": 116160225,
+            "range": "±3.88%",
+            "unit": "ops/sec",
+            "extra": "80 samples"
+          },
+          {
+            "name": "parseInt + shift",
+            "value": 18951530,
+            "range": "±0.68%",
+            "unit": "ops/sec",
+            "extra": "95 samples"
+          },
+          {
+            "name": "parseInt + shift obj",
+            "value": 18961799,
+            "range": "±0.77%",
             "unit": "ops/sec",
             "extra": "94 samples"
           }
