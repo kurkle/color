@@ -1,0 +1,19 @@
+{
+  "devDependencies": {
+    "@kurkle/color": "file:../..",
+    "chart.js": "4.5.1",
+    "typescript": "^6.0.3"
+  },
+  "name": "chartjs-compat-fixture",
+  "overrides": {
+    "chart.js": {
+      "@kurkle/color": "file:../../../.."
+    }
+  },
+  "private": true,
+  "scripts": {
+    "check": "tsc --noEmit && node --test runtime.test.mjs"
+  },
+  "type": "module",
+  "version": "0.0.0"
+}
