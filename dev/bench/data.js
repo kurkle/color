@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1788646926726,
+  "lastUpdate": 1788670147612,
   "repoUrl": "https://github.com/kurkle/color",
   "entries": {
     "HEX parsing": [
@@ -8605,6 +8605,72 @@ window.BENCHMARK_DATA = {
             "range": "±0.67%",
             "unit": "ops/sec",
             "extra": "95 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "jukka.kurkela@gmail.com",
+            "name": "Jukka Kurkela",
+            "username": "kurkle"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "0860a48f7b0015d2d63df035a13efbe85d49bbb6",
+          "message": "Merge pull request #225 from kurkle/ci/sonar-workflow-scan",
+          "timestamp": "2026-09-06T07:48:11+03:00",
+          "tree_id": "37653c8db7e3192e7aac54fd955a7890f9f97c8b",
+          "url": "https://github.com/kurkle/color/commit/0860a48f7b0015d2d63df035a13efbe85d49bbb6"
+        },
+        "date": 1788670146274,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "parseInt +",
+            "value": 9120479,
+            "range": "±0.79%",
+            "unit": "ops/sec",
+            "extra": "94 samples"
+          },
+          {
+            "name": "parseInt slice",
+            "value": 7734435,
+            "range": "±1.68%",
+            "unit": "ops/sec",
+            "extra": "93 samples"
+          },
+          {
+            "name": "map",
+            "value": 111108860,
+            "range": "±3.50%",
+            "unit": "ops/sec",
+            "extra": "82 samples"
+          },
+          {
+            "name": "map obj",
+            "value": 113637288,
+            "range": "±4.28%",
+            "unit": "ops/sec",
+            "extra": "75 samples"
+          },
+          {
+            "name": "parseInt + shift",
+            "value": 19023538,
+            "range": "±0.89%",
+            "unit": "ops/sec",
+            "extra": "90 samples"
+          },
+          {
+            "name": "parseInt + shift obj",
+            "value": 18852153,
+            "range": "±1.07%",
+            "unit": "ops/sec",
+            "extra": "94 samples"
           }
         ]
       }
