@@ -27,7 +27,8 @@
     "typecheck": "tsc --noEmit",
     "test:chartjs": "npm --prefix test/chartjs-compat ci --ignore-scripts && npm --prefix test/chartjs-compat run check",
     "docs": "typedoc && touch docs/.nojekyll && mv -f docs/tmp/* docs/ && rm -rd docs/tmp",
-    "prepare": "git config core.hooksPath .githooks || true"
+    "prepare": "git config core.hooksPath .githooks || true",
+    "prepack": "npm run build"
   },
   "repository": {
     "type": "git",
