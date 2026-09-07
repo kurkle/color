@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1788721790866,
+  "lastUpdate": 1788749910719,
   "repoUrl": "https://github.com/kurkle/color",
   "entries": {
     "HEX parsing": [
@@ -9133,6 +9133,72 @@ window.BENCHMARK_DATA = {
             "range": "±0.90%",
             "unit": "ops/sec",
             "extra": "94 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "jukka.kurkela@gmail.com",
+            "name": "Jukka Kurkela",
+            "username": "kurkle"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "ff1a8a429dcee19f87851f284c2365c1f52d3d7d",
+          "message": "Merge pull request #232 from kurkle/chore/prepack-build\n\nchore: run build in prepack so published banner has the real version",
+          "timestamp": "2026-09-07T05:57:36+03:00",
+          "tree_id": "f8bdda1e62311952ef04a404c04516c6dd05bb95",
+          "url": "https://github.com/kurkle/color/commit/ff1a8a429dcee19f87851f284c2365c1f52d3d7d"
+        },
+        "date": 1788749909349,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "parseInt +",
+            "value": 9843673,
+            "range": "±0.87%",
+            "unit": "ops/sec",
+            "extra": "95 samples"
+          },
+          {
+            "name": "parseInt slice",
+            "value": 8073300,
+            "range": "±0.77%",
+            "unit": "ops/sec",
+            "extra": "97 samples"
+          },
+          {
+            "name": "map",
+            "value": 102694666,
+            "range": "±3.62%",
+            "unit": "ops/sec",
+            "extra": "84 samples"
+          },
+          {
+            "name": "map obj",
+            "value": 106239242,
+            "range": "±4.25%",
+            "unit": "ops/sec",
+            "extra": "81 samples"
+          },
+          {
+            "name": "parseInt + shift",
+            "value": 19730982,
+            "range": "±0.79%",
+            "unit": "ops/sec",
+            "extra": "95 samples"
+          },
+          {
+            "name": "parseInt + shift obj",
+            "value": 19689980,
+            "range": "±0.76%",
+            "unit": "ops/sec",
+            "extra": "95 samples"
           }
         ]
       }
