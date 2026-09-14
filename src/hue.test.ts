@@ -2,9 +2,29 @@ import type { RGBA } from './color.js'
 
 import { describe, expect, it } from 'vitest'
 
-import { hsl2rgb, hslString, hsv2rgb, hueParse, hwb2rgb, rgb2hsl, rotate } from './hue.js'
+import { hsl2rgb, hsl2rgbn, hslString, hsv2rgb, hueParse, hwb2rgb, rgb2hsl, rotate } from './hue.js'
 
 describe('hue.ts', () => {
+  describe('hsl2rgbn', () => {
+    it('should return each component normalized to [0..1]', () => {
+      // Red
+      expect(hsl2rgbn(0, 1, 0.5)).toEqual([1, 0, 0])
+
+      // White
+      expect(hsl2rgbn(0, 0, 1)).toEqual([1, 1, 1])
+
+      // Black
+      expect(hsl2rgbn(0, 0, 0)).toEqual([0, 0, 0])
+    })
+
+    it('should agree with hsl2rgb once scaled to bytes', () => {
+      const [r, g, b] = hsl2rgbn(300, 1, 0.25)
+      expect([Math.round(r * 255), Math.round(g * 255), Math.round(b * 255)]).toEqual(
+        hsl2rgb(300, 1, 0.25)
+      )
+    })
+  })
+
   describe('rgb2hsl', () => {
     it('should convert RGB to HSL correctly', () => {
       // Red

@@ -216,5 +216,30 @@ describe('oklch.ts', () => {
     it('should format achromatic grey with 0 C and H', () => {
       expect(oklchString({ a: 255, b: 128, g: 128, r: 128 })).toBe('oklch(0.5999 0 0)')
     })
+
+    it('should round L and C correctly right at a 4-decimal half-way point', () => {
+      // rgb(0, 10, 150) produces L = 0.31125002971... and C = 0.20607466392...,
+      // i.e. L * 1e4 sits 0.0003 above the 3112.5 half-way mark. Math.round(x
+      // * 1e4) / 1e4 and the previous +x.toFixed(4) must still agree here.
+      expect(oklchString({ a: 255, b: 150, g: 10, r: 0 })).toBe('oklch(0.3113 0.2061 264.18)')
+    })
+
+    it('should keep an rgb2oklch round trip within +/-1 per channel for a small sample', () => {
+      const samples: RGBA[] = [
+        { a: 255, b: 60, g: 90, r: 12 },
+        { a: 255, b: 200, g: 30, r: 220 },
+        { a: 255, b: 15, g: 180, r: 75 },
+        { a: 255, b: 128, g: 128, r: 128 },
+        { a: 255, b: 0, g: 0, r: 0 },
+        { a: 255, b: 255, g: 255, r: 255 },
+      ]
+      for (const rgb of samples) {
+        const str = oklchString(rgb)
+        const back = oklchParse(str as string) as RGBA
+        expect(Math.abs(back.r - rgb.r)).toBeLessThanOrEqual(1)
+        expect(Math.abs(back.g - rgb.g)).toBeLessThanOrEqual(1)
+        expect(Math.abs(back.b - rgb.b)).toBeLessThanOrEqual(1)
+      }
+    })
   })
 })

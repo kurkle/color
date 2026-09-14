@@ -6,7 +6,7 @@
 import type { RGBA } from './color.js'
 
 import { b2n, lim, n2b, p2b } from './byte.js'
-import { linear2srgb, srgb2linear } from './srgb.js'
+import { byte2linear, linear2srgb } from './srgb.js'
 
 /**
  * @hidden
@@ -34,9 +34,9 @@ const HUE_UNITS: Record<string, number> = {
  * @hidden
  */
 function rgb2oklab(r: number, g: number, b: number): number[] {
-  const R = srgb2linear(r / 255)
-  const G = srgb2linear(g / 255)
-  const B = srgb2linear(b / 255)
+  const R = byte2linear(r)
+  const G = byte2linear(g)
+  const B = byte2linear(b)
   const l = Math.cbrt(0.4122214708 * R + 0.5363325363 * G + 0.0514459929 * B)
   const m = Math.cbrt(0.2119034982 * R + 0.6806995451 * G + 0.1073969566 * B)
   const s = Math.cbrt(0.0883024619 * R + 0.2817188376 * G + 0.6299787005 * B)
@@ -57,14 +57,17 @@ function rgb2oklab(r: number, g: number, b: number): number[] {
  * @hidden
  */
 function oklab2rgbn(L: number, a: number, b: number): number[] {
-  const l = (L + 0.3963377774 * a + 0.2158037573 * b) ** 3
-  const m = (L - 0.1055613458 * a - 0.0638541728 * b) ** 3
-  const s = (L - 0.0894841775 * a - 1.291485548 * b) ** 3
+  const l0 = L + 0.3963377774 * a + 0.2158037573 * b
+  const m0 = L - 0.1055613458 * a - 0.0638541728 * b
+  const s0 = L - 0.0894841775 * a - 1.291485548 * b
+  const l = l0 * l0 * l0
+  const m = m0 * m0 * m0
+  const s = s0 * s0 * s0
   return [
-    4.0767416621 * l - 3.3077115913 * m + 0.2309699292 * s,
-    -1.2684380046 * l + 2.6097574011 * m - 0.3413193965 * s,
-    -0.0041960863 * l - 0.7034186147 * m + 1.707614701 * s,
-  ].map(linear2srgb)
+    linear2srgb(4.0767416621 * l - 3.3077115913 * m + 0.2309699292 * s),
+    linear2srgb(-1.2684380046 * l + 2.6097574011 * m - 0.3413193965 * s),
+    linear2srgb(-0.0041960863 * l - 0.7034186147 * m + 1.707614701 * s),
+  ]
 }
 
 /**
@@ -74,7 +77,7 @@ function oklab2rgbn(L: number, a: number, b: number): number[] {
  */
 export function rgb2oklch(v: RGBA): number[] {
   const [L, a, b] = rgb2oklab(v.r, v.g, v.b)
-  const C = Math.hypot(a, b)
+  const C = Math.sqrt(a * a + b * b)
   let H = 0
   if (C >= 1e-4) {
     H = (Math.atan2(b, a) * 180) / Math.PI
@@ -94,10 +97,24 @@ export function rgb2oklch(v: RGBA): number[] {
  * @returns - [r, g, b] bytes
  */
 export function oklch2rgb(l: number | number[], c?: number, h?: number): number[] {
-  const [L, C, H] = Array.isArray(l) ? l : [l, c!, h!]
-  const a = C * Math.cos((H * Math.PI) / 180)
-  const b = C * Math.sin((H * Math.PI) / 180)
-  return oklab2rgbn(L, a, b).map(n2b)
+  let L: number
+  let C: number
+  let H: number
+  if (Array.isArray(l)) {
+    L = l[0]
+    C = l[1]
+    H = l[2]
+  } else {
+    L = l
+    C = c!
+    H = h!
+  }
+  const rad = (H * Math.PI) / 180
+  const rgb = oklab2rgbn(L, C * Math.cos(rad), C * Math.sin(rad))
+  rgb[0] = n2b(rgb[0])
+  rgb[1] = n2b(rgb[1])
+  rgb[2] = n2b(rgb[2])
+  return rgb
 }
 
 /**
@@ -163,8 +180,8 @@ export function oklchString(v: RGBA | undefined): string | undefined {
     return undefined
   }
   const [L, C, H] = rgb2oklch(v)
-  const l = +L.toFixed(4)
-  const c = +C.toFixed(4)
-  const h = +H.toFixed(2)
+  const l = Math.round(L * 1e4) / 1e4
+  const c = Math.round(C * 1e4) / 1e4
+  const h = Math.round(H * 100) / 100
   return v.a < 255 ? `oklch(${l} ${c} ${h} / ${b2n(v.a)})` : `oklch(${l} ${c} ${h})`
 }

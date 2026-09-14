@@ -5,7 +5,7 @@
 
 import { b2n, n2b, round } from './byte.js'
 import { hexParse, hexString } from './hex.js'
-import { hsl2rgb, hslString, hueParse, rgb2hsl, rotate } from './hue.js'
+import { hsl2rgbn, hslString, hueParse, rgb2hsl, rotate } from './hue.js'
 import { nameParse } from './names.js'
 import { oklchParse, oklchString } from './oklch.js'
 import { rgbParse, rgbString } from './rgb.js'
@@ -32,12 +32,12 @@ export interface RGBA {
  */
 function modHSL(v: RGBA | undefined, i: number, ratio: number): void {
   if (v) {
-    let tmp = rgb2hsl(v)
+    const tmp = rgb2hsl(v)
     tmp[i] = Math.max(0, Math.min(tmp[i] + tmp[i] * ratio, i === 0 ? 360 : 1))
-    tmp = hsl2rgb(tmp)
-    v.r = tmp[0]
-    v.g = tmp[1]
-    v.b = tmp[2]
+    const rgb = hsl2rgbn(tmp[0], tmp[1], tmp[2])
+    v.r = n2b(rgb[0])
+    v.g = n2b(rgb[1])
+    v.b = n2b(rgb[2])
   }
 }
 
@@ -76,11 +76,12 @@ function fromObject(input: RGBA | number[]): RGBA {
  * @hidden
  */
 function functionParse(str: string): RGBA | undefined {
-  const clean = str.replace(COMMENT_REGEXP, '').trim()
-  if (clean.charAt(0) === 'r') {
+  const clean = (str.indexOf('/*') === -1 ? str : str.replace(COMMENT_REGEXP, '')).trim()
+  const first = clean.charAt(0)
+  if (first === 'r') {
     return rgbParse(clean)
   }
-  if (clean.charAt(0) === 'o') {
+  if (first === 'o') {
     return oklchParse(clean)
   }
   return hueParse(clean)
@@ -115,7 +116,12 @@ export default class Color {
     if (type === 'object') {
       v = fromObject(input as RGBA | number[])
     } else if (type === 'string') {
-      v = hexParse(input as string) || nameParse(input as string) || functionParse(input as string)
+      const s = input as string
+      // A function form always ends in `)`. Trying it first for those skips a
+      // failed name lookup, and the name table stays first for everything else.
+      v =
+        hexParse(s) ||
+        (s.endsWith(')') ? functionParse(s) || nameParse(s) : nameParse(s) || functionParse(s))
     }
 
     this._rgb = v

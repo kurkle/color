@@ -23,6 +23,24 @@ export function srgb2linear(v: number): number {
   return v <= 0.04045 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4
 }
 
+let LIN: Float64Array | undefined
+
+/**
+ * Linear-light value of an sRGB byte. Filled from {@link srgb2linear} on first
+ * use, so a lookup returns exactly what `srgb2linear(v / 255)` computes.
+ * @param v - the byte 0..255
+ * @hidden
+ */
+export function byte2linear(v: number): number {
+  if (!LIN) {
+    LIN = new Float64Array(256)
+    for (let i = 0; i < 256; i++) {
+      LIN[i] = srgb2linear(i / 255)
+    }
+  }
+  return LIN[v]
+}
+
 /**
  * @param rgb1 from color
  * @param rgb2 to color
