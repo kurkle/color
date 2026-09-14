@@ -1,6 +1,6 @@
 import type { ChartOptions } from 'chart.js'
 
-import { Color } from '@kurkle/color'
+import color, { Color } from '@kurkle/color'
 
 // Chart.js's own getHoverColor, verbatim (dist/chunks/helpers.dataset.js),
 // declares a `string` return type for the wrapped call below:
@@ -41,6 +41,11 @@ const mixed: Color = new Color('#f00').mix(new Color('#00f'), 0.5)
 const cloned: Color = new Color('#f00').clone()
 const alphaed: Color = new Color('#f00').alpha(0.5)
 
+// The default export is the documented UMD entry point (README links to it
+// as `import color from '@kurkle/color'`). Guards against stripInternal
+// accidentally stripping it from the declarations again.
+const fromFactory: Color = color('#f00')
+
 void chartjsVerbatim
 void opts
 void valid
@@ -50,3 +55,4 @@ void hslString
 void mixed
 void cloned
 void alphaed
+void fromFactory

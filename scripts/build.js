@@ -85,6 +85,7 @@ async function buildESM() {
       bundle: true,
       entryPoints: ['src/index.esm.ts'],
       format: 'esm',
+      mangleProps: /^_/,
       minify: false,
       outfile: 'dist/color.esm.js',
       platform: 'neutral',
@@ -105,6 +106,7 @@ async function buildCJS() {
       bundle: true,
       entryPoints: ['src/index.ts'],
       format: 'cjs',
+      mangleProps: /^_/,
       minify: false,
       outfile: 'dist/color.cjs',
       platform: 'neutral',
@@ -127,6 +129,7 @@ async function buildMinified() {
       entryPoints: ['src/index.ts'],
       format: 'iife',
       globalName: 'kurkleColor',
+      mangleProps: /^_/,
       metafile: true, // Generate metadata for the visualizer
       minify: true,
       outfile: 'dist/color.min.js',

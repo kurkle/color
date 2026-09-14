@@ -86,12 +86,14 @@ export default class Color {
   /**
    * @type {RGBA}
    * @hidden
+   * @internal
    **/
   _rgb: RGBA
 
   /**
    * @type {boolean}
    * @hidden
+   * @internal
    **/
   _valid: boolean
 
