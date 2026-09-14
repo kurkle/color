@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1789407868636,
+  "lastUpdate": 1789407882288,
   "repoUrl": "https://github.com/kurkle/color",
   "entries": {
     "HEX parsing": [
@@ -9397,6 +9397,72 @@ window.BENCHMARK_DATA = {
             "range": "±0.86%",
             "unit": "ops/sec",
             "extra": "94 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "jukka.kurkela@gmail.com",
+            "name": "Jukka Kurkela",
+            "username": "kurkle"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "4ec9361ddc2c9d4e84643721627ebba009fc78df",
+          "message": "Merge pull request #233 from kurkle/feat/oklch\n\nfeat: parse and serialize oklch() colors",
+          "timestamp": "2026-09-14T20:43:30+03:00",
+          "tree_id": "508fe897cdc78edb8fc23d3c158f21f7c269a449",
+          "url": "https://github.com/kurkle/color/commit/4ec9361ddc2c9d4e84643721627ebba009fc78df"
+        },
+        "date": 1789407881119,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "parseInt +",
+            "value": 9251538,
+            "range": "±0.40%",
+            "unit": "ops/sec",
+            "extra": "93 samples"
+          },
+          {
+            "name": "parseInt slice",
+            "value": 7494230,
+            "range": "±0.35%",
+            "unit": "ops/sec",
+            "extra": "96 samples"
+          },
+          {
+            "name": "map",
+            "value": 115146340,
+            "range": "±3.72%",
+            "unit": "ops/sec",
+            "extra": "86 samples"
+          },
+          {
+            "name": "map obj",
+            "value": 113160522,
+            "range": "±3.97%",
+            "unit": "ops/sec",
+            "extra": "82 samples"
+          },
+          {
+            "name": "parseInt + shift",
+            "value": 19089431,
+            "range": "±0.62%",
+            "unit": "ops/sec",
+            "extra": "95 samples"
+          },
+          {
+            "name": "parseInt + shift obj",
+            "value": 19088666,
+            "range": "±0.67%",
+            "unit": "ops/sec",
+            "extra": "95 samples"
           }
         ]
       }
