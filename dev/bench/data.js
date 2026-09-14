@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1788750039022,
+  "lastUpdate": 1789405655138,
   "repoUrl": "https://github.com/kurkle/color",
   "entries": {
     "HEX parsing": [
@@ -9199,6 +9199,72 @@ window.BENCHMARK_DATA = {
             "range": "±0.76%",
             "unit": "ops/sec",
             "extra": "95 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "jukka.kurkela@gmail.com",
+            "name": "Jukka Kurkela",
+            "username": "kurkle"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "ab2372138e8b5ecf93d6f312add70428fdabefa4",
+          "message": "Merge pull request #236 from kurkle/fix/cjs-types\n\nfix: ship CommonJS type declarations and gate the package contract",
+          "timestamp": "2026-09-14T20:06:20+03:00",
+          "tree_id": "e8452dd8290acc0912d48a000d1a74dd6351853d",
+          "url": "https://github.com/kurkle/color/commit/ab2372138e8b5ecf93d6f312add70428fdabefa4"
+        },
+        "date": 1789405653920,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "parseInt +",
+            "value": 9910678,
+            "range": "±0.56%",
+            "unit": "ops/sec",
+            "extra": "95 samples"
+          },
+          {
+            "name": "parseInt slice",
+            "value": 8048393,
+            "range": "±1.48%",
+            "unit": "ops/sec",
+            "extra": "97 samples"
+          },
+          {
+            "name": "map",
+            "value": 101427361,
+            "range": "±4.67%",
+            "unit": "ops/sec",
+            "extra": "79 samples"
+          },
+          {
+            "name": "map obj",
+            "value": 106692911,
+            "range": "±3.41%",
+            "unit": "ops/sec",
+            "extra": "80 samples"
+          },
+          {
+            "name": "parseInt + shift",
+            "value": 19576389,
+            "range": "±0.86%",
+            "unit": "ops/sec",
+            "extra": "94 samples"
+          },
+          {
+            "name": "parseInt + shift obj",
+            "value": 19820379,
+            "range": "±0.76%",
+            "unit": "ops/sec",
+            "extra": "94 samples"
           }
         ]
       }
