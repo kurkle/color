@@ -1,14 +1,14 @@
 import names from 'color-name'
 import { describe, expect, it } from 'vitest'
 
-import { packColorNames, unpackColorNames } from '../scripts/packUtils.js'
+import { generateTypeScriptCode, packColorNames, unpackColorNames } from '../scripts/packUtils.js'
 
 describe('Color name packing utilities', () => {
   // Pack the color names
-  const { mapped, mangled, packed } = packColorNames(names)
+  const packed = packColorNames(names)
 
   // Unpack the color names
-  const unpacked = unpackColorNames(mapped, packed)
+  const unpacked = unpackColorNames(packed)
 
   it('should pack and unpack all original color names', () => {
     // Get the original color names
@@ -55,23 +55,21 @@ describe('Color name packing utilities', () => {
     }
   })
 
-  it('should correctly map compressed names to original names', () => {
-    // Check that the mangled names map back to the original names
-    const mangledKeys = Object.keys(mangled)
+  it('should format the packed string as space-separated name+hex entries', () => {
+    // Check that the packed string has exactly one entry per color name
+    const entries = packed.split(' ')
+    expect(entries.length).toBe(Object.keys(names).length)
 
-    for (const key of mangledKeys) {
-      const originalName = mangled[key]
-      expect(names[originalName]).toBeDefined()
+    // Check that each entry ends with six lowercase hex digits
+    for (const entry of entries) {
+      expect(entry).toMatch(/[0-9a-f]{6}$/)
     }
   })
 
-  it('should compress the color names effectively', () => {
-    // Check that the packed representation is smaller than the original
-    const originalSize = JSON.stringify(names).length
-    const packedSize = JSON.stringify(packed).length + JSON.stringify(mapped).length
+  it('should generate TypeScript code containing the packed string and the unpack function', () => {
+    const code = generateTypeScriptCode(packed)
 
-    // The packed representation should be smaller than the original
-    expect(packedSize).toBeLessThan(originalSize)
-    expect((packedSize / originalSize) * 100).toBeLessThan(78)
+    expect(code).toContain(packed)
+    expect(code).toContain('export default function unpack')
   })
 })
