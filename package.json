@@ -11,19 +11,25 @@
   "module": "dist/color.esm.js",
   "types": "dist/index.d.ts",
   "exports": {
-    "types": {
-      "import": "./dist/index.esm.d.ts",
-      "require": "./dist/index.d.ts"
+    ".": {
+      "import": {
+        "types": "./dist/index.esm.d.ts",
+        "default": "./dist/color.esm.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/color.cjs"
+      }
     },
-    "import": "./dist/color.esm.js",
-    "require": "./dist/color.cjs"
+    "./package.json": "./package.json"
   },
   "scripts": {
-    "build": "node scripts/build.js",
+    "build": "node scripts/build.js && kurkle-build-cjs-types",
     "lint": "biome check",
     "format": "biome check --write",
-    "test": "vitest run && npm run test:chartjs",
-    "test:coverage": "vitest run --coverage && npm run test:chartjs",
+    "test": "vitest run && npm run test:chartjs && npm run test:pack",
+    "test:coverage": "vitest run --coverage && npm run test:chartjs && npm run test:pack",
+    "test:pack": "kurkle-check-package",
     "typecheck": "tsc --noEmit",
     "test:chartjs": "npm --prefix test/chartjs-compat ci --ignore-scripts && npm --prefix test/chartjs-compat run check",
     "docs": "typedoc && touch docs/.nojekyll && mv -f docs/tmp/* docs/ && rm -rd docs/tmp",
@@ -57,7 +63,7 @@
   "homepage": "https://github.com/kurkle/color#readme",
   "devDependencies": {
     "@biomejs/biome": "^2.5.12",
-    "@kurkle/configs": "^1.1.1",
+    "@kurkle/configs": "^1.8.1",
     "@vitest/coverage-v8": "^5.0.0",
     "color-name": "^2.0.0",
     "esbuild": "^0.28.2",
