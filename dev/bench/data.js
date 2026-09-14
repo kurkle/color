@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1789405794447,
+  "lastUpdate": 1789407868636,
   "repoUrl": "https://github.com/kurkle/color",
   "entries": {
     "HEX parsing": [
@@ -9331,6 +9331,72 @@ window.BENCHMARK_DATA = {
             "range": "±1.07%",
             "unit": "ops/sec",
             "extra": "95 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "jukka.kurkela@gmail.com",
+            "name": "Jukka Kurkela",
+            "username": "kurkle"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "9322f3b17fd3531eaf1f99e1138c2e4e114e9a78",
+          "message": "Merge pull request #234 from kurkle/perf/mangle-private-props\n\nperf: mangle and strip the private _rgb and _valid properties",
+          "timestamp": "2026-09-14T20:43:10+03:00",
+          "tree_id": "44996791296800dd1fabbd96aaf4e9f3f31e5533",
+          "url": "https://github.com/kurkle/color/commit/9322f3b17fd3531eaf1f99e1138c2e4e114e9a78"
+        },
+        "date": 1789407866588,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "parseInt +",
+            "value": 9122326,
+            "range": "±0.67%",
+            "unit": "ops/sec",
+            "extra": "94 samples"
+          },
+          {
+            "name": "parseInt slice",
+            "value": 7529313,
+            "range": "±0.38%",
+            "unit": "ops/sec",
+            "extra": "97 samples"
+          },
+          {
+            "name": "map",
+            "value": 110471894,
+            "range": "±4.32%",
+            "unit": "ops/sec",
+            "extra": "82 samples"
+          },
+          {
+            "name": "map obj",
+            "value": 111779728,
+            "range": "±5.74%",
+            "unit": "ops/sec",
+            "extra": "79 samples"
+          },
+          {
+            "name": "parseInt + shift",
+            "value": 18845999,
+            "range": "±0.89%",
+            "unit": "ops/sec",
+            "extra": "91 samples"
+          },
+          {
+            "name": "parseInt + shift obj",
+            "value": 19084623,
+            "range": "±0.86%",
+            "unit": "ops/sec",
+            "extra": "94 samples"
           }
         ]
       }
