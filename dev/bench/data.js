@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1789405655138,
+  "lastUpdate": 1789405666175,
   "repoUrl": "https://github.com/kurkle/color",
   "entries": {
     "HEX parsing": [
@@ -9265,6 +9265,72 @@ window.BENCHMARK_DATA = {
             "range": "±0.76%",
             "unit": "ops/sec",
             "extra": "94 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "jukka.kurkela@gmail.com",
+            "name": "Jukka Kurkela",
+            "username": "kurkle"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "b6f82283cf211adc440ff860bd6f3fdf2b12b1e8",
+          "message": "Merge pull request #235 from kurkle/perf/plain-color-names\n\nperf: store the color-name table as a plain string",
+          "timestamp": "2026-09-14T20:06:35+03:00",
+          "tree_id": "e4b6d328ea646be72b8ec29d3b76e981f01e1bed",
+          "url": "https://github.com/kurkle/color/commit/b6f82283cf211adc440ff860bd6f3fdf2b12b1e8"
+        },
+        "date": 1789405664280,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "parseInt +",
+            "value": 12732423,
+            "range": "±0.90%",
+            "unit": "ops/sec",
+            "extra": "95 samples"
+          },
+          {
+            "name": "parseInt slice",
+            "value": 10205055,
+            "range": "±0.77%",
+            "unit": "ops/sec",
+            "extra": "96 samples"
+          },
+          {
+            "name": "map",
+            "value": 131272324,
+            "range": "±4.55%",
+            "unit": "ops/sec",
+            "extra": "82 samples"
+          },
+          {
+            "name": "map obj",
+            "value": 136490292,
+            "range": "±4.32%",
+            "unit": "ops/sec",
+            "extra": "82 samples"
+          },
+          {
+            "name": "parseInt + shift",
+            "value": 25218070,
+            "range": "±0.87%",
+            "unit": "ops/sec",
+            "extra": "96 samples"
+          },
+          {
+            "name": "parseInt + shift obj",
+            "value": 24860292,
+            "range": "±1.07%",
+            "unit": "ops/sec",
+            "extra": "95 samples"
           }
         ]
       }
