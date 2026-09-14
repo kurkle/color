@@ -53,7 +53,8 @@
     "rgba",
     "hwb",
     "hsv",
-    "cmyk"
+    "cmyk",
+    "oklch"
   ],
   "author": "Jukka Kurkela",
   "license": "MIT",

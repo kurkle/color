@@ -120,6 +120,37 @@ describe('Color Parsing', () => {
     })
   })
 
+  describe('OKLCH Color Parsing', () => {
+    it('should parse oklch() format correctly', () => {
+      expect(new Color('oklch(0.7 0.15 200)').rgb).toEqual({ a: 1, b: 195, g: 185, r: 0 })
+    })
+
+    it('should parse the alpha component', () => {
+      expect(new Color('oklch(0.7 0.15 200 / 50%)').rgb.a).toBe(0.5)
+    })
+
+    it('should output correct oklch strings', () => {
+      expect(new Color('#ff0000').oklchString()).toBe('oklch(0.628 0.2577 29.23)')
+    })
+
+    it('should be invalid when a component is missing', () => {
+      expect(new Color('oklch(0.5 0.2 30)').valid).toBe(true)
+      expect(new Color('oklch(0.7 0.15)').valid).toBe(false)
+    })
+
+    it('should still support HSL rotation on a color parsed from oklch', () => {
+      const rotated = new Color('oklch(0.5 0.2 30)').rotate(120)
+      expect(rotated.valid).toBe(true)
+      expect(rotated.rgb).not.toEqual(new Color('oklch(0.5 0.2 30)').rgb)
+    })
+
+    it('should handle comment blocks in oklch values', () => {
+      expect(new Color('oklch(0.7 /* l */ 0.15 /* c */ 200 /* h */)').oklchString()).toBe(
+        new Color('oklch(0.7 0.15 200)').oklchString()
+      )
+    })
+  })
+
   describe('Object and Array Parsing', () => {
     it('should parse RGB object correctly', () => {
       expect(new Color({ b: 253, g: 254, r: 255 }).rgb).toEqual({ a: 1, b: 253, g: 254, r: 255 })
