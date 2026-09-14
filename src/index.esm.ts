@@ -16,7 +16,6 @@ export { Color, RGBA }
 /**
  * Construct new Color instance
  * @param input
- * @internal
  */
 export default function (input: Color | RGBA | string | number[]): Color {
   return new Color(input)

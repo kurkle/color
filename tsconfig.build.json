@@ -1,4 +1,5 @@
 {
   "extends": "./tsconfig.json",
+  "compilerOptions": { "stripInternal": true },
   "exclude": ["node_modules", "dist", "test", "src/**/*.test.ts"]
 }
