@@ -7,6 +7,7 @@ import { b2n, n2b, round } from './byte.js'
 import { hexParse, hexString } from './hex.js'
 import { hsl2rgb, hslString, hueParse, rgb2hsl, rotate } from './hue.js'
 import { nameParse } from './names.js'
+import { oklchParse, oklchString } from './oklch.js'
 import { rgbParse, rgbString } from './rgb.js'
 import { interpolate } from './srgb.js'
 
@@ -78,6 +79,9 @@ function functionParse(str: string): RGBA | undefined {
   const clean = str.replace(COMMENT_REGEXP, '').trim()
   if (clean.charAt(0) === 'r') {
     return rgbParse(clean)
+  }
+  if (clean.charAt(0) === 'o') {
+    return oklchParse(clean)
   }
   return hueParse(clean)
 }
@@ -164,6 +168,14 @@ export default class Color {
    */
   hslString(): string | undefined {
     return this._valid ? hslString(this._rgb) : undefined
+  }
+
+  /**
+   * oklch string
+   * @return {string|undefined}
+   */
+  oklchString(): string | undefined {
+    return this._valid ? oklchString(this._rgb) : undefined
   }
 
   /**

@@ -9,6 +9,7 @@ export * from './byte.js'
 export * from './hex.js'
 export * from './hue.js'
 export * from './names.js'
+export * from './oklch.js'
 export * from './rgb.js'
 export * from './srgb.js'
 export { Color, RGBA }

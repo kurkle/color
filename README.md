@@ -65,6 +65,16 @@ hsv(240, 100%, 50.5%)
 hsv(244, 100%, 100%, 0.6)
 ```
 
+- oklch
+
+```text
+oklch(0.7 0.15 200)
+oklch(70% 0.15 200deg / 50%)
+oklch(0.5 0.2 30 / 0.5)
+```
+
+Out-of-gamut colors are clipped to sRGB, matching what browsers draw on a canvas.
+
 ## Docs
 
 [typedocs](https://kurkle.github.io/color/)
