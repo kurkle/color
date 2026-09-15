@@ -83,14 +83,14 @@ function hueValue(r: number, g: number, b: number, d: number, max: number): numb
 
 /**
  * Convert rgb to hsl
- * @param v - the color
+ * @param color - the color
  * @returns - [h, s, l]
  */
-export function rgb2hsl(v: RGBA): number[] {
+export function rgb2hsl(color: RGBA): number[] {
   const range = 255
-  const r = v.r / range
-  const g = v.g / range
-  const b = v.b / range
+  const r = color.r / range
+  const g = color.g / range
+  const b = color.b / range
   const max = Math.max(r, g, b)
   const min = Math.min(r, g, b)
   const l = (max + min) / 2
@@ -200,30 +200,30 @@ export function hueParse(str: string): RGBA | undefined {
 }
 
 /**
- * Rotate the `v` color by `deg` degrees
- * @param v - the color
- * @param deg - degrees to rotate
+ * Rotate the `color` color by `degrees` degrees
+ * @param color - the color
+ * @param degrees - degrees to rotate
  */
-export function rotate(v: RGBA, deg: number): void {
-  const h = rgb2hsl(v)
-  const rgb = hsl2rgbn(hue(h[0] + deg), h[1], h[2])
-  v.r = n2b(rgb[0])
-  v.g = n2b(rgb[1])
-  v.b = n2b(rgb[2])
+export function rotate(color: RGBA, degrees: number): void {
+  const h = rgb2hsl(color)
+  const rgb = hsl2rgbn(hue(h[0] + degrees), h[1], h[2])
+  color.r = n2b(rgb[0])
+  color.g = n2b(rgb[1])
+  color.b = n2b(rgb[2])
 }
 
 /**
  * Return hsl(a) string from color components
- * @param v - the color
+ * @param color - the color
  * @return
  */
-export function hslString(v: RGBA | undefined): string | undefined {
-  if (!v) {
+export function hslString(color: RGBA | undefined): string | undefined {
+  if (!color) {
     return undefined
   }
-  const a = rgb2hsl(v)
+  const a = rgb2hsl(color)
   const h = a[0]
   const s = n2p(a[1])
   const l = n2p(a[2])
-  return v.a < 255 ? `hsla(${h}, ${s}%, ${l}%, ${b2n(v.a)})` : `hsl(${h}, ${s}%, ${l}%)`
+  return color.a < 255 ? `hsla(${h}, ${s}%, ${l}%, ${b2n(color.a)})` : `hsl(${h}, ${s}%, ${l}%)`
 }
