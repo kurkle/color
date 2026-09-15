@@ -94,10 +94,10 @@ const alpha = (a: number, f: (b: number) => string): string => (a < 255 ? f(a) :
 
 /**
  * Return HEX string from color
- * @param v - the color
+ * @param color - the color
  * @return {string|undefined}
  */
-export function hexString(v: RGBA | undefined): string | undefined {
-  const f = v && isShort(v) ? h1 : h2
-  return v ? `#${f(v.r)}${f(v.g)}${f(v.b)}${alpha(v.a, f)}` : undefined
+export function hexString(color: RGBA | undefined): string | undefined {
+  const f = color && isShort(color) ? h1 : h2
+  return color ? `#${f(color.r)}${f(color.g)}${f(color.b)}${alpha(color.a, f)}` : undefined
 }
