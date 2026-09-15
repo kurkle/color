@@ -5,52 +5,53 @@
 
 /**
  * Rounds decimal to nearest integer
- * @param v - the number to round
+ * @param value - the number to round
  */
-export function round(v: number): number {
-  return (v + 0.5) | 0
+export function round(value: number): number {
+  return (value + 0.5) | 0
 }
 
-export const lim = (v: number, l: number, h: number): number => Math.max(Math.min(v, h), l)
+export const lim = (value: number, min: number, max: number): number =>
+  Math.max(Math.min(value, max), min)
 
 /**
  * convert percent to byte 0..255
- * @param v - 0..100
+ * @param percent - 0..100
  */
-export function p2b(v: number): number {
-  return lim(round(v * 2.55), 0, 255)
+export function p2b(percent: number): number {
+  return lim(round(percent * 2.55), 0, 255)
 }
 
 /**
  * convert byte to percet 0..100
- * @param v - 0..255
+ * @param byte - 0..255
  */
-export function b2p(v: number): number {
-  return lim(round(v / 2.55), 0, 100)
+export function b2p(byte: number): number {
+  return lim(round(byte / 2.55), 0, 100)
 }
 
 /**
  * convert normalized to byte 0..255
- * @param v - 0..1
+ * @param ratio - 0..1
  */
-export function n2b(v: number): number {
-  return lim(round(v * 255), 0, 255)
+export function n2b(ratio: number): number {
+  return lim(round(ratio * 255), 0, 255)
 }
 
 /**
  * convert byte to normalized 0..1
- * @param v - 0..255
+ * @param byte - 0..255
  */
-export function b2n(v: number): number {
-  return lim(round(v / 2.55) / 100, 0, 1)
+export function b2n(byte: number): number {
+  return lim(round(byte / 2.55) / 100, 0, 1)
 }
 
 /**
  * convert normalized to percent 0..100
- * @param v - 0..1
+ * @param ratio - 0..1
  */
-export function n2p(v: number): number {
-  return lim(round(v * 100), 0, 100)
+export function n2p(ratio: number): number {
+  return lim(round(ratio * 100), 0, 100)
 }
 
 /**
