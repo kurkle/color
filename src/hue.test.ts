@@ -2,7 +2,8 @@ import type { RGBA } from './color.js'
 
 import { describe, expect, it } from 'vitest'
 
-import { hsl2rgb, hslString, hsv2rgb, hueParse, hwb2rgb, rgb2hsl, rotate } from './hue.js'
+import { n2b } from './byte.js'
+import { hsl2rgb, hsl2rgbn, hslString, hsv2rgb, hueParse, hwb2rgb, rgb2hsl, rotate } from './hue.js'
 
 describe('hue.ts', () => {
   describe('rgb2hsl', () => {
@@ -86,6 +87,36 @@ describe('hue.ts', () => {
 
       // Blue as array
       expect(hsl2rgb([240, 1, 0.5])).toEqual([0, 0, 255])
+    })
+  })
+
+  describe('hsl2rgbn', () => {
+    it('should return normalized 0..1 output', () => {
+      // Red
+      expect(hsl2rgbn(0, 1, 0.5)).toEqual([1, 0, 0])
+
+      // White
+      expect(hsl2rgbn(0, 0, 1)).toEqual([1, 1, 1])
+
+      // Black
+      expect(hsl2rgbn(0, 0, 0)).toEqual([0, 0, 0])
+    })
+
+    it('should agree with hsl2rgb once scaled to bytes', () => {
+      const cases: Array<[number, number, number]> = [
+        [0, 1, 0.5],
+        [120, 1, 0.5],
+        [240, 1, 0.5],
+        [0, 0, 1],
+        [0, 0, 0],
+        [0, 0, 0.5],
+        [300, 1, 0.25],
+        [60, 1, 0.5],
+      ]
+      for (const [h, s, l] of cases) {
+        const scaled = hsl2rgbn(h, s, l).map(n2b)
+        expect(scaled).toEqual(hsl2rgb(h, s, l))
+      }
     })
   })
 

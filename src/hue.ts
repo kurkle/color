@@ -22,7 +22,7 @@ const HUE_RE =
  * @returns - [r, g, b] each normalized to [0..1]
  * @hidden
  */
-function hsl2rgbn(h: number, s: number, l: number): number[] {
+export function hsl2rgbn(h: number, s: number, l: number): number[] {
   const a = s * Math.min(l, 1 - l)
   /**
    * @param n
@@ -210,11 +210,10 @@ export function hueParse(str: string): RGBA | undefined {
  */
 export function rotate(v: RGBA, deg: number): void {
   const h = rgb2hsl(v)
-  h[0] = hue(h[0] + deg)
-  const rgb = hsl2rgb(h)
-  v.r = rgb[0]
-  v.g = rgb[1]
-  v.b = rgb[2]
+  const rgb = hsl2rgbn(hue(h[0] + deg), h[1], h[2])
+  v.r = n2b(rgb[0])
+  v.g = n2b(rgb[1])
+  v.b = n2b(rgb[2])
 }
 
 /**
