@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1789452523699,
+  "lastUpdate": 1789452616167,
   "repoUrl": "https://github.com/kurkle/color",
   "entries": {
     "HEX parsing": [
@@ -9593,6 +9593,72 @@ window.BENCHMARK_DATA = {
             "name": "parseInt + shift obj",
             "value": 18564821,
             "range": "±0.83%",
+            "unit": "ops/sec",
+            "extra": "93 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "jukka.kurkela@gmail.com",
+            "name": "Jukka Kurkela",
+            "username": "kurkle"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "1359c0be2bea4a8f7cdada2e070f6c319277c441",
+          "message": "Merge pull request #241 from kurkle/perf/oklch-string\n\nperf: round oklchString's channels without toFixed",
+          "timestamp": "2026-09-15T09:09:06+03:00",
+          "tree_id": "488afa1cf0e28bf6dc3226b89d8d569febe0de78",
+          "url": "https://github.com/kurkle/color/commit/1359c0be2bea4a8f7cdada2e070f6c319277c441"
+        },
+        "date": 1789452614888,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "parseInt +",
+            "value": 9719713,
+            "range": "±1.68%",
+            "unit": "ops/sec",
+            "extra": "90 samples"
+          },
+          {
+            "name": "parseInt slice",
+            "value": 8115598,
+            "range": "±0.40%",
+            "unit": "ops/sec",
+            "extra": "96 samples"
+          },
+          {
+            "name": "map",
+            "value": 102368814,
+            "range": "±4.36%",
+            "unit": "ops/sec",
+            "extra": "83 samples"
+          },
+          {
+            "name": "map obj",
+            "value": 104711114,
+            "range": "±4.15%",
+            "unit": "ops/sec",
+            "extra": "80 samples"
+          },
+          {
+            "name": "parseInt + shift",
+            "value": 19212011,
+            "range": "±1.53%",
+            "unit": "ops/sec",
+            "extra": "93 samples"
+          },
+          {
+            "name": "parseInt + shift obj",
+            "value": 19400324,
+            "range": "±1.33%",
             "unit": "ops/sec",
             "extra": "93 samples"
           }
