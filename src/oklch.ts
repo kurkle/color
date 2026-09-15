@@ -6,7 +6,7 @@
 import type { RGBA } from './color.js'
 
 import { b2n, lim, n2b, p2b } from './byte.js'
-import { linear2srgb, srgb2linear } from './srgb.js'
+import { byte2linear, linear2srgb } from './srgb.js'
 
 /**
  * @hidden
@@ -34,9 +34,9 @@ const HUE_UNITS: Record<string, number> = {
  * @hidden
  */
 function rgb2oklab(r: number, g: number, b: number): number[] {
-  const R = srgb2linear(r / 255)
-  const G = srgb2linear(g / 255)
-  const B = srgb2linear(b / 255)
+  const R = byte2linear(r)
+  const G = byte2linear(g)
+  const B = byte2linear(b)
   const l = Math.cbrt(0.4122214708 * R + 0.5363325363 * G + 0.0514459929 * B)
   const m = Math.cbrt(0.2119034982 * R + 0.6806995451 * G + 0.1073969566 * B)
   const s = Math.cbrt(0.0883024619 * R + 0.2817188376 * G + 0.6299787005 * B)

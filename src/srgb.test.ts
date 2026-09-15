@@ -2,9 +2,26 @@ import type { RGBA } from './color.js'
 
 import { describe, expect, it } from 'vitest'
 
-import { interpolate } from './srgb.js'
+import { byte2linear, interpolate, srgb2linear } from './srgb.js'
 
 describe('srgb.ts', () => {
+  describe('byte2linear', () => {
+    it('should equal srgb2linear(i / 255) exactly for every byte 0..255', () => {
+      for (let i = 0; i <= 255; i++) {
+        expect(byte2linear(i)).toBe(srgb2linear(i / 255))
+      }
+    })
+
+    it('should return the same value on repeated calls', () => {
+      expect(byte2linear(128)).toBe(byte2linear(128))
+    })
+
+    it('should have 0 and 1 as its endpoints', () => {
+      expect(byte2linear(0)).toBe(0)
+      expect(byte2linear(255)).toBe(1)
+    })
+  })
+
   describe('interpolate', () => {
     it('should interpolate between two colors correctly', () => {
       // Black to white
