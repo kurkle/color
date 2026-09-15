@@ -5,7 +5,7 @@
 
 import type { RGBA } from './color.js'
 
-import { b2n, n2b, n2p, p2b } from './byte.js'
+import { b2n, n2b, n2p, parseAlpha } from './byte.js'
 
 /**
  * @hidden
@@ -171,17 +171,13 @@ function hue(h: number): number {
  */
 export function hueParse(str: string): RGBA | undefined {
   const m = HUE_RE.exec(str)
-  let a = 255
   let v: number[]
 
   if (!m) {
     return undefined
   }
 
-  // v is undefined
-  if (m[5] !== undefined) {
-    a = m[6] ? p2b(+m[5]) : n2b(+m[5])
-  }
+  const a = parseAlpha(m[5], m[6])
 
   const h = hue(+m[2])
   const p1 = +m[3] / 100

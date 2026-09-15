@@ -52,3 +52,19 @@ export function b2n(v: number): number {
 export function n2p(v: number): number {
   return lim(round(v * 100), 0, 100)
 }
+
+/**
+ * Convert the optional alpha capture of a color function to a byte.
+ * `none` and a missing numeric value are 0, matching how browsers resolve
+ * `none` in a color component; an absent capture is fully opaque.
+ * @param value - the raw capture, or undefined when the function had no alpha
+ * @param percent - truthy when the capture carried a `%`
+ * @hidden
+ */
+export function parseAlpha(value: string | undefined, percent?: unknown): number {
+  if (value === undefined) {
+    return 255
+  }
+  const v = value === 'none' ? 0 : +value
+  return percent ? p2b(v) : n2b(v)
+}

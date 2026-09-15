@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 
-import { b2n, b2p, lim, n2b, n2p, p2b, round } from './byte.js'
+import { b2n, b2p, lim, n2b, n2p, p2b, parseAlpha, round } from './byte.js'
 
 describe('byte.ts', () => {
   describe('round', () => {
@@ -132,6 +132,40 @@ describe('byte.ts', () => {
     it('should handle decimal normalized values', () => {
       expect(n2p(0.25)).toBe(25) // 0.25 * 100 is 25
       expect(n2p(0.75)).toBe(75) // 0.75 * 100 is 75
+    })
+  })
+
+  describe('parseAlpha - optional alpha capture to byte conversion', () => {
+    it('should treat an absent capture as fully opaque', () => {
+      expect(parseAlpha(undefined)).toBe(255)
+      expect(parseAlpha(undefined, true)).toBe(255)
+    })
+
+    it('should convert a normalized capture like n2b', () => {
+      expect(parseAlpha('0.5')).toBe(n2b(0.5)) // 128
+      expect(parseAlpha('0.5')).toBe(128)
+    })
+
+    it('should convert a percent capture like p2b', () => {
+      expect(parseAlpha('50', true)).toBe(p2b(50)) // 127, not 128 - see p2b above
+      expect(parseAlpha('50', true)).toBe(127)
+    })
+
+    it('should treat `none` as 0, with or without a percent flag', () => {
+      expect(parseAlpha('none')).toBe(0)
+      expect(parseAlpha('none', true)).toBe(0)
+    })
+
+    it('should resolve a malformed number to 0, matching n2b(NaN)', () => {
+      expect(parseAlpha('1.2.3')).toBe(0)
+      expect(parseAlpha('1.2.3', true)).toBe(0)
+    })
+
+    it('should clamp out-of-range values', () => {
+      expect(parseAlpha('-1')).toBe(0)
+      expect(parseAlpha('2')).toBe(255)
+      expect(parseAlpha('-10', true)).toBe(0)
+      expect(parseAlpha('110', true)).toBe(255)
     })
   })
 })

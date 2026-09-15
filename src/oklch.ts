@@ -5,7 +5,7 @@
 
 import type { RGBA } from './color.js'
 
-import { b2n, lim, n2b, p2b } from './byte.js'
+import { b2n, lim, n2b, parseAlpha } from './byte.js'
 import { linear2srgb, srgb2linear } from './srgb.js'
 
 /**
@@ -107,20 +107,6 @@ export function oklch2rgb(l: number | number[], c?: number, h?: number): number[
  */
 function component(v: string): number {
   return v === 'none' ? 0 : +v
-}
-
-/**
- * Parse the optional alpha component of an oklch(a) string
- * @param value - the raw alpha capture group, or undefined when omitted
- * @param isPercent - `true` when the alpha capture had a `%` suffix
- * @hidden
- */
-function parseAlpha(value: string | undefined, isPercent: boolean): number {
-  if (value === undefined) {
-    return 255
-  }
-  const rawA = component(value)
-  return isPercent ? p2b(rawA) : n2b(rawA)
 }
 
 /**
