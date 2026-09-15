@@ -5,7 +5,7 @@
 
 import { b2n, n2b, round } from './byte.js'
 import { hexParse, hexString } from './hex.js'
-import { hsl2rgb, hslString, hueParse, rgb2hsl, rotate } from './hue.js'
+import { hsl2rgbn, hslString, hueParse, rgb2hsl, rotate } from './hue.js'
 import { nameParse } from './names.js'
 import { oklchParse, oklchString } from './oklch.js'
 import { rgbParse, rgbString } from './rgb.js'
@@ -32,12 +32,12 @@ export interface RGBA {
  */
 function modHSL(v: RGBA | undefined, i: number, ratio: number): void {
   if (v) {
-    let tmp = rgb2hsl(v)
+    const tmp = rgb2hsl(v)
     tmp[i] = Math.max(0, Math.min(tmp[i] + tmp[i] * ratio, i === 0 ? 360 : 1))
-    tmp = hsl2rgb(tmp)
-    v.r = tmp[0]
-    v.g = tmp[1]
-    v.b = tmp[2]
+    const rgb = hsl2rgbn(tmp[0], tmp[1], tmp[2])
+    v.r = n2b(rgb[0])
+    v.g = n2b(rgb[1])
+    v.b = n2b(rgb[2])
   }
 }
 
