@@ -76,11 +76,12 @@ function fromObject(input: RGBA | number[]): RGBA {
  * @hidden
  */
 function functionParse(str: string): RGBA | undefined {
-  const clean = str.replace(COMMENT_REGEXP, '').trim()
-  if (clean.charAt(0) === 'r') {
+  const clean = (str.indexOf('/*') === -1 ? str : str.replace(COMMENT_REGEXP, '')).trim()
+  const first = clean.charAt(0)
+  if (first === 'r') {
     return rgbParse(clean)
   }
-  if (clean.charAt(0) === 'o') {
+  if (first === 'o') {
     return oklchParse(clean)
   }
   return hueParse(clean)
