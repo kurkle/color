@@ -3,7 +3,7 @@ import * as esbuild from 'esbuild'
 import { visualizer } from 'esbuild-visualizer'
 
 import { spawnSync } from 'node:child_process'
-import { existsSync, mkdirSync, readFileSync, renameSync, rmSync, writeFileSync } from 'node:fs'
+import { existsSync, mkdirSync, readFileSync, renameSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 
 // Get absolute paths for executables
@@ -142,10 +142,9 @@ async function buildMinified() {
     // Generate visualization
     console.log('Generating bundle visualization...')
 
-    if (existsSync('docs')) {
-      rmSync('docs', { force: true, recursive: true })
-    }
-    mkdirSync('docs')
+    // Only ensure the directory exists: `docs/` also holds the Starlight
+    // site source (docs/src, docs/styles), so it must not be wiped here.
+    mkdirSync('docs', { recursive: true })
 
     // Create visualization with proper error handling
     try {
