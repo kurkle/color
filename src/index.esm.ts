@@ -3,7 +3,11 @@
  * @module index
  */
 
-import Color, { RGBA } from './color.js'
+import type { RGBA } from './color.js'
+
+import Color from './color.js'
+
+export type { RGBA }
 
 export * from './byte.js'
 export * from './hex.js'
@@ -12,7 +16,7 @@ export * from './names.js'
 export * from './oklch.js'
 export * from './rgb.js'
 export * from './srgb.js'
-export { Color, RGBA }
+export { Color }
 
 /**
  * Construct new Color instance

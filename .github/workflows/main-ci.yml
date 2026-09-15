@@ -20,6 +20,7 @@ jobs:
       browser-tests: false
       test-command: npm run test:coverage
       coverage-paths: coverage/lcov.info
+      extra-command: npm run docs:build
     secrets:
       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 

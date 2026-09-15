@@ -33,6 +33,9 @@
     "typecheck": "tsc --noEmit",
     "test:chartjs": "npm --prefix test/chartjs-compat ci --ignore-scripts && npm --prefix test/chartjs-compat run check",
     "docs": "typedoc && touch docs/.nojekyll && mv -f docs/tmp/* docs/ && rm -rd docs/tmp",
+    "docs:build": "npm run build && astro build && node docs/scripts/check-sidebar.mjs",
+    "docs:dev": "npm run build && astro dev",
+    "typecheck:docs": "astro check",
     "prepare": "git config core.hooksPath .githooks || true",
     "prepack": "npm run build"
   },
@@ -41,7 +44,8 @@
     "url": "git+https://github.com/kurkle/color.git"
   },
   "files": [
-    "dist/*"
+    "dist/*",
+    "!dist/docs/**"
   ],
   "keywords": [
     "color",
@@ -63,14 +67,19 @@
   },
   "homepage": "https://github.com/kurkle/color#readme",
   "devDependencies": {
+    "@astrojs/check": "^0.9.10",
+    "@astrojs/starlight": "^0.42.0",
     "@biomejs/biome": "^2.5.12",
     "@kurkle/configs": "^1.8.1",
     "@vitest/coverage-v8": "^5.0.0",
+    "astro": "^7.3.1",
     "color-name": "^2.0.0",
     "esbuild": "^0.28.2",
     "esbuild-visualizer": "^0.7.0",
     "semantic-release": "^25.0.9",
+    "starlight-typedoc": "^0.23.1",
     "typedoc": "^0.28.5",
+    "typedoc-plugin-markdown": "^4.13.0",
     "typescript": "^6.0.3",
     "vitest": "^5.0.0"
   }

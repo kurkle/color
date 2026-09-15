@@ -24,6 +24,11 @@ export function srgb2linear(v: number): number {
 }
 
 /**
+ * Interpolate between `rgb1` and `rgb2` by `t`, in linear sRGB space.
+ *
+ * The other transforms — `lighten`, `darken`, `saturate`, `desaturate`, `alpha`,
+ * `clearer`, `opaquer`, `negate`, `greyscale`, `mix`, and `clone` — are only
+ * available as methods on `Color`.
  * @param rgb1 from color
  * @param rgb2 to color
  * @param t 0..1
