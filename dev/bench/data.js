@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1789450558103,
+  "lastUpdate": 1789452523699,
   "repoUrl": "https://github.com/kurkle/color",
   "entries": {
     "HEX parsing": [
@@ -9529,6 +9529,72 @@ window.BENCHMARK_DATA = {
             "range": "±1.13%",
             "unit": "ops/sec",
             "extra": "96 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "jukka.kurkela@gmail.com",
+            "name": "Jukka Kurkela",
+            "username": "kurkle"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "8d26b872ea4acf60273e0618bae3f8b17070abf5",
+          "message": "Merge pull request #244 from kurkle/perf/hsl-ops\n\nperf: skip the array round trip in HSL-based operations",
+          "timestamp": "2026-09-15T09:07:30+03:00",
+          "tree_id": "e39c858957de15caec2f91f50f0e7738e8de2a03",
+          "url": "https://github.com/kurkle/color/commit/8d26b872ea4acf60273e0618bae3f8b17070abf5"
+        },
+        "date": 1789452522221,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "parseInt +",
+            "value": 9054132,
+            "range": "±1.17%",
+            "unit": "ops/sec",
+            "extra": "89 samples"
+          },
+          {
+            "name": "parseInt slice",
+            "value": 7468671,
+            "range": "±0.33%",
+            "unit": "ops/sec",
+            "extra": "96 samples"
+          },
+          {
+            "name": "map",
+            "value": 106643699,
+            "range": "±4.03%",
+            "unit": "ops/sec",
+            "extra": "85 samples"
+          },
+          {
+            "name": "map obj",
+            "value": 123671644,
+            "range": "±3.33%",
+            "unit": "ops/sec",
+            "extra": "87 samples"
+          },
+          {
+            "name": "parseInt + shift",
+            "value": 18658777,
+            "range": "±0.94%",
+            "unit": "ops/sec",
+            "extra": "92 samples"
+          },
+          {
+            "name": "parseInt + shift obj",
+            "value": 18564821,
+            "range": "±0.83%",
+            "unit": "ops/sec",
+            "extra": "93 samples"
           }
         ]
       }
