@@ -116,7 +116,12 @@ export default class Color {
     if (type === 'object') {
       v = fromObject(input as RGBA | number[])
     } else if (type === 'string') {
-      v = hexParse(input as string) || nameParse(input as string) || functionParse(input as string)
+      const s = input as string
+      // A function form always ends in `)`. Trying it first for those skips a
+      // failed name-table lookup, and names keep their order for everything else.
+      v =
+        hexParse(s) ||
+        (s.endsWith(')') ? functionParse(s) || nameParse(s) : nameParse(s) || functionParse(s))
     }
 
     this._rgb = v
