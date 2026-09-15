@@ -163,8 +163,8 @@ export function oklchString(v: RGBA | undefined): string | undefined {
     return undefined
   }
   const [L, C, H] = rgb2oklch(v)
-  const l = +L.toFixed(4)
-  const c = +C.toFixed(4)
-  const h = +H.toFixed(2)
+  const l = Math.round(L * 1e4) / 1e4
+  const c = Math.round(C * 1e4) / 1e4
+  const h = Math.round(H * 100) / 100
   return v.a < 255 ? `oklch(${l} ${c} ${h} / ${b2n(v.a)})` : `oklch(${l} ${c} ${h})`
 }
