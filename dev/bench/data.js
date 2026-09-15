@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1789454999733,
+  "lastUpdate": 1789500185358,
   "repoUrl": "https://github.com/kurkle/color",
   "entries": {
     "HEX parsing": [
@@ -9793,6 +9793,72 @@ window.BENCHMARK_DATA = {
             "range": "±1.02%",
             "unit": "ops/sec",
             "extra": "93 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "jukka.kurkela@gmail.com",
+            "name": "Jukka Kurkela",
+            "username": "kurkle"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "2727cac568beafedaa7cc1d7567750a012519b3e",
+          "message": "Merge pull request #245 from kurkle/docs/astro-starlight",
+          "timestamp": "2026-09-15T22:21:44+03:00",
+          "tree_id": "9a6c0569c24b44ae03c9906080e3e852b2f163ed",
+          "url": "https://github.com/kurkle/color/commit/2727cac568beafedaa7cc1d7567750a012519b3e"
+        },
+        "date": 1789500183791,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "parseInt +",
+            "value": 9210504,
+            "range": "±0.35%",
+            "unit": "ops/sec",
+            "extra": "97 samples"
+          },
+          {
+            "name": "parseInt slice",
+            "value": 7893077,
+            "range": "±0.44%",
+            "unit": "ops/sec",
+            "extra": "95 samples"
+          },
+          {
+            "name": "map",
+            "value": 111487561,
+            "range": "±4.67%",
+            "unit": "ops/sec",
+            "extra": "84 samples"
+          },
+          {
+            "name": "map obj",
+            "value": 109974098,
+            "range": "±3.88%",
+            "unit": "ops/sec",
+            "extra": "77 samples"
+          },
+          {
+            "name": "parseInt + shift",
+            "value": 19046458,
+            "range": "±0.68%",
+            "unit": "ops/sec",
+            "extra": "94 samples"
+          },
+          {
+            "name": "parseInt + shift obj",
+            "value": 19022896,
+            "range": "±0.89%",
+            "unit": "ops/sec",
+            "extra": "94 samples"
           }
         ]
       }
