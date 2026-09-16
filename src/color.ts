@@ -189,18 +189,20 @@ export default class Color {
    */
   mix(color: Color, weight: number = 0.5): Color {
     if (color) {
-      const c1 = this.rgb
-      const c2 = color.rgb
-
+      const v1 = this._rgb
+      const v2 = color._rgb
+      // Same weighting as before, computed in place: the alpha channel is the
+      // only part that needs the 0..1 scale, so only it is converted.
+      const a1 = b2n(v1.a)
+      const a2 = b2n(v2.a)
       const w = 2 * weight - 1
-      const a = c1.a - c2.a
+      const a = a1 - a2
       const w1 = ((w * a === -1 ? w : (w + a) / (1 + w * a)) + 1) / 2.0
       const w2 = 1 - w1
-      c1.r = 0xff & (w1 * c1.r + w2 * c2.r + 0.5)
-      c1.g = 0xff & (w1 * c1.g + w2 * c2.g + 0.5)
-      c1.b = 0xff & (w1 * c1.b + w2 * c2.b + 0.5)
-      c1.a = weight * c1.a + (1 - weight) * c2.a
-      this.rgb = c1
+      v1.r = 0xff & (w1 * v1.r + w2 * v2.r + 0.5)
+      v1.g = 0xff & (w1 * v1.g + w2 * v2.g + 0.5)
+      v1.b = 0xff & (w1 * v1.b + w2 * v2.b + 0.5)
+      v1.a = n2b(weight * a1 + (1 - weight) * a2)
     }
     return this
   }
