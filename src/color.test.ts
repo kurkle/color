@@ -121,6 +121,50 @@ describe('Color class', () => {
         // @ts-ignore - Testing with undefined
         expect(color.mix(undefined, 0.5).rgbString()).toBe('rgb(255, 0, 0)')
       })
+
+      it('should mix two opaque colors to exact bytes at weight 0, 0.5 and 1', () => {
+        const color1 = new Color('#ff0000') // red
+        const color2 = new Color('#0000ff') // blue
+
+        expect(color1.clone().mix(color2, 0).rgb).toEqual({ a: 1, b: 255, g: 0, r: 0 })
+        expect(color1.clone().mix(color2, 0.5).rgb).toEqual({ a: 1, b: 128, g: 0, r: 128 })
+        expect(color1.clone().mix(color2, 1).rgb).toEqual({ a: 1, b: 0, g: 0, r: 255 })
+      })
+
+      it('should weight rgb by alpha (Sass mix()) rather than by weight alone, when alphas differ', () => {
+        // Values pinned from the current implementation. At weight 0.3 the
+        // alpha-aware weighting shifts the effective rgb blend away from
+        // 0.3/0.7 (which would give r=67, g=184, b=141), demonstrating that
+        // this differs from a plain linear interpolation - see below.
+        const color1 = new Color('rgba(200, 100, 50, 0.9)')
+        const color2 = new Color('rgba(10, 220, 180, 0.3)')
+
+        expect(color1.clone().mix(color2, 0.3).rgb).toEqual({ a: 0.48, b: 98, g: 144, r: 130 })
+      })
+
+      it('should return the same instance it was called on', () => {
+        const color1 = new Color('red')
+        const color2 = new Color('blue')
+
+        expect(color1.mix(color2, 0.5)).toBe(color1)
+      })
+
+      it('should not modify the color passed as an argument', () => {
+        const color1 = new Color('red')
+        const color2 = new Color('blue')
+        const color2Rgb = color2.rgb
+
+        color1.mix(color2, 0.5)
+
+        expect(color2.rgb).toEqual(color2Rgb)
+      })
+
+      it('should default weight to 0.5', () => {
+        const color1 = new Color('#ff0000')
+        const color2 = new Color('#0000ff')
+
+        expect(color1.clone().mix(color2).rgb).toEqual(color1.clone().mix(color2, 0.5).rgb)
+      })
     })
 
     describe('interpolate', () => {
