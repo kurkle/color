@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1789561230762,
+  "lastUpdate": 1789563730427,
   "repoUrl": "https://github.com/kurkle/color",
   "entries": {
     "HEX parsing": [
@@ -9925,6 +9925,72 @@ window.BENCHMARK_DATA = {
             "range": "±0.71%",
             "unit": "ops/sec",
             "extra": "93 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "jukka.kurkela@gmail.com",
+            "name": "Jukka Kurkela",
+            "username": "kurkle"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "ecddd4f0f966d80c10314fad8ed779786f769fda",
+          "message": "Merge pull request #248 from kurkle/docs/wording-fixes",
+          "timestamp": "2026-09-16T16:00:51+03:00",
+          "tree_id": "1f710800aa32fec312945584c1513b491d56634d",
+          "url": "https://github.com/kurkle/color/commit/ecddd4f0f966d80c10314fad8ed779786f769fda"
+        },
+        "date": 1789563728338,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "parseInt +",
+            "value": 12433861,
+            "range": "±1.26%",
+            "unit": "ops/sec",
+            "extra": "95 samples"
+          },
+          {
+            "name": "parseInt slice",
+            "value": 10345678,
+            "range": "±0.41%",
+            "unit": "ops/sec",
+            "extra": "94 samples"
+          },
+          {
+            "name": "map",
+            "value": 124027039,
+            "range": "±5.27%",
+            "unit": "ops/sec",
+            "extra": "79 samples"
+          },
+          {
+            "name": "map obj",
+            "value": 133778008,
+            "range": "±3.97%",
+            "unit": "ops/sec",
+            "extra": "79 samples"
+          },
+          {
+            "name": "parseInt + shift",
+            "value": 24921221,
+            "range": "±0.85%",
+            "unit": "ops/sec",
+            "extra": "95 samples"
+          },
+          {
+            "name": "parseInt + shift obj",
+            "value": 24740732,
+            "range": "±1.17%",
+            "unit": "ops/sec",
+            "extra": "94 samples"
           }
         ]
       }
