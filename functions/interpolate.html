@@ -13,9 +13,9 @@
 <section class="tsd-panel">
 <ul class="tsd-signatures">
 <li class="">
-<div class="tsd-signature tsd-anchor-link" id="interpolate"><span class="tsd-kind-call-signature">interpolate</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">rgb1</span><span class="tsd-signature-symbol">:</span> <a href="../interfaces/RGBA.html" class="tsd-signature-type tsd-kind-interface">RGBA</a><span class="tsd-signature-symbol">,</span> <span class="tsd-kind-parameter">rgb2</span><span class="tsd-signature-symbol">:</span> <a href="../interfaces/RGBA.html" class="tsd-signature-type tsd-kind-interface">RGBA</a><span class="tsd-signature-symbol">,</span> <span class="tsd-kind-parameter">t</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">:</span> <a href="../interfaces/RGBA.html" class="tsd-signature-type tsd-kind-interface">RGBA</a><a href="#interpolate" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></div>
+<div class="tsd-signature tsd-anchor-link" id="interpolate"><span class="tsd-kind-call-signature">interpolate</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">from</span><span class="tsd-signature-symbol">:</span> <a href="../interfaces/RGBA.html" class="tsd-signature-type tsd-kind-interface">RGBA</a><span class="tsd-signature-symbol">,</span> <span class="tsd-kind-parameter">to</span><span class="tsd-signature-symbol">:</span> <a href="../interfaces/RGBA.html" class="tsd-signature-type tsd-kind-interface">RGBA</a><span class="tsd-signature-symbol">,</span> <span class="tsd-kind-parameter">t</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">:</span> <a href="../interfaces/RGBA.html" class="tsd-signature-type tsd-kind-interface">RGBA</a><a href="#interpolate" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></div>
 <div class="tsd-description">
-<div class="tsd-comment tsd-typography"><p>Interpolate between <code>rgb1</code> and <code>rgb2</code> by <code>t</code>, in linear sRGB space.</p>
+<div class="tsd-comment tsd-typography"><p>Interpolate between <code>from</code> and <code>to</code> by <code>t</code>, in linear sRGB space.</p>
 <p>The other transforms — <code>lighten</code>, <code>darken</code>, <code>saturate</code>, <code>desaturate</code>, <code>alpha</code>,
 <code>clearer</code>, <code>opaquer</code>, <code>negate</code>, <code>greyscale</code>, <code>mix</code>, and <code>clone</code> — are only
 available as methods on <code>Color</code>.</p>
@@ -23,19 +23,19 @@ available as methods on <code>Color</code>.</p>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
 <ul class="tsd-parameter-list">
-<li><span><span class="tsd-kind-parameter">rgb1</span>: <a href="../interfaces/RGBA.html" class="tsd-signature-type tsd-kind-interface">RGBA</a></span>
+<li><span><span class="tsd-kind-parameter">from</span>: <a href="../interfaces/RGBA.html" class="tsd-signature-type tsd-kind-interface">RGBA</a></span>
 <div class="tsd-comment tsd-typography"><p>from color</p>
 </div></li>
-<li><span><span class="tsd-kind-parameter">rgb2</span>: <a href="../interfaces/RGBA.html" class="tsd-signature-type tsd-kind-interface">RGBA</a></span>
+<li><span><span class="tsd-kind-parameter">to</span>: <a href="../interfaces/RGBA.html" class="tsd-signature-type tsd-kind-interface">RGBA</a></span>
 <div class="tsd-comment tsd-typography"><p>to color</p>
 </div></li>
 <li><span><span class="tsd-kind-parameter">t</span>: <span class="tsd-signature-type">number</span></span>
 <div class="tsd-comment tsd-typography"><p>0..1</p>
 </div></li></ul></div>
-<h4 class="tsd-returns-title">Returns <a href="../interfaces/RGBA.html" class="tsd-signature-type tsd-kind-interface">RGBA</a></h4><p>interpolaced</p>
+<h4 class="tsd-returns-title">Returns <a href="../interfaces/RGBA.html" class="tsd-signature-type tsd-kind-interface">RGBA</a></h4><p>interpolated</p>
 <aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/kurkle/color/blob/2727cac568beafedaa7cc1d7567750a012519b3e/src/srgb.ts#L37">srgb.ts:37</a></li></ul></aside></div></li></ul></section></div>
+<li>Defined in <a href="https://github.com/kurkle/color/blob/c1085f960d9e190b63c3e0290a95734e7a687734/src/srgb.ts#L37">srgb.ts:37</a></li></ul></aside></div></li></ul></section></div>
 <div class="col-sidebar">
 <div class="page-menu">
 <div class="tsd-navigation settings">
