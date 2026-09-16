@@ -23,7 +23,7 @@ export function p2b(percent: number): number {
 }
 
 /**
- * convert byte to percet 0..100
+ * convert byte to percent 0..100
  * @param byte - 0..255
  */
 export function b2p(byte: number): number {

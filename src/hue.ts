@@ -200,7 +200,7 @@ export function hueParse(str: string): RGBA | undefined {
 }
 
 /**
- * Rotate the `color` color by `degrees` degrees.
+ * Rotate the hue of `color` by `degrees`.
  *
  * The other transforms — `lighten`, `darken`, `saturate`, `desaturate`, `alpha`,
  * `clearer`, `opaquer`, `negate`, `greyscale`, `mix`, and `clone` — are only
