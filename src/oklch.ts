@@ -72,11 +72,11 @@ function oklab2rgbn(L: number, a: number, b: number): number[] {
 
 /**
  * Convert rgb to oklch
- * @param v - the color
+ * @param color - the color
  * @returns - [L, C, H] where L is [0..1], C >= 0 and H is in degrees [0..360]
  */
-export function rgb2oklch(v: RGBA): number[] {
-  const [L, a, b] = rgb2oklab(v.r, v.g, v.b)
+export function rgb2oklch(color: RGBA): number[] {
+  const [L, a, b] = rgb2oklab(color.r, color.g, color.b)
   const C = Math.hypot(a, b)
   let H = 0
   if (C >= 1e-4) {
@@ -159,15 +159,15 @@ export function oklchParse(str: string): RGBA | undefined {
 
 /**
  * Return oklch string from color
- * @param v - the color
+ * @param color - the color
  */
-export function oklchString(v: RGBA | undefined): string | undefined {
-  if (!v) {
+export function oklchString(color: RGBA | undefined): string | undefined {
+  if (!color) {
     return undefined
   }
-  const [L, C, H] = rgb2oklch(v)
+  const [L, C, H] = rgb2oklch(color)
   const l = Math.round(L * 1e4) / 1e4
   const c = Math.round(C * 1e4) / 1e4
   const h = Math.round(H * 100) / 100
-  return v.a < 255 ? `oklch(${l} ${c} ${h} / ${b2n(v.a)})` : `oklch(${l} ${c} ${h})`
+  return color.a < 255 ? `oklch(${l} ${c} ${h} / ${b2n(color.a)})` : `oklch(${l} ${c} ${h})`
 }

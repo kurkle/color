@@ -50,10 +50,13 @@ export function rgbParse(str: string): RGBA | undefined {
 
 /**
  * Return rgb(a) string from color
- * @param v - the color
+ * @param color - the color
  */
-export function rgbString(v: RGBA | undefined): string | undefined {
+export function rgbString(color: RGBA | undefined): string | undefined {
   return (
-    v && (v.a < 255 ? `rgba(${v.r}, ${v.g}, ${v.b}, ${b2n(v.a)})` : `rgb(${v.r}, ${v.g}, ${v.b})`)
+    color &&
+    (color.a < 255
+      ? `rgba(${color.r}, ${color.g}, ${color.b}, ${b2n(color.a)})`
+      : `rgb(${color.r}, ${color.g}, ${color.b})`)
   )
 }
