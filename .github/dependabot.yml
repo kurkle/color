@@ -5,8 +5,11 @@ updates:
     schedule:
       interval: "weekly"
     groups:
+      # Reviewing majors one at a time keeps a single blocked major
+      # (e.g. a TypeScript major) from stalling every patch grouped beside it.
       dev-dependencies:
         dependency-type: "development"
+        update-types: ["minor", "patch"]
     ignore:
       # typedoc requires typescript 5.x or 6.x, so TS 7 fails npm ci with
       # ERESOLVE and stalls the whole dev-dependencies group.
@@ -18,12 +21,18 @@ updates:
     schedule:
       interval: "monthly"
     groups:
+      # Reviewing majors one at a time keeps a single blocked major from
+      # stalling every patch grouped beside it.
       bench-dependencies:
         patterns: ["*"]
+        update-types: ["minor", "patch"]
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
       interval: "weekly"
     groups:
+      # Reviewing majors one at a time keeps a single blocked major from
+      # stalling every patch grouped beside it.
       actions:
         patterns: ["*"]
+        update-types: ["minor", "patch"]
