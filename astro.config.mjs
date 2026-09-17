@@ -1,4 +1,6 @@
+import mdx from '@astrojs/mdx'
 import starlight from '@astrojs/starlight'
+import chartEditor from '@kurkle/astro-chartjs-editor'
 import { defineConfig } from 'astro/config'
 import starlightTypeDoc from 'starlight-typedoc'
 
@@ -6,6 +8,10 @@ import { byteNames, colorItems, convertNames, fn, parseNames, transformNames, wr
 
 export default defineConfig({
   integrations: [
+    chartEditor({
+      runtime: './docs/color-runtime.js',
+      sourceBaseUrl: 'https://github.com/kurkle/color/blob/main/',
+    }),
     starlight({
       customCss: ['./docs/styles/starlight.css'],
       description: 'Fast and small CSS color parsing and manipulation',
@@ -18,6 +24,17 @@ export default defineConfig({
         }),
       ],
       sidebar: [
+        {
+          items: [
+            { label: 'Mix and interpolate', link: '/samples/mix/' },
+            { label: 'OKLCH picker', link: '/samples/picker/' },
+            { label: 'Build a palette', link: '/samples/palette/' },
+            { label: 'Out-of-gamut oklch', link: '/samples/gamut/' },
+            { label: 'Alpha and blending', link: '/samples/alpha/' },
+            { label: 'Every named colour', link: '/samples/names/' },
+          ],
+          label: 'Samples',
+        },
         { items: [{ label: 'Getting started', link: '/' }, 'parsing', 'formatting', 'transforming'], label: 'Guide' },
         { label: 'Color', items: colorItems },
         { label: 'Parse a color', items: parseNames.map(fn) },
@@ -29,6 +46,7 @@ export default defineConfig({
       social: [{ href: 'https://github.com/kurkle/color', icon: 'github', label: 'GitHub' }],
       title: '@kurkle/color',
     }),
+    mdx(),
   ],
   outDir: './dist/docs',
   publicDir: './docs/public',
