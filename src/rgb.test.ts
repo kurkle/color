@@ -6,6 +6,25 @@ import { rgbParse, rgbString } from './rgb.js'
 
 describe('rgb.ts', () => {
   describe('rgbParse', () => {
+    it.each([
+      ['rgb(2.55e2, 0, 0)', { a: 255, b: 0, g: 0, r: 255 }],
+      ['rgb(1E2% 0% 0%)', { a: 255, b: 0, g: 0, r: 255 }],
+      ['rgb(0 2.55E2 0)', { a: 255, b: 0, g: 255, r: 0 }],
+      ['rgb(0 0 2.55E2 / 5E-1)', { a: 127.5, b: 255, g: 0, r: 0 }],
+    ])('should parse scientific notation in %s', (input, expected) => {
+      expect(rgbParse(input)).toEqual(expected)
+    })
+
+    it.each(['e', 'E', '1e', '1e+', '1e2e3', '.', '1.2.3'])(
+      'should reject malformed number %s',
+      (value) => {
+        expect(rgbParse(`rgb(${value}, 0, 0)`)).toBeUndefined()
+        expect(rgbParse(`rgb(0, ${value}, 0)`)).toBeUndefined()
+        expect(rgbParse(`rgb(0, 0, ${value})`)).toBeUndefined()
+        expect(rgbParse(`rgba(0, 0, 0, ${value})`)).toBeUndefined()
+      }
+    )
+
     it('should parse rgb() format correctly', () => {
       expect(rgbParse('rgb(255, 0, 0)')).toEqual({
         a: 255,
@@ -129,8 +148,7 @@ describe('rgb.ts', () => {
     })
 
     it('should handle scientific notation', () => {
-      // The implementation doesn't support scientific notation
-      expect(rgbParse('rgb(1e2, 2e1, 3e0)')).toBeUndefined()
+      expect(rgbParse('rgb(1e2, 2e1, 3e0)')).toEqual({ a: 255, b: 3, g: 20, r: 100 })
 
       // This works because it's parsed as a regular number
       expect(rgbParse('rgba(255, 0, 0, 0.1)')).toEqual({
