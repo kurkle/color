@@ -10,8 +10,10 @@ import { b2n, lim, p2b } from './byte.js'
 /**
  * @hidden
  */
-const RGB_RE =
-  /^rgba?\(\s*([-+.\d]+)(%)?[\s,]+([-+.e\d]+)(%)?[\s,]+([-+.e\d]+)(%)?(?:[\s,/]+([-+.e\d]+)(%)?)?\s*\)$/
+const NUMBER = String.raw`([-+]?(?:\d*\.\d+|\d+)(?:[eE][-+]?\d+)?)`
+const RGB_RE = new RegExp(
+  String.raw`^rgba?\(\s*${NUMBER}(%)?[\s,]+${NUMBER}(%)?[\s,]+${NUMBER}(%)?(?:[\s,/]+${NUMBER}(%)?)?\s*\)$`
+)
 
 /**
  * Parse rgb(a) string to RGBA
