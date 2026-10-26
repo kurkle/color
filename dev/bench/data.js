@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1792218319426,
+  "lastUpdate": 1793057074353,
   "repoUrl": "https://github.com/kurkle/color",
   "entries": {
     "HEX parsing": [
@@ -10915,6 +10915,72 @@ window.BENCHMARK_DATA = {
             "range": "±1.16%",
             "unit": "ops/sec",
             "extra": "94 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "jukka.kurkela@gmail.com",
+            "name": "Jukka Kurkela",
+            "username": "kurkle"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "09f9f031c5d60e8d1627bdf36a5209abdb5ef31f",
+          "message": "Merge pull request #264 from kurkle/dependabot/npm_and_yarn/markdown-it-14.3.3",
+          "timestamp": "2026-10-27T01:23:06+02:00",
+          "tree_id": "f0f31ae439170bcdec437aea96e1546f930c82e0",
+          "url": "https://github.com/kurkle/color/commit/09f9f031c5d60e8d1627bdf36a5209abdb5ef31f"
+        },
+        "date": 1793057073024,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "parseInt +",
+            "value": 9230398,
+            "range": "±0.43%",
+            "unit": "ops/sec",
+            "extra": "92 samples"
+          },
+          {
+            "name": "parseInt slice",
+            "value": 7497957,
+            "range": "±0.35%",
+            "unit": "ops/sec",
+            "extra": "96 samples"
+          },
+          {
+            "name": "map",
+            "value": 112103281,
+            "range": "±3.67%",
+            "unit": "ops/sec",
+            "extra": "85 samples"
+          },
+          {
+            "name": "map obj",
+            "value": 113282371,
+            "range": "±5.09%",
+            "unit": "ops/sec",
+            "extra": "80 samples"
+          },
+          {
+            "name": "parseInt + shift",
+            "value": 18664658,
+            "range": "±1.20%",
+            "unit": "ops/sec",
+            "extra": "92 samples"
+          },
+          {
+            "name": "parseInt + shift obj",
+            "value": 18701824,
+            "range": "±1.23%",
+            "unit": "ops/sec",
+            "extra": "92 samples"
           }
         ]
       }
