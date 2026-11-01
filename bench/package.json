@@ -3,7 +3,7 @@
     "benchmark": "^2.1.4",
     "chartjs-color": "^2.4.1",
     "chroma-js": "^3.1.1",
-    "color-parse": "^2.0.2",
+    "color-parse": "^2.2.0",
     "color-parser": "^0.1.0",
     "color-string": "^2.0.1",
     "tinycolor2": "^1.4.2"
