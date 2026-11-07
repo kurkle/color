@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1793057202953,
+  "lastUpdate": 1794049981060,
   "repoUrl": "https://github.com/kurkle/color",
   "entries": {
     "HEX parsing": [
@@ -10981,6 +10981,72 @@ window.BENCHMARK_DATA = {
             "range": "±1.23%",
             "unit": "ops/sec",
             "extra": "92 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "jukka.kurkela@gmail.com",
+            "name": "Jukka Kurkela",
+            "username": "kurkle"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "383004434bd0a444e98eb31767821a6779acfc4c",
+          "message": "Merge pull request #266 from kurkle/dependabot/npm_and_yarn/postcss-selector-parser-6.1.5",
+          "timestamp": "2026-11-07T13:11:51+02:00",
+          "tree_id": "bf1321e43b74a563b66f2b2b89d551254313ab9f",
+          "url": "https://github.com/kurkle/color/commit/383004434bd0a444e98eb31767821a6779acfc4c"
+        },
+        "date": 1794049979647,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "parseInt +",
+            "value": 18135501,
+            "range": "±2.02%",
+            "unit": "ops/sec",
+            "extra": "95 samples"
+          },
+          {
+            "name": "parseInt slice",
+            "value": 15084035,
+            "range": "±3.79%",
+            "unit": "ops/sec",
+            "extra": "93 samples"
+          },
+          {
+            "name": "map",
+            "value": 194057411,
+            "range": "±3.83%",
+            "unit": "ops/sec",
+            "extra": "82 samples"
+          },
+          {
+            "name": "map obj",
+            "value": 198178600,
+            "range": "±4.09%",
+            "unit": "ops/sec",
+            "extra": "83 samples"
+          },
+          {
+            "name": "parseInt + shift",
+            "value": 37671319,
+            "range": "±0.80%",
+            "unit": "ops/sec",
+            "extra": "97 samples"
+          },
+          {
+            "name": "parseInt + shift obj",
+            "value": 36939423,
+            "range": "±1.09%",
+            "unit": "ops/sec",
+            "extra": "93 samples"
           }
         ]
       }
