@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1794050140176,
+  "lastUpdate": 1794666931427,
   "repoUrl": "https://github.com/kurkle/color",
   "entries": {
     "HEX parsing": [
@@ -11245,6 +11245,72 @@ window.BENCHMARK_DATA = {
             "range": "±0.92%",
             "unit": "ops/sec",
             "extra": "96 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "jukka.kurkela@gmail.com",
+            "name": "Jukka Kurkela",
+            "username": "kurkle"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "dc3bba2a1b8b3fc2335265be209d0ab86828cadf",
+          "message": "Merge pull request #272 from kurkle/dependabot/npm_and_yarn/astro-7.4.12",
+          "timestamp": "2026-11-14T16:34:14+02:00",
+          "tree_id": "15549274327aeeea900906acff2eac86d60e69d4",
+          "url": "https://github.com/kurkle/color/commit/dc3bba2a1b8b3fc2335265be209d0ab86828cadf"
+        },
+        "date": 1794666930084,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "parseInt +",
+            "value": 9098900,
+            "range": "±0.31%",
+            "unit": "ops/sec",
+            "extra": "96 samples"
+          },
+          {
+            "name": "parseInt slice",
+            "value": 7660193,
+            "range": "±0.63%",
+            "unit": "ops/sec",
+            "extra": "92 samples"
+          },
+          {
+            "name": "map",
+            "value": 112592839,
+            "range": "±3.24%",
+            "unit": "ops/sec",
+            "extra": "83 samples"
+          },
+          {
+            "name": "map obj",
+            "value": 118588601,
+            "range": "±3.44%",
+            "unit": "ops/sec",
+            "extra": "87 samples"
+          },
+          {
+            "name": "parseInt + shift",
+            "value": 18876313,
+            "range": "±1.87%",
+            "unit": "ops/sec",
+            "extra": "90 samples"
+          },
+          {
+            "name": "parseInt + shift obj",
+            "value": 19194766,
+            "range": "±1.48%",
+            "unit": "ops/sec",
+            "extra": "88 samples"
           }
         ]
       }
