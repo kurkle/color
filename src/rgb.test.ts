@@ -95,9 +95,32 @@ describe('rgb.ts', () => {
 
       expect(rgbParse('rgb(50%, 50%, 50%)')).toEqual({
         a: 255,
-        b: 127,
-        g: 127,
-        r: 127,
+        b: 128,
+        g: 128,
+        r: 128,
+      })
+
+      expect(rgbParse('rgb(50% 90% 25%)')).toEqual({
+        a: 255,
+        b: 64,
+        g: 230,
+        r: 128,
+      })
+    })
+
+    it('should round fractional channels like browsers do', () => {
+      expect(rgbParse('rgb(127.6 0.5 200.4)')).toEqual({
+        a: 255,
+        b: 200,
+        g: 1,
+        r: 128,
+      })
+
+      expect(rgbParse('rgba(10.5, 20.5, 30.5, 0.5)')).toEqual({
+        a: 127.5,
+        b: 31,
+        g: 21,
+        r: 11,
       })
     })
 
@@ -110,7 +133,7 @@ describe('rgb.ts', () => {
       })
 
       expect(rgbParse('rgba(0%, 100%, 0%, 50%)')).toEqual({
-        a: 127,
+        a: 128,
         b: 0,
         g: 255,
         r: 0,

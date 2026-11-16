@@ -5,7 +5,7 @@
 
 import type { RGBA } from './color.js'
 
-import { b2n, lim, p2b } from './byte.js'
+import { b2n, lim, p2b, round } from './byte.js'
 
 /**
  * @hidden
@@ -38,9 +38,9 @@ export function rgbParse(str: string): RGBA | undefined {
   r = +m[1]
   g = +m[3]
   b = +m[5]
-  r = 255 & (m[2] ? p2b(r) : lim(r, 0, 255))
-  g = 255 & (m[4] ? p2b(g) : lim(g, 0, 255))
-  b = 255 & (m[6] ? p2b(b) : lim(b, 0, 255))
+  r = m[2] ? p2b(r) : round(lim(r, 0, 255))
+  g = m[4] ? p2b(g) : round(lim(g, 0, 255))
+  b = m[6] ? p2b(b) : round(lim(b, 0, 255))
 
   return {
     a: a,

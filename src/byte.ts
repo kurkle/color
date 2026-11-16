@@ -19,7 +19,8 @@ export const lim = (value: number, min: number, max: number): number =>
  * @param percent - 0..100
  */
 export function p2b(percent: number): number {
-  return lim(round(percent * 2.55), 0, 255)
+  // `percent * 2.55` comes out just under the half for 50 and 90 (127.49999999999999)
+  return lim(round((percent * 255) / 100), 0, 255)
 }
 
 /**
