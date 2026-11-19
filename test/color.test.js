@@ -45,7 +45,7 @@ describe('Color Parsing', () => {
     })
 
     it('should parse rgb() with percentages correctly', () => {
-      expect(new Color('rgb(100%, 30%, 90%)').rgb).toEqual({ a: 1, b: 229, g: 77, r: 255 })
+      expect(new Color('rgb(100%, 30%, 90%)').rgb).toEqual({ a: 1, b: 230, g: 77, r: 255 })
     })
 
     it('should parse rgba() format correctly', () => {
@@ -56,7 +56,7 @@ describe('Color Parsing', () => {
     })
 
     it('should parse rgba() with percentages correctly', () => {
-      expect(new Color('rgba(100%, 30%, 90%, 0.2)').rgb).toEqual({ a: 0.2, b: 229, g: 77, r: 255 })
+      expect(new Color('rgba(100%, 30%, 90%, 0.2)').rgb).toEqual({ a: 0.2, b: 230, g: 77, r: 255 })
       expect(new Color('rgb(0 0 100% / 80%)').rgb).toEqual({ a: 0.8, b: 255, g: 0, r: 0 })
     })
 

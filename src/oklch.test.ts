@@ -118,8 +118,7 @@ describe('oklch.ts', () => {
     })
 
     it('should parse alpha as a percent', () => {
-      // 50% of 255 rounds down to 127 with this codebase's p2b (see byte.test.ts)
-      expect(oklchParse('oklch(0.7 0.15 200 / 50%)')).toMatchObject({ a: 127 })
+      expect(oklchParse('oklch(0.7 0.15 200 / 50%)')).toMatchObject({ a: 128 })
       expect(oklchParse('oklch(0.7 0.15 200/0.5)')).toMatchObject({ a: 128 })
     })
 

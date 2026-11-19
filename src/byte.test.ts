@@ -48,7 +48,8 @@ describe('byte.ts', () => {
   describe('p2b - percent to byte conversion', () => {
     it('should convert percentages to bytes correctly', () => {
       expect(p2b(0)).toBe(0)
-      expect(p2b(50)).toBe(127) // 50% of 255 is 127.5, rounded to 127 with the implementation
+      expect(p2b(50)).toBe(128) // 50% of 255 is 127.5, rounded half up like browsers do
+      expect(p2b(90)).toBe(230) // 229.5
       expect(p2b(100)).toBe(255)
     })
 
@@ -147,8 +148,8 @@ describe('byte.ts', () => {
     })
 
     it('should convert a percent capture like p2b', () => {
-      expect(parseAlpha('50', true)).toBe(p2b(50)) // 127, not 128 - see p2b above
-      expect(parseAlpha('50', true)).toBe(127)
+      expect(parseAlpha('50', true)).toBe(p2b(50))
+      expect(parseAlpha('50', true)).toBe(128)
     })
 
     it('should treat `none` as 0, with or without a percent flag', () => {
