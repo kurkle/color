@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1795105309825,
+  "lastUpdate": 1795105346165,
   "repoUrl": "https://github.com/kurkle/color",
   "entries": {
     "HEX parsing": [
@@ -11773,6 +11773,72 @@ window.BENCHMARK_DATA = {
             "range": "±1.32%",
             "unit": "ops/sec",
             "extra": "96 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "jukka.kurkela@gmail.com",
+            "name": "Jukka Kurkela",
+            "username": "kurkle"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "dd72980be7176cb2057f38859eb7f8928689ed33",
+          "message": "Merge pull request #281 from kurkle/build/resolve-tsc-directly\n\nbuild: resolve the TypeScript compiler without going through npm",
+          "timestamp": "2026-11-19T18:21:14+02:00",
+          "tree_id": "593b447b2d2f073b938b5e37aec939ec09b119f0",
+          "url": "https://github.com/kurkle/color/commit/dd72980be7176cb2057f38859eb7f8928689ed33"
+        },
+        "date": 1795105344563,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "parseInt +",
+            "value": 12520328,
+            "range": "±0.83%",
+            "unit": "ops/sec",
+            "extra": "95 samples"
+          },
+          {
+            "name": "parseInt slice",
+            "value": 10678890,
+            "range": "±0.39%",
+            "unit": "ops/sec",
+            "extra": "96 samples"
+          },
+          {
+            "name": "map",
+            "value": 143956906,
+            "range": "±4.68%",
+            "unit": "ops/sec",
+            "extra": "81 samples"
+          },
+          {
+            "name": "map obj",
+            "value": 139487046,
+            "range": "±5.11%",
+            "unit": "ops/sec",
+            "extra": "80 samples"
+          },
+          {
+            "name": "parseInt + shift",
+            "value": 25482688,
+            "range": "±0.84%",
+            "unit": "ops/sec",
+            "extra": "97 samples"
+          },
+          {
+            "name": "parseInt + shift obj",
+            "value": 25278693,
+            "range": "±0.93%",
+            "unit": "ops/sec",
+            "extra": "92 samples"
           }
         ]
       }
