@@ -12,7 +12,7 @@
   },
   "private": true,
   "scripts": {
-    "check": "tsc --noEmit && node --test runtime.test.mjs"
+    "check": "tsc --noEmit && tsc -p tsconfig.node10.json && node --test runtime.test.mjs runtime.test.cjs"
   },
   "type": "module",
   "version": "0.0.0"
