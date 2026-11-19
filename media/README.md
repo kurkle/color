@@ -67,7 +67,7 @@ Two choices here were measured, not assumed:
   2019-10-25, before this history begins, and the `package.json` caret range here could
   never have moved it. Its eight benches also agree with each other more tightly within a
   run than the 43-bench basket does. Neither of those makes it a better anchor: normalising
-  by `chartjs-color` alone *raises* this package's mean coefficient of variation from
+  by `chartjs-color` alone _raises_ this package's mean coefficient of variation from
   23.3% (unnormalised) to 31.4% — worse than not normalising at all. The two factors
   correlate at 0.93, so they are tracking the same underlying thing, but `chartjs-color`'s
   benches share a systematic response to the runner environment that this package's
