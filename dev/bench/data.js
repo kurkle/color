@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1795110628017,
+  "lastUpdate": 1795110631209,
   "repoUrl": "https://github.com/kurkle/color",
   "entries": {
     "HEX parsing": [
@@ -11903,6 +11903,72 @@ window.BENCHMARK_DATA = {
             "name": "parseInt + shift obj",
             "value": 35197684,
             "range": "±0.96%",
+            "unit": "ops/sec",
+            "extra": "91 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "jukka.kurkela@gmail.com",
+            "name": "Jukka Kurkela",
+            "username": "kurkle"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "179f5a6e13ce536e2fad71046be27b6ade040b6a",
+          "message": "Merge pull request #282 from kurkle/ci/node-26\n\nci: run every workflow job on Node 26",
+          "timestamp": "2026-11-19T19:49:07+02:00",
+          "tree_id": "48f257073ef9644783849ffcfaad71a5959d448d",
+          "url": "https://github.com/kurkle/color/commit/179f5a6e13ce536e2fad71046be27b6ade040b6a"
+        },
+        "date": 1795110627007,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "parseInt +",
+            "value": 7608134,
+            "range": "±0.41%",
+            "unit": "ops/sec",
+            "extra": "95 samples"
+          },
+          {
+            "name": "parseInt slice",
+            "value": 7579253,
+            "range": "±0.95%",
+            "unit": "ops/sec",
+            "extra": "94 samples"
+          },
+          {
+            "name": "map",
+            "value": 97364958,
+            "range": "±6.30%",
+            "unit": "ops/sec",
+            "extra": "76 samples"
+          },
+          {
+            "name": "map obj",
+            "value": 106412912,
+            "range": "±3.99%",
+            "unit": "ops/sec",
+            "extra": "84 samples"
+          },
+          {
+            "name": "parseInt + shift",
+            "value": 19196644,
+            "range": "±1.01%",
+            "unit": "ops/sec",
+            "extra": "94 samples"
+          },
+          {
+            "name": "parseInt + shift obj",
+            "value": 19096153,
+            "range": "±1.23%",
             "unit": "ops/sec",
             "extra": "91 samples"
           }
