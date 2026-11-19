@@ -20,6 +20,21 @@ if (!existsSync('dist')) {
   mkdirSync('dist')
 }
 
+// Run a build step and stop the whole build when it fails. spawnSync does not
+// throw on a non-zero exit, so the result has to be checked explicitly.
+function runStep(name, args) {
+  const result = spawnSync(nodePath, args, { shell: false, stdio: 'inherit' })
+  if (result.error || result.status !== 0) {
+    const reason = result.error
+      ? result.error.message
+      : result.signal
+        ? `terminated by signal ${result.signal}`
+        : `exit code ${result.status}`
+    console.error(`${name} failed (${reason}).`)
+    process.exit(result.status || 1)
+  }
+}
+
 // Handle packed.ts file
 console.log('Managing packed.ts files...')
 try {
@@ -27,11 +42,17 @@ try {
   if (existsSync('src/packed.ts')) {
     renameSync('src/packed.ts', 'src/packed.ts.placeholder')
     console.log('Backed up placeholder packed.ts file.')
+    // Put the placeholder back on any exit, including a failed build.
+    process.on('exit', () => {
+      if (existsSync('src/packed.ts.placeholder')) {
+        renameSync('src/packed.ts.placeholder', 'src/packed.ts')
+      }
+    })
   }
 
   // Generate the actual packed.ts file
   console.log('Generating packed.ts file...')
-  spawnSync(nodePath, ['scripts/pack.js'], { shell: false, stdio: 'inherit' })
+  runStep('Generating packed.ts', ['scripts/pack.js'])
   console.log('packed.ts file generated successfully.')
 } catch (error) {
   console.error(`Error managing packed.ts files: ${error}`)
@@ -41,19 +62,15 @@ try {
 // Generate TypeScript declaration files
 try {
   console.log('Generating TypeScript declaration files...')
-  spawnSync(
-    nodePath,
-    [
-      tscPath,
-      '--project',
-      'tsconfig.build.json',
-      '--declaration',
-      '--emitDeclarationOnly',
-      '--outDir',
-      'dist',
-    ],
-    { shell: false, stdio: 'inherit' }
-  )
+  runStep('Generating TypeScript declaration files', [
+    tscPath,
+    '--project',
+    'tsconfig.build.json',
+    '--declaration',
+    '--emitDeclarationOnly',
+    '--outDir',
+    'dist',
+  ])
   console.log('TypeScript declaration files generated successfully.')
 } catch (error) {
   console.error(error, 'Error generating TypeScript declaration files')
@@ -70,7 +87,7 @@ const banner = `/*!
 // Run TypeScript compiler for declaration files
 console.log('Running TypeScript compiler for type checking...')
 try {
-  spawnSync(nodePath, [tscPath, '--noEmit'], { shell: false, stdio: 'inherit' })
+  runStep('TypeScript type check', [tscPath, '--noEmit'])
 } catch (error) {
   console.error(error, 'TypeScript compilation failed. Fix the errors before building.')
   process.exit(1)
