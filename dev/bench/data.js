@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1795102496012,
+  "lastUpdate": 1795102527292,
   "repoUrl": "https://github.com/kurkle/color",
   "entries": {
     "HEX parsing": [
@@ -11441,6 +11441,72 @@ window.BENCHMARK_DATA = {
             "name": "parseInt + shift obj",
             "value": 28357846,
             "range": "±0.77%",
+            "unit": "ops/sec",
+            "extra": "92 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "jukka.kurkela@gmail.com",
+            "name": "Jukka Kurkela",
+            "username": "kurkle"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "95f376562d3440ee2293a561baad60d2f267d04e",
+          "message": "Merge pull request #277 from kurkle/fix/hue-slash-alpha\n\nfix: accept the slash alpha separator in hsl(), hsla() and hwb()",
+          "timestamp": "2026-11-19T17:34:01+02:00",
+          "tree_id": "85c8de7d084f403e5cab4eb06d31eed7a38bb7b4",
+          "url": "https://github.com/kurkle/color/commit/95f376562d3440ee2293a561baad60d2f267d04e"
+        },
+        "date": 1795102525764,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "parseInt +",
+            "value": 13593675,
+            "range": "±0.49%",
+            "unit": "ops/sec",
+            "extra": "96 samples"
+          },
+          {
+            "name": "parseInt slice",
+            "value": 11521722,
+            "range": "±0.47%",
+            "unit": "ops/sec",
+            "extra": "95 samples"
+          },
+          {
+            "name": "map",
+            "value": 157487360,
+            "range": "±4.53%",
+            "unit": "ops/sec",
+            "extra": "80 samples"
+          },
+          {
+            "name": "map obj",
+            "value": 155944315,
+            "range": "±4.43%",
+            "unit": "ops/sec",
+            "extra": "79 samples"
+          },
+          {
+            "name": "parseInt + shift",
+            "value": 28899746,
+            "range": "±0.92%",
+            "unit": "ops/sec",
+            "extra": "96 samples"
+          },
+          {
+            "name": "parseInt + shift obj",
+            "value": 28774412,
+            "range": "±0.84%",
             "unit": "ops/sec",
             "extra": "92 samples"
           }
