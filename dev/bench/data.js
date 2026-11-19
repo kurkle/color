@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1795102471720,
+  "lastUpdate": 1795102496012,
   "repoUrl": "https://github.com/kurkle/color",
   "entries": {
     "HEX parsing": [
@@ -11375,6 +11375,72 @@ window.BENCHMARK_DATA = {
             "name": "parseInt + shift obj",
             "value": 17069781,
             "range": "±1.26%",
+            "unit": "ops/sec",
+            "extra": "92 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "jukka.kurkela@gmail.com",
+            "name": "Jukka Kurkela",
+            "username": "kurkle"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "59cc570acd9410a0ea1fcab5503ec4382861a501",
+          "message": "Merge pull request #275 from SwastikTripathi/fix/rgb-rounding\n\nfix(rgb): round percentages and fractional channels like browsers do",
+          "timestamp": "2026-11-19T17:33:32+02:00",
+          "tree_id": "22e245ad981bd2afc479426f3928b14a42ae81ad",
+          "url": "https://github.com/kurkle/color/commit/59cc570acd9410a0ea1fcab5503ec4382861a501"
+        },
+        "date": 1795102494478,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "parseInt +",
+            "value": 13646346,
+            "range": "±0.57%",
+            "unit": "ops/sec",
+            "extra": "97 samples"
+          },
+          {
+            "name": "parseInt slice",
+            "value": 11505870,
+            "range": "±0.33%",
+            "unit": "ops/sec",
+            "extra": "96 samples"
+          },
+          {
+            "name": "map",
+            "value": 157341953,
+            "range": "±3.96%",
+            "unit": "ops/sec",
+            "extra": "78 samples"
+          },
+          {
+            "name": "map obj",
+            "value": 152219706,
+            "range": "±5.36%",
+            "unit": "ops/sec",
+            "extra": "76 samples"
+          },
+          {
+            "name": "parseInt + shift",
+            "value": 28209151,
+            "range": "±0.83%",
+            "unit": "ops/sec",
+            "extra": "91 samples"
+          },
+          {
+            "name": "parseInt + shift obj",
+            "value": 28357846,
+            "range": "±0.77%",
             "unit": "ops/sec",
             "extra": "92 samples"
           }
