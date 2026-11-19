@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1795105280003,
+  "lastUpdate": 1795105309825,
   "repoUrl": "https://github.com/kurkle/color",
   "entries": {
     "HEX parsing": [
@@ -11707,6 +11707,72 @@ window.BENCHMARK_DATA = {
             "range": "±2.02%",
             "unit": "ops/sec",
             "extra": "95 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "jukka.kurkela@gmail.com",
+            "name": "Jukka Kurkela",
+            "username": "kurkle"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "1350e7bc949b03d9bb3034005336f227f46de732",
+          "message": "Merge pull request #280 from kurkle/build/docs-rerunnable\n\nbuild: make the typedoc docs script re-runnable",
+          "timestamp": "2026-11-19T18:20:37+02:00",
+          "tree_id": "da884175c12dcec64641f3f9dae734343766459d",
+          "url": "https://github.com/kurkle/color/commit/1350e7bc949b03d9bb3034005336f227f46de732"
+        },
+        "date": 1795105307823,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "parseInt +",
+            "value": 12659695,
+            "range": "±0.70%",
+            "unit": "ops/sec",
+            "extra": "93 samples"
+          },
+          {
+            "name": "parseInt slice",
+            "value": 10329506,
+            "range": "±1.04%",
+            "unit": "ops/sec",
+            "extra": "95 samples"
+          },
+          {
+            "name": "map",
+            "value": 143305827,
+            "range": "±5.10%",
+            "unit": "ops/sec",
+            "extra": "80 samples"
+          },
+          {
+            "name": "map obj",
+            "value": 142810400,
+            "range": "±4.31%",
+            "unit": "ops/sec",
+            "extra": "83 samples"
+          },
+          {
+            "name": "parseInt + shift",
+            "value": 25645820,
+            "range": "±0.67%",
+            "unit": "ops/sec",
+            "extra": "96 samples"
+          },
+          {
+            "name": "parseInt + shift obj",
+            "value": 25316881,
+            "range": "±1.32%",
+            "unit": "ops/sec",
+            "extra": "96 samples"
           }
         ]
       }
