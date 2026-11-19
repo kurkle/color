@@ -4,12 +4,13 @@ import { visualizer } from 'esbuild-visualizer'
 
 import { spawnSync } from 'node:child_process'
 import { existsSync, mkdirSync, readFileSync, renameSync, writeFileSync } from 'node:fs'
-import { join } from 'node:path'
+import { createRequire } from 'node:module'
 
 // Get absolute paths for executables
 const nodePath = process.execPath // Path to the Node.js executable
-const npmBinPath = join(process.execPath, '..', '..', 'lib', 'node_modules', 'npm', 'bin')
-const npxPath = join(npmBinPath, 'npx-cli.js')
+// The TypeScript compiler from this project's own dependencies, resolved by Node
+// instead of through a guessed npm installation layout.
+const tscPath = createRequire(import.meta.url).resolve('typescript/bin/tsc')
 
 // Read package.json
 const pkg = JSON.parse(readFileSync('./package.json', 'utf8'))
@@ -43,8 +44,7 @@ try {
   spawnSync(
     nodePath,
     [
-      npxPath,
-      'tsc',
+      tscPath,
       '--project',
       'tsconfig.build.json',
       '--declaration',
@@ -70,7 +70,7 @@ const banner = `/*!
 // Run TypeScript compiler for declaration files
 console.log('Running TypeScript compiler for type checking...')
 try {
-  spawnSync(nodePath, [npxPath, 'tsc', '--noEmit'], { shell: false, stdio: 'inherit' })
+  spawnSync(nodePath, [tscPath, '--noEmit'], { shell: false, stdio: 'inherit' })
 } catch (error) {
   console.error(error, 'TypeScript compilation failed. Fix the errors before building.')
   process.exit(1)
