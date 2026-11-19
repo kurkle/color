@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1795105475415,
+  "lastUpdate": 1795110628017,
   "repoUrl": "https://github.com/kurkle/color",
   "entries": {
     "HEX parsing": [
@@ -11839,6 +11839,72 @@ window.BENCHMARK_DATA = {
             "range": "±0.93%",
             "unit": "ops/sec",
             "extra": "92 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "jukka.kurkela@gmail.com",
+            "name": "Jukka Kurkela",
+            "username": "kurkle"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "631b3709d2c402327224c788839cbaeda3bbd09a",
+          "message": "Merge pull request #283 from kurkle/build/fail-on-step-error\n\nbuild: stop the build when a spawned step fails",
+          "timestamp": "2026-11-19T19:49:18+02:00",
+          "tree_id": "847b2a4242d02335823b57802e08607d107a5336",
+          "url": "https://github.com/kurkle/color/commit/631b3709d2c402327224c788839cbaeda3bbd09a"
+        },
+        "date": 1795110626585,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "parseInt +",
+            "value": 14418135,
+            "range": "±0.58%",
+            "unit": "ops/sec",
+            "extra": "96 samples"
+          },
+          {
+            "name": "parseInt slice",
+            "value": 13909869,
+            "range": "±0.41%",
+            "unit": "ops/sec",
+            "extra": "94 samples"
+          },
+          {
+            "name": "map",
+            "value": 189379228,
+            "range": "±3.39%",
+            "unit": "ops/sec",
+            "extra": "84 samples"
+          },
+          {
+            "name": "map obj",
+            "value": 198838167,
+            "range": "±3.19%",
+            "unit": "ops/sec",
+            "extra": "83 samples"
+          },
+          {
+            "name": "parseInt + shift",
+            "value": 35275371,
+            "range": "±0.95%",
+            "unit": "ops/sec",
+            "extra": "95 samples"
+          },
+          {
+            "name": "parseInt + shift obj",
+            "value": 35197684,
+            "range": "±0.96%",
+            "unit": "ops/sec",
+            "extra": "91 samples"
           }
         ]
       }
