@@ -46,6 +46,7 @@ new Color("rgb(255 0 0 / 50%)").hexString() // "#FF00007F"
 ```js
 new Color("hsl(120, 100%, 50%)").hexString() // "#0F0"
 new Color("hsla(120, 100%, 50%, 0.5)").hexString() // "#00FF0080"
+new Color("hsl(120 100% 50% / 0.5)").hexString() // "#00FF0080"
 ```
 
 ## hwb()
@@ -54,6 +55,7 @@ Hue, whiteness and blackness — no `a` suffix, but it still accepts an optional
 
 ```js
 new Color("hwb(120, 20%, 20%)").hexString() // "#3C3"
+new Color("hwb(120 20% 20% / 0.5)").hexString() // "#33CC3380"
 ```
 
 ## hsv()

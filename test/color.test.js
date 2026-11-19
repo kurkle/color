@@ -96,6 +96,26 @@ describe('Color Parsing', () => {
     })
   })
 
+  describe('Slash alpha separator in hsl(), hsla() and hwb()', () => {
+    it('should accept `/` before the alpha value', () => {
+      expect(new Color('hsl(120 30% 50% / 0.5)').valid).toBe(true)
+      expect(new Color('hsl(120 30% 50% / 0.5)').rgbString()).toBe('rgba(89, 166, 89, 0.5)')
+      expect(new Color('hsl(120deg 100% 50% / 50%)').rgbString()).toBe('rgba(0, 255, 0, 0.5)')
+      expect(new Color('hsla(120 30% 50% / 0.5)').rgbString()).toBe('rgba(89, 166, 89, 0.5)')
+      expect(new Color('hwb(120 30% 50% / 0.5)').rgbString()).toBe('rgba(77, 127, 77, 0.5)')
+      expect(new Color('hwb(120 30% 50% / 50%)').rgbString()).toBe('rgba(77, 127, 77, 0.5)')
+    })
+
+    it('should give the same result as the comma separated forms', () => {
+      expect(new Color('hsl(120 30% 50% / 0.5)').rgb).toEqual(
+        new Color('hsla(120, 30%, 50%, 0.5)').rgb
+      )
+      expect(new Color('hwb(120 30% 50% / 0.5)').rgb).toEqual(
+        new Color('hwb(120, 30%, 50%, 0.5)').rgb
+      )
+    })
+  })
+
   describe('Other Color Format Parsing', () => {
     it('should parse hwb() format correctly', () => {
       expect(new Color('hwb(240, 100%, 50.5%)').rgb).toEqual({ a: 1, b: 169, g: 169, r: 169 })
