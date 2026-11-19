@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1794667062112,
+  "lastUpdate": 1795102471720,
   "repoUrl": "https://github.com/kurkle/color",
   "entries": {
     "HEX parsing": [
@@ -11311,6 +11311,72 @@ window.BENCHMARK_DATA = {
             "range": "±1.48%",
             "unit": "ops/sec",
             "extra": "88 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "jukka.kurkela@gmail.com",
+            "name": "Jukka Kurkela",
+            "username": "kurkle"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "bf7e88b2c4c93e9d0cfd5adaa0842e19af2e300f",
+          "message": "Merge pull request #276 from Ph0tonic/fix/cjs-named-exports\n\nfix: restore named exports on the CommonJS build and node10 types",
+          "timestamp": "2026-11-19T17:33:12+02:00",
+          "tree_id": "4d4f8fa9059677a8319c1f0d3737b3cc0f6442a9",
+          "url": "https://github.com/kurkle/color/commit/bf7e88b2c4c93e9d0cfd5adaa0842e19af2e300f"
+        },
+        "date": 1795102470316,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "parseInt +",
+            "value": 9064992,
+            "range": "±0.46%",
+            "unit": "ops/sec",
+            "extra": "96 samples"
+          },
+          {
+            "name": "parseInt slice",
+            "value": 7018314,
+            "range": "±1.39%",
+            "unit": "ops/sec",
+            "extra": "89 samples"
+          },
+          {
+            "name": "map",
+            "value": 114044172,
+            "range": "±2.61%",
+            "unit": "ops/sec",
+            "extra": "88 samples"
+          },
+          {
+            "name": "map obj",
+            "value": 116822448,
+            "range": "±3.80%",
+            "unit": "ops/sec",
+            "extra": "84 samples"
+          },
+          {
+            "name": "parseInt + shift",
+            "value": 17085376,
+            "range": "±1.23%",
+            "unit": "ops/sec",
+            "extra": "95 samples"
+          },
+          {
+            "name": "parseInt + shift obj",
+            "value": 17069781,
+            "range": "±1.26%",
+            "unit": "ops/sec",
+            "extra": "92 samples"
           }
         ]
       }
