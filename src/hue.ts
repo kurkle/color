@@ -11,7 +11,7 @@ import { b2n, n2b, n2p, parseAlpha } from './byte.js'
  * @hidden
  */
 const HUE_RE =
-  /^(hsla?|hwb|hsv)\(\s*([-+.e\d]+)(?:deg)?[\s,]+([-+.e\d]+)%[\s,]+([-+.e\d]+)%(?:[\s,]+([-+.e\d]+)(%)?)?\s*\)$/
+  /^(hsla?|hwb|hsv)\(\s*([-+.e\d]+)(?:deg)?[\s,]+([-+.e\d]+)%[\s,]+([-+.e\d]+)%(?:[\s,/]+([-+.e\d]+)(%)?)?\s*\)$/
 
 /**
  * Converts hsl to rgb normalized
