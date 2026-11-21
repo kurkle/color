@@ -23,7 +23,7 @@ function toSwatch(entry) {
 function normalizeRows(config) {
   const raw = config.render ? config.render(config) : config.rows || config.swatches
   if (!Array.isArray(raw)) {
-    throw new Error('The sample must return an array of swatches, or an array of { label, swatches } rows.')
+    throw new TypeError('The sample must return an array of swatches, or an array of { label, swatches } rows.')
   }
   const rows = raw.length > 0 && raw[0] && !Array.isArray(raw[0]) && Array.isArray(raw[0].swatches) ? raw : [{ swatches: raw }]
   return rows.map((row) => ({ label: row.label, swatches: row.swatches.map(toSwatch) }))

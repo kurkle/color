@@ -36,8 +36,8 @@ if (generated.size === 0) {
 
 const linked = new Set(apiLinks)
 
-const missingFromSidebar = [...generated].filter((link) => !linked.has(link)).sort()
-const staleInSidebar = [...linked].filter((link) => !generated.has(link)).sort()
+const missingFromSidebar = [...generated].filter((link) => !linked.has(link)).sort((a, b) => a.localeCompare(b))
+const staleInSidebar = [...linked].filter((link) => !generated.has(link)).sort((a, b) => a.localeCompare(b))
 
 if (missingFromSidebar.length > 0 || staleInSidebar.length > 0) {
   console.error('Sidebar drift detected between astro.config.mjs and the generated API docs:')
