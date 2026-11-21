@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1795281157846,
+  "lastUpdate": 1795290400992,
   "repoUrl": "https://github.com/kurkle/color",
   "entries": {
     "HEX parsing": [
@@ -12035,6 +12035,72 @@ window.BENCHMARK_DATA = {
             "name": "parseInt + shift obj",
             "value": 19110203,
             "range": "±0.77%",
+            "unit": "ops/sec",
+            "extra": "93 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "jukka.kurkela@gmail.com",
+            "name": "Jukka Kurkela",
+            "username": "kurkle"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "90a9df006af2e9f5465036c83b6fc3fe3b987e45",
+          "message": "Merge pull request #286 from kurkle/chore/sonar-scripts",
+          "timestamp": "2026-11-21T21:45:19+02:00",
+          "tree_id": "727a9551d6aba4aa078054504166c66c998dc264",
+          "url": "https://github.com/kurkle/color/commit/90a9df006af2e9f5465036c83b6fc3fe3b987e45"
+        },
+        "date": 1795290398860,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "parseInt +",
+            "value": 7643062,
+            "range": "±0.39%",
+            "unit": "ops/sec",
+            "extra": "98 samples"
+          },
+          {
+            "name": "parseInt slice",
+            "value": 7614852,
+            "range": "±0.41%",
+            "unit": "ops/sec",
+            "extra": "93 samples"
+          },
+          {
+            "name": "map",
+            "value": 101856758,
+            "range": "±4.28%",
+            "unit": "ops/sec",
+            "extra": "85 samples"
+          },
+          {
+            "name": "map obj",
+            "value": 103390442,
+            "range": "±4.84%",
+            "unit": "ops/sec",
+            "extra": "83 samples"
+          },
+          {
+            "name": "parseInt + shift",
+            "value": 19311322,
+            "range": "±0.86%",
+            "unit": "ops/sec",
+            "extra": "93 samples"
+          },
+          {
+            "name": "parseInt + shift obj",
+            "value": 19247586,
+            "range": "±1.19%",
             "unit": "ops/sec",
             "extra": "93 samples"
           }
