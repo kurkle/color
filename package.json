@@ -78,7 +78,7 @@
     "color-name": "^2.0.0",
     "esbuild": "^0.28.2",
     "esbuild-visualizer": "^0.7.0",
-    "semantic-release": "^25.0.9",
+    "semantic-release": "^26.0.1",
     "starlight-typedoc": "^0.23.1",
     "typedoc": "^0.28.5",
     "typedoc-plugin-markdown": "^4.13.0",
