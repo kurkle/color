@@ -25,11 +25,12 @@ if (!existsSync('dist')) {
 function runStep(name, args) {
   const result = spawnSync(nodePath, args, { shell: false, stdio: 'inherit' })
   if (result.error || result.status !== 0) {
-    const reason = result.error
-      ? result.error.message
-      : result.signal
-        ? `terminated by signal ${result.signal}`
-        : `exit code ${result.status}`
+    let reason = `exit code ${result.status}`
+    if (result.error) {
+      reason = result.error.message
+    } else if (result.signal) {
+      reason = `terminated by signal ${result.signal}`
+    }
     console.error(`${name} failed (${reason}).`)
     process.exit(result.status || 1)
   }
@@ -203,4 +204,4 @@ async function buildAll() {
   }
 }
 
-buildAll()
+await buildAll()
