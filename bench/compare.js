@@ -32,7 +32,7 @@ const parsers = {
 }
 
 const called = ['tinycolor2', 'chroma-js', 'color-parse', 'color-parser', 'color-string']
-const constructed = ['@kurkle/color', 'chartjs-color']
+const constructed = new Set(['@kurkle/color', 'chartjs-color'])
 const manipulators = ['@kurkle/color', 'chroma-js', 'chartjs-color']
 
 const options = {
@@ -112,7 +112,7 @@ const manupulatedColors = {
 }
 
 const parserFn = (lib, input) =>
-  constructed.includes(lib) ? new parsers[lib](input) : parsers[lib](input)
+  constructed.has(lib) ? new parsers[lib](input) : parsers[lib](input)
 
 for (const fn of Object.keys(manipulationParams)) {
   const suite = new benchmark.Suite()
@@ -145,14 +145,14 @@ const filterFn = filter ? (bench) => bench.name.startsWith(filter) : () => true
 
 // Run suites in sequence with async/await to prevent memory pressure
 // This is more efficient than running all suites in parallel
-;(async () => {
-  for (const suite of benchmarkSuites) {
-    await new Promise((resolve) => {
-      suite
-        .filter(filterFn)
-        .on('cycle', cycle)
-        .on('complete', () => resolve())
-        .run({ async: true })
-    })
-  }
-})()
+for (const suite of benchmarkSuites) {
+  // A suite without matching benchmarks never emits 'complete', so skip it
+  const selected = suite.filter(filterFn)
+  if (selected.length === 0) continue
+  await new Promise((resolve) => {
+    selected
+      .on('cycle', cycle)
+      .on('complete', () => resolve())
+      .run({ async: true })
+  })
+}

@@ -31,10 +31,12 @@ const str = '#Af08Df88'
 
 // Pre-warm the JS engine to avoid cold-start performance issues
 function warmup() {
+  let sink = 0
   for (let i = 0; i < 1000; i++) {
-    parseInt(str.slice(0, 2), 16)
-    ;(map[str[0]] << 4) | map[str[1]]
+    sink += parseInt(str.slice(0, 2), 16)
+    sink += (map[str[0]] << 4) | map[str[1]]
   }
+  return sink
 }
 warmup()
 
