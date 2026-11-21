@@ -36,7 +36,7 @@ const names =
 export default function unpack(): Record<string, number[]> {
   const unpacked: Record<string, number[]> = {}
   for (const entry of names.split(' ')) {
-    const k = parseInt(entry.slice(-6), 16)
+    const k = Number.parseInt(entry.slice(-6), 16)
     unpacked[entry.slice(0, -6)] = [(k >> 16) & 0xff, (k >> 8) & 0xff, k & 0xff]
   }
   return unpacked
@@ -52,7 +52,7 @@ export default function unpack(): Record<string, number[]> {
 export function unpackColorNames(packed) {
   const unpacked = {}
   for (const entry of packed.split(' ')) {
-    const k = parseInt(entry.slice(-6), 16)
+    const k = Number.parseInt(entry.slice(-6), 16)
     unpacked[entry.slice(0, -6)] = [(k >> 16) & 0xff, (k >> 8) & 0xff, k & 0xff]
   }
   return unpacked
