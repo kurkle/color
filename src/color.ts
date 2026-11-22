@@ -187,7 +187,7 @@ export default class Color {
    * @param weight - 0..1
    * @returns {Color}
    */
-  mix(color: Color, weight: number = 0.5): Color {
+  mix(color: Color, weight: number = 0.5): this {
     if (color) {
       const v1 = this._rgb
       const v2 = color._rgb
@@ -213,7 +213,7 @@ export default class Color {
    * @param t - 0..1
    * @returns {Color}
    */
-  interpolate(color: Color, t: number): Color {
+  interpolate(color: Color, t: number): this {
     if (color) {
       this._rgb = interpolate(this._rgb, color._rgb, t)
     }
@@ -233,7 +233,7 @@ export default class Color {
    * @param a - the alpha [0..1]
    * @returns {Color}
    */
-  alpha(a: number): Color {
+  alpha(a: number): this {
     this._rgb.a = n2b(a)
     return this
   }
@@ -243,7 +243,7 @@ export default class Color {
    * @param ratio - ratio [0..1]
    * @returns {Color}
    */
-  clearer(ratio: number): Color {
+  clearer(ratio: number): this {
     const rgb = this._rgb
     rgb.a *= 1 - ratio
     return this
@@ -253,7 +253,7 @@ export default class Color {
    * Convert to grayscale
    * @returns {Color}
    */
-  greyscale(): Color {
+  greyscale(): this {
     const rgb = this._rgb
     // http://en.wikipedia.org/wiki/Grayscale#Converting_color_to_grayscale
     const val = round(rgb.r * 0.3 + rgb.g * 0.59 + rgb.b * 0.11)
@@ -266,7 +266,7 @@ export default class Color {
    * @param ratio - ratio [0..1]
    * @returns {Color}
    */
-  opaquer(ratio: number): Color {
+  opaquer(ratio: number): this {
     const rgb = this._rgb
     rgb.a *= 1 + ratio
     return this
@@ -276,7 +276,7 @@ export default class Color {
    * Negates the rgb value
    * @returns {Color}
    */
-  negate(): Color {
+  negate(): this {
     const v = this._rgb
     v.r = 255 - v.r
     v.g = 255 - v.g
@@ -289,7 +289,7 @@ export default class Color {
    * @param ratio - ratio [0..1]
    * @returns {Color}
    */
-  lighten(ratio: number): Color {
+  lighten(ratio: number): this {
     modHSL(this._rgb, 2, ratio)
     return this
   }
@@ -299,7 +299,7 @@ export default class Color {
    * @param ratio - ratio [0..1]
    * @returns {Color}
    */
-  darken(ratio: number): Color {
+  darken(ratio: number): this {
     modHSL(this._rgb, 2, -ratio)
     return this
   }
@@ -309,7 +309,7 @@ export default class Color {
    * @param ratio - ratio [0..1]
    * @returns {Color}
    */
-  saturate(ratio: number): Color {
+  saturate(ratio: number): this {
     modHSL(this._rgb, 1, ratio)
     return this
   }
@@ -319,7 +319,7 @@ export default class Color {
    * @param ratio - ratio [0..1]
    * @returns {Color}
    */
-  desaturate(ratio: number): Color {
+  desaturate(ratio: number): this {
     modHSL(this._rgb, 1, -ratio)
     return this
   }
@@ -329,7 +329,7 @@ export default class Color {
    * @param deg - degrees to rotate
    * @returns {Color}
    */
-  rotate(deg: number): Color {
+  rotate(deg: number): this {
     rotate(this._rgb, deg)
     return this
   }
