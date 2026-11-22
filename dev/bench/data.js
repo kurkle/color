@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1795296187658,
+  "lastUpdate": 1795322466220,
   "repoUrl": "https://github.com/kurkle/color",
   "entries": {
     "HEX parsing": [
@@ -12299,6 +12299,72 @@ window.BENCHMARK_DATA = {
             "name": "parseInt + shift obj",
             "value": 19229527,
             "range": "±1.17%",
+            "unit": "ops/sec",
+            "extra": "93 samples"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "jukka.kurkela@gmail.com",
+            "name": "Jukka Kurkela",
+            "username": "kurkle"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "2feb58908f9faed49e197ac720fecebc863aded1",
+          "message": "Merge pull request #291 from kurkle/chore/drop-sonar-ignores",
+          "timestamp": "2026-11-22T06:39:58+02:00",
+          "tree_id": "483b5e41e03005edd8a57e017fbfdf421c248fe8",
+          "url": "https://github.com/kurkle/color/commit/2feb58908f9faed49e197ac720fecebc863aded1"
+        },
+        "date": 1795322464943,
+        "tool": "benchmarkjs",
+        "benches": [
+          {
+            "name": "parseInt +",
+            "value": 13172511,
+            "range": "±0.88%",
+            "unit": "ops/sec",
+            "extra": "94 samples"
+          },
+          {
+            "name": "parseInt slice",
+            "value": 13538404,
+            "range": "±0.66%",
+            "unit": "ops/sec",
+            "extra": "98 samples"
+          },
+          {
+            "name": "map",
+            "value": 177723617,
+            "range": "±4.11%",
+            "unit": "ops/sec",
+            "extra": "85 samples"
+          },
+          {
+            "name": "map obj",
+            "value": 184354188,
+            "range": "±4.48%",
+            "unit": "ops/sec",
+            "extra": "85 samples"
+          },
+          {
+            "name": "parseInt + shift",
+            "value": 32830335,
+            "range": "±0.88%",
+            "unit": "ops/sec",
+            "extra": "95 samples"
+          },
+          {
+            "name": "parseInt + shift obj",
+            "value": 33418276,
+            "range": "±1.18%",
             "unit": "ops/sec",
             "extra": "93 samples"
           }
